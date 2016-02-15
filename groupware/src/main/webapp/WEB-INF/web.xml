@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 		http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 
-	<display-name>spring4mybatis</display-name>
+	<display-name>groupware</display-name>
 
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
@@ -12,7 +12,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				/WEB-INF/config/board/*.xml
+				/WEB-INF/config/*.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>

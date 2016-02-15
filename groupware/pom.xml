@@ -72,7 +72,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>spring4mybatis</finalName>
+		<finalName>groupware</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
