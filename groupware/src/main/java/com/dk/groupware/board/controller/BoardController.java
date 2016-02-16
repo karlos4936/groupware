@@ -54,6 +54,7 @@ public class BoardController {
 	@RequestMapping("/board/view.do")
 	public String view(int no, Model model) throws Exception{
 		System.out.println("BoardController.view()");
+		
 		model.addAttribute("board",	boardViewService.service(no));
 		return "board/view";
 	}
@@ -97,5 +98,5 @@ public class BoardController {
 		boardDeleteProcessService.service(no);
 		return "redirect:list.do";
 	}
-
+	// 조회수
 }

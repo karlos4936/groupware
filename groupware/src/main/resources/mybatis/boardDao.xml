@@ -9,8 +9,7 @@
 <!-- 	게시판리스트 -->
 	<select id="list" resultType="com.dk.groupware.board.model.Board">
 		select no,title,writer,to_char(wdate,'yyyy-mm-dd') wdate,
-		hit from board
-		order by no desc
+		hit from board order by no desc
 	</select>
 <!-- 	글의 총갯수 -->
 	<select id="selectCount" resultType="Integer">
@@ -22,8 +21,7 @@
 <!-- 	게시판 글보기 -->
 	<select id="view"
 	 resultType="com.dk.groupware.board.model.Board">
-		select no,title,content, writer,
-		to_char(wdate,'yyyy-mm-dd') wdate,hit from board
+		select no, title, content, writer, to_char(wdate,'yyyy-mm-dd') wdate, hit from board
 		where no=#{no}
 	</select>
 <!-- 	게시판 글쓰기 -->
@@ -40,5 +38,8 @@
   <delete id="delete">
   	delete from board where no=#{no}
   </delete>
-	
+<!-- 	조회수 증가 -->
+<update id="hit">
+	update board set hit=hit+1 where no=#{no}
+</update>
 </mapper>

@@ -41,5 +41,8 @@ public class BoardDao {
 		sqlSessionTemplate.delete("dao.Board.delete", obj);
 		return null;
 	}
-
+	// 조회수
+	public void hit(int no){
+		sqlSessionTemplate.update("hit", no);
+	}
 }
