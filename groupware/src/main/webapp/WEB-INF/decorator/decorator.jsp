@@ -9,7 +9,7 @@
 <!-- <link rel="shortcut icon" type="image/x-icon" href="../favicon.png"> -->
 <!-- <link rel="icon" type="image/x-icon" href="../favicon.png"> -->
 <!-- <link rel="stylesheet" type="text/css" href="../decorator/decorator.css"> -->
-<script type="text/javascript" src="../js/jquery.js"></script>
+<!-- <script type="text/javascript" src="../js/jquery.js"></script> -->
 <script type="text/javascript">
 // $(document).ready(function() {
 // 	$("#logoutBtn").click(function() {
