@@ -12,8 +12,7 @@
 	<label for="title">글제목</label>
 	<input type="text" name="title" id="title"/><br/>
 	<label for="content">글내용</label>
-	<textarea rows="7" cols="60" name="content" 
-	id="content"></textarea><br/>
+	<textarea rows="7" cols="60" name="content" id="content"></textarea><br/>
 	<label for="writer">작성자</label>
 	<input type="text" name="writer"/><br/>
 	<button>작성</button>

@@ -13,8 +13,7 @@
 	<label for="title">글제목</label>
 	<input type="text" name="title" id="title" value="${board.title }"/><br/>
 	<label for="content">글내용</label>
-	<textarea rows="7" cols="60" name="content" 
-	id="content">${board.content}</textarea><br/>
+	<textarea rows="7" cols="60" name="content" id="content">${board.content}</textarea><br/>
 	<label for="writer">작성자</label>
 	<input type="text" name="writer" value="${board.writer }"/><br/>
 	<button>수정</button>
