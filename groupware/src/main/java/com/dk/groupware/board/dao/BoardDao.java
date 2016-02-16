@@ -42,7 +42,7 @@ public class BoardDao {
 		return null;
 	}
 	// 조회수
-	public void hit(int no){
-		sqlSessionTemplate.update("hit", no);
+	public Object hit(Object obj){
+		return sqlSessionTemplate.update("dao.Board.hit", obj);
 	}
 }
