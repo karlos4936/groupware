@@ -18,6 +18,59 @@
 // 	});
 // });
 </script>
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+* {
+	margin: 0 auto;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+	font-family: "Nanum Gothic", "sans-serif";
+}
+
+html {
+	height: calc(100% - 40px);
+}
+
+body {
+	height: 100%;
+}
+
+#wrapper {
+	height: 100%;
+}
+
+#header {
+	height: 40px;
+	background: #606060;
+}
+
+	#title {
+		width: 200px;
+		height: 100%;
+		float: left;
+		font-family: "Hanna", "Nanum Gothic", "sans-serif";
+		font-size: 20pt;
+		color: #edd200;
+		padding: 7px 20px;
+		border-right: 1px solid #969696;
+		border-bottom: 1px solid #969696;
+	}
+
+#side_left {
+	width: 200px;
+	height: 100%;
+	float: left;
+	background: #606060;
+}
+
+#content {
+	width: 100%;
+	height: 100%;
+}
+</style>
 <title>그룹웨어 시스템 - <decorator:title /></title>
 <decorator:head />
 </head>
@@ -25,6 +78,12 @@
 
 <div id="wrapper">
 	<div id="header">
+		<div id="title">
+			그룹웨어 시스템
+		</div>
+	</div>
+	
+	<div id="side_left">
 		
 	</div>
 	
