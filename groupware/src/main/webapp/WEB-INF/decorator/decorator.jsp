@@ -47,7 +47,7 @@ body {
 	background: #606060;
 }
 
-	#title {
+	#nav {
 		width: 200px;
 		height: 100%;
 		float: left;
@@ -67,8 +67,8 @@ body {
 }
 
 #content {
-	width: 100%;
-	height: 100%;
+/* 	width: 100%; */
+/* 	height: 100%; */
 }
 </style>
 <title>그룹웨어 시스템 - <decorator:title /></title>
@@ -78,7 +78,7 @@ body {
 
 <div id="wrapper">
 	<div id="header">
-		<div id="title">
+		<div id="nav">
 			그룹웨어 시스템
 		</div>
 	</div>
@@ -87,7 +87,7 @@ body {
 		
 	</div>
 	
-	<div id="content">
+	<div id="body">
 		<decorator:body />
 	</div>
 	
