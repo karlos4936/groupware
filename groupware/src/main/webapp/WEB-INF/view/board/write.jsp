@@ -8,10 +8,10 @@
 </head>
 <body>
 <h2>자유게시판 글쓰기</h2>
-<form action="write.do" method="post" enctype="multipart/form-data">
-	<label for="title">글제목</label>
+<form action="write.do" method="post">
+	<label for="title">제목</label>
 	<input type="text" name="title" id="title"/><br/>
-	<label for="content">글내용</label>
+	<label for="content">내용</label>
 	<textarea rows="7" cols="60" name="content" id="content"></textarea><br/>
 	<label for="writer">작성자</label>
 	<input type="text" name="writer"/><br/>
