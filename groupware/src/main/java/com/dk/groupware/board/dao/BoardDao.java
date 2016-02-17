@@ -32,6 +32,9 @@ public class BoardDao {
 	// 글쓰기
 	public Object write(Board board){
 		System.out.println("BoardDao.write()");
+		System.out.println(board.getTitle());
+		System.out.println(board.getContent());
+		System.out.println(board.getWriter());
 		sqlSessionTemplate.insert("dao.Board.write",board);
 		return null;
 	}
