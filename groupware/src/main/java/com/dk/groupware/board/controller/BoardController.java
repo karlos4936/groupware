@@ -97,5 +97,4 @@ public class BoardController {
 		boardDeleteProcessService.service(no);
 		return "redirect:list.do";
 	}
-
 }
