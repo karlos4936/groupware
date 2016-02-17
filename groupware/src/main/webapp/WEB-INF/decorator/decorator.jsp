@@ -47,7 +47,7 @@ body {
 	background: #606060;
 }
 
-	#nav {
+	#main_title {
 		width: 200px;
 		height: 100%;
 		float: left;
@@ -58,17 +58,59 @@ body {
 		border-right: 1px solid #969696;
 		border-bottom: 1px solid #969696;
 	}
+	
+	#nav {
+		text-align: center;
+		font-weight: bolder;
+	}
+	
+		#nav ul {
+			list-style: none;
+		}
+		
+			#nav ul li {
+				float: left;
+				width: 100px;
+				height: 40px;
+				border-right: 1px solid #969696;
+			}
+			
+				#nav ul li a {
+					display: block;
+					width: 100%;
+					height: 100%;
+					text-decoration: none;
+					color: #ffffff;
+					padding-top: 10px;
+				}
+				
+				#nav ul li a:visited {
+					color: #ffffff;
+				}
+				
+				#nav ul li a:hover {
+					background: #969696;
+				}
 
 #side_left {
 	width: 200px;
 	height: 100%;
+	clear: both;
 	float: left;
 	background: #606060;
 }
 
-#content {
-/* 	width: 100%; */
-/* 	height: 100%; */
+#content_wrapper {
+	margin-left: 200px;
+ 	width: 100%;
+ 	height: calc(100% - 30px);
+ 	padding: 10px;
+}
+
+#footer {
+	height: 30px;
+	border : 1px solid #969696;
+	text-align: center;
 }
 </style>
 <title>그룹웨어 시스템 - <decorator:title /></title>
@@ -78,8 +120,20 @@ body {
 
 <div id="wrapper">
 	<div id="header">
-		<div id="nav">
+		<div id="main_title">
 			그룹웨어 시스템
+		</div>
+		<div id="nav">
+			<ul>
+				<li><a href="../board/list.do">전자결재</a></li>
+				<li><a href="../schdule/list.do">일정관리</a></li>
+				<li><a href="../notice/list.do">공지사항</a></li>
+				<li><a href="../board/list.do">자유게시판</a></li>
+				<li><a href="../data/list.do">자료실</a></li>
+				<li><a href="../anonymous/list.do">익명게시판</a></li>
+				<li><a href="../message/list.do">쪽지</a></li>
+				<li><a href="../member/list.do">관리자</a></li>
+			</ul>
 		</div>
 	</div>
 	
@@ -87,12 +141,12 @@ body {
 		
 	</div>
 	
-	<div id="body">
+	<div id="content_wrapper">
 		<decorator:body />
 	</div>
 	
 	<div id="footer">
-	
+		Copyright ⓒ ~~~~~
 	</div>
 </div>
 
