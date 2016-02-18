@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.Message">
+
+<!-- 테이블 생성 -글번호, 제목, 내용, 보낸사람, 받은사람, 보낸시간, 확인시간) -->
+<!--               no      title content sender  receiver  sdate     rdate -->
+
+<!-- 	쪽지 리스트 : list -->
+	<select id="list"
+	 resultType="com.dk.groupware.message.model.Message">
+		select no,title,to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate, sender, receiver, to_char(rdate, 'yyyy-mm-dd AM hh:mi:ss') rdate from message
+		order by no desc
+	</select>
+
+<!-- 글의 총 갯수 : if 및 반복문도 사용 가능 -->
+	<select id="totalCount"
+	 resultType="Integer">
+		select count(no) from message
+		<if test="searchWord!=null">
+			where #{searchKey} like '%#{searchWord}%'
+		</if>
+	</select>
+
+<!-- 	쪽지 보내기 : write -->
+	<insert id="write">
+		insert into message(no, title, content, sender, receiver)
+  		values(message_seq.nextval,#{title},#{content},#{sender},#{receiver})
+	</insert>
+	
+<!-- 	쪽지 보기 : view -->
+	<select id="view"
+	 resultType="com.dk.groupware.message.model.Message">
+		select no, title, content, to_char(sdate, 'yyyy-mm-dd AM hh:mi:ss') sdate, 
+		sender, receiver, to_char(rdate, 'yyyy-mm-dd AM hh:mi:ss') rdate 
+		from message
+		where no=#{no}
+	</select>
+	
+<!--   EX)  select member_id, if ( isnull(birthday), '-', birthday ) from member -->
+<!-- 설명 - 멤버 테이블에서 아이디(member_id) 와 생일을 뽑는데 null 일경우는 - 를 출력,  -->
+<!--       아니면 생일을 출력 -->
+<!-- EX ) select ifnull ( price, 0 ) from books -->
+<!-- 설명 - price 값이 Null 이면 0을, Null 이 아니면 price 값을 출력 -->
+
+<!-- 	쪽지 읽음 : update -->
+  <update id="update">
+  	update message set rdate=#{rdate} where no=#{no} 
+  </update>
+  
+
+ 
+  
+  
+<!--   	쪽지 삭제 : delete -->
+  <delete id="delete">
+  	delete from message where no=#{no}
+  </delete>
+	
+
+	
+</mapper>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.Notice">
+
+<!-- 	공지사항 리스트 : list -->
+	<select id="list"
+	 resultType="com.dk.groupware.notice.model.Notice">
+		select no, title, writer, to_char(wdate, 'yyyy-mm-dd') wdate, hit from notice
+		order by no desc
+	</select>
+
+<!-- 	공지사항 작성 : write -->
+	<insert id="write">
+		insert into notice(no, title, content, writer)
+  		values(notice_seq.nextval,#{title},#{content},#{writer})
+	</insert>
+	
+<!-- 	공지사항 보기 : view -->
+	<select id="view"
+	 resultType="com.dk.groupware.notice.model.Notice">
+		select no, title, content, writer, to_char(wdate, 'yyyy-mm-dd') wdate, hit from notice
+		where no=#{no}
+	</select>
+	
+<!-- 	공지사항 수정 : update -->
+  <update id="update">
+  	update notice set title=#{title},content=#{content},
+  	writer=#{writer} where no=#{no}
+  </update>
+  
+  <update id="increase">
+  	update notice set hit = hit +1 where no = ?
+  </update>
+  
+  
+<!--   	공지사항 삭제 : delete -->
+  <delete id="delete">
+  	delete from notice where no=#{no}
+  </delete>
+	
+	
+	
+<!-- 	글의 총 갯수 : if 및 반복문도 사용 가능 -->
+	<select id="totalCount"
+	 resultType="Integer">
+		select count(no) from notice
+		<if test="searchWord!=null">
+			where #{searchKey} like '%#{searchWord}%'
+		</if>
+	</select>
+	
+</mapper>
