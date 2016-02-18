@@ -102,7 +102,7 @@ body {
 
 #content_wrapper {
 	margin-left: 200px;
- 	width: 100%;
+ 	width: calc(100% - 200px);
  	height: calc(100% - 30px);
  	padding: 10px;
 }
@@ -125,7 +125,7 @@ body {
 		</div>
 		<div id="nav">
 			<ul>
-				<li><a href="../board/list.do">전자결재</a></li>
+				<li><a href="../draft/list.do">전자결재</a></li>
 				<li><a href="../schdule/list.do">일정관리</a></li>
 				<li><a href="../notice/list.do">공지사항</a></li>
 				<li><a href="../board/list.do">자유게시판</a></li>
