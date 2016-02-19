@@ -16,7 +16,7 @@ public class NoticeViewService implements ServiceInterface{
 	public Object service(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeViewService.service()");
-		
+		noticeDao.increase(obj);
 		return noticeDao.view(obj);
 	}
 

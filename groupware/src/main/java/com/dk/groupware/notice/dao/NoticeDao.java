@@ -24,22 +24,35 @@ public class NoticeDao {
 		System.out.println("NoticeDao.view()");
 		return sqlSessionTemplate.selectOne("dao.Notice.view", obj);
 	}
-	// 공지사항 처리
-	public Object update(Notice notice){
-		System.out.println("NoticeDao.update()");
-		sqlSessionTemplate.update("dao.Notice.update", notice);
-		return null;
-	}
+	
 	// 공지사항 작성
 	public Object write(Notice notice){
 		System.out.println("NoticeDao.write()");
 		sqlSessionTemplate.insert("dao.Notice.write", notice);
 		return null;
 	}
+	
+	// increase
+	public Object increase(Object obj) {
+		// TODO Auto-generated method stub
+		System.out.println("NoticeDao.update(no)");
+		return sqlSessionTemplate.update("dao.Notice.increase", obj);
+		
+	}
+	// 공지사항 처리
+	public Object update(Notice notice){
+		System.out.println("NoticeDao.update()");
+		sqlSessionTemplate.update("dao.Notice.update", notice);
+		return null;
+	}
+
 	// 공지사항 삭제
 	public Object delete(Object obj){
 		System.out.println("NoticeDao.delete()");
 		sqlSessionTemplate.delete("dao.Notice.delete", obj);
 		return null;
 	}
+
+
+
 }

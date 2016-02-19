@@ -12,9 +12,9 @@
 <form action="write.do" method="post">
 	<label for="title">제목</label><input type="text" name="title" id="title" /><br/>
 	<label for="content">내용</label><textarea rows="7" cols="60" name="content" id="content" >${notice.content }</textarea><br/>
-	<label for="writer">작성자</label><input type="text" name="writer" id="writer" value="${notice.writer }" readonly="readonly"/><br/>
+	<label for="writer">작성자</label><input type="text" name="writer" id="writer" value="${notice.writer }" /><br/>
 
-<button>수정</button>
+<button>작성</button>
 <!-- 클릭만 되고 submit이 일어나지 않게 type을 button으로 지정한다. -->
 <button type="button" onclick="history.back()">취소</button>
 </form>

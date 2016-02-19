@@ -60,14 +60,14 @@ public class NoticeController {
 	}
 	// 공지사항 글쓰기처리 (post상수)
 	@RequestMapping(value="/notice/write.do", method=RequestMethod.POST)
-	public String write(Notice notice){
+	public String write(Notice notice) throws Exception{
 		System.out.println("NoticeController.write(notice):POST");
 		noticeWriteProcessService.service(notice);
 		return "redirect:list.do";
 	}
 	// 공지사항 글수정폼 - Model 추가 : view.jsp에서 no를 꼭! 넘기자
 	@RequestMapping(value="/notice/update.do", method=RequestMethod.GET)
-	public String update(@RequestParam(value="no", required=false)int no, Model model)
+	public String update(@RequestParam(value="no", required=false)int no, Model model, Object NoticeDao)
 	throws Exception{
 		System.out.println("NoticeController.update(no):GET");
 		model.addAttribute("notice", noticeUpdateService.service(no));
