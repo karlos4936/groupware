@@ -32,10 +32,6 @@ public class ScheduleDao {
 	// 일정등록
 	public Object write(Schedule schedule){
 		System.out.println("ScheduleDao.write()");
-		System.out.println(schedule.getTitle());
-		System.out.println(schedule.getContent());
-		System.out.println(schedule.getSdate());
-		System.out.println(schedule.getTime());
 		sqlSessionTemplate.insert("dao.Schedule.write",schedule);
 		return null;
 	}

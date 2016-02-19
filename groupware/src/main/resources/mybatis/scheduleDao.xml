@@ -31,7 +31,7 @@
 <!-- 	일정수정 -->
   <update id="update">
   	update schedule set title=#{title},content=#{content},sdate=#{sdate},
-  	time=#{time}, #{writer} where no=#{no}
+  	time=#{time}, writer=#{writer} where no=#{no}
   </update>
 <!--   일정삭제 -->
   <delete id="delete">

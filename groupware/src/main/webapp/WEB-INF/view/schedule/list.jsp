@@ -8,7 +8,7 @@
 <title>일정관리</title>
 </head>
 <body>
-<h2>일정관리 리스트</h2>
+<h2>일정목록</h2>
 <table>
 	<tr>
 		<th>번호</th>
