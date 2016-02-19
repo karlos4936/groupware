@@ -19,6 +19,9 @@
 		<th>내용</th><td><pre>${schedule.content }</pre></td>
 	</tr>
 	<tr>
+		<th>작성자</th><td><pre>${schedule.writer }</pre></td>
+	</tr>
+	<tr>
 		<th>등록일</th><td>${schedule.sdate }</td>
 	</tr>
 	<tr>
