@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +33,10 @@
 	</tr>
 	<tr>
 		<td colspan="2">
+		
+<%-- 		<c:if test="${rdate }==null"> 받은메시지삭제 --%>
 		<a href="delete.do?no=${message.no }"><button>삭제</button></a>
+<%-- 		</c:if> --%>
 		<a href="list.do?no=${message.no }"><button>쪽지 리스트</button></a>
 		
 		</td>

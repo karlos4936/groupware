@@ -64,6 +64,7 @@ public class MessageController {
 	public String view(int no, Model model)throws Exception{
 		System.out.println("MessageController.view(no)");
 		model.addAttribute("message", messageViewService.service(no));
+//		model.addAttribute("message", messageUpdateService.service(no));
 		return "message/view";
 	}
 	// 쪽지 보내기 : write
@@ -78,7 +79,7 @@ public class MessageController {
 		messageWriteProcessService.service(message);
 		return "redirect:list.do";
 	}
-	// 쪽지 읽음 : update
+	// 보기 후  - 쪽지 읽음 처리 : update
 	@RequestMapping(value="/message/update.do", method=RequestMethod.GET)
 	public String update(@RequestParam(value="no", required=false)int no, Model model)throws Exception{
 		System.out.println("MessageController.update(no):GET");
@@ -106,7 +107,8 @@ public class MessageController {
 	@RequestMapping("/message/send/list.do")
 	public String sendList(@RequestParam(value="page", required=false, defaultValue="1")int page, Model model)throws Exception{
 		System.out.println("MessageController.sendList(page)");
-		model.addAttribute("sendList", messageSendListService.service(page));
+//		** 어트리뷰트에 담을 때 sendList 말고 list로 **
+		model.addAttribute("list", messageSendListService.service(page));
 		System.out.println("보낸쪽지함");
 		return null;
 	}
@@ -115,14 +117,15 @@ public class MessageController {
 	public String sendView(int no, Model model)throws Exception{
 		System.out.println("MessageController.sendView(no)");
 		model.addAttribute("message", messageSendViewService.service(no));
-		return "message/sendView";
+//		** 리턴값 sendView 아니고 그냥 view **
+		return "message/send/view";
 	}
 	// 쪽지 삭제 : delete
 	@RequestMapping("/message/send/delete.do")
 	public String sendDelete(int no)throws Exception{
 		System.out.println("MessageController.sendDelete(no)");
 		messageSendDeleteProcessService.service(no);
-		return "redirect:sendList.do";
+		return "redirect:list.do";
 	}
 	
 }

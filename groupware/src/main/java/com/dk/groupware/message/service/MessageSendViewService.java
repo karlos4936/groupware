@@ -17,7 +17,8 @@ public class MessageSendViewService implements ServiceInterface{
 		public Object service(Object obj) {
 			// TODO Auto-generated method stub
 			System.out.println("MessageSendViewService.service()");
-			
+			// rdate
+			messageDao.update(obj);
 			return messageDao.sendView(obj);
 		}
 }

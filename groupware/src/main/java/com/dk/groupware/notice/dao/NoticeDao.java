@@ -35,7 +35,7 @@ public class NoticeDao {
 	// increase
 	public Object increase(Object obj) {
 		// TODO Auto-generated method stub
-		System.out.println("NoticeDao.update(no)");
+		System.out.println("NoticeDao.update(obj)");
 		return sqlSessionTemplate.update("dao.Notice.increase", obj);
 		
 	}

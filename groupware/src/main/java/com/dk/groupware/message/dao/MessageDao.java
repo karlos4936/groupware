@@ -36,10 +36,9 @@ public class MessageDao {
 		
 	}
 	// 쪽지 읽음 처리 - update
-	public Object update(Message message){
-		System.out.println("MessageDao.update()");
-		sqlSessionTemplate.update("dao.Message.update", message);
-		return null;
+	public Object update(Object obj){
+		System.out.println("MessageDao.update(obj)");
+		return sqlSessionTemplate.update("dao.Message.update", obj);
 	}
 	
 	// 받은 쪽지 삭제 - delete
@@ -66,8 +65,9 @@ public class MessageDao {
 	// 보낸 쪽지 삭제
 	public Object sendDelete(Object obj) {
 		// TODO Auto-generated method stub
+		System.out.println("MessageDao.delete()");
 		sqlSessionTemplate.delete("dao.Message.sendDelete", obj);
-		return obj;
+		return null;
 	}
 	
 	

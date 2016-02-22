@@ -53,7 +53,10 @@
 
 	<!-- 쪽지 읽음 : update -->
 	<update id="update">
-		update message set rdate=#{rdate} where no=#{no} and rdate=#{rdate};
+<!-- 		update message set rdate=#{rdate} where no=#{no} and rdate=#{rdate}; -->
+<!-- 				update notice set hit = hit +1 where no =#{no} -->
+		update message set rdate where no=#{no}
+		
 	</update>
 
 	<!-- 쪽지 삭제 : delete -->
@@ -66,13 +69,13 @@
 
 	<!-- 쪽지 리스트 : list -->
 	<select id="sendList" resultType="com.dk.groupware.message.model.Message">
-		select no, title, to_char(sdate, 'yyyy-mm-dd AMHH:MI:SS') sdate, 
+		select no, title, to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate, 
 		sender, receiver, to_char(rdate, 'yyyy-mm-dd AM HH:MI:SS') rdate
 		from message
 <!-- 		where sender =#{sender} -->
-		where sender =20160001
+		where sender='20160002'
 		order by no desc
-		
+
 	</select>
 
 	<!-- 쪽지 보기 : view -->
@@ -87,7 +90,8 @@
 
 	<!-- 쪽지 삭제 : delete -->
 	<delete id="sendDelete">
-		delete from message where no=#{no} and rdate is null;
+<!-- 		delete from message where no=#{no} and rdate is null; -->
+		delete from message where no=#{no}
 	</delete>
 
 </mapper>
