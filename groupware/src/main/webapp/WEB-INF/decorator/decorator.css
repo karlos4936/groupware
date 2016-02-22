@@ -1,121 +1,97 @@
-/*
-@CHARSET "UTF-8";
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
 
-html, body{
-	width: 100%;
-	height: 100%;
+* {
 	margin: 0 auto;
-	background: #F7F5F0;
-	font-family: "Nanum Gothic", sans-serif;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+	font-family: "Nanum Gothic", "sans-serif";
 }
 
-header {
-	background: rgb(0,205,205);
-	float: left;
-	margin-bottom: 10px;
-	width: 100%;
-	height: 60px;
+html {
+	height: calc(100% - 40px);
 }
 
-#main_title {
-	float: left;
-	padding: 10px 10px 10px 0;
-	margin-left: 150px;
+body {
+	height: 100%;
 }
 
-#main_title span {
-	font-family: 'Hanna', sans-serif;
-	font-size: 30pt;
-	color: white;
+#wrapper {
+	height: 100%;
 }
 
-#main_title a {
-	text-decoration: none;
+#header {
+	height: 40px;
+	background: #606060;
 }
 
-#main_title a:visited {
-	color: white;
-	text-decoration: none;
-}
-
-#main_nav {
-	padding: 20px;
-	float: left;
-	text-align: left;
-}
-	#main_nav a {
-		color: white;
-		text-decoration: none;
-		margin: 0 5px;
-		font-size: 12pt;
+	#main_title {
+		width: 200px;
+		height: 100%;
+		float: left;
+		font-family: "Hanna", "Nanum Gothic", "sans-serif";
+		font-size: 20pt;
+		color: #edd200;
+		padding: 7px 20px;
+		border-right: 1px solid #969696;
+		border-bottom: 1px solid #969696;
+	}
+	
+	#nav {
+		text-align: center;
 		font-weight: bolder;
 	}
 	
-	#main_nav a:visited {
-		color: white;
-	}
-	
-	#login_div {
-		float: right;
-		padding: 20px;
-		margin-right: 140px;
-	}
-	
-	#login_div a {
-		text-decoration: none;
-	}
-	
-	#login_div a:visited {
-		text-decoration: none;
-	}
+		#nav ul {
+			list-style: none;
+		}
 		
-	#login {
-		text-align: right;
-		font-weight: bolder;
-		color: white;
-		margin-right: 50px;
-	}
-	
-	#logout {
-		text-align: right;
-		font-weight: bolder;
-		color: white;
-		margin-right: 50px;
-	}
-	
-	#logoutBtn {
-		cursor: pointer;
-	}
-	
-	#login_img {
-		width: 34px;
-		height: 34px;
-		border-radius: 50%;
-		border: 3px solid #ffffff;
-		position: absolute;
-		top: 12px;
-		right: 160px;
+			#nav ul li {
+				float: left;
+				width: 100px;
+				height: 40px;
+				border-right: 1px solid #969696;
+			}
+			
+				#nav ul li a {
+					display: block;
+					width: 100%;
+					height: 100%;
+					text-decoration: none;
+					color: #ffffff;
+					padding-top: 10px;
+				}
+				
+				#nav ul li a:visited {
+					color: #ffffff;
+				}
+				
+				#nav ul li a:hover {
+					background: #969696;
+				}
+
+#side_left {
+	width: 200px;
+	height: 100%;
+	clear: both;
+	float: left;
+	background: #606060;
+}
+
+	#side_left ul {
+		list-style: none;
 	}
 
 #content_wrapper {
-	text-align: center;
-	clear: both;
-	min-height: 723px;
-	width: 980px;
-	margin: 0 auto;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	margin-left: 200px;
+ 	width: calc(100% - 200px);
+ 	height: calc(100% - 30px);
+ 	padding: 10px;
 }
 
-footer {
+#footer {
+	height: 30px;
+	border : 1px solid #969696;
 	text-align: center;
-	color: #808184;
-	background: #E1E0DB;
-	width: 100%;
-	height: 25px;
-	font-weight: bold;
-	padding-top: 5px;
 }
-*/
