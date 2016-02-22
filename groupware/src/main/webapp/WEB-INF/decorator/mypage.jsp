@@ -22,7 +22,7 @@
 		</div>
 		<div id="nav">
 			<ul>
-				<li><a href="/groupware/draft/list.do">전자결재</a></li>
+				<li><a href="/groupware/draft/proceed/list.do">전자결재</a></li>
 				<li><a href="/groupware/schedule/list.do">일정관리</a></li>
 				<li><a href="/groupware/notice/list.do">커뮤니티</a></li>
 				<li><a href="/groupware/message/list.do">마이페이지</a></li>
@@ -33,13 +33,13 @@
 	
 	<div id="side_left">
 		<ul>
-			<li>내 정보</li>
-			<li><a href="/groupware/mypage/view.do">내 정보 보기</a></li>
-			<li><a href="/groupware/mypage/update.do">내 정보 수정</a></li>
-			<li>쪽지함</li>
-			<li><a href="/groupware/message/write.do">쪽지 보내기</a></li>
-			<li><a href="/groupware/message/list.do">받은 쪽지함</a></li>
-			<li><a href="/groupware/message/send/list.do">보낸 쪽지함</a></li>
+			<li class="li_title">내 정보</li>
+			<li class="li_content"><a href="/groupware/mypage/view.do">내 정보 보기</a></li>
+			<li class="li_content"><a href="/groupware/mypage/update.do">내 정보 수정</a></li>
+			<li class="li_title">쪽지함</li>
+			<li class="li_content"><a href="/groupware/message/write.do">쪽지 보내기</a></li>
+			<li class="li_content"><a href="/groupware/message/list.do">받은 쪽지함</a></li>
+			<li class="li_content"><a href="/groupware/message/send/list.do">보낸 쪽지함</a></li>
 		</ul>
 	</div>
 	

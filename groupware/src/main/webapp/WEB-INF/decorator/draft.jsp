@@ -22,7 +22,7 @@
 		</div>
 		<div id="nav">
 			<ul>
-				<li><a href="/groupware/draft/list.do">전자결재</a></li>
+				<li><a href="/groupware/draft/proceed/list.do">전자결재</a></li>
 				<li><a href="/groupware/schedule/list.do">일정관리</a></li>
 				<li><a href="/groupware/notice/list.do">커뮤니티</a></li>
 				<li><a href="/groupware/message/list.do">마이페이지</a></li>
@@ -33,13 +33,13 @@
 	
 	<div id="side_left">
 		<ul>
-			<li>기안</li>
-			<li><a href="/groupware/draft/list.do">문서 작성</a></li>
-			<li><a href="/groupware/schdule/list.do">내문서</a></li>
-			<li>결재</li>
-			<li><a href="/groupware/notice/list.do">대기 문서</a></li>
-			<li><a href="/groupware/message/list.do">진행 문서</a></li>
-			<li><a href="/groupware/member/list.do">완료 문서</a></li>
+			<li class="li_title">기안</li>
+			<li class="li_content"><a href="/groupware/draft/write.do">문서 작성</a></li>
+			<li class="li_content"><a href="/groupware/draft/list.do">내문서</a></li>
+			<li class="li_title">결재</li>
+			<li class="li_content"><a href="/groupware/draft/wait/list.do">대기 문서</a></li>
+			<li class="li_content"><a href="/groupware/draft/proceed/list.do">진행 문서</a></li>
+			<li class="li_content"><a href="/groupware/draft/done/list.do">완료 문서</a></li>
 		</ul>
 	</div>
 	

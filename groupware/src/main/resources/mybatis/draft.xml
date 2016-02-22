@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.Draft">
+
+	<select id="list" resultType="com.dk.groupware.draft.model.Draft">
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate, signdate from draft order by no desc 
+	</select>
+	
+	<insert id="write">
+		insert into draft(no, title, content, drafter, signer1, signer2, signer3)
+		values(draft_seq.nextval, #{title}, #{content}, #{drafter}, #{signer1}, #{signer2}, #{signer3})
+	</insert>
+	
+	<select id="waitList" resultType="com.dk.groupware.draft.model.Draft">
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate, signdate from draft order by no desc 
+	</select>
+	
+	<select id="waitView" resultType="com.dk.groupware.draft.model.Draft">
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate, signdate from draft where no=#{no}
+	</select>
+	
+	<update id="waitUpdate">
+		update draft set title=#{title}, content=#{content}, signer1=#{signer1}, signer2=#{signer2}, signer3=#{signer3} regdate=sysdate where no=#{no}
+	</update>
+
+	<delete id="waitDelete">
+		delete from draft where no=#{no}
+	</delete>
+	
+	<select id="proceedList" resultType="com.dk.groupware.draft.model.Draft">
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate, signdate from draft order by no desc 
+	</select>
+	
+	<select id="proceedView" resultType="com.dk.groupware.draft.model.Draft">
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate, signdate from draft where no=#{no}
+	</select>
+	
+	<update id="proceedSign">
+		update draft set signer1=#{signer1}, signer2=#{signer2}, signer3=#{signer3} where no=#{no}
+	</update>
+	
+	<select id="doneList" resultType="com.dk.groupware.draft.model.Draft">
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate, signdate from draft order by no desc 
+	</select>
+	
+	<select id="doneView" resultType="com.dk.groupware.draft.model.Draft">
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate, signdate from draft where no=#{no}
+	</select>
+
+</mapper>

@@ -4,7 +4,7 @@ import com.dk.groupware.anonymous.dao.AnonymousDao;
 import com.dk.groupware.anonymous.model.AnonymousReply;
 import com.dk.groupware.common.ServiceInterface;
 
-public class AnonymousReplyProcessService implements ServiceInterface {
+public class AnonymousReplyDeleteProcessService implements ServiceInterface {
 	private AnonymousDao anonymousDao;
 	
 	public void setAnonymousDao(AnonymousDao anonymousDao) {
@@ -18,7 +18,7 @@ public class AnonymousReplyProcessService implements ServiceInterface {
 		AnonymousReply anonymousReply = (AnonymousReply) obj;
 		anonymousReply.setWriter(getMD5(anonymousReply.getWriter()));
 		
-//		anonymousDao.reply(anonymousReply);
+//		anonymousDao.replyWrite(anonymousReply);
 		return null;
 	}
 	

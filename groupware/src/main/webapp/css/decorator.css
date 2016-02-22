@@ -35,7 +35,6 @@ body {
 		color: #edd200;
 		padding: 7px 20px;
 		border-right: 1px solid #969696;
-		border-bottom: 1px solid #969696;
 	}
 	
 	#nav {
@@ -81,7 +80,38 @@ body {
 
 	#side_left ul {
 		list-style: none;
+		padding: 0;
 	}
+	
+		#side_left ul li {
+		
+		}
+		
+			.li_title {
+				background: #888888;
+				padding: 5px 10px;
+				border-top: 1px solid #aaaaaa;
+				border-bottom: 1px solid #333333;
+				color: white;
+				font-weight: bolder;
+			}
+		
+			.li_content a {
+				display: block;
+				text-decoration: none;
+				color: white;
+				padding: 5px 10px;
+			}
+			
+			.li_content a:visited {
+				text-decoration: none;
+				color: white;
+			}
+			
+			.li_content a:hover {
+				background: #969696;
+				color: black;
+			}
 
 #content_wrapper {
 	margin-left: 200px;

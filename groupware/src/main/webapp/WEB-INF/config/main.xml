@@ -41,4 +41,19 @@
 	</bean>
 	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+	
+	
+	<!-- main.do -->
+	
+	<bean class="com.dk.groupware.main.controller.MainController">
+		<property name="mainService" ref="mainService" />
+	</bean>
+	
+	<bean id="mainService" class="com.dk.groupware.main.service.MainService">
+		<property name="noticeDao" ref="noticeDao" />
+		<property name="scheduleDao" ref="scheduleDao" />
+		<property name="draftDao" ref="draftDao" />
+		<property name="messageDao" ref="messageDao" />
+	</bean>
+
 </beans>

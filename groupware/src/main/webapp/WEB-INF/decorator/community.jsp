@@ -22,7 +22,7 @@
 		</div>
 		<div id="nav">
 			<ul>
-				<li><a href="/groupware/draft/list.do">전자결재</a></li>
+				<li><a href="/groupware/draft/proceed/list.do">전자결재</a></li>
 				<li><a href="/groupware/schedule/list.do">일정관리</a></li>
 				<li><a href="/groupware/notice/list.do">커뮤니티</a></li>
 				<li><a href="/groupware/message/list.do">마이페이지</a></li>
@@ -33,11 +33,11 @@
 	
 	<div id="side_left">
 		<ul>
-			<li>커뮤니티</li>
-			<li><a href="/groupware/notice/list.do">공지사항</a></li>
-			<li><a href="/groupware/board/list.do">자유게시판</a></li>
-			<li><a href="/groupware/data/list.do">자료실</a></li>
-			<li><a href="/groupware/anonymous/list.do">익명게시판</a></li>
+			<li class="li_title">커뮤니티</li>
+			<li class="li_content"><a href="/groupware/notice/list.do">공지사항</a></li>
+			<li class="li_content"><a href="/groupware/board/list.do">자유게시판</a></li>
+			<li class="li_content"><a href="/groupware/data/list.do">자료실</a></li>
+			<li class="li_content"><a href="/groupware/anonymous/list.do">익명게시판</a></li>
 		</ul>
 	</div>
 	

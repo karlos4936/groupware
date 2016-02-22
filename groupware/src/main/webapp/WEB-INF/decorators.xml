@@ -20,6 +20,7 @@
 	<decorator name="mypage" page="mypage.jsp">
 		<pattern>/message/*</pattern>
 		<pattern>/mypage/*</pattern>
+		<pattern>/main.do</pattern>
 	</decorator>
 	
 	<decorator name="member" page="member.jsp">

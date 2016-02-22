@@ -19,6 +19,9 @@ public class AnonymousController {
 	private ServiceInterface anonymousUpdateProcessService;
 	private ServiceInterface anonymousDeleteProcessService;
 
+	private ServiceInterface anonymousReplyWriteProcessService;
+	private ServiceInterface anonymousReplyDeleteProcessService;
+
 	public void setAnonymousListService(ServiceInterface anonymousListService) {
 		this.anonymousListService = anonymousListService;
 	}
@@ -43,8 +46,17 @@ public class AnonymousController {
 		this.anonymousDeleteProcessService = anonymousDeleteProcessService;
 	}
 
+	public void setAnonymousReplyWriteProcessService(ServiceInterface anonymousReplyWriteProcessService) {
+		this.anonymousReplyWriteProcessService = anonymousReplyWriteProcessService;
+	}
+
+	public void setAnonymousReplyDeleteProcessService(ServiceInterface anonymousReplyDeleteProcessService) {
+		this.anonymousReplyDeleteProcessService = anonymousReplyDeleteProcessService;
+	}
+
 	@RequestMapping("/anonymous/list.do")
-	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model) throws Exception {
+	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+			throws Exception {
 		System.out.println("AnonymousController.list()");
 		model.addAttribute("list", anonymousListService.service(page));
 		return "anonymous/list";
@@ -87,14 +99,14 @@ public class AnonymousController {
 	@RequestMapping("/anonymous/delete.do")
 	public String delete(int no) throws Exception {
 		System.out.println("AnonymousController.delete()");
-		 anonymousDeleteProcessService.service(no);
+		anonymousDeleteProcessService.service(no);
 		return "redirect:list.do";
 	}
-	
+
 	@RequestMapping(value = "/anonymous/reply/write.do", method = RequestMethod.POST)
 	public String reply(AnonymousReply anonymousReply) throws Exception {
 		System.out.println("AnonymousController.reply():POST");
-//		anonymousReplyProcessService.service(anonymousReply);
+		anonymousReplyWriteProcessService.service(anonymousReply);
 		return "redirect:view.do";
 	}
 }
