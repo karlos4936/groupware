@@ -12,7 +12,8 @@ import com.dk.groupware.message.model.Message;
 @Controller
 public class MessageController {
 	private ServiceInterface messageListService, messageViewService, messageWriteProcessService, messageUpdateService,
-			messageUpdateProcessService, messageDeleteProcessService;
+			messageUpdateProcessService, messageDeleteProcessService, messageSendListService, messageSendViewService,
+			messageSendDeleteProcessService;
 
 	// setter
 	public void setMessageListService(ServiceInterface messageListService) {
@@ -37,6 +38,18 @@ public class MessageController {
 
 	public void setMessageDeleteProcessService(ServiceInterface messageDeleteProcessService) {
 		this.messageDeleteProcessService = messageDeleteProcessService;
+	}
+
+	public void setMessageSendListService(ServiceInterface messageSendListService) {
+		this.messageSendListService = messageSendListService;
+	}
+
+	public void setMessageSendViewService(ServiceInterface messageSendViewService) {
+		this.messageSendViewService = messageSendViewService;
+	}
+
+	public void setMessageSendDeleteProcessService(ServiceInterface messageSendDeleteProcessService) {
+		this.messageSendDeleteProcessService = messageSendDeleteProcessService;
 	}
 
 	// 쪽지 리스트 : list
@@ -65,7 +78,7 @@ public class MessageController {
 		messageWriteProcessService.service(message);
 		return "redirect:list.do";
 	}
-	// 쪽지 읽음 : updatey
+	// 쪽지 읽음 : update
 	@RequestMapping(value="/message/update.do", method=RequestMethod.GET)
 	public String update(@RequestParam(value="no", required=false)int no, Model model)throws Exception{
 		System.out.println("MessageController.update(no):GET");
@@ -85,4 +98,31 @@ public class MessageController {
 		messageDeleteProcessService.service(no);
 		return "redirect:list.do";
 	}
+
+	
+	// send
+	
+	// 쪽지 리스트 : list
+	@RequestMapping("/message/send/list.do")
+	public String sendList(@RequestParam(value="page", required=false, defaultValue="1")int page, Model model)throws Exception{
+		System.out.println("MessageController.sendList(page)");
+		model.addAttribute("sendList", messageSendListService.service(page));
+		System.out.println("보낸쪽지함");
+		return null;
+	}
+	// 쪽지 보기 : view
+	@RequestMapping("/message/send/view.do")
+	public String sendView(int no, Model model)throws Exception{
+		System.out.println("MessageController.sendView(no)");
+		model.addAttribute("message", messageSendViewService.service(no));
+		return "message/sendView";
+	}
+	// 쪽지 삭제 : delete
+	@RequestMapping("/message/send/delete.do")
+	public String sendDelete(int no)throws Exception{
+		System.out.println("MessageController.sendDelete(no)");
+		messageSendDeleteProcessService.service(no);
+		return "redirect:sendList.do";
+	}
+	
 }

@@ -19,4 +19,9 @@ public class MessageUpdateProcessService implements ServiceInterface{
 			messageDao.update((Message)obj);
 			return null;
 		}
+		
+		// update
+//			return messageDao.list();
+
+		
 }
