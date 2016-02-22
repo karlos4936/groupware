@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+<!-- 컨트롤러 -->
+<bean class="com.dk.groupware.member.controller.MemberController">
+	<property name="memberListService" ref="memberListService"/>
+	<property name="memberViewService" ref="memberViewService"/>
+	<property name="memberUpdateService" ref="memberUpdateService"/>
+	<property name="memberUpdateProcessService" ref="memberUpdateProcessService"/>	
+	<property name="memberWriteProcessService" ref="memberWriteProcessService"/>
+	<property name="memberDeleteProcessService" ref="memberDeleteProcessService"/>
+<!-- 	<property name="myPageViewService" ref="myPageViewService"/> -->
+	<property name="loginProcessService" ref="loginProcessService"/>
+</bean>
+
+<!-- 서비스 -->
+<bean id="memberListService" class="com.dk.groupware.member.service.MemberListService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<bean id="memberViewService" class="com.dk.groupware.member.service.MemberViewService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<bean id="memberUpdateService" class="com.dk.groupware.member.service.MemberUpdateService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<bean id="memberUpdateProcessService" class="com.dk.groupware.member.service.MemberUpdateProcessService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<bean id="memberWriteProcessService" class="com.dk.groupware.member.service.MemberWriteProcessService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<bean id="memberDeleteProcessService" class="com.dk.groupware.member.service.MemberDeleteProcessService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<!-- <bean id="myPageViewService" class="com.dk.groupware.member.service.MyPageViewService"> -->
+<!-- 	<property name="memberDao" ref="memberDao"/> -->
+<!-- </bean> -->
+<bean id="loginProcessService" class="com.dk.groupware.member.service.LoginProcessService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+
+<!-- dao -->
+<bean id="memberDao" class="com.dk.groupware.member.dao.MemberDao">
+	<property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
+</bean>
+</beans>
