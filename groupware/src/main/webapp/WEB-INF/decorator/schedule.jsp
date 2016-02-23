@@ -29,6 +29,9 @@
 				<li><a href="/groupware/member/list.do">사원관리</a></li>
 			</ul>
 		</div>
+		<div id="status">
+			이용자 : ${login.name }님&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/groupware/logout.do">로그아웃</a>
+		</div>
 	</div>
 	
 	<div id="side_left">

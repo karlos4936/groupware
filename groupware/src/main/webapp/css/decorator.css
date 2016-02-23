@@ -78,6 +78,22 @@ body {
 				#nav ul li a:hover {
 					background: #969696;
 				}
+				
+	#status {
+		padding: 10px 20px;
+		float: right;
+		color: white;
+	}
+	
+		#status a {
+			text-decoration: none;
+			color: white;
+			font-weight: bolder;
+		}
+		
+		#status a:visited {
+			text-decoration: none;
+		}
 
 #side_left {
 	width: 200px;
