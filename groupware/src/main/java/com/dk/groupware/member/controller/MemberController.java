@@ -1,5 +1,7 @@
 package com.dk.groupware.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -102,6 +104,13 @@ public class MemberController {
 	}
 	
 	// 사원 퇴사 처리(탈퇴)
+	@RequestMapping("/member/delete.do")
+	public String delete(HttpServletRequest request, HttpServletResponse response)throws Exception{
+		System.out.println("MemberController.delete()");
+		memberDeleteProcessService.service(id);
+		return "redirect:list.do";
+		
+	}
 	
 	// 내정보 보기
 	@RequestMapping("/mypage/view.do")
@@ -127,7 +136,7 @@ public class MemberController {
 	}
 	
 	// 로그아웃 처리
-	@RequestMapping("/index.do")
+	@RequestMapping("/logout.do")
 	public String logout(HttpSession session, Member member)throws Exception{
 		session.setAttribute("login", null);
 		return "redirect:index.do";
