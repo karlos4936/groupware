@@ -10,7 +10,7 @@
 <h2>일정등록</h2>
 <form action="write.do" method="post" name="write">
 	<label for="title">제목</label><input type="text" name="title" id="title"/><br/>
-	<label for="date">등록일</label><input type="date" name="date">
+	<label for="date">등록일</label><input type="date" name="sdate">
 	<label for="time"></label><input type="text" name="time" size=2>시<br/>
 	<label for="content">내용</label><textarea rows="7" cols="60" name="content" id="content"></textarea><br/>
 	<label for="writer">작성자</label><input type="text" name="writer" id="writer"/><br/>

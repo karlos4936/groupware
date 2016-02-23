@@ -24,7 +24,7 @@
 <!-- 	일정등록 -->
 	<insert id="write">
 		insert into schedule(no, title, sdate, time, content, writer)
-  		values(board_seq.nextval,#{title},#{sdate},#{time},#{content},#{writer})
+  		values(schedule_seq.nextval,#{title},#{sdate},#{time},#{content},#{writer})
 	</insert>
 <!-- 	일정수정 -->
   <update id="update">
