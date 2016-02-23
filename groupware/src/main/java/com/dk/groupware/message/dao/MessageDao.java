@@ -20,7 +20,6 @@ public class MessageDao {
 	public Object list(){
 		System.out.println("MessageDao.list()");
 		// 값 확인
-		System.out.println(sqlSessionTemplate.selectList("dao.Message.list"));
 		return sqlSessionTemplate.selectList("dao.Message.list");
 	}
 	// 쪽지 보내기 - write
