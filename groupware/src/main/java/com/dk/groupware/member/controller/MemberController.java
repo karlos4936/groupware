@@ -105,7 +105,7 @@ public class MemberController {
 	
 	// 사원 퇴사 처리(탈퇴)
 	@RequestMapping("/member/delete.do")
-	public String delete(HttpServletRequest request, HttpServletResponse response)throws Exception{
+	public String delete(int id)throws Exception{
 		System.out.println("MemberController.delete()");
 		memberDeleteProcessService.service(id);
 		return "redirect:list.do";
