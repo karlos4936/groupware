@@ -13,7 +13,7 @@
 		<property name="messageListService" ref="messageListService" />
 		<property name="messageWriteProcessService" ref="messageWriteProcessService" />
 		<property name="messageViewService" ref="messageViewService" />
-		<property name="messageUpdateProcessService" ref="messageUpdateProcessService" />
+<!-- 		<property name="messageUpdateProcessService" ref="messageUpdateProcessService" /> -->
 		<property name="messageDeleteProcessService" ref="messageDeleteProcessService" />
 		
 		<property name="messageSendListService" ref="messageSendListService" />
@@ -35,9 +35,9 @@
 <!-- 	<bean id="messageUpdateService" class="com.dk.groupware.message.service.MessageUpdateService"> -->
 <!-- 		<property name="messageDao" ref="messageDao" /> -->
 <!-- 	</bean> -->
-	<bean id="messageUpdateProcessService" class="com.dk.groupware.message.service.MessageUpdateProcessService">
-		<property name="messageDao" ref="messageDao" />
-	</bean>
+<!-- 	<bean id="messageUpdateProcessService" class="com.dk.groupware.message.service.MessageUpdateProcessService"> -->
+<!-- 		<property name="messageDao" ref="messageDao" /> -->
+<!-- 	</bean> -->
 	<bean id="messageDeleteProcessService" class="com.dk.groupware.message.service.MessageDeleteProcessService">
 		<property name="messageDao" ref="messageDao" />
 	</bean>

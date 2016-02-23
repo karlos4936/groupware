@@ -13,9 +13,9 @@
 		<tr>
 			<th>글번호</th>
 			<th>제목</th>
-			<th>보낸시간</th>			
 			<th>보낸사람</th>
 			<th>받은사람</th>
+			<th>보낸시간</th>			
 			<th>확인시간</th>
 		</tr>
 		<!-- 	반복 시작 :  -->
@@ -23,28 +23,17 @@
 		<tr>
 			<td>${message.no }</td>
 			<td><a href="view.do?no=${message.no }">${message.title }</a></td>
-			<td>${message.sdate }</td>
 			<td>${message.sender }</td>
 			<td>${message.receiver }</td>
+			<td>${message.sdate }</td>
+			
 			<td>
-			<c:if test="${rdate }==null">
-			미확인
-			</c:if>
-			<c:if test="${rdate }!=null">
-			${message.rdate }
-			</c:if>
+			<c:if test="${message.rdate eq null}">미확인</c:if>
+			<c:if test="${message.rdate ne null}">${message.rdate }</c:if>
 			</td>
 		</tr>
 		</c:forEach>
 <!-- 			반복의 끝 -->
-
-<%-- 		<c:if test="${rdate }==null"> --%>
-<%-- 		<c:if test="${rdate ==null}"> --%> 
-<!-- 		미확인 -->
-<%-- 		</c:if> --%>
-<%-- 		<c:if test="${rdate }!=null"> --%>
-<%-- 		${message.rdate } --%>
-<%-- 		</c:if> --%>
 		<tr>
 			<td colspan="5">  
 				<a href="write.do"><button>쪽지 작성</button></a>

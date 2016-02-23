@@ -11,8 +11,9 @@ import com.dk.groupware.message.model.Message;
 
 @Controller
 public class MessageController {
-	private ServiceInterface messageListService, messageViewService, messageWriteProcessService, messageUpdateService,
-			messageUpdateProcessService, messageDeleteProcessService, messageSendListService, messageSendViewService,
+	private ServiceInterface messageListService, messageViewService, messageWriteProcessService, 
+			messageUpdateService, messageUpdateProcessService, 
+			messageDeleteProcessService, messageSendListService, messageSendViewService,
 			messageSendDeleteProcessService;
 
 	// setter
@@ -31,7 +32,7 @@ public class MessageController {
 	public void setMessageUpdateService(ServiceInterface messageUpdateService) {
 		this.messageUpdateService = messageUpdateService;
 	}
-
+	
 	public void setMessageUpdateProcessService(ServiceInterface messageUpdateProcessService) {
 		this.messageUpdateProcessService = messageUpdateProcessService;
 	}
@@ -56,15 +57,16 @@ public class MessageController {
 	@RequestMapping("/message/list.do")
 	public String list(@RequestParam(value="page", required=false, defaultValue="1")int page, Model model)throws Exception{
 		System.out.println("MessageController.list(page)");
+		// 값 확인
+		System.out.println(messageListService.service(page));
 		model.addAttribute("list", messageListService.service(page));
-		return null;
+		return "message/list";
 	}
 	// 쪽지 보기 : view
 	@RequestMapping("/message/view.do")
 	public String view(int no, Model model)throws Exception{
 		System.out.println("MessageController.view(no)");
 		model.addAttribute("message", messageViewService.service(no));
-//		model.addAttribute("message", messageUpdateService.service(no));
 		return "message/view";
 	}
 	// 쪽지 보내기 : write
@@ -79,19 +81,7 @@ public class MessageController {
 		messageWriteProcessService.service(message);
 		return "redirect:list.do";
 	}
-	// 보기 후  - 쪽지 읽음 처리 : update
-	@RequestMapping(value="/message/update.do", method=RequestMethod.GET)
-	public String update(@RequestParam(value="no", required=false)int no, Model model)throws Exception{
-		System.out.println("MessageController.update(no):GET");
-		model.addAttribute("message", messageUpdateService.service(no));
-		return "message/update";
-	}
-	@RequestMapping(value="/message/update.do", method=RequestMethod.POST)
-	public String update(Message message)throws Exception{
-		System.out.println("MessageController.update(message):POST");
-		messageUpdateProcessService.service(message);
-		return "redirect:view.do?no="+message.getNo();
-	}
+
 	// 쪽지 삭제 : delete
 	@RequestMapping("/message/delete.do")
 	public String delete(int no)throws Exception{
@@ -103,21 +93,20 @@ public class MessageController {
 	
 	// send
 	
-	// 쪽지 리스트 : list
+	// 보낸 쪽지 리스트 : list
 	@RequestMapping("/message/send/list.do")
 	public String sendList(@RequestParam(value="page", required=false, defaultValue="1")int page, Model model)throws Exception{
 		System.out.println("MessageController.sendList(page)");
 //		** 어트리뷰트에 담을 때 sendList 말고 list로 **
 		model.addAttribute("list", messageSendListService.service(page));
-		System.out.println("보낸쪽지함");
-		return null;
+		return "message/send/list";
 	}
-	// 쪽지 보기 : view
+	// 보낸 쪽지 보기 : view
 	@RequestMapping("/message/send/view.do")
 	public String sendView(int no, Model model)throws Exception{
-		System.out.println("MessageController.sendView(no)");
+		System.out.println("MessageControeller.sendView(no)");
 		model.addAttribute("message", messageSendViewService.service(no));
-//		** 리턴값 sendView 아니고 그냥 view **
+//		** 리턴값 sendView 아니고 send/view **
 		return "message/send/view";
 	}
 	// 쪽지 삭제 : delete

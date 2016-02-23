@@ -19,16 +19,16 @@ public class MessageDao {
 	// 받은쪽지 목록 가져오기 - list
 	public Object list(){
 		System.out.println("MessageDao.list()");
+		// 값 확인
+		System.out.println(sqlSessionTemplate.selectList("dao.Message.list"));
 		return sqlSessionTemplate.selectList("dao.Message.list");
 	}
-	
 	// 쪽지 보내기 - write
 	public Object write(Message message){
 		System.out.println("MessageDao.write()");
 		sqlSessionTemplate.insert("dao.Message.write", message);
 		return null;
 	}
-	
 	// 받은 쪽지 보기 - view
 	public Object view(Object obj){
 		System.out.println("MessageDao.view()");
@@ -38,7 +38,8 @@ public class MessageDao {
 	// 쪽지 읽음 처리 - update
 	public Object update(Object obj){
 		System.out.println("MessageDao.update(obj)");
-		return sqlSessionTemplate.update("dao.Message.update", obj);
+		sqlSessionTemplate.update("dao.Message.update", obj);
+		return null;
 	}
 	
 	// 받은 쪽지 삭제 - delete
@@ -47,21 +48,21 @@ public class MessageDao {
 		sqlSessionTemplate.delete("dao.Message.delete", obj);
 		return null;
 	}
-
+	
 	// 보낸 쪽지 리스트
 	public Object sendList() {
 		// TODO Auto-generated method stub
 		System.out.println("MessageDao.sendList()");
+		// 값 확인
+		System.out.println(sqlSessionTemplate.selectList("dao.Message.sendList"));
 		return sqlSessionTemplate.selectList("dao.Message.sendList");
 	}
-
 	// 보낸 쪽지 보기
 	public Object sendView(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("MessageDao.sendView()");
 		return sqlSessionTemplate.selectOne("dao.Message.sendView", obj);
 	}
-
 	// 보낸 쪽지 삭제
 	public Object sendDelete(Object obj) {
 		// TODO Auto-generated method stub
@@ -70,12 +71,11 @@ public class MessageDao {
 		return null;
 	}
 	
-	
-	
-//	// 보낸쪽지(받은쪽지) 갯수 
+	// 보낸쪽지(받은쪽지) 갯수 
 //	public Integer totalCount(Integer int){
 //		System.out.println("MessageDao.totalCount()");
 //		sqlSessionTemplate.selectOne("dao.Message.totalCount", obj);
 //		return null;
 //	}
+
 }

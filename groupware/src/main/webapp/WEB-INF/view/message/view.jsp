@@ -34,9 +34,12 @@
 	<tr>
 		<td colspan="2">
 		
-<%-- 		<c:if test="${rdate }==null"> 받은메시지삭제 --%>
+<!-- 		데이터가 있으면 삭제 버튼 생성, 없으면 감춤 -->
+<!-- 		원래 이 곳에서는 감춤이 있으면 안 됨 -->
+		<c:if test="${message.rdate ne null }">
 		<a href="delete.do?no=${message.no }"><button>삭제</button></a>
-<%-- 		</c:if> --%>
+		</c:if>
+		
 		<a href="list.do?no=${message.no }"><button>쪽지 리스트</button></a>
 		
 		</td>

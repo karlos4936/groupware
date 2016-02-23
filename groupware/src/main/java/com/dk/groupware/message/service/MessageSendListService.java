@@ -17,7 +17,7 @@ public class MessageSendListService implements ServiceInterface{
 	public Object service(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("MessageSendListService.service()");
-		
+//		System.out.println(messageDao.sendList());
 		return messageDao.sendList();
 	}
 

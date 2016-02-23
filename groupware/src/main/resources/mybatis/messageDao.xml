@@ -17,8 +17,6 @@
 		where receiver=20160001
 		<!-- where receiver=#{receiver} -->
 		order by no desc
-
-
 	</select>
 
 	<!-- 글의 총 갯수 : if 및 반복문도 사용 가능 -->
@@ -55,8 +53,8 @@
 	<update id="update">
 <!-- 		update message set rdate=#{rdate} where no=#{no} and rdate=#{rdate}; -->
 <!-- 				update notice set hit = hit +1 where no =#{no} -->
-		update message set rdate where no=#{no}
-		
+<!-- ********************************수정중******************************** -->
+		update message set rdate=sysdate where no=#{no}
 	</update>
 
 	<!-- 쪽지 삭제 : delete -->
@@ -73,11 +71,10 @@
 		sender, receiver, to_char(rdate, 'yyyy-mm-dd AM HH:MI:SS') rdate
 		from message
 <!-- 		where sender =#{sender} -->
-		where sender='20160002'
+		where sender=20160002
 		order by no desc
-
 	</select>
-
+	
 	<!-- 쪽지 보기 : view -->
 	<select id="sendView" resultType="com.dk.groupware.message.model.Message">
 		select no, title, content,

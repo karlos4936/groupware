@@ -20,23 +20,22 @@
 		<th>내용</th><td>${message.content }</td>
 	</tr>
 		<tr>
-		<th>보낸사람</th><td>${message.sender}</td>
-	</tr>
-		<tr>
 		<th>받은사람</th><td>${message.receiver}</td>
 	</tr>
 		<tr>
 		<th>보낸시간</th><td>${message.sdate}</td>
 	</tr>
 		<tr>
+		<c:if test="${message.rdate ne null}">
 		<th>확인시간</th><td>${message.rdate }</td>
+		</c:if>
 	</tr>
 	<tr>
 		<td colspan="2">
-<!-- 		제대로 적용 안 되고 있음 -->
-<%-- 		<c:if test="${rdate }==null"> 보낸메시지 삭제 --%>
+<!-- 		데이터가 있으면 삭제 버튼 생성, 없으면 감춤 -->
+		<c:if test="${message.rdate eq null }">
 		<a href="delete.do?no=${message.no }"><button>삭제</button></a>
-<%-- 		</c:if> --%>
+		</c:if>		
 		<a href="list.do?no=${message.no }"><button>쪽지 리스트</button></a>
 		</td>
 	</tr>
