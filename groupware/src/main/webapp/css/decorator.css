@@ -27,15 +27,24 @@ body {
 }
 
 	#main_title {
-		width: 200px;
-		height: 100%;
 		float: left;
-		font-family: "Hanna", "Nanum Gothic", "sans-serif";
-		font-size: 20pt;
-		color: #edd200;
-		padding: 7px 20px;
 		border-right: 1px solid #969696;
 	}
+	
+		#main_title a {
+			text-decoration: none;
+			display: block;
+			width: 200px;
+			height: 100%;
+			padding: 7px 20px;
+			font-family: "Hanna", "Nanum Gothic", "sans-serif";
+			font-size: 20pt;
+			color: #edd200;
+		}
+		
+		#main_title a:visited {
+			text-decoration: none;
+		}
 	
 	#nav {
 		text-align: center;
@@ -76,6 +85,7 @@ body {
 	clear: both;
 	float: left;
 	background: #606060;
+	font-size: 10pt;
 }
 
 	#side_left ul {
@@ -87,14 +97,14 @@ body {
 		
 		}
 		
-			.li_title {
-				background: #888888;
-				padding: 5px 10px;
-				border-top: 1px solid #aaaaaa;
-				border-bottom: 1px solid #333333;
-				color: white;
-				font-weight: bolder;
-			}
+		.li_title {
+			background: #888888;
+			padding: 5px 10px;
+			border-top: 1px solid #aaaaaa;
+			border-bottom: 1px solid #333333;
+			color: white;
+			font-weight: bolder;
+		}
 		
 			.li_content a {
 				display: block;

@@ -4,6 +4,7 @@
 	height: 350px;
 	float: left;
 	margin: 20px;
+	font-size: 10pt;
 }
 
 	.division ul {
@@ -11,27 +12,27 @@
 		padding: 0;
 	}
 	
-		.division ul .head {
+		.division ul .li_head {
 			background: #969696;
 			color: white;
 			font-weight: bolder;
 			padding: 5px 10px;
 		}
 		
-		.division ul li {
+		.division ul .li {
 			padding: 3px 10px;
 		}
 		
-		.division ul li:hover {
+		.division ul .li:hover {
 			background: #d0d0d0;
 		}
 		
-			.division ul a{
-				text-decoration: none;
-				color: black;
-			}
-			
-			.division ul a:visited {
-				text-decoration: none;
-				color: black;
-			}
+		.division ul a{
+			text-decoration: none;
+			color: black;
+		}
+		
+		.division ul a:visited {
+			text-decoration: none;
+			color: black;
+		}

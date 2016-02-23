@@ -29,7 +29,7 @@ public class DraftDao {
 	
 	public Object waitView(Object obj) {
 		System.out.println("DraftDao.waitView()");
-		return sqlSessionTemplate.selectOne("dao.Draft.view", obj);
+		return sqlSessionTemplate.selectOne("dao.Draft.waitView", obj);
 	}
 	
 	public Object waitUpdate(Draft draft) {

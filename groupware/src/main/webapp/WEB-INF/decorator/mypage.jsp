@@ -18,7 +18,7 @@
 <div id="wrapper">
 	<div id="header">
 		<div id="main_title">
-			그룹웨어 시스템
+			<a href="/groupware/main.do">그룹웨어 시스템</a>
 		</div>
 		<div id="nav">
 			<ul>
