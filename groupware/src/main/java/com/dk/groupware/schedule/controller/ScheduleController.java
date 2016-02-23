@@ -73,9 +73,9 @@ public class ScheduleController {
 
 	// 글수정 폼
 	@RequestMapping(value = "/schedule/update.do", method = RequestMethod.GET)
-	public String update(@RequestParam(value = "no", required = false) int no, Model model) throws Exception {
+	public String update(Schedule schedule, Model model) throws Exception {
 		System.out.println("ScheduleController.update():get");
-		model.addAttribute("schedule", scheduleUpdateService.service(no));
+		model.addAttribute("schedule", scheduleUpdateService.service(schedule));
 		return "schedule/update";
 	}
 

@@ -12,14 +12,14 @@
 	<input type="hidden" name="no" value="${schedule.no }"/>
 	<label for="title">글제목</label>
 	<input type="text" name="title" id="title" value="${schedule.title }"/><br/>
+	<label for="sdate">등록일</label>
+	<input type="date" name="date" id="sdate" value="${schedule.sdate }"/>
+	<label for="time">등록시간</label>
+	<input type="text" name="time" id="time" value="${schedule.time }"/><br/>
 	<label for="content">글내용</label>
 	<textarea rows="7" cols="60" name="content" id="content">${schedule.content}</textarea><br/>
 	<label for="writer">작성자</label>
 	<input type="text" name="writer" id="writer" value="${schedule.writer }"/><br/>
-	<label for="sdate">등록일</label>
-	<input type="text" name="sdate" id="sdate" value="${schedule.sdate }"/><br/>
-	<label for="time">등록시간</label>
-	<input type="text" name="time" id="time" value="${schedule.time }"/><br/>
 	<button>수정</button>
 	<button type="button" onclick="history.back()">취소</button>
 </form>

@@ -16,16 +16,16 @@
 		<th>제목</th><td>${schedule.title }</td>
 	</tr>
 	<tr>
-		<th>내용</th><td><pre>${schedule.content }</pre></td>
-	</tr>
-	<tr>
-		<th>작성자</th><td><pre>${schedule.writer }</pre></td>
-	</tr>
-	<tr>
 		<th>등록일</th><td>${schedule.sdate }</td>
 	</tr>
 	<tr>
 		<th>등록시간</th><td>${schedule.time } 시</td>
+	</tr>
+	<tr>
+		<th>내용</th><td><pre>${schedule.content }</pre></td>
+	</tr>
+	<tr>
+		<th>작성자</th><td><pre>${schedule.writer }</pre></td>
 	</tr>
 	<tr>
 		<td colspan="2">
