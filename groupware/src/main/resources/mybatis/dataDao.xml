@@ -24,19 +24,23 @@
 		select no, title, content, writer, hit, file_name from data
 		where no=#{no}
 	</select>
+	
 <!-- 	게시판 글쓰기 -->
 	<insert id="write">
-		insert into data(no,title,content,writer, file_name)
-  		values(data_seq.nextval,#{title},#{content},#{writer}, #{file_name})
+		insert into data(no, title, content, writer, fileName)
+		values(data_seq.nextval, #{title}, #{content}, #{writer}, #{fileName})
 	</insert>
+	
 <!-- 	게시판 글수정 -->
   <update id="update">
   	update data set title=#{title},content=#{content}, file_name#{file_name} where no=#{no}
   </update>
+  
 <!--   게시판 글삭제 -->
   <delete id="delete">
   	delete from data where no=#{no}
   </delete>
+  
 <!-- 	조회수 증가 -->
 <update id="hit">
 	update data set hit=hit+1 where no=#{no}

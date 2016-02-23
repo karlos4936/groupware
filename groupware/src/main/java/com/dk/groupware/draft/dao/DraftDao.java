@@ -11,9 +11,9 @@ public class DraftDao {
 		this.sqlSessionTemplate = sqlSessionTemplate;
 	}
 	
-	public Object list() {
+	public Object list(Object obj) {
 		System.out.println("DraftDao.list()");
-		return sqlSessionTemplate.selectList("dao.Draft.list");
+		return sqlSessionTemplate.selectList("dao.Draft.list", obj);
 	}
 	
 	public Object write(Draft Draft) {
@@ -22,8 +22,8 @@ public class DraftDao {
 		return null;
 	}
 	
-	public Object waitList() {
-		System.out.println("DraftDao.waitView()");
+	public Object waitList(Object obj) {
+		System.out.println("DraftDao.waitList()");
 		return sqlSessionTemplate.selectList("dao.Draft.waitList");
 	}
 	

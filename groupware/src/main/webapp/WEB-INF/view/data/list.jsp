@@ -8,7 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>자료게시판 글리스트</h2>
+	<h2>자료실 리스트</h2>
+	
 	<table>
 		<tr>
 			<th>글번호</th>

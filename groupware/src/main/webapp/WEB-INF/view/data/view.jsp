@@ -19,7 +19,7 @@
 			<th>내용</th><td>${data.content}</td>
 		</tr>
 		<tr>
-			<th>첨부 파일</th><td><img alt="image" src="../upload/data/${data.imgFile }">
+			<th>첨부 파일</th><td><img alt="image" src="../upload/data/${imgFile }">
 		</tr>
 		<tr>
 			<th>작성자</th><td>${data.writer }</td>

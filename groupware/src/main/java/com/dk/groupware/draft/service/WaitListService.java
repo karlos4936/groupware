@@ -13,6 +13,6 @@ public class WaitListService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) {
 		System.out.println("WaitListService.service()");
-		return draftDao.waitList();
+		return draftDao.waitList(obj);
 	}
 }

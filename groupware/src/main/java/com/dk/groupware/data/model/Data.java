@@ -1,10 +1,14 @@
 package com.dk.groupware.data.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Data {
 
 	private int no;
 	private String title, content, writer, wdate;
 	private int hit;
+	private String fileName;
+	private MultipartFile file;
 	
 	public Data(){}
 	
@@ -22,6 +26,7 @@ public class Data {
 		this(no, title, writer, wdate, hit);
 		this.content = content;
 	}
+	
 
 	public int getNo() {
 		return no;
@@ -69,6 +74,23 @@ public class Data {
 
 	public void setHit(int hit) {
 		this.hit = hit;
+	}
+	
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 
 	@Override

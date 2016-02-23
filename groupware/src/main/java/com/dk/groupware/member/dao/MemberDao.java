@@ -45,7 +45,11 @@ public class MemberDao {
 	}
 
 	// 사원 탈퇴(퇴사)
-
+	public Object delete(Object obj) {
+		System.out.println("MemberDao.delete()"); 
+		sqlSessionTemplate.delete("dao.Member.delete", obj);
+		return null;
+	}
 
 	// 내정보 보기
 	public Object mview(Object obj){
@@ -58,5 +62,7 @@ public class MemberDao {
 		System.out.println("MemberDao.login()");
 		return sqlSessionTemplate.selectOne("dao.Member.login", member);
 	}
+
+
 
 }

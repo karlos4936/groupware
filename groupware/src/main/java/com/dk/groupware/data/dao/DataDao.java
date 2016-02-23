@@ -35,6 +35,7 @@ public class DataDao {
 	public Object write(Data data) {
 		System.out.println("DataDao.write()");
 		sqlSessionTemplate.insert("dao.Data.write", data);
+		System.out.println(sqlSessionTemplate.insert("dao.Data.write", data));
 		return null;
 	}
 

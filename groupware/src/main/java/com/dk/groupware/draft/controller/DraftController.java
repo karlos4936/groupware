@@ -1,5 +1,7 @@
 package com.dk.groupware.draft.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.draft.model.Draft;
+import com.dk.groupware.member.model.Member;
 
 @Controller
 public class DraftController {
@@ -76,10 +79,11 @@ public class DraftController {
 	}
 
 	@RequestMapping("/draft/list.do")
-	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("DraftController.list()");
-		model.addAttribute("list", draftListService.service(page));
+		Member member = (Member) session.getAttribute("login");
+		model.addAttribute("list", draftListService.service(member.getId()));
 		return "draft/list";
 	}
 	
@@ -97,10 +101,11 @@ public class DraftController {
 	}
 	
 	@RequestMapping("/draft/wait/list.do")
-	public String waitList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+	public String waitList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("DraftController.waitList()");
-		model.addAttribute("list", waitListService.service(page));
+		Member member = (Member) session.getAttribute("login");
+		model.addAttribute("list", waitListService.service(member.getId()));
 		return "draft/wait/list";
 	}
 	

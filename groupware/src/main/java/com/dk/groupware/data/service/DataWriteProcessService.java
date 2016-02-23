@@ -15,8 +15,7 @@ public class DataWriteProcessService implements ServiceInterface{
 	@Override
 	public Object service(Object obj) {
 		System.out.println("DataWriteProcessService.service()");
-		dataDao.write((Data)obj);
-		return null;
+		return dataDao.write((Data)obj);
 	}
 
 }
