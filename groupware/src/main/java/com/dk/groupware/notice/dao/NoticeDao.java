@@ -19,6 +19,7 @@ public class NoticeDao {
 		System.out.println("NoticeDao.list()");
 		return sqlSessionTemplate.selectList("dao.Notice.list");
 	}
+	
 	// 공지사항 보기 - 수정
 	public Object view(Object obj){
 		System.out.println("NoticeDao.view()");

@@ -15,7 +15,7 @@
 		sender, receiver, to_char(rdate, 'yyyy-mm-dd AM hh:mi:ss') rdate
 		from message
 		where receiver=20160001
-		<!-- where receiver=#{receiver} -->
+<!-- 		where receiver=#{receiver} -->
 		order by no desc
 	</select>
 

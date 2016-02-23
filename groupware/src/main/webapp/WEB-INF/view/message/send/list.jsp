@@ -23,7 +23,7 @@
 		<tr>
 			<td>${message.no }</td>
 			<td><a href="view.do?no=${message.no }">${message.title }</a></td>
-			<td>${message.sender }</td>
+			<td><a href="login.do?id=${login.id}">${message.sender }</a></td>
 			<td>${message.receiver }</td>
 			<td>${message.sdate }</td>
 			<td>

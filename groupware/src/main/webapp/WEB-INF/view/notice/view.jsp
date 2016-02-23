@@ -27,6 +27,9 @@
 		<tr>
 		<th>조회수</th><td>${notice.hit }</td>
 	</tr>
+		<tr>
+		<th>업로드 파일</th><td><a href="../upload/notice/${notice.file_name}" target="_blank">${notice.file_name}</a></td>
+	</tr>
 	<tr>
 		<td colspan="2">
 		<a href="update.do?no=${notice.no }"><button>글수정</button></a>

@@ -1,5 +1,7 @@
 package com.dk.groupware.message.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Message {
 
 	/*
@@ -9,6 +11,7 @@ public class Message {
 	private String title, content, sdate;
 	private int sender, receiver;
 	private String rdate, file_name;
+	private MultipartFile multipartFile;
 
 	public int getNo() {
 		return no;
@@ -74,10 +77,18 @@ public class Message {
 		this.file_name = file_name;
 	}
 
+	public MultipartFile getMultipartFile() {
+		return multipartFile;
+	}
+	
+	public void setMultipartFile(MultipartFile multipartFile) {
+		this.multipartFile = multipartFile;
+	}
 	@Override
 	public String toString() {
 		return "Message [no=" + no + ", title=" + title + ", content=" + content + ", sdate=" + sdate + ", sender="
 				+ sender + ", receiver=" + receiver + ", rdate=" + rdate + ", file_name=" + file_name + "]";
 	}
+
 
 }

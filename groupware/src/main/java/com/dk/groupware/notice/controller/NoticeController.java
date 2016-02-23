@@ -1,11 +1,19 @@
 package com.dk.groupware.notice.controller;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.dk.groupware.common.DuplicateFile;
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.notice.model.Notice;
 
@@ -62,10 +70,29 @@ public class NoticeController {
 	}
 	// 공지사항 글쓰기처리 (post상수)
 	@RequestMapping(value="/notice/write.do", method=RequestMethod.POST)
-	public String write(Notice notice) throws Exception{
+	// 파라미터 값에 어떤 파일을 올릴 것인지 작성한다.
+	// 받은 파일을 다시 jsp로 넘기기 위해 Model이 필요하다.
+	public String write(MultipartFile file1,
+			Notice notice, Model model,
+			HttpServletRequest request)throws IOException{
 		System.out.println("NoticeController.write(notice):POST");
+		// ServletContext application : 서버에 올라갈 실제 폴더 찾기
+		String realPath = request.getServletContext().getRealPath("/upload/notice");
+		// 비어있지 않으면
+		if(!file1.isEmpty()){
+			String file_Name = file1.getOriginalFilename();
+			// 중복되지 않는 파일을 받아올 수 있다.
+			File file = DuplicateFile.getFile(realPath, file1);
+			file1.transferTo(file);
+			notice.setFile_name(file.getName());
+		}
+		// 출력해보자
+		System.out.println(realPath);
 		noticeWriteProcessService.service(notice);
 		return "redirect:list.do";
+		
+		// upload되지 않았다.
+//		 return "notice/write";
 	}
 	
 	

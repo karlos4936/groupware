@@ -15,14 +15,14 @@
 
 	<!-- 공지사항 작성 : write -->
 	<insert id="write">
-		insert into notice(no, title, content, writer)
-		values(notice_seq.nextval,#{title},#{content},#{writer})
+		insert into notice(no, title, content, writer, file_name)
+		values(notice_seq.nextval,#{title},#{content},#{writer},#{file_name})
 	</insert>
 
 	<!-- 공지사항 보기 : view -->
 	<select id="view" resultType="com.dk.groupware.notice.model.Notice">
 		select no, title, content, writer,
-		to_char(wdate, 'yyyy-mm-dd') wdate, hit from notice
+		to_char(wdate, 'yyyy-mm-dd') wdate, hit, file_name from notice
 		where no=#{no}
 	</select>
 
