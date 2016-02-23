@@ -11,10 +11,9 @@ import com.dk.groupware.schedule.model.Schedule;
 
 @Controller
 public class ScheduleController {
-	
-	private ServiceInterface scheduleListService,
-	scheduleViewService, scheduleWriteProcessService, scheduleUpdateService,
-	scheduleUpdateProcessService, scheduleDeleteProcessService;
+
+	private ServiceInterface scheduleListService, scheduleViewService, scheduleWriteProcessService,
+			scheduleUpdateService, scheduleUpdateProcessService, scheduleDeleteProcessService;
 
 	public void setScheduleListService(ServiceInterface scheduleListService) {
 		this.scheduleListService = scheduleListService;
@@ -42,57 +41,55 @@ public class ScheduleController {
 
 	// 글리스트
 	@RequestMapping("/schedule/list.do")
-	public String list
-	(@RequestParam(value="page",required=false, defaultValue="1") int page, Model model)
-	throws Exception{
+	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+			throws Exception {
 		System.out.println("ScheduleController.list()");
 		model.addAttribute("list", scheduleListService.service(page));
 		return "schedule/list";
 	}
-	
+
 	// 글보기
 	@RequestMapping("/schedule/view.do")
-	public String view(int no, Model model) throws Exception{
+	public String view(int no, Model model) throws Exception {
 		System.out.println("ScheduleController.view()");
 		model.addAttribute("schedule", scheduleViewService.service(no));
 		return "schedule/view";
 	}
 
 	// 글쓰기폼 - get
-	@RequestMapping(value="/schedule/write.do", method=RequestMethod.GET)
-	public String write(){
+	@RequestMapping(value = "/schedule/write.do", method = RequestMethod.GET)
+	public String write() {
 		System.out.println("ScheduleController.write():get");
 		return "schedule/write";
 	}
 
 	// 글쓰기처리 - post
-	@RequestMapping(value="/schedule/write.do", method=RequestMethod.POST)
-	public String write(Schedule schedule) throws Exception{
+	@RequestMapping(value = "/schedule/write.do", method = RequestMethod.POST)
+	public String write(Schedule schedule) throws Exception {
 		System.out.println("ScheduleController.write():post");
 		scheduleWriteProcessService.service(schedule);
 		return "redirect:list.do";
 	}
 
 	// 글수정 폼
-	@RequestMapping(value="/schedule/update.do", method=RequestMethod.GET)
-	public String update
-	(@RequestParam(value="no",required=false) int no, Model model) throws Exception{
+	@RequestMapping(value = "/schedule/update.do", method = RequestMethod.GET)
+	public String update(@RequestParam(value = "no", required = false) int no, Model model) throws Exception {
 		System.out.println("ScheduleController.update():get");
-		model.addAttribute("schedule",scheduleUpdateService.service(no));
+		model.addAttribute("schedule", scheduleUpdateService.service(no));
 		return "schedule/update";
 	}
 
 	// 글수정 처리
-	@RequestMapping(value="/schedule/update.do", method=RequestMethod.POST)
-	public String update(Schedule schedule) throws Exception{
+	@RequestMapping(value = "/schedule/update.do", method = RequestMethod.POST)
+	public String update(Schedule schedule) throws Exception {
 		System.out.println("ScheduleController.update():post");
 		scheduleUpdateProcessService.service(schedule);
-		return "redirect:view.do?no="+schedule.getNo();
+		return "redirect:view.do?no=" + schedule.getNo();
 	}
 
 	// 글삭제 처리
 	@RequestMapping("/schedule/delete.do")
-	public String delete(int no) throws Exception{
+	public String delete(int no) throws Exception {
 		System.out.println("ScheduleController.delete()");
 		scheduleDeleteProcessService.service(no);
 		return "redirect:list.do";

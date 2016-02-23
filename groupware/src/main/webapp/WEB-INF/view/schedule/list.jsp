@@ -1,5 +1,8 @@
+<%@page import="java.util.List"%>
+<%@page import="com.dk.groupware.schedule.model.Schedule"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +10,11 @@
 <title>일정관리</title>
 </head>
 <body>
-<h2>월간일정</h2>
+	<h2>월간일정</h2>
 	<%
+		@SuppressWarnings("unchecked")
+		List<Schedule> list = (List<Schedule>) request.getAttribute("list");
+		
 		java.util.Calendar cal = java.util.Calendar.getInstance(); //Calendar객체 cal생성
 		int currentYear = cal.get(java.util.Calendar.YEAR); //현재 날짜 기억
 		int currentMonth = cal.get(java.util.Calendar.MONTH);
@@ -88,8 +94,22 @@
 						out.println("<br>");
 					}
 				}
+				
 				for (int i = 1; i <= end; i++) { //날짜출력
-					out.println("<td>" + i + "</td>");
+					
+					out.println("<td>" + i + "<br>");
+				
+					for(Schedule schedule : list) {
+						if(year == schedule.getYear() && month+1 == schedule.getMonth() && i == schedule.getDay())
+							out.println(
+								"<a href='view.do?no=" + schedule.getNo() + "'>"
+								+ schedule.getTime() + "시  "
+								+ schedule.getTitle() + "</a><br>"
+							);
+					}
+
+					out.println("</td>");
+					
 					br++;
 					if ((br % 7) == 0 && i != end) {
 						out.println("</tr><tr height=30>");
@@ -100,5 +120,6 @@
 			%>
 		</tr>
 	</table>
+	<a href="write.do"><button>일정추가</button></a>
 </body>
 </html>
