@@ -45,12 +45,7 @@ public class MemberDao {
 	}
 
 	// 사원 탈퇴(퇴사)
-	public Object delete(Object obj) {
-		// TODO Auto-generated method stub
-		System.out.println("MemberDao.delete()");
-		sqlSessionTemplate.delete("dao.Member.delete", obj);
-		return null;
-	}
+
 
 	// 내정보 보기
 	public Object mview(Object obj){

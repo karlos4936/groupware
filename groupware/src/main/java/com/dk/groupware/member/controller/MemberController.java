@@ -102,12 +102,6 @@ public class MemberController {
 	}
 	
 	// 사원 퇴사 처리(탈퇴)
-	@RequestMapping("/member/delete.do")
-	public String delete(int id) throws Exception{
-		System.out.println("MemberController.delete()");
-		memberDeleteProcessService.service(id);
-		return "redirect:list.do";
-	}
 	
 	// 내정보 보기
 	@RequestMapping("/mypage/view.do")
@@ -129,7 +123,7 @@ public class MemberController {
 	public String login(HttpSession session, Member member) throws Exception{
 		System.out.println("MemberController.login():post");
 		session.setAttribute("login", loginProcessService.service(member));
-		return "redirect:/data/list.do";
+		return "redirect:main.do";
 	}
 	
 	// 로그아웃 처리

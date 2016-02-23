@@ -11,13 +11,12 @@ public class MemberDeleteProcessService implements ServiceInterface {
 	public void setMemberDao(MemberDao memberDao){
 		this.memberDao=memberDao;
 	}
-	
+
 	@Override
 	public Object service(Object obj) {
 		// TODO Auto-generated method stub
-		System.out.println("MemberDeleteProcessService.service()");
-		memberDao.delete(obj);
 		return null;
 	}
+	
 
 }

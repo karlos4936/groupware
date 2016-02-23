@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h2>사원 정보 보기</h2>
+	<form action="delete.do" method="post">
 	<table>
 		<tr>
 			<th>사원ID</th>
@@ -45,5 +46,6 @@
 			<td>
 		</tr>
 	</table>
+	</form>
 </body>
 </html>
