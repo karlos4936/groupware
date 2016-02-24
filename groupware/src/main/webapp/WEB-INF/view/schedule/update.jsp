@@ -31,7 +31,7 @@
 	<label for="sdate">등록일</label>
 	<input type="date" name="sdate" id="date" value="${schedule.sdate }"/>
 	<label for="time"></label>
-	<input type="text" name="time" id="time" size="2" maxlength="2" value="${schedule.time }"/>시<br/>
+	<input type="number" name="time" id="time" min="0" max="23" value="${schedule.time }"/>시<br/>
 	<label for="content">글내용</label>
 	<textarea rows="7" cols="60" name="content" id="content">${schedule.content}</textarea><br/>
 	<label for="writer">작성자</label>

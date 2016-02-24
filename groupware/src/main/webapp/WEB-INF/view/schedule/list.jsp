@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="java.util.List"%>
 <%@page import="com.dk.groupware.schedule.model.Schedule"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -15,10 +16,10 @@
 		@SuppressWarnings("unchecked")
 		List<Schedule> list = (List<Schedule>) request.getAttribute("list");
 		
-		java.util.Calendar cal = java.util.Calendar.getInstance(); //Calendar객체 cal생성
-		int currentYear = cal.get(java.util.Calendar.YEAR); //현재 날짜 기억
-		int currentMonth = cal.get(java.util.Calendar.MONTH);
-		int currentDate = cal.get(java.util.Calendar.DATE);
+		Calendar cal = Calendar.getInstance(); //Calendar객체 cal생성
+		int currentYear = cal.get(Calendar.YEAR); //현재 날짜 기억
+		int currentMonth = cal.get(Calendar.MONTH);
+		int currentDate = cal.get(Calendar.DATE);
 		String Year = request.getParameter("year"); //나타내고자 하는 날짜
 		String Month = request.getParameter("month");
 		int year, month;
@@ -58,7 +59,7 @@
 			</td>
 			<td align=right width=200>
 				<%
-					out.print(currentYear + "-" + (currentMonth + 1) + "-" + currentDate);
+					out.print("오늘날짜 : " + currentYear + "-" + (currentMonth + 1) + "-" + currentDate);
 				%>
 			</td>
 		</tr>
@@ -66,7 +67,7 @@
 	<table border=1 style="width: 100%;">
 		<!-- 달력 부분 -->
 		<tr>
-			<td width=100>일</td>
+			<td width=100 style="color: red">일</td>
 			<!-- 일=1 -->
 			<td width=100>월</td>
 			<!-- 월=2 -->
@@ -78,14 +79,14 @@
 			<!-- 목=5 -->
 			<td width=100>금</td>
 			<!-- 금=6 -->
-			<td width=100>토</td>
+			<td width=100 style="color: blue">토</td>
 			<!-- 토=7 -->
 		</tr>
 		<tr height=30>
 			<%
 				cal.set(year, month, 1); //현재 날짜를 현재 월의 1일로 설정
-				int startDay = cal.get(java.util.Calendar.DAY_OF_WEEK); //현재날짜(1일)의 요일
-				int end = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH); //이 달의 끝나는 날
+				int startDay = cal.get(Calendar.DAY_OF_WEEK); //현재날짜(1일)의 요일
+				int end = cal.getActualMaximum(Calendar.DAY_OF_MONTH); //이 달의 끝나는 날
 				int br = 0; //7일마다 줄 바꾸기
 				for (int i = 0; i < (startDay - 1); i++) { //빈칸출력
 					out.println("<td>&nbsp;</td>");
@@ -94,10 +95,9 @@
 						out.println("<br>");
 					}
 				}
-				
 				for (int i = 1; i <= end; i++) { //날짜출력
-					
 					out.println("<td>" + i + "<br>");
+					
 				
 					for(Schedule schedule : list) { // 달력내 내용표시
 						if(year == schedule.getYear() && month+1 == schedule.getMonth() && i == schedule.getDay())

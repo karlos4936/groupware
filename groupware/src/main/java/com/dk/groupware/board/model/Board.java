@@ -5,6 +5,7 @@ public class Board {
 	private int no;
 	private String title, content, writer, wdate;
 	private int hit;
+	private String name;
 	
 	public int getNo() {
 		return no;
@@ -42,10 +43,17 @@ public class Board {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	@Override
 	public String toString() {
 		return "Board [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer + ", wdate="
-				+ wdate + ", hit=" + hit + "]";
+				+ wdate + ", hit=" + hit + ", name=" + name + "]";
 	}
-	
+
 }
