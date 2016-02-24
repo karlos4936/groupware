@@ -68,19 +68,12 @@
 		<!-- 달력 부분 -->
 		<tr>
 			<td width=100 style="color: red">일</td>
-			<!-- 일=1 -->
 			<td width=100>월</td>
-			<!-- 월=2 -->
 			<td width=100>화</td>
-			<!-- 화=3 -->
 			<td width=100>수</td>
-			<!-- 수=4 -->
 			<td width=100>목</td>
-			<!-- 목=5 -->
 			<td width=100>금</td>
-			<!-- 금=6 -->
 			<td width=100 style="color: blue">토</td>
-			<!-- 토=7 -->
 		</tr>
 		<tr height=30>
 			<%
