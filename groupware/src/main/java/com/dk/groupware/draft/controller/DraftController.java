@@ -1,5 +1,6 @@
 package com.dk.groupware.draft.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ public class DraftController {
 
 	private ServiceInterface waitListService;
 	private ServiceInterface waitViewService;
+	private ServiceInterface waitSignProcessService;
 	private ServiceInterface waitUpdateService;
 	private ServiceInterface waitUpdateProcessService;
 	private ServiceInterface waitDeleteProcessService;
@@ -44,6 +46,10 @@ public class DraftController {
 
 	public void setWaitViewService(ServiceInterface waitViewService) {
 		this.waitViewService = waitViewService;
+	}
+	
+	public void setWaitSignProcessService(ServiceInterface waitSignProcessService) {
+		this.waitSignProcessService = waitSignProcessService;
 	}
 
 	public void setWaitUpdateService(ServiceInterface waitUpdateService) {
@@ -116,23 +122,30 @@ public class DraftController {
 		return "draft/wait/view";
 	}
 	
+	@RequestMapping("/draft/wait/sign.do")
+	public String waitSign(int no, Model model) throws Exception {
+		System.out.println("DraftController.waitSign()");
+		waitSignProcessService.service(no);
+		return "redirect:/draft/proceed/view.do?no=" + no;
+	}
+	
 	@RequestMapping(value = "/draft/wait/update.do", method = RequestMethod.GET)
-	public String update(@RequestParam(value = "no", required = false) int no, Model model) throws Exception {
-		System.out.println("DraftController.update():GET");
+	public String waitUpdate(int no, Model model) throws Exception {
+		System.out.println("DraftController.waitUpdate():GET");
 		model.addAttribute("draft", waitUpdateService.service(no));
 		return "draft/wait/update";
 	}
 
 	@RequestMapping(value = "/draft/wait/update.do", method = RequestMethod.POST)
-	public String update(Draft draft) throws Exception {
-		System.out.println("DraftController.update():POST");
+	public String waitUpdate(Draft draft) throws Exception {
+		System.out.println("DraftController.waitUpdate():POST");
 		waitUpdateProcessService.service(draft);
 		return "redirect:view.do?no=" + draft.getNo();
 	}
 
 	@RequestMapping("/draft/wait/delete.do")
-	public String delete(int no) throws Exception {
-		System.out.println("DraftController.delete()");
+	public String waitDelete(int no) throws Exception {
+		System.out.println("DraftController.waitDelete()");
 		waitDeleteProcessService.service(no);
 		return "redirect:list.do";
 	}
@@ -153,18 +166,19 @@ public class DraftController {
 		return "draft/proceed/view";
 	}
 	
-	@RequestMapping(value = "/draft/proceed/update.do", method = RequestMethod.POST)
-	public String sign(Draft draft) throws Exception {
-		System.out.println("DraftController.sign():POST");
+	@RequestMapping("/draft/proceed/sign.do")
+	public String proceedSign(Draft draft) throws Exception {
+		System.out.println("DraftController.proceedSign()");
 		proceedSignProcessService.service(draft);
 		return "redirect:view.do?no=" + draft.getNo();
 	}
 	
 	@RequestMapping("/draft/done/list.do")
-	public String doneList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+	public String doneList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("DraftController.doneList()");
-		model.addAttribute("list", doneListService.service(page));
+		Member member = (Member) session.getAttribute("login");
+		model.addAttribute("list", doneListService.service(member.getId()));
 		return "draft/done/list";
 	}
 	

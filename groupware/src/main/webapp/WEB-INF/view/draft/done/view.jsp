@@ -65,10 +65,6 @@ table th, table td {
 			<th>redgate</th>
 			<td>${draft.regDate }</td>
 		</tr>
-		<tr>
-			<th>signdate</th>
-			<td>${draft.signDate }</td>
-		</tr>
 		
 	</table>
 	

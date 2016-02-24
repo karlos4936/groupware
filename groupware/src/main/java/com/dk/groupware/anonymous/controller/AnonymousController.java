@@ -107,6 +107,6 @@ public class AnonymousController {
 	public String reply(AnonymousReply anonymousReply) throws Exception {
 		System.out.println("AnonymousController.reply():POST");
 		anonymousReplyWriteProcessService.service(anonymousReply);
-		return "redirect:view.do";
+		return "redirect:../view.do?no=" + anonymousReply.getNo();
 	}
 }

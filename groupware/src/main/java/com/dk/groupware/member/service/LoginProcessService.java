@@ -14,6 +14,25 @@ public class LoginProcessService implements ServiceInterface{
 	@Override
 	public Object service(Object obj){
 		System.out.println("LoginProcessService.service()");
-		return memberDao.login((Member)obj);
+		Member member = (Member) memberDao.login((Member)obj);
+		member.setEncId(getMD5(member.getId()+""));
+		return member;
+	}
+	
+	private String getMD5(String str) {
+		StringBuffer sb = new StringBuffer();
+		try {
+			byte[] digest = java.security.MessageDigest.getInstance("MD5").digest(str.getBytes());
+			sb.setLength(0);
+			for(int i=0; i<digest.length; i++) {
+				sb.append(Integer.toString((digest[i] & 0xf0) >> 4, 16));
+				sb.append(Integer.toString(digest[i] & 0x0f, 16));
+			}
+			 return sb.toString();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return "";
 	}
 }

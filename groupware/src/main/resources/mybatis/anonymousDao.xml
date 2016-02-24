@@ -28,5 +28,10 @@
 	<update id="increase">
 		update anonymous set hit=hit+1 where no=#{no}
 	</update>
+	
+	<insert id="replyWrite">
+		insert into anonymousReply(rno, content, writer, no)
+		values(anonymousReply_seq.nextval, #{content}, #{writer}, #{no})
+	</insert>
 
 </mapper>

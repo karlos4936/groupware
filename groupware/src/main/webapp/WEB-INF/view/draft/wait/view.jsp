@@ -61,13 +61,23 @@ table th, table td {
 			<th>issign3</th>
 			<td>${draft.isSign3 }</td>
 		</tr>
+		
 		<tr>
-			<th>redgate</th>
-			<td>${draft.regDate }</td>
+			<td colspan="2">
+				<button onclick="location.href='sign.do?no=${draft.no }'">결재</button>
+			</td>
 		</tr>
+		
 		<tr>
-			<th>signdate</th>
-			<td>${draft.signDate }</td>
+			<td colspan="2">
+				<button onclick="location.href='update.do?no=${draft.no }'">수정</button>
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">
+				<button onclick="location.href='delete.do?no=${draft.no }'">삭제</button>
+			</td>
 		</tr>
 		
 	</table>

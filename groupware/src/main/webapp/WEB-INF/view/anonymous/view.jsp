@@ -49,8 +49,10 @@ table th, table td {
 	</table>
 	
 	<form action="reply/write.do" method="post">
-		아이디 : <input type="text" readonly="readonly" value="${fn:substring(anonymous.writer, 0, 8) }"><br>
+		아이디 : <input type="text" readonly="readonly" value="${fn:substring(login.encId, 0, 8) }"><br>
 		내용 : <textarea id="content" name="content" rows="7" cols="60"></textarea><br>
+		<input type="hidden" name="writer" value="${login.encId }">
+		<input type="hidden" name="no" value="${anonymous.no }">
 		<button>댓글작성</button>
 	</form>
 	

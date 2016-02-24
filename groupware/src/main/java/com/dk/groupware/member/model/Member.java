@@ -8,6 +8,7 @@ public class Member {
 	private int pno;
 	private String position;
 	private int msgCnt;
+	private String encId;
 	
 	public Member(){}
 
@@ -117,11 +118,19 @@ public class Member {
 		this.msgCnt = msgCnt;
 	}
 
+	public String getEncId() {
+		return encId;
+	}
+
+	public void setEncId(String encId) {
+		this.encId = encId;
+	}
+
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", dep=" + dep + ", tel=" + tel + ", phone="
 				+ phone + ", manager=" + manager + ", pno=" + pno + ", position=" + position + ", msgCnt=" + msgCnt
-				+ "]";
+				+ ", encId=" + encId + "]";
 	}
 
 }

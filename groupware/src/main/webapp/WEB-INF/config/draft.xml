@@ -13,6 +13,7 @@
 		
 		<property name="waitListService" ref="waitListService" />
 		<property name="waitViewService" ref="waitViewService" />
+		<property name="waitSignProcessService" ref="waitSignProcessService" />
 		<property name="waitUpdateService" ref="waitUpdateService" />
 		<property name="waitUpdateProcessService" ref="waitUpdateProcessService" />
 		<property name="waitDeleteProcessService" ref="waitDeleteProcessService" />
@@ -39,6 +40,10 @@
 	</bean>
 	
 	<bean id="waitViewService" class="com.dk.groupware.draft.service.WaitViewService">
+		<property name="draftDao" ref="draftDao" />
+	</bean>
+	
+	<bean id="waitSignProcessService" class="com.dk.groupware.draft.service.WaitSignProcessService">
 		<property name="draftDao" ref="draftDao" />
 	</bean>
 	

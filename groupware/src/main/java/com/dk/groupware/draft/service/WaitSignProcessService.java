@@ -3,7 +3,7 @@ package com.dk.groupware.draft.service;
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.draft.dao.DraftDao;
 
-public class DoneListService implements ServiceInterface {
+public class WaitSignProcessService implements ServiceInterface {
 	private DraftDao draftDao;
 	
 	public void setDraftDao(DraftDao draftDao) {
@@ -12,7 +12,8 @@ public class DoneListService implements ServiceInterface {
 	
 	@Override
 	public Object service(Object obj) {
-		System.out.println("DoneListService.service()");
-		return draftDao.doneList(obj);
+		System.out.println("WaitSignProcessService.service()");
+		draftDao.waitSign(obj);
+		return null;
 	}
 }

@@ -32,9 +32,15 @@ public class DraftDao {
 		return sqlSessionTemplate.selectOne("dao.Draft.waitView", obj);
 	}
 	
+	public Object waitSign(Object obj) {
+		System.out.println("DraftDao.waitSign()");
+		sqlSessionTemplate.update("dao.Draft.waitSign", obj);
+		return null;
+	}
+	
 	public Object waitUpdate(Draft draft) {
 		System.out.println("DraftDao.waitUpdate()");
-		sqlSessionTemplate.update("dao.Draft.update", draft);
+		sqlSessionTemplate.update("dao.Draft.waitUpdate", draft);
 		return null;
 	}
 	
@@ -60,9 +66,9 @@ public class DraftDao {
 		return null;
 	}
 	
-	public Object doneList() {
+	public Object doneList(Object obj) {
 		System.out.println("DraftDao.doneList()");
-		return sqlSessionTemplate.selectList("dao.Draft.doneList");
+		return sqlSessionTemplate.selectList("dao.Draft.doneList", obj);
 	}
 	
 	public Object doneView(Object obj) {

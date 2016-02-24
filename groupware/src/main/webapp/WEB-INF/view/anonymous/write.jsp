@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 	<form action="write.do" method="post">
 		<label for="title">글제목</label><input id="title" name="title"><br>	
 		<label for="content">글내용</label><textarea id="content" name="content" rows="7" cols="60"></textarea><br>
-		<label for="writer">작성자</label><input id="writer" name="writer"><br>
+		<label for="writer">작성자</label><input id="writer" name="writer" value="${fn:substring(login.encId, 0, 8) }" readonly="readonly"><br>
 		<button>작성</button>
 		<button type="button" onclick="history.back()">취소</button>
 	</form>

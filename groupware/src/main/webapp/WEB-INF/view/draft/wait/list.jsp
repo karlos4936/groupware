@@ -32,7 +32,6 @@ table th, table td {
 			<th>issign2</th>
 			<th>issign3</th>
 			<th>redgate</th>
-			<th>signdate</th>
 		</tr>
 		
 		<c:forEach var="draft" items="${list }">
@@ -47,7 +46,6 @@ table th, table td {
 				<td>${draft.isSign2 }</td>
 				<td>${draft.isSign3 }</td>
 				<td>${draft.regDate }</td>
-				<td>${draft.signDate }</td>
 			</tr>
 		</c:forEach>
 		

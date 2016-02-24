@@ -5,7 +5,7 @@
 <mapper namespace="dao.Draft">
 
 	<select id="list" resultType="com.dk.groupware.draft.model.Draft">
-		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate, signdate
+		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
 		where drafter=#{drafter}
 		order by no desc 
@@ -17,19 +17,23 @@
 	</insert>
 	
 	<select id="waitList" resultType="com.dk.groupware.draft.model.Draft">
-		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate, signdate
+		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
-		where signer1=#{signer1} and issign1=0
+		where signer1=#{signer1} and issign1 is null
 		order by no desc
 	</select>
 	
 	<select id="waitView" resultType="com.dk.groupware.draft.model.Draft">
-		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate, signdate
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate
 		from draft where no=#{no}
 	</select>
 	
+	<update id="waitSign">
+		update draft set issign1=sysdate where no=#{no}
+	</update>
+	
 	<update id="waitUpdate">
-		update draft set title=#{title}, content=#{content}, signer1=#{signer1}, signer2=#{signer2}, signer3=#{signer3} regdate=sysdate where no=#{no}
+		update draft set title=#{title}, content=#{content}, signer2=#{signer2}, signer3=#{signer3}, regdate=sysdate where no=#{no}
 	</update>
 
 	<delete id="waitDelete">
@@ -37,30 +41,43 @@
 	</delete>
 	
 	<select id="proceedList" resultType="com.dk.groupware.draft.model.Draft">
-		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate, signdate
+		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
-		where (signer1=#{id} and issign1=1 and issign3=0) or (signer2=#{id} and issign1=1 and issign3=0) or (signer3=#{id} and issign2=1 and issign3=0)
+		where
+		(signer1=#{id} and issign1 is not null and issign3 is null)
+		or
+		(signer2=#{id} and issign1 is not null and issign3 is null)
+		or
+		(signer3=#{id} and issign2 is not null and issign3 is null)
 		order by no desc 
 	</select>
 	
 	<select id="proceedView" resultType="com.dk.groupware.draft.model.Draft">
-		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate, signdate
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft where no=#{no}
 	</select>
 	
 	<update id="proceedSign">
-		update draft set signer1=#{signer1}, signer2=#{signer2}, signer3=#{signer3} where no=#{no}
+		update draft set
+		<if test="signer2 == drafter">isSign2=sysdate</if>
+		<if test="signer3 == drafter">isSign3=sysdate</if>
+		where no=#{no}
 	</update>
 	
 	<select id="doneList" resultType="com.dk.groupware.draft.model.Draft">
-		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate, signdate
+		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
-		where (signer1=123 and issign3=1) or (signer2=123 and issign3=1) or (signer3=123 and issign3=1) 
+		where
+		(signer1=#{drafter} and issign3 is not null)
+		or
+		(signer2=#{drafter} and issign3 is not null)
+		or
+		(signer3=#{drafter} and issign3 is not null) 
 		order by no desc 
 	</select>
 	
 	<select id="doneView" resultType="com.dk.groupware.draft.model.Draft">
-		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate, signdate
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
 		where no=#{no}
 	</select>

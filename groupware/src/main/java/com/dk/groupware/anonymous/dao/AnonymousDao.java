@@ -3,6 +3,7 @@ package com.dk.groupware.anonymous.dao;
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.dk.groupware.anonymous.model.Anonymous;
+import com.dk.groupware.anonymous.model.AnonymousReply;
 
 public class AnonymousDao {
 	private SqlSessionTemplate sqlSessionTemplate;
@@ -23,13 +24,13 @@ public class AnonymousDao {
 	
 	public Object update(Anonymous anonymous) {
 		System.out.println("AnonymousDao.update()");
-		sqlSessionTemplate.update("dao.Anonymous.update",anonymous);
+		sqlSessionTemplate.update("dao.Anonymous.update", anonymous);
 		return null;
 	}
 	
-	public Object write(Anonymous anonymous) {
+	public Object write(Object obj) {
 		System.out.println("AnonymousDao.write()");
-		sqlSessionTemplate.insert("dao.Anonymous.write",anonymous);
+		sqlSessionTemplate.insert("dao.Anonymous.write", obj);
 		return null;
 	}
 	
@@ -42,5 +43,11 @@ public class AnonymousDao {
 	public Object increase(Object obj) {
 		System.out.println("AnonymousDao.increase()");
 		return sqlSessionTemplate.update("dao.Anonymous.increase", obj);
+	}
+
+	public Object replyWrite(Object obj) {
+		System.out.println("AnonymousDao.replyWrite()");
+		sqlSessionTemplate.insert("dao.Anonymous.replyWrite", obj);
+		return null;
 	}
 }

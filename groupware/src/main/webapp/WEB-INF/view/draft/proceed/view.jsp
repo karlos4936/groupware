@@ -65,14 +65,16 @@ table th, table td {
 			<th>redgate</th>
 			<td>${draft.regDate }</td>
 		</tr>
-		<tr>
-			<th>signdate</th>
-			<td>${draft.signDate }</td>
-		</tr>
 		
 		<tr>
 			<td colspan="2">
-				<button>결재</button>
+				<form action="sign.do" method="post">
+					<input type="hidden" name="no" value="${draft.no }">
+					<input type="hidden" name="drafter" value="${login.id }">
+					<input type="hidden" name="signer2" value="${draft.signer2 }">
+					<input type="hidden" name="signer3" value="${draft.signer3 }">
+					<button>결재</button>
+				</form>
 			</td>
 		</tr>
 		
