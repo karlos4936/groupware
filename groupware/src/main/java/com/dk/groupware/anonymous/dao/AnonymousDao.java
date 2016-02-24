@@ -3,7 +3,6 @@ package com.dk.groupware.anonymous.dao;
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.dk.groupware.anonymous.model.Anonymous;
-import com.dk.groupware.anonymous.model.AnonymousReply;
 
 public class AnonymousDao {
 	private SqlSessionTemplate sqlSessionTemplate;
