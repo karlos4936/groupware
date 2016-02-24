@@ -13,7 +13,7 @@
 	
 	<insert id="write">
 		insert into draft(no, title, content, drafter, signer1, signer2, signer3)
-		values(draft_seq.nextval, #{title}, #{content}, #{drafter}, #{signer1}, #{signer2}, #{signer3})
+		values(draft_seq.nextval, #{title}, #{content}, #{drafter}, #{drafter}, #{signer2}, #{signer3})
 	</insert>
 	
 	<select id="waitList" resultType="com.dk.groupware.draft.model.Draft">
@@ -60,7 +60,9 @@
 	</select>
 	
 	<select id="doneView" resultType="com.dk.groupware.draft.model.Draft">
-		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate, signdate from draft where no=#{no}
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate, signdate
+		from draft
+		where no=#{no}
 	</select>
 
 </mapper>

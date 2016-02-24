@@ -1,5 +1,5 @@
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+/* @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css); */
+/* @import url(http://fonts.googleapis.com/earlyaccess/hanna.css); */
 
 * {
 	margin: 0 auto;
@@ -38,7 +38,7 @@ body {
 			height: 100%;
 			padding: 7px 20px;
 			font-family: "Hanna", "Nanum Gothic", "sans-serif";
-			font-size: 20pt;
+			font-size: 15pt;
 			color: #edd200;
 		}
 		
