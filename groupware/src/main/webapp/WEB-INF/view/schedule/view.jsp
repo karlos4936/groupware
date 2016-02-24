@@ -25,7 +25,7 @@
 		<th>내용</th><td><pre>${schedule.content }</pre></td>
 	</tr>
 	<tr>
-		<th>작성자</th><td><pre>${schedule.writer }</pre></td>
+		<th>작성자</th><td><pre>${login.name }</pre></td>
 	</tr>
 	<tr>
 		<td colspan="2">

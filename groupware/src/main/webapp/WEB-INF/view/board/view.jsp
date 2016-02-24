@@ -19,7 +19,7 @@
 		<th>내용</th><td><pre>${board.content }</pre></td>
 	</tr>
 	<tr>
-		<th>작성자</th><td>${board.writer }</td>
+		<th>작성자</th><td>${login.name }</td>
 	</tr>
 	<tr>
 		<th>조회수</th><td>${board.hit }</td>
