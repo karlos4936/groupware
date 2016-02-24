@@ -18,13 +18,13 @@ public class DraftDao {
 	
 	public Object write(Draft Draft) {
 		System.out.println("DraftDao.write()");
-		sqlSessionTemplate.insert("dao.Draft.write",Draft);
+		sqlSessionTemplate.insert("dao.Draft.write", Draft);
 		return null;
 	}
 	
 	public Object waitList(Object obj) {
 		System.out.println("DraftDao.waitList()");
-		return sqlSessionTemplate.selectList("dao.Draft.waitList");
+		return sqlSessionTemplate.selectList("dao.Draft.waitList", obj);
 	}
 	
 	public Object waitView(Object obj) {
@@ -44,9 +44,9 @@ public class DraftDao {
 		return null;
 	}
 	
-	public Object proceedList() {
+	public Object proceedList(Object obj) {
 		System.out.println("DraftDao.proceedList()");
-		return sqlSessionTemplate.selectList("dao.Draft.proceedList");
+		return sqlSessionTemplate.selectList("dao.Draft.proceedList", obj);
 	}
 	
 	public Object proceedView(Object obj) {

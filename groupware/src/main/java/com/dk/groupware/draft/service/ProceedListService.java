@@ -13,6 +13,6 @@ public class ProceedListService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) {
 		System.out.println("ProceedListService.service()");
-		return draftDao.proceedList();
+		return draftDao.proceedList(obj);
 	}
 }

@@ -138,10 +138,11 @@ public class DraftController {
 	}
 	
 	@RequestMapping("/draft/proceed/list.do")
-	public String proceedList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+	public String proceedList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("DraftController.proceedList()");
-		model.addAttribute("list", proceedListService.service(page));
+		Member member = (Member) session.getAttribute("login");
+		model.addAttribute("list", proceedListService.service(member.getId()));
 		return "draft/proceed/list";
 	}
 	
