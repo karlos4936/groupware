@@ -3,7 +3,6 @@ package com.dk.groupware.notice.controller;
 import java.io.File;
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -78,12 +77,16 @@ public class NoticeController {
 		System.out.println("NoticeController.write(notice):POST");
 		// ServletContext application : 서버에 올라갈 실제 폴더 찾기
 		String realPath = request.getServletContext().getRealPath("/upload/notice");
+		// realpath를 출력해서 강제로 eclipse에 파일을 저장시킨다. 
+		System.out.println(realPath);
 		// 비어있지 않으면
 		if(!file1.isEmpty()){
-			String file_Name = file1.getOriginalFilename();
+			String file_name = file1.getOriginalFilename();
 			// 중복되지 않는 파일을 받아올 수 있다.
 			File file = DuplicateFile.getFile(realPath, file1);
-			file1.transferTo(file);
+			file1.transferTo(file);// 파일 이동
+//			model.addAttribute("", attributeValue)
+			// 이름만 지정해주면 DB에 저장가능
 			notice.setFile_name(file.getName());
 		}
 		// 출력해보자
@@ -94,6 +97,8 @@ public class NoticeController {
 		// upload되지 않았다.
 //		 return "notice/write";
 	}
+	
+	
 	
 	
 	// 공지사항 글수정폼 - Model 추가 : view.jsp에서 no를 꼭! 넘기자

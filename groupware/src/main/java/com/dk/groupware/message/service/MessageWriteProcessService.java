@@ -17,7 +17,6 @@ public class MessageWriteProcessService implements ServiceInterface{
 		public Object service(Object obj) {
 			// TODO Auto-generated method stub
 			System.out.println("MessageWriteProcessService.service()");
-			
 			messageDao.write((Message)obj);
 			return null;
 		}

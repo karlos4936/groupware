@@ -1,11 +1,19 @@
 package com.dk.groupware.message.controller;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.dk.groupware.common.DuplicateFile;
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.message.model.Message;
 
@@ -52,8 +60,7 @@ public class MessageController {
 	public void setMessageSendDeleteProcessService(ServiceInterface messageSendDeleteProcessService) {
 		this.messageSendDeleteProcessService = messageSendDeleteProcessService;
 	}
-
-	// 쪽지 리스트 : list
+	// 페이지 처리 쪽지 리스트
 	@RequestMapping("/message/list.do")
 	public String list(@RequestParam(value="page", required=false, defaultValue="1")int page, Model model)throws Exception{
 		System.out.println("MessageController.list(page)");
@@ -62,6 +69,14 @@ public class MessageController {
 		model.addAttribute("list", messageListService.service(page));
 		return "message/list";
 	}
+	// 쪽지 리스트 : list
+//	public String list(HttpSession session, Model model) throws Exception{
+//		System.out.println("MessageController.list()");
+//		Message message = (Message) session.getAttribute("login");
+//		model.addAttribute("messageList", messageListService.service(null));
+//		return "message/list";
+//	}
+	
 	// 쪽지 보기 : view
 	@RequestMapping("/message/view.do")
 	public String view(int no, Model model)throws Exception{
@@ -69,18 +84,42 @@ public class MessageController {
 		model.addAttribute("message", messageViewService.service(no));
 		return "message/view";
 	}
+	
+	
+	
 	// 쪽지 보내기 : write
 	@RequestMapping(value="/message/write.do", method=RequestMethod.GET)
 	public String write(){
 		System.out.println("MessageController.write():GET");
 		return "message/write";
 	}
+	// 쪽지 보내기 처리 
 	@RequestMapping(value="/message/write.do", method=RequestMethod.POST)
-	public String write(Message message)throws Exception{
+	// 파라미터 값에 어떤 파일을 올릴 것인지 작성한다. 
+	// MultipartFile을 파라미터 값으로 넣는다면 모델에서 굳이 필요치 않다.
+	// 받은 파일을 다시 jsp로 넘기기 위해 Model이 필요하다.
+	public String write(MultipartFile file1,
+		Message message, Model model,
+		HttpServletRequest request)throws IOException{
 		System.out.println("MessageController.write(message):POST");
+		String realPath = request.getServletContext().getRealPath("/upload/message");
+		// 비어있지 않으면
+		if(!file1.isEmpty()){
+			String file_name = file1.getOriginalFilename();
+			// 중복되지 않는 파일을 받아올 수 있다.
+			File file = DuplicateFile.getFile(realPath, file1);
+			file1.transferTo(file);
+			// 이름만 지정해두면 DB에 저장할 수 있다.
+			message.setFile_name(file.getName());
+		}
+		// 출력해보자
+		System.out.println(realPath);
 		messageWriteProcessService.service(message);
 		return "redirect:list.do";
 	}
+	
+	
+	
 
 	// 쪽지 삭제 : delete
 	@RequestMapping("/message/delete.do")

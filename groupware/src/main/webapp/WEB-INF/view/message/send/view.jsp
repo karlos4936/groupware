@@ -22,6 +22,11 @@
 		<tr>
 		<th>받은사람</th><td>${message.receiver}</td>
 	</tr>
+	<tr>
+		<th>첨부 파일</th>
+		<td><a href="../upload/message/${message.file_name }"
+			target="_blank">${message.file_name }
+		</a></td>
 		<tr>
 		<th>보낸시간</th><td>${message.sdate}</td>
 	</tr>
