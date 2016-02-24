@@ -22,7 +22,7 @@
 		<tr>
 			<td>${board.no }</td>
 			<td><a href="view.do?no=${board.no }">${board.title }</a></td>
-			<td>${login.name }</td>
+			<td>${board.writer }</td>
 			<td>${board.wdate }</td>
 			<td>${board.hit }</td>
 		</tr>

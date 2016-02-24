@@ -14,9 +14,9 @@ public class ScheduleDao {
 	}
 	
 	// 일정리스트
-	public Object list(){
+	public Object list(Object obj){
 		System.out.println("ScheduleDao.list()");
-		return sqlSessionTemplate.selectList("dao.Schedule.list");
+		return sqlSessionTemplate.selectList("dao.Schedule.list", obj);
 	}
 	// 일정보기 - 일정수정
 	public Object view(Object obj){

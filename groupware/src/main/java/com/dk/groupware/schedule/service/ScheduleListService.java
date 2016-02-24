@@ -15,7 +15,7 @@ public class ScheduleListService implements ServiceInterface{
 	public Object service(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("ScheduleListService.service()");
-		return scheduleDao.list();
+		return scheduleDao.list(obj);
 	}
 
 }

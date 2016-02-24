@@ -99,7 +99,7 @@
 					
 					out.println("<td>" + i + "<br>");
 				
-					for(Schedule schedule : list) {
+					for(Schedule schedule : list) { // 달력내 내용표시
 						if(year == schedule.getYear() && month+1 == schedule.getMonth() && i == schedule.getDay())
 							out.println(
 								"<a href='view.do?no=" + schedule.getNo() + "'>"

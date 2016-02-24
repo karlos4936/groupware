@@ -1,5 +1,7 @@
 package com.dk.groupware.schedule.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dk.groupware.common.ServiceInterface;
+import com.dk.groupware.member.model.Member;
 import com.dk.groupware.schedule.model.Schedule;
 
 @Controller
@@ -41,10 +44,12 @@ public class ScheduleController {
 
 	// 글리스트
 	@RequestMapping("/schedule/list.do")
-	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
+	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("ScheduleController.list()");
-		model.addAttribute("list", scheduleListService.service(page));
+//		model.addAttribute("list", scheduleListService.service(page));
+		Member member = (Member) session.getAttribute("login");
+		model.addAttribute("list", scheduleListService.service(member.getId()));
 		return "schedule/list";
 	}
 
