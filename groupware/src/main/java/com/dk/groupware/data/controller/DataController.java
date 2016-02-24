@@ -2,9 +2,7 @@
 package com.dk.groupware.data.controller;
 
 import java.io.File;
-import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -12,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.dk.groupware.common.DuplicateFile;
 import com.dk.groupware.common.ServiceInterface;
@@ -120,9 +117,7 @@ public class DataController {
 
 				return "redirect:list.do";
 			}
-			System.out.println(realPath);
 			return "redirect:list.do";
-
 		}
 
 	// 글수정 폼

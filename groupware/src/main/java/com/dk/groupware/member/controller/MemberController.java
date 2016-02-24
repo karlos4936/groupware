@@ -10,13 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.member.model.Member;
+import com.dk.groupware.member.service.MyPageUpdateService;
 
 @Controller
 public class MemberController {
 
 	// xml에서 property를 줬으니까 private
 	private ServiceInterface memberListService, memberViewService, memberUpdateService, memberUpdateProcessService,
-			memberWriteProcessService, memberDeleteProcessService, myPageViewService, loginProcessService;
+			memberWriteProcessService, memberDeleteProcessService, myPageViewService, loginProcessService,
+			myPageUpdateService, myPageUpdateProcessService;
 
 	// setters
 	public void setMemberListService(ServiceInterface memberListService) {
@@ -49,6 +51,14 @@ public class MemberController {
 
 	public void setLoginProcessService(ServiceInterface loginProcessService) {
 		this.loginProcessService = loginProcessService;
+	}
+
+	public void setMyPageUpdateService(ServiceInterface myPageUpdateService) {
+		this.myPageUpdateService = myPageUpdateService;
+	}
+
+	public void setMyPageUpdateProcessService(ServiceInterface myPageUpdateProcessService) {
+		this.myPageUpdateProcessService = myPageUpdateProcessService;
 	}
 
 	// 사원 리스트
@@ -109,11 +119,35 @@ public class MemberController {
 
 	// 내정보 보기
 	@RequestMapping("/mypage/view.do")
-	public String mview(int id, Model model) throws Exception {
+//	public String mview(int id, Model model) throws Exception {
+	public String mview(HttpSession session, Model model) throws Exception{
+		System.out.println(session);
 		System.out.println("MemberController.mview()");
+		int id=((Member)session.getAttribute("login")).getId();
+		System.out.println(id);
 		model.addAttribute("member", myPageViewService.service(id));
-		return "member/mView";
+		return "mypage/view";
 	}
+	
+	// 내정보 수정 폼
+	@RequestMapping(value="/mypage/update.do", method=RequestMethod.GET)
+	public String mupdate(HttpSession session, Model model) throws Exception{
+		System.out.println(session);
+		System.out.println("MemberController.mupdate():get");
+		int id=((Member)session.getAttribute("login")).getId();
+		System.out.println(id);
+		model.addAttribute("member", myPageUpdateService.service(id));
+		return "mypage/update";
+	}
+	
+	// 내정보 수정 처리
+	@RequestMapping(value="/mypage/update.do", method=RequestMethod.POST)
+	public String mupdate(Member member)throws Exception{
+		System.out.println("MemberController.mupdate():post");
+		memberUpdateProcessService.service(member);
+		return "redirect:mview.do?id="+member.getId();
+	}
+
 
 	// 로그인 폼: get
 	@RequestMapping(value = "/index.do", method = RequestMethod.GET)

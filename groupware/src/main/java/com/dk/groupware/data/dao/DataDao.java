@@ -35,9 +35,13 @@ public class DataDao {
 	public Object write(Data data) {
 		System.out.println("DataDao.write()");
 		sqlSessionTemplate.insert("dao.Data.write", data);
-		System.out.println(sqlSessionTemplate.insert("dao.Data.write", data));
+//		System.out.println(sqlSessionTemplate.insert("dao.Data.write", data));
 		return null;
 	}
+//	public Object write(Data data) {
+//		System.out.println("DataDao.write()");
+//		return sqlSessionTemplate.insert("dao.Data.write", data);
+//	}
 
 	// 글삭제
 	public Object delete(Object obj) {

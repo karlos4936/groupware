@@ -51,12 +51,17 @@
 
 
 	<!-- 내 정보 보기 -->
-	<select id="mview">
-		select id, name, pw, dep, position, manager, tel,
-		phone
+	<select id="mview" resultType="com.dk.groupware.member.model.Member">
+		select id, name, pw, dep, position, manager, tel, phone
 		from member m, memberPosition mp
 		where m.pno=mp.pno and id=#{id}
 	</select>
+	
+<!-- 	내정보 수정 -->
+	<update id="mupdate">
+		update member set tel=#{tel}, phone=#{phone} where id=#{id}
+	</update>
+
 
 	<!-- 로그인 -->
 	<select id="login" resultType="com.dk.groupware.member.model.Member">

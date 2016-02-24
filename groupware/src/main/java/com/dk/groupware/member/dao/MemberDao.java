@@ -56,12 +56,21 @@ public class MemberDao {
 		System.out.println("MemberDao.mview()");
 		return sqlSessionTemplate.selectOne("dao.Member.mview", obj);
 	}
+	
+	// 내정보 수정
+	public Object mupdate(Member member) {
+		System.out.println("MemberDao.mupdate()");
+		sqlSessionTemplate.update("dao.Member.mupdate", member);
+		return null;
+	}
 
 	// 로그인
 	public Object login(Member member) {
 		System.out.println("MemberDao.login()");
 		return sqlSessionTemplate.selectOne("dao.Member.login", member);
 	}
+
+	
 
 
 

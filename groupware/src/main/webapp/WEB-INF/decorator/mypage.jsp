@@ -25,7 +25,7 @@
 				<li><a href="/groupware/draft/proceed/list.do">전자결재</a></li>
 				<li><a href="/groupware/schedule/list.do">일정관리</a></li>
 				<li><a href="/groupware/notice/list.do">커뮤니티</a></li>
-				<li><a href="/groupware/message/list.do">마이페이지</a></li>
+				<li><a href="/groupware/mypage/view.do">마이페이지</a></li>
 				<li><a href="/groupware/member/list.do">사원관리</a></li>
 			</ul>
 		</div>

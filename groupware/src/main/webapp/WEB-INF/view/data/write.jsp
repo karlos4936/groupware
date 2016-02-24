@@ -11,8 +11,9 @@
 	<form action="write.do" method="post" enctype="multipart/form-data">
 		<label for="title">글제목</label><input type="text" name="title" id="title"/><br/>
 		<label for="content">글내용</label><textarea rows="7" cols="60" name="content" id="content"></textarea><br/>
-		<label for="writer">작성자</label><input type="text" name="writer" id="writer"/><br/>
+		<label for="writer">작성자</label><input value="${login.name }" readonly="readonly"/><br/>
 		<label for="file">첨부 파일</label><input type="file" name="file" id="file"/><br/>
+		<input type="hidden" id="writer" name="writer" value="${login.id }"/>
 		<button>작성</button>
 		<button type="button" onclick="history.back()">취소</button>
 	</form>

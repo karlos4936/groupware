@@ -14,7 +14,7 @@ public class MyPageViewService implements ServiceInterface {
 	public Object service(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("MyPageViewService.service()");
-		return null;
+		return memberDao.mview((Integer)obj);
+		
 	}
-
 }

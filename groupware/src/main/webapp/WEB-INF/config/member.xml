@@ -15,8 +15,10 @@
 	<property name="memberUpdateProcessService" ref="memberUpdateProcessService"/>	
 	<property name="memberWriteProcessService" ref="memberWriteProcessService"/>
 	<property name="memberDeleteProcessService" ref="memberDeleteProcessService"/>
-<!-- 	<property name="myPageViewService" ref="myPageViewService"/> -->
 	<property name="loginProcessService" ref="loginProcessService"/>
+	<property name="myPageViewService" ref="myPageViewService"/>
+	<property name="myPageUpdateService" ref="myPageUpdateService"/>
+	<property name="myPageUpdateProcessService" ref="myPageUpdateProcessService"/>
 </bean>
 
 <!-- 서비스 -->
@@ -38,10 +40,16 @@
 <bean id="memberDeleteProcessService" class="com.dk.groupware.member.service.MemberDeleteProcessService">
 	<property name="memberDao" ref="memberDao"/>
 </bean>
-<!-- <bean id="myPageViewService" class="com.dk.groupware.member.service.MyPageViewService"> -->
-<!-- 	<property name="memberDao" ref="memberDao"/> -->
-<!-- </bean> -->
+<bean id="myPageViewService" class="com.dk.groupware.member.service.MyPageViewService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
 <bean id="loginProcessService" class="com.dk.groupware.member.service.LoginProcessService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<bean id="myPageUpdateService" class="com.dk.groupware.member.service.MyPageUpdateService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<bean id="myPageUpdateProcessService" class="com.dk.groupware.member.service.MyPageUpdateProcessService">
 	<property name="memberDao" ref="memberDao"/>
 </bean>
 
