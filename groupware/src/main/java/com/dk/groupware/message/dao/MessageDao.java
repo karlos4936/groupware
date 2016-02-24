@@ -17,10 +17,10 @@ public class MessageDao {
 	// 쪽지 (보내기/받기/읽기/삭제) dao 
 	
 	// 받은쪽지 목록 가져오기 - list
-	public Object list(){
+	public Object list(Object obj){
 		System.out.println("MessageDao.list()");
 		// 값 확인
-		return sqlSessionTemplate.selectList("dao.Message.list");
+		return sqlSessionTemplate.selectList("dao.Message.list", obj);
 	}
 	// 쪽지 보내기 - write
 	public Object write(Message message){
@@ -49,12 +49,11 @@ public class MessageDao {
 	}
 	
 	// 보낸 쪽지 리스트
-	public Object sendList() {
+	public Object sendList(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("MessageDao.sendList()");
 		// 값 확인
-		System.out.println(sqlSessionTemplate.selectList("dao.Message.sendList"));
-		return sqlSessionTemplate.selectList("dao.Message.sendList");
+		return sqlSessionTemplate.selectList("dao.Message.sendList", obj);
 	}
 	// 보낸 쪽지 보기
 	public Object sendView(Object obj) {

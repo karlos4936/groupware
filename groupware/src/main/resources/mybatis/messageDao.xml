@@ -14,8 +14,7 @@
 		select no,title,to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate,
 		sender, receiver, to_char(rdate, 'yyyy-mm-dd AM hh:mi:ss') rdate
 		from message
-		where receiver=20160001
-<!-- 		where receiver=#{receiver} -->
+		where receiver=#{receiver}
 		order by no desc
 	</select>
 
@@ -30,8 +29,12 @@
 	<!-- 쪽지 보내기 : write -->
 	<insert id="write">
 		insert into message(no, title, content, sender,
-		receiver, file_name)
-		values(message_seq.nextval,#{title},#{content},#{sender},#{receiver},#{file_name})
+		receiver 
+		<if test="file_name!=null">file_name</if>
+		)
+		values(message_seq.nextval,#{title},#{content},#{sender},#{receiver}
+		<if test="file_name!=null">file_name=#{file_name}</if>
+		)
 	</insert>
 
 	<!-- 쪽지 보기 : view -->
@@ -70,8 +73,7 @@
 		select no, title, to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate, 
 		sender, receiver, to_char(rdate, 'yyyy-mm-dd AM HH:MI:SS') rdate
 		from message
-<!-- 		where sender =#{sender} -->
-		where sender=20160002
+		where sender =#{sender}
 		order by no desc
 	</select>
 	
