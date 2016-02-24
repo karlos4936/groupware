@@ -37,7 +37,7 @@ public class MainController {
 		System.out.println("MainController.list()");
 		Member member = (Member) session.getAttribute("login");
 		model.addAttribute("noticeList", noticeListService.service(null));
-		model.addAttribute("scheduleList", scheduleListService.service(null));
+		model.addAttribute("scheduleList", scheduleListService.service(member.getId()));
 		model.addAttribute("draftList", proceedListService.service(member.getId()));
 		model.addAttribute("messageList", messageListService.service(member.getId()));
 		return "main";
