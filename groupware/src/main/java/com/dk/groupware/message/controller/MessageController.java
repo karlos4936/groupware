@@ -74,9 +74,10 @@ public class MessageController {
 
 	// 쪽지 보기 : view
 	@RequestMapping("/message/view.do")
-	public String view(int no, Model model) throws Exception {
+	public String view(Message message, HttpSession session, Model model) throws Exception {
 		System.out.println("MessageController.view(no)");
-		model.addAttribute("message", messageViewService.service(no));
+		message.setSession(session);
+		model.addAttribute("message", messageViewService.service(message));
 		return "message/view";
 	}
 

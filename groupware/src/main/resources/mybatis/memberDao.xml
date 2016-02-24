@@ -65,7 +65,9 @@
 
 	<!-- 로그인 -->
 	<select id="login" resultType="com.dk.groupware.member.model.Member">
-		select id, name, pno from member
+		select id, name, pno,
+		(select count(*) from message where rdate is null and receiver=#{id}) msgCnt
+		from member
 		where id=#{id} and pw=#{pw}
 	</select>
 

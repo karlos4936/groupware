@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,9 +42,17 @@
 
 		</tr>
 		<tr>
-			<td colspan="2"><a href="update.do?no=${notice.no }"><button>글수정</button></a>
-				<a href="delete.do?no=${notice.no }"><button>글삭제</button></a> <a
-				href="list.do?no=${notice.no }"><button>공지사항 리스트</button></a></td>
+			<td colspan="2">
+<!-- 			본인만 글수정, 글삭제 가능 -->
+			<c:if test="${notice.writer eq login.id}">
+			<a href="update.do?no=${notice.no }"><button>글수정</button></a>
+				<a href="delete.do?no=${notice.no }"><button>글삭제</button></a> 
+			</c:if>
+<!-- 			관리자를 위한 글삭제 -->
+			<c:if test="${notice.writer eq login.id }">
+				<a href="delete.do?no=${notice.no }"><button>글삭제</button></a> 
+			</c:if>
+				<a href="list.do?no=${notice.no }"><button>공지사항 리스트</button></a></td>
 		</tr>
 	</table>
 </body>

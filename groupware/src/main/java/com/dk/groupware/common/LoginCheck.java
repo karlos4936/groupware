@@ -13,12 +13,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.ui.Model;
+
+import com.dk.groupware.member.model.Member;
+import com.dk.groupware.message.dao.MessageDao;
+
 /**
  * Servlet Filter implementation class LoginCheck
  */
 @WebFilter("/*")
 public class LoginCheck implements Filter {
-
+	
     /**
      * Default constructor. 
      */
@@ -40,6 +45,7 @@ public class LoginCheck implements Filter {
 		// TODO Auto-generated method stub
 		// place your code here
 
+		
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 		
@@ -47,11 +53,15 @@ public class LoginCheck implements Filter {
 		
 		String uri = request.getServletPath();
 		
+		Member member = (Member) session.getAttribute("login");
+		
 		if(!uri.equals("/index.do")) {
-			if(session.getAttribute("login") == null)
+			if(member == null)
 				response.sendRedirect("/groupware/index.do");
-			else
+			else {
 				chain.doFilter(req, res);
+				
+			}
 		}
 		else
 			chain.doFilter(req, res);

@@ -7,6 +7,7 @@ public class Member {
 	private int manager;
 	private int pno;
 	private String position;
+	private int msgCnt;
 	
 	public Member(){}
 
@@ -108,11 +109,19 @@ public class Member {
 		this.position = position;
 	}
 
-	// toString()
+	public int getMsgCnt() {
+		return msgCnt;
+	}
+
+	public void setMsgCnt(int msgCnt) {
+		this.msgCnt = msgCnt;
+	}
+
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", dep=" + dep + ", tel=" + tel + ", phone="
-				+ phone + ", manager=" + manager + ", pno=" + pno + ", position=" + position + "]";
+				+ phone + ", manager=" + manager + ", pno=" + pno + ", position=" + position + ", msgCnt=" + msgCnt
+				+ "]";
 	}
 
 }

@@ -9,6 +9,10 @@ public class MessageDao {
 	// sql의 데이터 소스 import
 	private SqlSessionTemplate sqlSessionTemplate;
 
+	public SqlSessionTemplate getSqlSessionTemplate() {
+		return sqlSessionTemplate;
+	}
+
 	// setter
 	public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
 		this.sqlSessionTemplate = sqlSessionTemplate;
@@ -50,30 +54,27 @@ public class MessageDao {
 	
 	// 보낸 쪽지 리스트
 	public Object sendList(Object obj) {
-		// TODO Auto-generated method stub
 		System.out.println("MessageDao.sendList()");
 		// 값 확인
 		return sqlSessionTemplate.selectList("dao.Message.sendList", obj);
 	}
+	
 	// 보낸 쪽지 보기
 	public Object sendView(Object obj) {
-		// TODO Auto-generated method stub
 		System.out.println("MessageDao.sendView()");
 		return sqlSessionTemplate.selectOne("dao.Message.sendView", obj);
 	}
+	
 	// 보낸 쪽지 삭제
 	public Object sendDelete(Object obj) {
-		// TODO Auto-generated method stub
 		System.out.println("MessageDao.delete()");
 		sqlSessionTemplate.delete("dao.Message.sendDelete", obj);
 		return null;
 	}
-	
-	// 보낸쪽지(받은쪽지) 갯수 
-//	public Integer totalCount(Integer int){
-//		System.out.println("MessageDao.totalCount()");
-//		sqlSessionTemplate.selectOne("dao.Message.totalCount", obj);
-//		return null;
-//	}
 
+	public Object count(Object obj) {
+		System.out.println("MessageDao.count()");
+		return sqlSessionTemplate.selectList("dao.Message.count", obj);
+	}
+	
 }

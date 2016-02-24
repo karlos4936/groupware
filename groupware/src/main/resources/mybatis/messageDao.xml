@@ -18,12 +18,10 @@
 		order by no desc
 	</select>
 
-	<!-- 글의 총 갯수 : if 및 반복문도 사용 가능 -->
-	<select id="totalCount" resultType="Integer">
-		select count(no) from message
-		<if test="searchWord!=null">
-			where #{searchKey} like '%#{searchWord}%'
-		</if>
+	<!-- 안읽은 쪽지 갯수 -->
+	<select id="count" resultType="Integer">
+		select count(*) from message
+		where rdate is null and receiver=#{id}
 	</select>
 
 	<!-- 쪽지 보내기 : write -->
@@ -54,9 +52,6 @@
 
 	<!-- 쪽지 읽음 : update -->
 	<update id="update">
-<!-- 		update message set rdate=#{rdate} where no=#{no} and rdate=#{rdate}; -->
-<!-- 				update notice set hit = hit +1 where no =#{no} -->
-<!-- ********************************수정중******************************** -->
 		update message set rdate=sysdate where no=#{no}
 	</update>
 

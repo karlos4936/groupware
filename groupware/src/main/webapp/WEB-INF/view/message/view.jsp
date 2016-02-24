@@ -51,6 +51,8 @@
 					<a href="delete.do?no=${message.no }"><button>삭제</button></a>
 				</c:if> <a href="list.do?no=${message.no }"><button>쪽지 리스트</button></a>
 
+				<c:if test="${message.file_name }"></c:if>
+
 			</td>
 		</tr>
 	</table>
