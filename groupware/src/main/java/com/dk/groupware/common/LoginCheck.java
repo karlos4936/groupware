@@ -44,7 +44,6 @@ public class LoginCheck implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-
 		
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
@@ -58,10 +57,8 @@ public class LoginCheck implements Filter {
 		if(!uri.equals("/index.do")) {
 			if(member == null)
 				response.sendRedirect("/groupware/index.do");
-			else {
+			else
 				chain.doFilter(req, res);
-				
-			}
 		}
 		else
 			chain.doFilter(req, res);
