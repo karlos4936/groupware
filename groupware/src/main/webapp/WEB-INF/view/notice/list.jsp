@@ -22,7 +22,7 @@
 		<tr>
 			<td>${notice.no }</td>
 			<td><a href="view.do?no=${notice.no }">${notice.title }</a></td>
-			<td>${notice.writer }</td>
+			<td>${notice.name }</td>
 			<td>${notice.wdate }</td>
 			<td>${notice.hit }</td>
 		</tr>

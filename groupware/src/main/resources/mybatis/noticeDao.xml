@@ -8,8 +8,10 @@
 
 	<!-- 공지사항 리스트 : list -->
 	<select id="list" resultType="com.dk.groupware.notice.model.Notice">
-		select no, title, writer,
-		to_char(wdate, 'yyyy-mm-dd') wdate, hit from notice
+		select no, title, writer, name,
+		to_char(wdate, 'yyyy-mm-dd') wdate, hit 
+		from notice n, member m
+		where n.writer=m.id
 		order by no desc
 	</select>
 
@@ -27,9 +29,10 @@
 
 	<!-- 공지사항 보기 : view -->
 	<select id="view" resultType="com.dk.groupware.notice.model.Notice">
-		select no, title, content, writer,
-		to_char(wdate, 'yyyy-mm-dd') wdate, hit, file_name from notice
-		where no=#{no}
+		select no, title, content, writer, name,
+		to_char(wdate, 'yyyy-mm-dd') wdate, hit, file_name 
+		from notice n, member m
+		where no=#{no} and n.writer=m.id
 	</select>
 
  	<!-- 	조회수 증가 --> 

@@ -14,7 +14,7 @@
 			<th>글번호</th>
 			<th>제목</th>
 			<th>보낸사람</th>
-			<th>받은사람</th>
+<!-- 			<th>받은사람</th> -->
 			<th>보낸시간</th>			
 			<th>확인시간</th>
 		</tr>
@@ -24,7 +24,9 @@
 			<td>${message.no }</td>
 			<td><a href="view.do?no=${message.no }">${message.title }</a></td>
 			<td>${message.sender }</td>
-			<td>${message.receiver }</td>
+<!-- 			받은사람(본인) 숨김 -->
+			<input type="hidden" value="${message.receiver }">
+			
 			<td>${message.sdate }</td>
 			
 			<td>

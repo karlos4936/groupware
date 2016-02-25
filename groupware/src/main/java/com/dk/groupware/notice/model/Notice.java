@@ -3,12 +3,16 @@ package com.dk.groupware.notice.model;
 public class Notice {
 	/*
 	 * 글번호,제목,내용,작성자,작성일,조회수,이미지
+	 * name은 join을 위함
 	 */
 	
 	private int no;
 	private String title, content, writer, wdate;
 	private int hit;
-	private String file_name;
+	private String file_name, name;
+	
+	
+
 	public int getNo() {
 		return no;
 	}
@@ -51,12 +55,18 @@ public class Notice {
 	public void setFile_name(String file_name) {
 		this.file_name = file_name;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	@Override
 	public String toString() {
 		return "Notice [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer + ", wdate="
-				+ wdate + ", hit=" + hit + ", file_name=" + file_name + "]";
+				+ wdate + ", hit=" + hit + ", file_name=" + file_name + ", name=" + name + "]";
 	}
-	
+
 	
 
 

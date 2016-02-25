@@ -12,9 +12,10 @@
 <form action="write.do" method="post" enctype="multipart/form-data">
 	<label for="title">제목</label><input type="text" name="title" id="title" /><br/>
 	<label for="content">내용</label><textarea rows="7" cols="60" name="content" id="content" ></textarea><br/>
-	<label for="sender">보낸사람</label><input type="text" name="sender" id="sender" value="${login.id }"/><br/>
+	<label for="sender">보낸사람</label><input type="text" value="${login.id }"/><br/>
 	<label for="receiver">받는사람</label><input type="text" name="receiver" id="receiver" /><br/>
 	<label for="file_name">파일첨부</label><input type="file" name="file1"><br/>
+		<input type="hidden" name="sender" id="sender" value="${login.id }">
 	
 <button type="submit">전송</button>
 <!-- 클릭만 되고 submit이 일어나지 않게 type을 button으로 지정한다. -->

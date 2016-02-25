@@ -24,7 +24,7 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td>${notice.writer }</td>
+			<td>${notice.name }</td>
 		</tr>
 		<tr>
 			<th>작성일</th>
@@ -34,13 +34,15 @@
 			<th>조회수</th>
 			<td>${notice.hit }</td>
 		</tr>
+<!-- 		첨부파일 없을 경우 숨김 -->
+		<c:if test="${notice.file_name ne null }">
 		<tr>
 			<th>업로드 파일</th>
 			<!-- 		target을 _blank로 지정해주면 새 창으로 뜬다. -->
 			<td><a href="../upload/notice/${notice.file_name}"
 				target="_blank">${notice.file_name}</a></td>
-
 		</tr>
+		</c:if>
 		<tr>
 			<td colspan="2">
 <!-- 			본인만 글수정, 글삭제 가능 -->

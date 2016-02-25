@@ -10,7 +10,7 @@ public class Message {
 	private int no;
 	private String title, content, sdate;
 	private String rdate, file_name;
-	private int sender, receiver;
+	private int sender, receiver, name;
 	private HttpSession session;
 
 	public int getNo() {
@@ -85,11 +85,21 @@ public class Message {
 		this.session = session;
 	}
 
+	public int getName() {
+		return name;
+	}
+
+	public void setName(int name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
 		return "Message [no=" + no + ", title=" + title + ", content=" + content + ", sdate=" + sdate + ", rdate="
-				+ rdate + ", file_name=" + file_name + ", sender=" + sender + ", receiver=" + receiver + ", session="
-				+ session + "]";
+				+ rdate + ", file_name=" + file_name + ", sender=" + sender + ", receiver=" + receiver + ", name="
+				+ name + ", session=" + session + "]";
 	}
+
+
 
 }

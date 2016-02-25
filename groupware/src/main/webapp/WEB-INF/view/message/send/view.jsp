@@ -22,11 +22,14 @@
 		<tr>
 		<th>받은사람</th><td>${message.receiver}</td>
 	</tr>
+<!-- 	첨부파일이 없을 경우 숨김 -->
+	<c:if test="${message.file_name ne null }">
 	<tr>
 		<th>첨부 파일</th>
 		<td><a href="../upload/message/${message.file_name }"
 			target="_blank">${message.file_name }
 		</a></td>
+	</c:if>
 		<tr>
 		<th>보낸시간</th><td>${message.sdate}</td>
 	</tr>
