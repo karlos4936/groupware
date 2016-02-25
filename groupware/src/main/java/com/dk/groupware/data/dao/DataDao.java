@@ -14,7 +14,7 @@ public class DataDao {
 
 	// 글리스트
 	public Object list() {
-		System.out.println("DataDao.list()");
+//		System.out.println("DataDao.list()");
 		return sqlSessionTemplate.selectList("dao.Data.list");
 	}
 
@@ -38,10 +38,12 @@ public class DataDao {
 //		System.out.println(sqlSessionTemplate.insert("dao.Data.write", data));
 		return null;
 	}
-//	public Object write(Data data) {
-//		System.out.println("DataDao.write()");
-//		return sqlSessionTemplate.insert("dao.Data.write", data);
-//	}
+	
+	// increase (조회수 증가)
+	public Object increase(Object obj){
+		System.out.println("DataDao.increase()");
+		return sqlSessionTemplate.update("dao.Data.increase", obj);
+	}
 
 	// 글삭제
 	public Object delete(Object obj) {

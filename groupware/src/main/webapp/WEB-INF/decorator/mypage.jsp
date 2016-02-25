@@ -26,7 +26,10 @@
 				<li><a href="/groupware/schedule/list.do">일정관리</a></li>
 				<li><a href="/groupware/notice/list.do">커뮤니티</a></li>
 				<li><a href="/groupware/mypage/view.do">마이페이지</a></li>
+				<c:if test="${login.pno==9 }">
 				<li><a href="/groupware/member/list.do">사원관리</a></li>
+				</c:if>
+				
 			</ul>
 		</div>
 		<div id="status">

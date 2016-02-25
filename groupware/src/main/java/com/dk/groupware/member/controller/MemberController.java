@@ -18,11 +18,20 @@ public class MemberController {
 	// xml에서 property를 줬으니까 private
 	private ServiceInterface memberListService, memberViewService, memberUpdateService, memberUpdateProcessService,
 			memberWriteProcessService, memberDeleteProcessService, myPageViewService, loginProcessService,
-			myPageUpdateService, myPageUpdateProcessService;
+			myPageUpdateService, myPageUpdateProcessService, myPwChangeService, myPwChangeProcessService;
 
 	// setters
+	
 	public void setMemberListService(ServiceInterface memberListService) {
 		this.memberListService = memberListService;
+	}
+
+	public void setMyPwChangeService(ServiceInterface myPwChangeService) {
+		this.myPwChangeService = myPwChangeService;
+	}
+
+	public void setMyPwChangeProcessService(ServiceInterface myPwChangeProcessService) {
+		this.myPwChangeProcessService = myPwChangeProcessService;
 	}
 
 	public void setMemberViewService(ServiceInterface memberViewService) {
@@ -119,7 +128,6 @@ public class MemberController {
 
 	// 내정보 보기
 	@RequestMapping("/mypage/view.do")
-//	public String mview(int id, Model model) throws Exception {
 	public String mview(HttpSession session, Model model) throws Exception{
 		System.out.println(session);
 		System.out.println("MemberController.mview()");
@@ -144,10 +152,35 @@ public class MemberController {
 	@RequestMapping(value="/mypage/update.do", method=RequestMethod.POST)
 	public String mupdate(Member member)throws Exception{
 		System.out.println("MemberController.mupdate():post");
-		memberUpdateProcessService.service(member);
-		return "redirect:mview.do?id="+member.getId();
+		System.out.println(member);
+		myPageUpdateProcessService.service(member);
+		
+		return "redirect:view.do?id="+member.getId();
+	}
+	
+	// 내 비밀번호 수정 폼: GET
+	@RequestMapping(value="/mypage/pwupdate.do", method=RequestMethod.GET)
+	public String pwUpdate(){
+		return "mypage/pwupdate";
 	}
 
+	// 내 비밀번호 수정 처리: POST
+	@RequestMapping(value="/mypage/pwupdate.do", method=RequestMethod.POST)
+	public String pwUpdate(Member member, HttpSession session, @RequestParam(value="pw", required=false) String pw, 
+			@RequestParam(value="newPw", required=false)String newPw, Model model)throws Exception{
+		System.out.println("MemberController.pwUpdate():post");
+	
+		member.setPw(pw);
+		int id=((Member)session.getAttribute("login")).getId();
+		if (member != null){
+			member.setPw(newPw);
+			myPwChangeProcessService.service(id);
+			session.setAttribute("login", null);
+			return "redirect:../index.do";
+		} else
+			return "mypage/pwupdate";
+	}
+		
 
 	// 로그인 폼: get
 	@RequestMapping(value = "/index.do", method = RequestMethod.GET)

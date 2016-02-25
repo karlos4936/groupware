@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class Data {
 
 	private int no;
-	private String title, content, writer, wdate;
+	private String title, content, writer, name, wdate;
 	private int hit;
 	private String fileName;
 	private MultipartFile file;
@@ -27,6 +27,14 @@ public class Data {
 		this.content = content;
 	}
 	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public int getNo() {
 		return no;
@@ -95,8 +103,9 @@ public class Data {
 
 	@Override
 	public String toString() {
-		return "Data [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer + ", wdate="
-				+ wdate + ", hit=" + hit + "]";
+		return "Data [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer + ", name=" + name
+				+ ", wdate=" + wdate + ", hit=" + hit + ", fileName=" + fileName + ", file=" + file + "]";
 	}
+
 
 }

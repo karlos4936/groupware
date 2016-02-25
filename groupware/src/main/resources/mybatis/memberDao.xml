@@ -17,7 +17,7 @@
 
 	<!-- 사원 정보 보기 -->
 	<select id="view" resultType="com.dk.groupware.member.model.Member">
-		select id, name, dep, position,
+		select id, name, dep, position, m.pno,
 		manager, tel, phone
 		from member m, memberPosition mp
 		where m.pno=mp.pno
@@ -25,13 +25,16 @@
 	</select>
 
 	<!-- 사원 정보 수정 -->
+<!-- 	<update id="update"> -->
+<!-- 		update member set -->
+<!-- 		name=#{name}, dep=#{dep}, pno=#{pno}, -->
+<!-- 		manager=#{manager}, tel=#{tel}, phone=#{phone} -->
+<!-- 		where id=#{id} -->
+<!-- 	</update> -->
+
 	<update id="update">
-		<!-- update member,memberPosition set -->
-		<!-- name=#{name}, dep=#{dep}, position=#{position}, -->
-		<!-- manager=#{manager}, tel=#{tel}, phone=#{phone} -->
-		<!-- where id=#{id} -->
 		update member set
-		name=#{name}, dep=#{dep}, pno=#{pno},
+		name=#{name}, pw=#{pw}, dep=#{dep}, pno=#{pno},
 		manager=#{manager}, tel=#{tel}, phone=#{phone}
 		where id=#{id}
 	</update>
@@ -59,9 +62,13 @@
 	
 <!-- 	내정보 수정 -->
 	<update id="mupdate">
-		update member set tel=#{tel}, phone=#{phone} where id=#{id}
+		update member set tel=#{tel}, phone=#{phone}, pw=#{newPw} where id=#{id}
 	</update>
-
+	
+<!-- 	내 비밀번호 수정 -->
+	<update id="pwUpdate">
+		update member set pw=#{pw} where id=#{id}
+	</update>
 
 	<!-- 로그인 -->
 	<select id="login" resultType="com.dk.groupware.member.model.Member">

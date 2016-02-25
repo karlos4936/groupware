@@ -13,8 +13,9 @@ public class DataViewService implements ServiceInterface {
 
 	@Override
 	public Object service(Object obj) {
-		// TODO Auto-generated method stub
 		System.out.println("DataViewService.service()");
+		// 조회수 증가
+		dataDao.increase(obj);
 		return dataDao.view(obj);
 	}
 

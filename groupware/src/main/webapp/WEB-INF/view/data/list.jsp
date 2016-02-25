@@ -24,7 +24,7 @@
 		<tr>
 			<td>${data.no }</td>
 			<td><a href="view.do?no=${data.no}">${data. title}</a></td>
-			<td>${data.writer }</td>
+			<td>${data.name }</td>
 			<td>${data.wdate }</td>
 			<td>${data.hit }</td>
 		</tr>

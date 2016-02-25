@@ -19,6 +19,8 @@
 	<property name="myPageViewService" ref="myPageViewService"/>
 	<property name="myPageUpdateService" ref="myPageUpdateService"/>
 	<property name="myPageUpdateProcessService" ref="myPageUpdateProcessService"/>
+<!-- 	<property name="myPwChangeService" ref="myPwChangeService"/> -->
+	<property name="myPwChangeProcessService" ref="myPwChangeProcessService"/>
 </bean>
 
 <!-- 서비스 -->
@@ -50,6 +52,12 @@
 	<property name="memberDao" ref="memberDao"/>
 </bean>
 <bean id="myPageUpdateProcessService" class="com.dk.groupware.member.service.MyPageUpdateProcessService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<!-- <bean id="myPwChangeService" class="com.dk.groupware.member.service.MyPwChangeService"> -->
+<!-- 	<property name="memberDao" ref="memberDao"/> -->
+<!-- </bean> -->
+<bean id="myPwChangeProcessService" class="com.dk.groupware.member.service.MyPwChangeProcessService">
 	<property name="memberDao" ref="memberDao"/>
 </bean>
 

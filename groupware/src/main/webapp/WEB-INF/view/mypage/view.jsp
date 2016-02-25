@@ -39,7 +39,8 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-<%-- 			<a href="update.do?id=${member.id }"><button>사원정보 변경</button></a> --%>
+<%-- 			<a href="update.do?id=${member.id }"><button>비밀번호 변경</button></a> --%>
+				<a href="pwupdate.do?id=${member.id }"><button>비밀번호 변경</button></a>
 			<td>
 		</tr>
 	</table>

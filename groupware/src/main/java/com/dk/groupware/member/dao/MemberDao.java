@@ -63,15 +63,19 @@ public class MemberDao {
 		sqlSessionTemplate.update("dao.Member.mupdate", member);
 		return null;
 	}
+	
+	// 내 비밀번호 수정
+	public Object pwUpdate(Member member) {
+		System.out.println("MemberDao.pwUpdate");
+		sqlSessionTemplate.update("dao.Member.pwUpdate", member);
+		return null;
+	}
 
 	// 로그인
 	public Object login(Member member) {
 		System.out.println("MemberDao.login()");
 		return sqlSessionTemplate.selectOne("dao.Member.login", member);
 	}
-
-	
-
 
 
 }

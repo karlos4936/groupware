@@ -3,7 +3,7 @@ package com.dk.groupware.member.model;
 public class Member {
 	
 	private int id;
-	private String pw, name, dep, tel, phone;
+	private String pw, name, dep, tel, phone, newPw;
 	private int manager;
 	private int pno;
 	private String position;
@@ -29,15 +29,21 @@ public class Member {
 		this.manager=manager;
 	}
 	
-	
-	// memberPosition 테이블 생성자 (조인 위해)
-	public Member(int pno, String position){
-		this.pno=pno;
-		this.position=position;
-	}
-	
+//	// memberPosition 테이블 생성자 (조인 위해)
+//	public Member(int pno, String position){
+//		this.pno=pno;
+//		this.position=position;
+//	}
 	
 	// getters and setters
+	public String getNewPw() {
+		return newPw;
+	}
+
+	public void setNewPw(String newPw) {
+		this.newPw = newPw;
+	}
+
 	public int getId() {
 		return id;
 	}

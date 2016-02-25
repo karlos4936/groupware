@@ -69,56 +69,59 @@ public class DataController {
 		System.out.println("DataController.write():get");
 		return "data/write";
 	}
-	
-	 // 글쓰기 처리 - POST
-//		 @RequestMapping(value = "/data/write.do", method = RequestMethod.POST)
-//		 public String write(Data data) throws Exception {
-//		 System.out.println("roomController.write-post()");
-//		 dataWriteProcessService.service(data);
-//		 return "redirect:list.do";
-//		 }
+
+	// 글쓰기 처리 - POST
+	// @RequestMapping(value = "/data/write.do", method = RequestMethod.POST)
+	// public String write(Data data) throws Exception {
+	// System.out.println("roomController.write-post()");
+	// dataWriteProcessService.service(data);
+	// return "redirect:list.do";
+	// }
 
 	// 파일 첨부가 된 글쓰기 완료 후의 처리 - post
-//	@RequestMapping(value = "/data/write.do", method = RequestMethod.POST)
-//	public String write(@RequestParam("file") MultipartFile multipartFile, 
-//			@RequestParam("title") Data data, Model model, HttpServletRequest request) throws IOException{
-//		System.out.println("DataController.write():post");
-//		// 서버에 올라갈 실제 폴더 찾기
-//		String realPath = request.getServletContext().getRealPath("/upload/data");
-//		
-//		if(!multipartFile.isEmpty()){
-//			String fileName=multipartFile.getOriginalFilename();
-//			File file = new File(realPath, fileName);
-//			multipartFile.transferTo(file);
-//			model.addAttribute("imgFile", fileName);
-//			//
-//			dataWriteProcessService.service(data);
-//			return "data/view";
-//		}
-//		System.out.println(realPath);
-//		return "data/noUploaded";
-//	}
-	
+	// @RequestMapping(value = "/data/write.do", method = RequestMethod.POST)
+	// public String write(@RequestParam("file") MultipartFile multipartFile,
+	// @RequestParam("title") Data data, Model model, HttpServletRequest
+	// request) throws IOException{
+	// System.out.println("DataController.write():post");
+	// // 서버에 올라갈 실제 폴더 찾기
+	// String realPath =
+	// request.getServletContext().getRealPath("/upload/data");
+	//
+	// if(!multipartFile.isEmpty()){
+	// String fileName=multipartFile.getOriginalFilename();
+	// File file = new File(realPath, fileName);
+	// multipartFile.transferTo(file);
+	// model.addAttribute("imgFile", fileName);
+	// //
+	// dataWriteProcessService.service(data);
+	// return "data/view";
+	// }
+	// System.out.println(realPath);
+	// return "data/noUploaded";
+	// }
+
 	// 파일 첨부가된 게시판 글쓰기 완료 후 처리
-		@RequestMapping(value = "/data/write.do", method = RequestMethod.POST)
-		public String write(Data data, Model model,
-				HttpServletRequest request) throws Exception {
-			System.out.println("DataController.write():post");
+	@RequestMapping(value = "/data/write.do", method = RequestMethod.POST)
+	public String write(Data data, Model model, HttpServletRequest request) throws Exception {
+		System.out.println("DataController.write():post");
 
-			// 서버에 올라갈 실제 폴더 찾기
-			String realPath = request.getServletContext().getRealPath("upload/data");
-			System.out.println(realPath);
-			if (!data.getFile().isEmpty()) {
-				String fileName = data.getFile().getOriginalFilename();
-				File file = DuplicateFile.getFile(realPath, data.getFile());
-				data.getFile().transferTo(file); // 파일 이동
-				data.setFileName(file.getName());
-				dataWriteProcessService.service(data);
+		// 서버에 올라갈 실제 폴더 찾기
+		String realPath = request.getServletContext().getRealPath("upload/data");
+		System.out.println(realPath);
+		if (!data.getFile().isEmpty()) {
+			String fileName = data.getFile().getOriginalFilename();
+			File file = DuplicateFile.getFile(realPath, data.getFile());
+			data.getFile().transferTo(file); // 파일 이동
+			data.setFileName(file.getName());
+//			dataWriteProcessService.service(data);
 
-				return "redirect:list.do";
-			}
+//			return "redirect:list.do";
+		} 
+			dataWriteProcessService.service(data);
 			return "redirect:list.do";
-		}
+		
+	}
 
 	// 글수정 폼
 	@RequestMapping(value = "/data/update.do", method = RequestMethod.GET)
