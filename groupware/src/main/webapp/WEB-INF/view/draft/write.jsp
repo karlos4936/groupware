@@ -15,10 +15,10 @@ function openNewWindow(url) {
 
 function getReturnValue(returnValue) {
 	alert(returnValue);
-	if(returnValue != null) {
-		$("#signerName2").value(returnValue.name);
-		$("#signer2").value(returnValue.id);
-	}
+// 	alert(returnValue.name);
+// 	alert(returnValue.id);
+	$("#signerName2").val(returnValue.name);
+	$("#signer2").val(returnValue.id);
 }
 
 $("#signer2").focus(function() {

@@ -14,7 +14,8 @@ $(document).ready(function() {
 			id: $(this).find("#id").text(),
 			name: $(this).find("#name").text(),
 		};
-		window.opener.getReturnValue(JSON.stringify(returnValue));
+// 		window.opener.getReturnValue(JSON.stringify(returnValue));
+		window.opener.getReturnValue(returnValue);
 		window.close();
 	});
 });

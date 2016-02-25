@@ -2,8 +2,10 @@ package com.dk.groupware.message.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -22,7 +24,7 @@ import com.dk.groupware.message.model.Message;
 public class MessageController {
 	private ServiceInterface messageListService, messageViewService, messageWriteProcessService, messageUpdateService,
 			messageUpdateProcessService, messageDeleteProcessService, messageSendListService, messageSendViewService,
-			messageSendDeleteProcessService;
+			messageSendDeleteProcessService, messageCountService;
 
 	// setter
 	public void setMessageListService(ServiceInterface messageListService) {
@@ -59,6 +61,10 @@ public class MessageController {
 
 	public void setMessageSendDeleteProcessService(ServiceInterface messageSendDeleteProcessService) {
 		this.messageSendDeleteProcessService = messageSendDeleteProcessService;
+	}
+
+	public void setMessageCountService(ServiceInterface messageCountService) {
+		this.messageCountService = messageCountService;
 	}
 
 	// 페이지 처리 쪽지 리스트
@@ -148,6 +154,19 @@ public class MessageController {
 		System.out.println("MessageController.sendDelete(no)");
 		messageSendDeleteProcessService.service(no);
 		return "redirect:list.do";
+	}
+	
+	// 안읽은 쪽지 카운트
+	@RequestMapping("/message/count.do")
+	public void count(HttpSession session, HttpServletResponse response, Model model) throws Exception {
+		System.out.println("MessageController.count()");
+		Member member = (Member) session.getAttribute("login");
+		PrintWriter out = response.getWriter();
+		
+		int count = (Integer) messageCountService.service(member.getId());
+		
+		if(count != 0)
+			out.print("(" + count + ")");
 	}
 
 }
