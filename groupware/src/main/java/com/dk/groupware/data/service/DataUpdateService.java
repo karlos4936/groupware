@@ -2,6 +2,7 @@ package com.dk.groupware.data.service;
 
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.data.dao.DataDao;
+import com.dk.groupware.data.model.Data;
 
 public class DataUpdateService implements ServiceInterface{
 	
