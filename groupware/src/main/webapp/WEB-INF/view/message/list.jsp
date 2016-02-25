@@ -23,10 +23,9 @@
 		<tr>
 			<td>${message.no }</td>
 			<td><a href="view.do?no=${message.no }">${message.title }</a></td>
-			<td>${message.sender }</td>
+			<td>${message.name }</td>
 <!-- 			받은사람(본인) 숨김 -->
-			<input type="hidden" value="${message.receiver }">
-			
+<%-- 			<input type="hidden" value="${message.receiver }"> --%>
 			<td>${message.sdate }</td>
 			
 			<td>

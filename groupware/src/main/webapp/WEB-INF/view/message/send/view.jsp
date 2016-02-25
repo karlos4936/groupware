@@ -20,7 +20,7 @@
 		<th>내용</th><td>${message.content }</td>
 	</tr>
 		<tr>
-		<th>받은사람</th><td>${message.receiver}</td>
+		<th>받은사람</th><td>${message.name}</td>
 	</tr>
 <!-- 	첨부파일이 없을 경우 숨김 -->
 	<c:if test="${message.fileName ne null }">

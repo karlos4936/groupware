@@ -24,7 +24,7 @@
 		</tr>
 		<tr>
 			<th>보낸사람</th>
-			<td>${message.sender}</td>
+			<td>${message.name}</td>
 		</tr>
 <!-- 		<tr> -->
 <!-- 			<th>받은사람</th> -->
