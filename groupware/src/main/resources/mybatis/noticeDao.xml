@@ -18,11 +18,11 @@
 	<!-- 공지사항 작성 : write -->
 	<insert id="write">
 		insert into notice(no, title, content, writer 
-		<if test="fileName!=null">fileName</if>
+		<if test="fileName!=null">,fileName</if>
 <!-- 		fileName -->
 		)
 		values(notice_seq.nextval,#{title},#{content},#{writer}
-		<if test="fileName!=null">fileName=#{fileName}</if>
+		<if test="fileName!=null">,#{fileName}</if>
 <!-- 		#{fileName} -->
 		)
 	</insert>
