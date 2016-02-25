@@ -15,10 +15,14 @@ function openNewWindow(url) {
 
 function getReturnValue(returnValue) {
 	alert(returnValue);
+	if(returnValue != null) {
+		$("#signerName2").value(returnValue.name);
+		$("#signer2").value(returnValue.id);
+	}
 }
 
-$('#openNewWindowButton').click(function() {
-	openNewWindow('/popUpUrl');
+$("#signer2").focus(function() {
+	openNewWindow('../member/selectSigner.do');
 });
 
 </script>
@@ -29,13 +33,19 @@ $('#openNewWindowButton').click(function() {
 		<label for="title">글제목</label><input id="title" name="title"><br>	
 		<label for="content">글내용</label><textarea id="content" name="content" rows="7" cols="60"></textarea><br>
 		<label for="drafter">작성자</label><input id="drafter" value="${login.name }" readonly="readonly"><br>
+		
 		<label for="signer1">결재자1</label><input id="signer1" value="${login.name }" readonly="readonly"><br>
-		<label for="signer2">결재자2</label><input id="signer2" name="signer2">
+		
+		<label for="signer2">결재자2</label><input id="signerName2">
 		<button type="button" onclick="javascript:openNewWindow('../member/selectSigner.do')">결재자 선택</button><br>
 		
-		<label for="signer3">결재자3</label><input id="signer3" name="signer3">
+		<label for="signer3">결재자3</label><input id="signerName3">
 		<button type="button" onclick="javascript:openNewWindow('../member/selectSigner.do')">결재자 선택</button><br>
+		
 		<input type="hidden" name="drafter" value="${login.id }">
+		<input type="hidden" id="signer2" name="signer2">
+		<input type="hidden" id="signer3" name="signer3">
+		
 		<button>작성</button>
 		<button type="button" onclick="history.back()">취소</button>
 	</form>
