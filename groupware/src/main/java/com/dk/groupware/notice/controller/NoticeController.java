@@ -81,13 +81,13 @@ public class NoticeController {
 		System.out.println(realPath);
 		// 비어있지 않으면
 		if(!file1.isEmpty()){
-			String file_name = file1.getOriginalFilename();
+			String fileName = file1.getOriginalFilename();
 			// 중복되지 않는 파일을 받아올 수 있다.
 			File file = DuplicateFile.getFile(realPath, file1);
 			file1.transferTo(file);// 파일 이동
 //			model.addAttribute("", attributeValue)
 			// 이름만 지정해주면 DB에 저장가능
-			notice.setFile_name(file.getName());
+			notice.setFileName(file.getName());
 		}
 		// 출력해보자
 		System.out.println(realPath);

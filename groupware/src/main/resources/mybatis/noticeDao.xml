@@ -18,19 +18,19 @@
 	<!-- 공지사항 작성 : write -->
 	<insert id="write">
 		insert into notice(no, title, content, writer 
-		<if test="file_name!=null">file_name</if>
-<!-- 		file_name -->
+		<if test="fileName!=null">fileName</if>
+<!-- 		fileName -->
 		)
 		values(notice_seq.nextval,#{title},#{content},#{writer}
-		<if test="file_name!=null">file_name=#{file_name}</if>
-<!-- 		#{file_name} -->
+		<if test="fileName!=null">fileName=#{fileName}</if>
+<!-- 		#{fileName} -->
 		)
 	</insert>
 
 	<!-- 공지사항 보기 : view -->
 	<select id="view" resultType="com.dk.groupware.notice.model.Notice">
 		select no, title, content, writer, name,
-		to_char(wdate, 'yyyy-mm-dd') wdate, hit, file_name 
+		to_char(wdate, 'yyyy-mm-dd') wdate, hit, fileName 
 		from notice n, member m
 		where no=#{no} and n.writer=m.id
 	</select>
@@ -45,8 +45,8 @@
 	<update id="update">
 		update notice set title=#{title},content=#{content},
 		writer=#{writer}
-		<if test="file_name!=null">file_name=#{file_name}</if>
-<!-- 		file_name=#{file_name}  -->
+		<if test="fileName!=null">fileName=#{fileName}</if>
+<!-- 		fileName=#{fileName}  -->
 		where no=#{no}
 	</update>
 

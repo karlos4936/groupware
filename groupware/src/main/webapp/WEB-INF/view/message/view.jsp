@@ -33,12 +33,12 @@
 <!-- 		</tr> -->
 
 <!-- 		첨부파일이 없을 경우 숨김 -->
-		<c:if test="${message.file_name ne null}">
+		<c:if test="${message.fileName ne null}">
 		<tr>
 			<th>첨부 파일</th>
 			<!-- 		target을 _blank로 지정해주면 새 창으로 뜬다. -->
-			<td><a href="../upload/message/${message.file_name }"
-				target="_blank">${message.file_name }</a>
+			<td><a href="../upload/message/${message.fileName }"
+				target="_blank">${message.fileName }</a>
 		</tr>
 		</c:if>
 		<tr>
@@ -56,7 +56,7 @@
 					<a href="delete.do?no=${message.no }"><button>삭제</button></a>
 				</c:if> <a href="list.do?no=${message.no }"><button>쪽지 리스트</button></a>
 
-				<c:if test="${message.file_name }"></c:if>
+				<c:if test="${message.fileName }"></c:if>
 
 			</td>
 		</tr>

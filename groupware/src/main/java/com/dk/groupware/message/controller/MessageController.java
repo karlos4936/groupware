@@ -99,12 +99,12 @@ public class MessageController {
 		String realPath = request.getServletContext().getRealPath("/upload/message");
 		// 비어있지 않으면
 		if (!file1.isEmpty()) {
-			String file_name = file1.getOriginalFilename();
+			String fileName = file1.getOriginalFilename();
 			// 중복되지 않는 파일을 받아올 수 있다.
 			File file = DuplicateFile.getFile(realPath, file1);
 			file1.transferTo(file);
 			// 이름만 지정해두면 DB에 저장할 수 있다.
-			message.setFile_name(file.getName());
+			message.setFileName(file.getName());
 		}
 		// 출력해보자
 		System.out.println(realPath);

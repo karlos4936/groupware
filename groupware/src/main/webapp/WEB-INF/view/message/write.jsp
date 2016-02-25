@@ -14,7 +14,7 @@
 	<label for="content">내용</label><textarea rows="7" cols="60" name="content" id="content" ></textarea><br/>
 	<label for="sender">보낸사람</label><input type="text" value="${login.id }"/><br/>
 	<label for="receiver">받는사람</label><input type="text" name="receiver" id="receiver" /><br/>
-	<label for="file_name">파일첨부</label><input type="file" name="file1"><br/>
+	<label for="fileName">파일첨부</label><input type="file" name="file1"><br/>
 		<input type="hidden" name="sender" id="sender" value="${login.id }">
 	
 <button type="submit">전송</button>

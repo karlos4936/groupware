@@ -13,7 +13,7 @@
 	<label for="title">글제목</label><input type="text" name="title" id="title" value="${notice.title }"/><br/>
 	<label for="content">글내용</label><textarea rows="7" cols="60" name="content">${notice.content }</textarea>
 	<label for="writer">작성자</label><input type="text" name="writer" id="writer" value="${notice.writer }" readonly="readonly"/><br/>
-	<label for="file_name">파일첨부</label><input type="file" name="file1"><br/>
+	<label for="fileName">파일첨부</label><input type="file" name="file1"><br/>
 	<button type="submit">수정</button>
 	
 	<button type="button" onclick="history.back()">취소</button>

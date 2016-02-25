@@ -9,10 +9,7 @@ public class Notice {
 	private int no;
 	private String title, content, writer, wdate;
 	private int hit;
-	private String file_name, name;
-	
-	
-
+	private String fileName, name;
 	public int getNo() {
 		return no;
 	}
@@ -49,11 +46,11 @@ public class Notice {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public String getFile_name() {
-		return file_name;
+	public String getFileName() {
+		return fileName;
 	}
-	public void setFile_name(String file_name) {
-		this.file_name = file_name;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	public String getName() {
 		return name;
@@ -64,8 +61,11 @@ public class Notice {
 	@Override
 	public String toString() {
 		return "Notice [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer + ", wdate="
-				+ wdate + ", hit=" + hit + ", file_name=" + file_name + ", name=" + name + "]";
+				+ wdate + ", hit=" + hit + ", fileName=" + fileName + ", name=" + name + "]";
 	}
+	
+	
+
 
 	
 
