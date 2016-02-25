@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.member.model.Member;
+import com.dk.groupware.member.model.Search;
 import com.dk.groupware.member.service.MyPageUpdateService;
 
 @Controller
 public class MemberController {
 
 	// xml에서 property를 줬으니까 private
-	private ServiceInterface memberListService, memberViewService, memberUpdateService, memberUpdateProcessService,
+	private ServiceInterface memberListService, memberSearchListService, memberViewService, memberUpdateService, memberUpdateProcessService,
 			memberWriteProcessService, memberDeleteProcessService, myPageViewService, loginProcessService,
-			myPageUpdateService, myPageUpdateProcessService, myPwChangeService, myPwChangeProcessService;
+			myPageUpdateService, myPageUpdateProcessService, myPwChangeProcessService;
 
 	// setters
 	
@@ -26,8 +27,8 @@ public class MemberController {
 		this.memberListService = memberListService;
 	}
 
-	public void setMyPwChangeService(ServiceInterface myPwChangeService) {
-		this.myPwChangeService = myPwChangeService;
+	public void setMemberSearchListService(ServiceInterface memberSearchListService) {
+		this.memberSearchListService = memberSearchListService;
 	}
 
 	public void setMyPwChangeProcessService(ServiceInterface myPwChangeProcessService) {
@@ -85,6 +86,16 @@ public class MemberController {
 		System.out.println("MemberController.view(id)");
 		model.addAttribute("member", memberViewService.service(id));
 		return "member/view";
+	}
+	
+	// 사원 ID 찾기 (사원 리스트 검색)
+	@RequestMapping(value="/member/list.do", method=RequestMethod.POST)
+	public String searchList(@RequestParam(value="page", required=false, defaultValue="1")int page, 
+			String option, String searchStr, Model model) throws Exception{
+		System.out.println("MemberController.searchList()");
+		Search search = new Search(option, searchStr);
+		model.addAttribute("list", memberSearchListService.service(search));
+		return "member/list";
 	}
 
 	// 사원 정보 수정 폼

@@ -8,7 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>사원 리스트</h2>
+<h2>사원 리스트</h2><br/><br/>
+
+	<form action="list.do" method="post">
+		<select name="option">
+			<option>이름</option>
+			<option>이름+소속부서</option>
+		</select>
+		<input type="text" name="searchStr">
+		<button>검색</button>
+	</form>
 
 	<table>
 		<tr>
@@ -27,5 +36,6 @@
 		</tr>
 	</c:forEach>
 	</table>
+	
 </body>
 </html>

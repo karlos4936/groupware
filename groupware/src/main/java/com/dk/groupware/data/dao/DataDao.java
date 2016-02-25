@@ -18,6 +18,7 @@ public class DataDao {
 		return sqlSessionTemplate.selectList("dao.Data.list");
 	}
 	
+	// 데이터 검색 리스트
 	public Object searchList(Object obj) {
 		System.out.println("DataDao.searchList()");
 		return sqlSessionTemplate.selectList("dao.Data.searchList", obj);
