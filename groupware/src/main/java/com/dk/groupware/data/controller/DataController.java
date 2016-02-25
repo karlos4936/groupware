@@ -62,8 +62,8 @@ public class DataController {
 	
 	// 자료게시판 글리스트 검색
 	@RequestMapping(value="/data/list.do", method=RequestMethod.POST)
-	public String searchList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, String option, String searchStr, Model model)
-			throws Exception {
+	public String searchList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, 
+			String option, String searchStr, Model model)throws Exception {
 		System.out.println("DataController.searchList()");
 		Search search = new Search(option, searchStr);
 		model.addAttribute("list", dataSearchListService.service(search));
@@ -80,7 +80,7 @@ public class DataController {
 
 	// 글쓰기폼 - get
 	@RequestMapping(value = "/data/write.do", method = RequestMethod.GET)
-	public String write() {
+	public String write() throws Exception {
 		System.out.println("DataController.write():get");
 		return "data/write";
 	}

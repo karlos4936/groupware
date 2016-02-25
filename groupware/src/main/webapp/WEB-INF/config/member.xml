@@ -10,6 +10,7 @@
 <!-- 컨트롤러 -->
 <bean class="com.dk.groupware.member.controller.MemberController">
 	<property name="memberListService" ref="memberListService"/>
+	<property name="memberSearchListService" ref="memberSearchListService"/>
 	<property name="memberViewService" ref="memberViewService"/>
 	<property name="memberUpdateService" ref="memberUpdateService"/>
 	<property name="memberUpdateProcessService" ref="memberUpdateProcessService"/>	
@@ -25,6 +26,9 @@
 
 <!-- 서비스 -->
 <bean id="memberListService" class="com.dk.groupware.member.service.MemberListService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<bean id="memberSearchListService" class="com.dk.groupware.member.service.MemberSearchListService">
 	<property name="memberDao" ref="memberDao"/>
 </bean>
 <bean id="memberViewService" class="com.dk.groupware.member.service.MemberViewService">

@@ -20,6 +20,13 @@ public class MemberDao {
 		System.out.println("MemberDao.list()");
 		return sqlSessionTemplate.selectList("dao.Member.list");
 	}
+	
+	// 사원 ID 찾기 (사원 검색 리스트)
+	public Object searchList(Object obj) {
+		System.out.println("MemberDao.searchList()");
+		return sqlSessionTemplate.selectList("dao.Member.searchList", obj);
+	}
+
 
 	// 사원 정보 보기 - 정보 수정
 	public Object view(Object obj) {
@@ -76,6 +83,5 @@ public class MemberDao {
 		System.out.println("MemberDao.login()");
 		return sqlSessionTemplate.selectOne("dao.Member.login", member);
 	}
-
 
 }
