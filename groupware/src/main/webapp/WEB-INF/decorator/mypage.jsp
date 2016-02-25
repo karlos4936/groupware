@@ -44,11 +44,7 @@
 			<li class="li_content"><a href="/groupware/mypage/update.do">내 정보 수정</a></li>
 			<li class="li_title">쪽지함</li>
 			<li class="li_content"><a href="/groupware/message/write.do">쪽지 보내기</a></li>
-			<li class="li_content"><a href="/groupware/message/list.do">받은 쪽지함
-			<c:if test="${login.msgCnt ne 0 }">
-			(${login.msgCnt })
-			</c:if>
-			</a></li>
+			<li class="li_content"><a href="/groupware/message/list.do">받은 쪽지함</a></li>
 			<li class="li_content"><a href="/groupware/message/send/list.do">보낸 쪽지함</a></li>
 		</ul>
 	</div>
