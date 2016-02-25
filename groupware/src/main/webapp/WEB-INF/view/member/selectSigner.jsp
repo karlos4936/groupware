@@ -5,6 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#signer").click(function() {
+		var returnValue = {
+			id: $(this).find("#id").text(),
+			name: $(this).find("#name").text(),
+		};
+		window.opener.getReturnValue(JSON.stringify(returnValue));
+		window.close();
+	});
+});
+
+</script>
 </head>
 <body>
 <h2>사원 리스트</h2>
@@ -17,11 +32,12 @@
 			<th>직위</th>
 		</tr>
 		<c:forEach var="member" items="${list }">
-		<tr>
-			<td><a href="view.do?id=${member.id }">${member.id }</a></td>
-			<td>${member.name }</td>
+		<tr id="signer">
+			<td id="id">${member.id }</td>
+			<td id="name">${member.name }</td>
 			<td>${member.dep }</td>
 			<td>${member.position }</td>
+			<td><button id="returnButton">선택</button></td>
 		</tr>
 		</c:forEach>
 	</table>
