@@ -41,21 +41,17 @@
 	%>
 	<table>
 		<tr>
-			<td align=left width=200>
-				<!-- 년 도--> <a
-				href="list.do?year=<%out.print(year - 1);%>&month=<%out.print(month);%>">◀</a>
-				<%
-					out.print(year);
-				%>년 <a
-				href="list.do?year=<%out.print(year + 1);%>&month=<%out.print(month);%>">▶</a>
+			<td align=left width=100>
+				<!-- 년 도-->
+				<a href="list.do?year=<%out.print(year - 1);%>&month=<%out.print(month);%>">◀</a>
+				<% out.print(year);	%>년
+				<a href="list.do?year=<%out.print(year + 1);%>&month=<%out.print(month);%>">▶</a>
 			</td>
-			<td align=center width=300>
-				<!-- 월 --> <a
-				href="list.do?year=<%out.print(year);%>&month=<%out.print(month - 1);%>">◀</a>
-				<%
-					out.print(month + 1);
-				%>월 <a
-				href="list.do?year=<%out.print(year);%>&month=<%out.print(month + 1);%>">▶</a>
+			<td align=center width=200>
+				<!-- 월 -->
+				<a href="list.do?year=<%out.print(year);%>&month=<%out.print(month - 1);%>">◀</a>
+				<% out.print(month + 1); %>월
+				<a href="list.do?year=<%out.print(year);%>&month=<%out.print(month + 1);%>">▶</a>
 			</td>
 			<td align=right width=200>
 				<%
@@ -67,14 +63,15 @@
 	<table border=1 style="width: 100%;">
 		<!-- 달력 부분 -->
 		<tr>
-			<td width=100 style="color: red">일</td>
-			<td width=100>월</td>
-			<td width=100>화</td>
-			<td width=100>수</td>
-			<td width=100>목</td>
-			<td width=100>금</td>
-			<td width=100 style="color: blue">토</td>
+			<td width=100 align="center" style="color: red">일요일</td>
+			<td width=100 align="center">월요일</td>
+			<td width=100 align="center">화요일</td>
+			<td width=100 align="center">수요일</td>
+			<td width=100 align="center">목요일</td>
+			<td width=100 align="center">금요일</td>
+			<td width=100 align="center" style="color: blue">토요일</td>
 		</tr>
+		<div align="left"></div>
 		<tr height=30>
 			<%
 				cal.set(year, month, 1); //현재 날짜를 현재 월의 1일로 설정
@@ -89,22 +86,29 @@
 					}
 				}
 				for (int i = 1; i <= end; i++) { //날짜출력
-					out.println("<td>" + i + "<br>");
+					if((br%7)==0){ // 일요일 색깔 출력
+						out.println("<td valign='top' align='right' style='color: red;'>" + i + "<br>");
+					}
+					else if((br%7)==6){ // 토요일 색깔 출력
+						out.println("<td valign='top' align='right' style='color: blue;'>" + i + "<br>");
+					}
+					else{
+						out.println("<td valign='top' align='right'>" + i + "<br>");
+					}
 					
-				
 					for(Schedule schedule : list) { // 달력내 내용표시
 						if(year == schedule.getYear() && month+1 == schedule.getMonth() && i == schedule.getDay())
 							out.println(
-								"<a href='view.do?no=" + schedule.getNo() + "'>"
+								"<div align='left'><a href='view.do?no=" + schedule.getNo() + "'>"
 								+ schedule.getTime() + "시  "
-								+ schedule.getTitle() + "</a><br>"
+								+ schedule.getTitle() + "</a></br></div>"
 							);
 					}
 
 					out.println("</td>");
 					
 					br++;
-					if ((br % 7) == 0 && i != end) {
+					if ((br % 7) == 0 && i != end) { // 7일이후 줄바꿈
 						out.println("</tr><tr height=30>");
 					}
 				}
