@@ -44,9 +44,14 @@ public class AnonymousDao {
 		return sqlSessionTemplate.update("dao.Anonymous.increase", obj);
 	}
 
+	public Object replyList(Object obj) {
+		return sqlSessionTemplate.selectList("dao.Anonymous.replyList", obj);
+	}
+	
 	public Object replyWrite(Object obj) {
 		System.out.println("AnonymousDao.replyWrite()");
 		sqlSessionTemplate.insert("dao.Anonymous.replyWrite", obj);
 		return null;
 	}
+
 }

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
@@ -56,6 +57,15 @@ table th, table td {
 		<button>댓글작성</button>
 	</form>
 	
-	
+	<c:if test="${reply ne null }">
+		<ul>
+			<c:forEach var="reply" items="${reply }">
+				<li>
+					작성자 : ${reply.writer }<br>
+					내용 : ${reply.content }
+				</li>
+			</c:forEach>
+		</ul>
+	</c:if>
 </body>
 </html>

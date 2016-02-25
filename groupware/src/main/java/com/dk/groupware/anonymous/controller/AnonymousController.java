@@ -19,6 +19,7 @@ public class AnonymousController {
 	private ServiceInterface anonymousUpdateProcessService;
 	private ServiceInterface anonymousDeleteProcessService;
 
+	private ServiceInterface anonymousReplyListService;
 	private ServiceInterface anonymousReplyWriteProcessService;
 	private ServiceInterface anonymousReplyDeleteProcessService;
 
@@ -46,6 +47,10 @@ public class AnonymousController {
 		this.anonymousDeleteProcessService = anonymousDeleteProcessService;
 	}
 
+	public void setAnonymousReplyListService(ServiceInterface anonymousReplyListService) {
+		this.anonymousReplyListService = anonymousReplyListService;
+	}
+	
 	public void setAnonymousReplyWriteProcessService(ServiceInterface anonymousReplyWriteProcessService) {
 		this.anonymousReplyWriteProcessService = anonymousReplyWriteProcessService;
 	}
@@ -66,6 +71,7 @@ public class AnonymousController {
 	public String view(int no, Model model) throws Exception {
 		System.out.println("AnonymousController.view()");
 		model.addAttribute("anonymous", anonymousViewService.service(no));
+		model.addAttribute("reply", anonymousReplyListService.service(no));
 		return "anonymous/view";
 	}
 
@@ -83,7 +89,7 @@ public class AnonymousController {
 	}
 
 	@RequestMapping(value = "/anonymous/update.do", method = RequestMethod.GET)
-	public String update(@RequestParam(value = "no", required = false) int no, Model model) throws Exception {
+	public String update(int no, Model model) throws Exception {
 		System.out.println("AnonymousController.update():GET");
 		model.addAttribute("anonymous", anonymousUpdateService.service(no));
 		return "anonymous/update";

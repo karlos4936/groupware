@@ -172,12 +172,13 @@ public class MemberController {
 	
 		member.setPw(pw);
 		int id=((Member)session.getAttribute("login")).getId();
-		if (member != null){
+		if (member != null) {
 			member.setPw(newPw);
 			myPwChangeProcessService.service(id);
 			session.setAttribute("login", null);
 			return "redirect:../index.do";
-		} else
+		}
+		else
 			return "mypage/pwupdate";
 	}
 		
@@ -202,6 +203,14 @@ public class MemberController {
 	public String logout(HttpSession session, Member member) throws Exception {
 		session.setAttribute("login", null);
 		return "redirect:index.do";
+	}
+	
+	// 결재자 선택 화면용 리스트 출력
+	@RequestMapping("/member/selectSigner.do")
+	public String selectSigner(Model model) throws Exception {
+		System.out.println("MemberController.selectSigner()");
+		model.addAttribute("list", memberListService.service(null));
+		return "member/selectSigner";
 	}
 
 }

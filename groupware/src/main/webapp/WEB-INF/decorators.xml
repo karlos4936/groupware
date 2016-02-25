@@ -29,7 +29,7 @@
 
 <!-- 꾸미기에 적용하지 않는 것들에 대한 선언 -->
 	<excludes>
-		<pattern></pattern>
+		<pattern>/member/selectSigner.do</pattern>
 	</excludes>
 	
 </decorators>

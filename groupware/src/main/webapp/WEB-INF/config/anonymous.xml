@@ -14,6 +14,7 @@
 		<property name="anonymousUpdateService" ref="anonymousUpdateService" />
 		<property name="anonymousUpdateProcessService" ref="anonymousUpdateProcessService" />
 		<property name="anonymousDeleteProcessService" ref="anonymousDeleteProcessService" />
+		<property name="anonymousReplyListService" ref="anonymousReplyListService" />
 		<property name="anonymousReplyWriteProcessService" ref="anonymousReplyWriteProcessService" />
 		<property name="anonymousReplyDeleteProcessService" ref="anonymousReplyDeleteProcessService" />
 	</bean>
@@ -39,6 +40,10 @@
 	</bean>
 	
 	<bean id="anonymousDeleteProcessService" class="com.dk.groupware.anonymous.service.AnonymousDeleteProcessService">
+		<property name="anonymousDao" ref="anonymousDao" />
+	</bean>
+	
+	<bean id="anonymousReplyListService" class="com.dk.groupware.anonymous.service.AnonymousReplyListService">
 		<property name="anonymousDao" ref="anonymousDao" />
 	</bean>
 	
