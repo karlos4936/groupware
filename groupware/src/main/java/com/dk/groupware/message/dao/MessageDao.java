@@ -74,7 +74,7 @@ public class MessageDao {
 
 	public Object count(Object obj) {
 		System.out.println("MessageDao.count()");
-		return sqlSessionTemplate.selectList("dao.Message.count", obj);
+		return sqlSessionTemplate.selectOne("dao.Message.count", obj);
 	}
 	
 }

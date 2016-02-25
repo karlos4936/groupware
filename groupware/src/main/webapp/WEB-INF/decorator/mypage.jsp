@@ -12,6 +12,15 @@
 <link rel="stylesheet" type="text/css" href="/groupware/css/decorator.css">
 <title>그룹웨어 시스템 - <decorator:title /></title>
 <decorator:head />
+
+<script type="text/javascript" src="/groupware/js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#count").load("/groupware/message/count.do");
+});
+
+</script>
 </head>
 <body>
 
@@ -44,7 +53,9 @@
 			<li class="li_content"><a href="/groupware/mypage/update.do">내 정보 수정</a></li>
 			<li class="li_title">쪽지함</li>
 			<li class="li_content"><a href="/groupware/message/write.do">쪽지 보내기</a></li>
-			<li class="li_content"><a href="/groupware/message/list.do">받은 쪽지함</a></li>
+			<li class="li_content"><a href="/groupware/message/list.do">받은 쪽지함
+			<span id="count"></span>
+			</a></li>
 			<li class="li_content"><a href="/groupware/message/send/list.do">보낸 쪽지함</a></li>
 		</ul>
 	</div>

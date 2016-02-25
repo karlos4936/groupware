@@ -19,6 +19,8 @@
 		<property name="messageSendListService" ref="messageSendListService" />
 		<property name="messageSendViewService" ref="messageSendViewService" />
 		<property name="messageSendDeleteProcessService" ref="messageSendDeleteProcessService" />
+		
+		<property name="messageCountService" ref="messageCountService" />
 	</bean>
 	
 <!-- 	service :  보내기, 받기, 읽기, 삭제 -->
@@ -54,6 +56,10 @@
 		<property name="messageDao" ref="messageDao" />
 	</bean>	
 	
+<!-- 	count -->
+	<bean id="messageCountService" class="com.dk.groupware.message.service.MessageCountService">
+		<property name="messageDao" ref="messageDao" />
+	</bean>
 	
 <!-- 	dao -->
 	<bean id="messageDao" class="com.dk.groupware.message.dao.MessageDao" >
