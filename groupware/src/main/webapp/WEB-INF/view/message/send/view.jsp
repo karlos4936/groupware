@@ -26,7 +26,7 @@
 	<c:if test="${message.fileName ne null }">
 	<tr>
 		<th>첨부 파일</th>
-		<td><a href="../upload/message/${message.fileName }"
+		<td><a href="../../upload/message/${message.fileName }"
 			target="_blank">${message.fileName }
 		</a></td>
 	</c:if>

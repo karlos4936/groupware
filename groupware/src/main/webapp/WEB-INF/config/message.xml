@@ -11,6 +11,7 @@
 <!-- 	controller :property로 service 적용-->
 	<bean class="com.dk.groupware.message.controller.MessageController">
 		<property name="messageListService" ref="messageListService" />
+<!-- 		<property name="messageSearchListService" ref="messageSearchListService" /> -->
 		<property name="messageWriteProcessService" ref="messageWriteProcessService" />
 		<property name="messageViewService" ref="messageViewService" />
 <!-- 		<property name="messageUpdateProcessService" ref="messageUpdateProcessService" /> -->
@@ -27,6 +28,9 @@
 	<bean id="messageListService" class="com.dk.groupware.message.service.MessageListService">
 		<property name="messageDao" ref="messageDao" />
 	</bean>
+<!-- 	<bean id="messageSearchListService" class="com.dk.groupware.message.service.MessageSearchListService"> -->
+<!-- 		<property name="messageDao" ref="messageDao" /> -->
+<!-- 	</bean> -->
 	<bean id="messageWriteProcessService" class="com.dk.groupware.message.service.MessageWriteProcessService">
 		<property name="messageDao" ref="messageDao" />
 	</bean>

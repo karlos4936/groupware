@@ -41,5 +41,18 @@
 			</td>
 		</tr>
 	</table>
+	
+<!-- 	검색 -->
+<!-- 	<form action="list.do" method="post"> -->
+<!-- 		<select name="option"> -->
+<!-- 			<option>제목</option> -->
+<!-- 			<option>내용</option> -->
+<!-- 			<option>작성자</option> -->
+<!-- 		</select> -->
+<!-- 		<input type="text" name="searchStr"> -->
+<!-- 		<button>검색</button> -->
+<!-- 	</form> -->
+	
+	
 </body>
 </html>

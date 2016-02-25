@@ -10,14 +10,6 @@
 	<!-- no title content sdate sender receiver rdate -->
 
 	<!-- 받은 쪽지 리스트 : list -->
-<!-- 	<select id="list" resultType="com.dk.groupware.message.model.Message"> -->
-<!-- 		select no,title,to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate, -->
-<!-- 		sender, receiver, name, to_char(rdate, 'yyyy-mm-dd AM hh:mi:ss') rdate -->
-<!-- 		from message msg, member m -->
-<!-- 		이 곳!! -->
-<!-- 		where msg.receiver=m.id -->
-<!-- 		order by no desc -->
-<!-- 	</select> -->
 	<select id="list" resultType="com.dk.groupware.message.model.Message">
 		select no, title, sender, receiver,
 		to_char(rdate, 'yyyy-mm-dd AM hh:mi:ss') rdate,
@@ -27,7 +19,24 @@
 		where receiver=#{id} and msg.receiver=mb.id and msg.sender=mb.id
 		order by no desc
 	</select>
-
+	
+	
+	<!-- 받은 쪽지 리스트 검색 : list -->
+<!-- 	<select id="searchList" resultType="com.dk.groupware.message.model.Message"> -->
+<!-- 		select no, title, sender, receiver, -->
+<!-- 		to_char(rdate, 'yyyy-mm-dd AM hh:mi:ss') rdate, -->
+<!-- 		to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate, -->
+<!-- 		name -->
+<!-- 		from message msg, member mb -->
+<!-- 		where receiver=#{id} and msg.receiver=mb.id and msg.sender=mb.id -->
+<!-- 		and -->
+		
+<!-- 		<if test="option == '제목'">title like '%'||#{search}||'%'</if> -->
+<!-- 		<if test="option == '내용'">content like '%'||#{search}||'%'</if> -->
+<!-- 		<if test="option == '보낸사람'">receiver like '%'||#{search}||'%'</if> -->
+		
+<!-- 		order by no desc -->
+<!-- 	</select> -->
 
 	<!-- 안읽은 쪽지 갯수 -->
 	<select id="count" resultType="Integer">

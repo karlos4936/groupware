@@ -19,16 +19,21 @@ import com.dk.groupware.common.DuplicateFile;
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.member.model.Member;
 import com.dk.groupware.message.model.Message;
+import com.dk.groupware.message.model.Search;
 
 @Controller
 public class MessageController {
-	private ServiceInterface messageListService, messageViewService, messageWriteProcessService, messageUpdateService,
+	private ServiceInterface messageListService, messageSearchListService, messageViewService, messageWriteProcessService, messageUpdateService,
 			messageUpdateProcessService, messageDeleteProcessService, messageSendListService, messageSendViewService,
 			messageSendDeleteProcessService, messageCountService;
 
 	// setter
 	public void setMessageListService(ServiceInterface messageListService) {
 		this.messageListService = messageListService;
+	}
+
+	public void setMessageSearchListService(ServiceInterface messageSearchListService) {
+		this.messageSearchListService = messageSearchListService;
 	}
 
 	public void setMessageViewService(ServiceInterface messageViewService) {
@@ -68,7 +73,7 @@ public class MessageController {
 	}
 
 	// 페이지 처리 쪽지 리스트
-	@RequestMapping("/message/list.do")
+	@RequestMapping(value="/message/list.do", method=RequestMethod.GET)
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("MessageController.list(page)");
@@ -77,6 +82,17 @@ public class MessageController {
 		model.addAttribute("list", messageListService.service(member.getId()));
 		return "message/list";
 	}
+	
+	// 받은 쪽지 리스트 검색
+//	@RequestMapping(value="/message/list.do", method=RequestMethod.POST)
+//	public String searchList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, String option, String searchStr, HttpSession session, Model model)
+//			throws Exception {
+//		System.out.println("MessageController.searchList(page)");
+//		// 값 확인
+//		Search search = new Search(option, searchStr);
+//		model.addAttribute("list", messageSearchListService.service(search));
+//		return "message/list"; 
+//	}
 
 	// 쪽지 보기 : view
 	@RequestMapping("/message/view.do")
