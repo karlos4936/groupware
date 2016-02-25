@@ -14,8 +14,13 @@ public class DataDao {
 
 	// 글리스트
 	public Object list() {
-//		System.out.println("DataDao.list()");
+		System.out.println("DataDao.list()");
 		return sqlSessionTemplate.selectList("dao.Data.list");
+	}
+	
+	public Object searchList(Object obj) {
+		System.out.println("DataDao.searchList()");
+		return sqlSessionTemplate.selectList("dao.Data.searchList", obj);
 	}
 
 	// 글보기 - 글수정
@@ -27,8 +32,7 @@ public class DataDao {
 	// 글수정처리
 	public Object update(Data data) {
 		System.out.println("DataDao.update()");
-		sqlSessionTemplate.update("dao.Data.update", data);
-		return null;
+		return sqlSessionTemplate.update("dao.Data.update", data);
 	}
 
 	// 글쓰기

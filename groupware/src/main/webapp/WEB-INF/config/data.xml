@@ -10,6 +10,7 @@
 <!-- 컨트롤러 -->
 	<bean class="com.dk.groupware.data.controller.DataController">
 		<property name="dataListService" ref="dataListService"/>
+		<property name="dataSearchListService" ref="dataSearchListService"/>
 		<property name="dataViewService" ref="dataViewService"/>
 		<property name="dataWriteProcessService" ref="dataWriteProcessService"/>
 		<property name="dataUpdateService" ref="dataUpdateService"/>
@@ -19,6 +20,9 @@
 
 <!-- 서비스 -->
 	<bean id="dataListService" class="com.dk.groupware.data.service.DataListService">
+		<property name="dataDao" ref="dataDao"/>
+	</bean>
+	<bean id="dataSearchListService" class="com.dk.groupware.data.service.DataSearchListService">
 		<property name="dataDao" ref="dataDao"/>
 	</bean>
 	<bean id="dataViewService" class="com.dk.groupware.data.service.DataViewService">

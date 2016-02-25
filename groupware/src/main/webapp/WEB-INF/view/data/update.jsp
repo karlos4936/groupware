@@ -8,11 +8,12 @@
 </head>
 <body>
 	<h2>자료게시판 글 수정</h2>
-	<form action="update.do" method="post">
+	<form action="update.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="no" value="${data.no }"/>
 		<label for="title">글제목</label><input type="text" name="title" id="title" value="${data.title }"/><br/>
 		<label for="content">글내용</label><textarea rows="7" cols="60" name="content" id="content">${data.content}</textarea><br/>
-		<label for="writer">작성자</label><input type="text" name="writer" value="${data.writer }"/><br/>
+		<label for="writer">작성자</label><input type="text" name="writer" value="${data.writer }" readonly="readonly"/><br/>
+		<label for="file">첨부 파일</label><input type="file" name="file" id="file" value="${data.fileName }"/>
 		<button>수정</button>
 		<button type="button" onclick="history.back()">취소</button>
 	</form>
