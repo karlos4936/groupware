@@ -7,19 +7,16 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
-
 $(document).ready(function() {
-	$("#signer").click(function() {
+	$(".signer").click(function() {
 		var returnValue = {
 			id: $(this).find("#id").text(),
 			name: $(this).find("#name").text(),
 		};
-// 		window.opener.getReturnValue(JSON.stringify(returnValue));
 		window.opener.getReturnValue(returnValue);
 		window.close();
 	});
 });
-
 </script>
 </head>
 <body>
@@ -33,12 +30,11 @@ $(document).ready(function() {
 			<th>직위</th>
 		</tr>
 		<c:forEach var="member" items="${list }">
-		<tr id="signer">
+		<tr class="signer">
 			<td id="id">${member.id }</td>
 			<td id="name">${member.name }</td>
 			<td>${member.dep }</td>
 			<td>${member.position }</td>
-			<td><button id="returnButton">선택</button></td>
 		</tr>
 		</c:forEach>
 	</table>
