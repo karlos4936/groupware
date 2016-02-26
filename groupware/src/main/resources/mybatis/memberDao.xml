@@ -39,7 +39,7 @@
 	<!-- 사원 정보 수정 -->
 	<update id="update">
 		update member set
-		name=#{name}, pw=#{pw}, dep=#{dep}, pno=#{pno},
+		name=#{name}, dep=#{dep}, pno=#{pno},
 		manager=#{manager}, tel=#{tel}, phone=#{phone}
 		where id=#{id}
 	</update>
@@ -67,7 +67,7 @@
 	
 <!-- 	내정보 수정 -->
 	<update id="mupdate">
-		update member set tel=#{tel}, phone=#{phone}, pw=#{newPw} where id=#{id}
+		update member set tel=#{tel}, phone=#{phone} where id=#{id}
 	</update>
 	
 <!-- 	내 비밀번호 수정 -->

@@ -53,7 +53,8 @@
 		<tr>
 			<td colspan="2">
 			<a href="update.do?id=${member.id }"><button>사원정보 변경</button></a>
-			<a href="delete.do?id=${member.id }"><button id="deleteBtn">사원 탈퇴</button></a>
+			<a href="pwreset.do?id=${member.id }"><button>사원 비밀번호 리셋</button></a><br/>
+			<a href="delete.do?id=${member.id }"><button id="deleteBtn">사원 탈퇴</button></a><br/>
 			<a href="list.do"><button>사원 리스트로</button></a>
 			<td>
 		</tr>
