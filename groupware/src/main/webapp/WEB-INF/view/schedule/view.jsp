@@ -9,9 +9,9 @@
 <body>
 <h2>일정보기</h2>
 <table>
-	<tr>
-		<th>번호</th><td>${schedule.no }</td>
-	</tr>
+<!-- 	<tr> -->
+<%-- 		<th>번호</th><td>${schedule.no }</td> --%>
+<!-- 	</tr> -->
 	<tr>
 		<th>제목</th><td>${schedule.title }</td>
 	</tr>

@@ -63,15 +63,14 @@
 	<table border=1 style="width: 100%;">
 		<!-- 달력 부분 -->
 		<tr>
-			<td width=100 align="center" style="color: red">일요일</td>
-			<td width=100 align="center">월요일</td>
-			<td width=100 align="center">화요일</td>
-			<td width=100 align="center">수요일</td>
-			<td width=100 align="center">목요일</td>
-			<td width=100 align="center">금요일</td>
-			<td width=100 align="center" style="color: blue">토요일</td>
+			<td width="100" height="40" align="center" style="color: red">일요일</td>
+			<td width="100" height="40" align="center">월요일</td>
+			<td width="100" height="40" align="center">화요일</td>
+			<td width="100" height="40" align="center">수요일</td>
+			<td width="100" height="40" align="center">목요일</td>
+			<td width="100" height="40" align="center">금요일</td>
+			<td width="100" height="40" align="center" style="color: blue">토요일</td>
 		</tr>
-		<div align="left"></div>
 		<tr height=30>
 			<%
 				cal.set(year, month, 1); //현재 날짜를 현재 월의 1일로 설정
@@ -87,21 +86,22 @@
 				}
 				for (int i = 1; i <= end; i++) { //날짜출력
 					if((br%7)==0){ // 일요일 색깔 출력
-						out.println("<td valign='top' align='right' style='color: red;'>" + i + "<br>");
+						out.println("<td valign='top' align='right' width='100' height='120' style='color: red;'>" + i + "<br>");
 					}
 					else if((br%7)==6){ // 토요일 색깔 출력
-						out.println("<td valign='top' align='right' style='color: blue;'>" + i + "<br>");
+						out.println("<td valign='top' align='right' width='100' height='120' style='color: blue;'>" + i + "<br>");
 					}
 					else{
-						out.println("<td valign='top' align='right'>" + i + "<br>");
+						out.println("<td valign='top' align='right' width='100' height='120'>" + i + "<br>");
 					}
 					
 					for(Schedule schedule : list) { // 달력내 내용표시
 						if(year == schedule.getYear() && month+1 == schedule.getMonth() && i == schedule.getDay())
 							out.println(
 								"<div align='left'><a href='view.do?no=" + schedule.getNo() + "'>"
-								+ schedule.getTime() + "시  "
-								+ schedule.getTitle() + "</a></br></div>"
+								+ schedule.getTime() + "시 "
+								+ schedule.getTitle() +"</a></br></div>"
+// 								+ "<nobr style=' display:block; text-overflow:ellipsis; width:100px; overflow:hidden' >" + schedule.getTitle() +"</a></nobr></div>"
 							);
 					}
 
