@@ -14,6 +14,7 @@ public class DraftWriteProcessService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) {
 		System.out.println("DraftWriteProcessService.service()");
-		return draftDao.write((Draft) obj);
+		draftDao.write((Draft) obj);
+		return null;
 	}
 }

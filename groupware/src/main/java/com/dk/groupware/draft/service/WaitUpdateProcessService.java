@@ -14,6 +14,7 @@ public class WaitUpdateProcessService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) {
 		System.out.println("WaitUpdateProcessService.service()");
-		return draftDao.waitUpdate((Draft) obj);
+		draftDao.waitUpdate((Draft) obj);
+		return null;
 	}
 }

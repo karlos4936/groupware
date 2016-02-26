@@ -13,6 +13,7 @@ public class ProceedSignProcessService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) {
 		System.out.println("ProceedSignProcessService.service()");
-		return draftDao.proceedSign(obj);
+		draftDao.proceedSign(obj);
+		return null;
 	}
 }
