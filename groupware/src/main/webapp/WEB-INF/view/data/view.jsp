@@ -25,6 +25,7 @@
 				<c:if test="${data.fileName ne null }">
 					<c:if test="${fn:toLowerCase(fn:substringAfter(data.fileName, '.')) eq 'png' ||
 					fn:substringAfter(data.fileName, '.') eq 'jpg'||
+					fn:substringAfter(data.fileName, '.') eq 'gif'||
 					fn:substringAfter(data.fileName, '.') eq 'jpeg'}">
 						<img alt="image" src="../upload/data/${data.fileName }">
 					</c:if>

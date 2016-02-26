@@ -172,6 +172,7 @@ public class MemberController {
 	// 내 비밀번호 수정 폼: GET
 	@RequestMapping(value="/mypage/pwupdate.do", method=RequestMethod.GET)
 	public String pwUpdate(){
+		System.out.println("MemberController.pwUpdate():get");
 		return "mypage/pwupdate";
 	}
 

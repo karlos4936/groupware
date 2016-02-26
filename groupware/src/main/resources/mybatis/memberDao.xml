@@ -21,8 +21,8 @@
 		where m.pno=mp.pno 
 		and m.pno!=9
 		and
-		<if test="option == '이름'">name like '%'||#{search}||'%'</if>
-		<if test="option == '이름+소속부서'">(name like '%'||#{search}||'%' or dep like '%'||#{search}||'%')</if>
+		<if test="option == '이름'">name=#{search}</if>
+		<if test="option == '이름+소속부서'">(name=#{search} or dep=#{search})</if>
 		order by id desc
 	</select>
 
@@ -37,13 +37,6 @@
 	</select>
 
 	<!-- 사원 정보 수정 -->
-<!-- 	<update id="update"> -->
-<!-- 		update member set -->
-<!-- 		name=#{name}, dep=#{dep}, pno=#{pno}, -->
-<!-- 		manager=#{manager}, tel=#{tel}, phone=#{phone} -->
-<!-- 		where id=#{id} -->
-<!-- 	</update> -->
-
 	<update id="update">
 		update member set
 		name=#{name}, pw=#{pw}, dep=#{dep}, pno=#{pno},
