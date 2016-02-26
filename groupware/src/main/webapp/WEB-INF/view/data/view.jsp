@@ -61,9 +61,9 @@
 				<c:if test="${login.id eq data.writer }">
 				<a href="delete.do?no=${data.no }"><button>글삭제</button></a>
 				</c:if>
-				<c:if test="${login.pno==9}">
-				<a href="delete.do?no=${data.no }"><button>글삭제</button></a>
-				</c:if>
+<%-- 				<c:if test="${login.pno==9}"> --%>
+<%-- 				<a href="delete.do?no=${data.no }"><button>글삭제</button></a> --%>
+<%-- 				</c:if> --%>
 				<a href="list.do"><button>글리스트</button></a>
 			</td>
 		</tr>
