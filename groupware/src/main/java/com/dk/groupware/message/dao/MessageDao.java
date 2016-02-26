@@ -79,6 +79,7 @@ public class MessageDao {
 		return null;
 	}
 
+	// 새 쪽지 표시
 	public Object count(Object obj) {
 		System.out.println("MessageDao.count()");
 		return sqlSessionTemplate.selectOne("dao.Message.count", obj);

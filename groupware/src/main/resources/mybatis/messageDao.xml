@@ -16,7 +16,7 @@
 		to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate,
 		name
 		from message msg, member mb
-		where receiver=#{id} and msg.receiver=mb.id and msg.sender=mb.id
+		where receiver=#{id} and msg.receiver=mb.id
 		order by no desc
 	</select>
 	
@@ -38,7 +38,7 @@
 <!-- 		order by no desc -->
 <!-- 	</select> -->
 
-	<!-- 안읽은 쪽지 갯수 -->
+	<!-- 새 쪽지 표시 - 안읽은 쪽지 갯수 -->
 	<select id="count" resultType="Integer">
 		select count(*) from message
 		where rdate is null and receiver=#{id}
@@ -83,7 +83,7 @@
 
 
 	<!-- send -->
-	<!-- 쪽지 리스트 : list -->
+	<!-- 보낸쪽지 리스트 : list -->
 	<select id="sendList" resultType="com.dk.groupware.message.model.Message">
 		select no, title, to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate, 
 		sender, receiver, to_char(rdate, 'yyyy-mm-dd AM HH:MI:SS') rdate, name
@@ -92,7 +92,7 @@
 		order by no desc
 	</select>
 	
-	<!-- 쪽지 보기 : view -->
+	<!-- 보낸쪽지 보기 : view -->
 	<select id="sendView" resultType="com.dk.groupware.message.model.Message">
 		select no, title, content,
 		to_char(sdate, 'yyyy-mm-dd AM hh:mi:ss') sdate,
@@ -102,7 +102,7 @@
 		no=#{no} and msg.receiver=mb.id
 	</select>
 
-	<!-- 쪽지 삭제 : delete -->
+	<!-- 보낸쪽지 삭제 : delete -->
 	<delete id="sendDelete">
 		delete from message where no=#{no}
 	</delete>

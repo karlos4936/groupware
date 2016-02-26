@@ -19,7 +19,6 @@ import com.dk.groupware.common.DuplicateFile;
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.member.model.Member;
 import com.dk.groupware.message.model.Message;
-import com.dk.groupware.message.model.Search;
 
 @Controller
 public class MessageController {
@@ -172,7 +171,7 @@ public class MessageController {
 		return "redirect:list.do";
 	}
 	
-	// 안읽은 쪽지 카운트
+	// 새 쪽지 표시 -  안읽은 쪽지 카운트
 	@RequestMapping("/message/count.do")
 	public void count(HttpSession session, HttpServletResponse response, Model model) throws Exception {
 		System.out.println("MessageController.count()");
