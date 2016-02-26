@@ -26,7 +26,9 @@
 				<li><a href="/groupware/schedule/list.do">일정관리</a></li>
 				<li><a href="/groupware/notice/list.do">커뮤니티</a></li>
 				<li><a href="/groupware/message/list.do">마이페이지</a></li>
+				<c:if test="${login.pno==9 }">
 				<li><a href="/groupware/member/list.do">사원관리</a></li>
+				</c:if>
 			</ul>
 		</div>
 		<div id="status">
@@ -39,7 +41,7 @@
 			<li class="li_title">사원관리</li>
 			<li class="li_content"><a href="/groupware/member/list.do">사원 목록</a></li>
 			<li class="li_content"><a href="/groupware/member/write.do">사원 가입</a></li>
-			<li class="li_content"><a href="/groupware/member/delete.do">사원 탈퇴</a></li>
+<!-- 			<li class="li_content"><a href="/groupware/member/delete.do">사원 탈퇴</a></li> -->
 		</ul>
 	</div>
 	
