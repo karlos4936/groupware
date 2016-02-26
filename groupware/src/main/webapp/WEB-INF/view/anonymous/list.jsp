@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <title>Insert title here</title>
 <style type="text/css">
 table {
@@ -44,7 +45,26 @@ table th, table td {
 		
 	</table>
 	
-	
+	<div id="pageMove">
+			<a href="list.jsp?page=1"><span class="fa fa-step-backward"></span></a>
+			<a href="list.jsp?page=${jspData.startPage > 1 ? jspData.startPage-jspData.pagesPerGroup : 1 }"><span class="fa fa-chevron-left"></span><span class="fa fa-chevron-left"></span></a>
+			<a href="list.jsp?page=${jspData.page > 1 ? jspData.page-1 : 1 }"><span class="fa fa-chevron-left"></span></a>
+		
+			<c:forEach var="i" begin="${jspData.startPage }" end="${jspData.endPage }">
+				<c:choose>
+					<c:when test="${jspData.page eq i }">
+						<span id="cpage">${i }</span>
+					</c:when>
+					<c:otherwise>
+						<a href="list.do?page=${i }">${i }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+		
+			<a href="list.jsp?page=${jspData.totalPage > jspData.endPage ? jspData.page+1 : jspData.totalPage }"><span class="fa fa-chevron-right"></span></a>
+			<a href="list.jsp?page=${jspData.totalPage > jspData.endPage ? jspData.endPage+1 : jspData.totalPage }"><span class="fa fa-chevron-right"></span><span class="fa fa-chevron-right"></span></a>
+			<a href="list.jsp?page=${jspData.totalPage }"><span class="fa fa-step-forward"></span></a>
+		</div>
 	
 </body>
 </html>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dk.groupware.anonymous.model.Anonymous;
+import com.dk.groupware.anonymous.model.AnonymousModel;
 import com.dk.groupware.anonymous.model.AnonymousReply;
 import com.dk.groupware.common.ServiceInterface;
 
@@ -63,7 +64,9 @@ public class AnonymousController {
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("AnonymousController.list()");
-		model.addAttribute("list", anonymousListService.service(page));
+		AnonymousModel anonymousModel = (AnonymousModel) anonymousListService.service(page);
+		model.addAttribute("list", anonymousModel.getList());
+		model.addAttribute("jspData", anonymousModel.getJspData());
 		return "anonymous/list";
 	}
 
