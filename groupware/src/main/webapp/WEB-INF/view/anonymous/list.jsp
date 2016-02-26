@@ -46,9 +46,9 @@ table th, table td {
 	</table>
 	
 	<div id="pageMove">
-			<a href="list.jsp?page=1"><span class="fa fa-step-backward"></span></a>
-			<a href="list.jsp?page=${jspData.startPage > 1 ? jspData.startPage-jspData.pagesPerGroup : 1 }"><span class="fa fa-chevron-left"></span><span class="fa fa-chevron-left"></span></a>
-			<a href="list.jsp?page=${jspData.page > 1 ? jspData.page-1 : 1 }"><span class="fa fa-chevron-left"></span></a>
+			<a href="list.do?page=1"><span class="fa fa-step-backward"></span></a>
+			<a href="list.do?page=${jspData.startPage > 1 ? jspData.startPage-jspData.pagesPerGroup : 1 }"><span class="fa fa-chevron-left"></span><span class="fa fa-chevron-left"></span></a>
+			<a href="list.do?page=${jspData.page > 1 ? jspData.page-1 : 1 }"><span class="fa fa-chevron-left"></span></a>
 		
 			<c:forEach var="i" begin="${jspData.startPage }" end="${jspData.endPage }">
 				<c:choose>
@@ -61,9 +61,9 @@ table th, table td {
 				</c:choose>
 			</c:forEach>
 		
-			<a href="list.jsp?page=${jspData.totalPage > jspData.endPage ? jspData.page+1 : jspData.totalPage }"><span class="fa fa-chevron-right"></span></a>
-			<a href="list.jsp?page=${jspData.totalPage > jspData.endPage ? jspData.endPage+1 : jspData.totalPage }"><span class="fa fa-chevron-right"></span><span class="fa fa-chevron-right"></span></a>
-			<a href="list.jsp?page=${jspData.totalPage }"><span class="fa fa-step-forward"></span></a>
+			<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.page+1 : jspData.totalPage }"><span class="fa fa-chevron-right"></span></a>
+			<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.endPage+1 : jspData.totalPage }"><span class="fa fa-chevron-right"></span><span class="fa fa-chevron-right"></span></a>
+			<a href="list.do?page=${jspData.totalPage }"><span class="fa fa-step-forward"></span></a>
 		</div>
 	
 </body>

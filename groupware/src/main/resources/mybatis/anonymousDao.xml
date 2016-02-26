@@ -8,7 +8,7 @@
 	
 		select * from
 		(
-		select rownum rnum, no, title, content, writer, wdate, hit from
+		select rownum rnum, no, title, writer, wdate, hit from
 		(
 		select no, title, writer, to_char(wdate, 'yyyy-mm-dd') wdate, hit
 		from anonymous
