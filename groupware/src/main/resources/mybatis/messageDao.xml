@@ -16,7 +16,7 @@
 		to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate,
 		name
 		from message msg, member mb
-		where receiver=#{id} and msg.receiver=mb.id
+		where receiver=#{id} and msg.sender=mb.id
 		order by no desc
 	</select>
 	
