@@ -13,6 +13,7 @@ public class WaitDeleteProcessService implements ServiceInterface {
 	@Override
 	public Object service(Object obj) {
 		System.out.println("WaitDeleteService.service()");
-		return draftDao.waitDelete(obj);
+		draftDao.waitDelete(obj);
+		return null;
 	}
 }
