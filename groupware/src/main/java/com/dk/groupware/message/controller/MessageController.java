@@ -73,7 +73,8 @@ public class MessageController {
 
 	// 페이지 처리 쪽지 리스트
 	@RequestMapping(value="/message/list.do", method=RequestMethod.GET)
-	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
+	public String list(@RequestParam(value = "page", required = false, 
+	defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("MessageController.list(page)");
 		// 값 확인
@@ -84,10 +85,14 @@ public class MessageController {
 	
 	// 받은 쪽지 리스트 검색
 //	@RequestMapping(value="/message/list.do", method=RequestMethod.POST)
-//	public String searchList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, String option, String searchStr, HttpSession session, Model model)
+//	public String searchList(@RequestParam(value = "page", required = false, 
+//	defaultValue = "1") int page, 
+//			String option, String searchStr, HttpSession session, Model model)
 //			throws Exception {
 //		System.out.println("MessageController.searchList(page)");
 //		// 값 확인
+//		Member member = (Member) session.getAttribute("login");
+//		model.addAttribute("list", messageListService.service(member.getId()));
 //		Search search = new Search(option, searchStr);
 //		model.addAttribute("list", messageSearchListService.service(search));
 //		return "message/list"; 

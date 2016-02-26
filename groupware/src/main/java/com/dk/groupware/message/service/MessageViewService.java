@@ -20,6 +20,7 @@ public class MessageViewService implements ServiceInterface{
 		
 		message = (Message) messageDao.view(obj);
 		
+		// rdate가 null일 때, date 값을 채우기 위함
 		if(message.getRdate() == null)
 			messageDao.update(obj);
 		
