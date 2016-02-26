@@ -37,7 +37,17 @@ table th, table td {
 		<c:forEach var="draft" items="${list }">
 			<tr>
 				<td>${draft.no }</td>
-				<td><a href="view.do?no=${draft.no}" >${draft.title }</a></td>
+				<c:choose>
+					<c:when test="${draft.isSign1 eq null }">
+						<td><a href="wait/view.do?no=${draft.no}" >${draft.title }</a></td>
+					</c:when>
+					<c:when test="${draft.isSign1 ne null and draft.isSign3 eq null }">
+						<td><a href="proceed/view.do?no=${draft.no}" >${draft.title }</a></td>
+					</c:when>
+					<c:when test="${draft.isSign3 ne null }">
+						<td><a href="done/view.do?no=${draft.no}" >${draft.title }</a></td>
+					</c:when>
+				</c:choose>
 				<td>${draft.drafter }</td>
 				<td>${draft.signer1 }</td>
 				<td>${draft.signer2 }</td>
