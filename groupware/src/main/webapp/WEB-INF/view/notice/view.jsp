@@ -51,9 +51,9 @@
 				<a href="delete.do?no=${notice.no }"><button>글삭제</button></a> 
 			</c:if>
 <!-- 			관리자를 위한 글삭제 -->
-			<c:if test="${notice.writer eq login.id }">
-				<a href="delete.do?no=${notice.no }"><button>글삭제</button></a> 
-			</c:if>
+<%-- 				<c:if test="${login.pno==9}"> --%>
+<%-- 				<a href="delete.do?no=${notice.no }"><button>글삭제</button></a>  --%>
+<%-- 			</c:if> --%>
 				<a href="list.do?no=${notice.no }"><button>공지사항 리스트</button></a></td>
 		</tr>
 	</table>
