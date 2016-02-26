@@ -58,9 +58,15 @@
 				<c:if test="${login.id eq data.writer }">
 				<a href="update.do?no=${data.no }"><button>글수정</button></a>
 				</c:if>
-				<c:if test="${login.id eq data.writer }">
-				<a href="delete.do?no=${data.no }"><button>글삭제</button></a>
-				</c:if>
+				
+				<c:choose>
+					<c:when test="${login.id eq data.writer }"><a href="delete.do?no=${data.no }"><button>글삭제</button></a></c:when>
+					<c:when test="${login.pno==9}"><a href="delete.do?no=${data.no }"><button>글삭제</button></a></c:when>
+				</c:choose>
+				
+<%-- 				<c:if test="${login.id eq data.writer }"> --%>
+<%-- 				<a href="delete.do?no=${data.no }"><button>글삭제</button></a> --%>
+<%-- 				</c:if> --%>
 <%-- 				<c:if test="${login.pno==9}"> --%>
 <%-- 				<a href="delete.do?no=${data.no }"><button>글삭제</button></a> --%>
 <%-- 				</c:if> --%>
