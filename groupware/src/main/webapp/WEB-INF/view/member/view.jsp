@@ -1,9 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="../js/common/util.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+// 		alert("test");
+// '사원 탈퇴' 버튼을 누르면 정말 탈퇴시키겠냐는 확인 창.
+	$("#deleteBtn").click(function(){
+		if(confirm("사원을 정말 삭제하시겠습니까?"))
+			alert("삭제되었습니다");
+		else alert("삭제되지 않았습니다");
+	});
+	});
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -40,7 +53,7 @@
 		<tr>
 			<td colspan="2">
 			<a href="update.do?id=${member.id }"><button>사원정보 변경</button></a>
-			<a href="delete.do?id=${member.id }"><button>사원 탈퇴</button></a>
+			<a href="delete.do?id=${member.id }"><button id="deleteBtn">사원 탈퇴</button></a>
 			<a href="list.do"><button>사원 리스트로</button></a>
 			<td>
 		</tr>

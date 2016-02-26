@@ -2,10 +2,9 @@ package com.dk.groupware.member.service;
 
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.member.dao.MemberDao;
-import com.dk.groupware.member.model.Member;
 
-public class MyPwChangeProcessService implements ServiceInterface{
-
+public class CurrentPwCheckService implements ServiceInterface{
+	
 	private MemberDao memberDao;
 	
 	public void setMemberDao(MemberDao memberDao){
@@ -14,9 +13,8 @@ public class MyPwChangeProcessService implements ServiceInterface{
 
 	@Override
 	public Object service(Object obj) {
-		System.out.println("MyPwChangeProcessService.service()");
-		memberDao.pwUpdate(obj);
-		return null;
+		System.out.println("CurrentPwCheckService.service()");
+		return memberDao.currentPwCheck(obj);
 	}
 
 }

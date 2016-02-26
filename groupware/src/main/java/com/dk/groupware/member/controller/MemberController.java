@@ -1,5 +1,9 @@
 package com.dk.groupware.member.controller;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -12,6 +16,7 @@ import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.member.model.Member;
 import com.dk.groupware.member.model.Search;
 import com.dk.groupware.member.service.MyPageUpdateService;
+import com.dk.groupware.member.service.MyPwChangeUpdateService;
 
 @Controller
 public class MemberController {
@@ -19,12 +24,20 @@ public class MemberController {
 	// xml에서 property를 줬으니까 private
 	private ServiceInterface memberListService, memberSearchListService, memberViewService, memberUpdateService, memberUpdateProcessService,
 			memberWriteProcessService, memberDeleteProcessService, myPageViewService, loginProcessService,
-			myPageUpdateService, myPageUpdateProcessService, myPwChangeProcessService;
+			myPageUpdateService, myPageUpdateProcessService, myPwChangeUpdateService, myPwChangeProcessService, currentPwCheckService;
 
 	// setters
 	
 	public void setMemberListService(ServiceInterface memberListService) {
 		this.memberListService = memberListService;
+	}
+
+	public void setCurrentPwCheckService(ServiceInterface currentPwCheckService) {
+		this.currentPwCheckService=currentPwCheckService;
+	}
+
+	public void setMyPwChangeUpdateService(ServiceInterface myPwChangeUpdateService) {
+		this.myPwChangeUpdateService = myPwChangeUpdateService;
 	}
 
 	public void setMemberSearchListService(ServiceInterface memberSearchListService) {
@@ -171,29 +184,35 @@ public class MemberController {
 	
 	// 내 비밀번호 수정 폼: GET
 	@RequestMapping(value="/mypage/pwupdate.do", method=RequestMethod.GET)
-	public String pwUpdate(){
+	public String pwUpdate() throws Exception{
 		System.out.println("MemberController.pwUpdate():get");
 		return "mypage/pwupdate";
 	}
 
 	// 내 비밀번호 수정 처리: POST
 	@RequestMapping(value="/mypage/pwupdate.do", method=RequestMethod.POST)
-	public String pwUpdate(Member member, HttpSession session, @RequestParam(value="pw", required=false) String pw, 
-			@RequestParam(value="newPw", required=false)String newPw, Model model)throws Exception{
+	public String pwUpdate(Member member)throws Exception{
 		System.out.println("MemberController.pwUpdate():post");
-	
-		member.setPw(pw);
-		int id=((Member)session.getAttribute("login")).getId();
-		if (member != null) {
-			member.setPw(newPw);
-			myPwChangeProcessService.service(id);
-			session.setAttribute("login", null);
-			return "redirect:../index.do";
-		}
-		else
-			return "mypage/pwupdate";
+		myPwChangeProcessService.service(member);
+		return "redirect:view.do?id="+member.getId();
 	}
-		
+	
+	// 기존 비밀번호 일치 체크 (AJAX)
+//	@RequestMapping("/mypage/pwupdate.do")
+//	public void currentPwCheck(String pw, HttpServletResponse response) throws Exception{
+//		System.out.println("MemberController.currentPwCheck()");
+//		System.out.println(pw);
+//		String result="<span style='color:blue'>확인 성공!</span>";
+//		if(myPwChangeProcessService.service(obj) != )
+//			result="<span style='color:red'>확인 실패</span>";
+//		
+//		// 한글 처리
+//		response.setCharacterEncoding("utf-8");
+//		PrintWriter out=response.getWriter();
+//		out.println(result);
+//	
+//	}
+//		
 
 	// 로그인 폼: get
 	@RequestMapping(value = "/index.do", method = RequestMethod.GET)

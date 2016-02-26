@@ -72,10 +72,16 @@ public class MemberDao {
 	}
 	
 	// 내 비밀번호 수정
-	public Object pwUpdate(Member member) {
+	public Object pwUpdate(Object obj) {
 		System.out.println("MemberDao.pwUpdate");
-		sqlSessionTemplate.update("dao.Member.pwUpdate", member);
+		sqlSessionTemplate.update("dao.Member.pwUpdate", obj);
 		return null;
+	}
+	
+	// 기존 비밀번호 확인
+	public Object currentPwCheck(Object obj) {
+		System.out.println("MemberDao.currentPwCheck()");
+		return sqlSessionTemplate.selectOne("dao.Member.currentPwCheck", obj);
 	}
 
 	// 로그인

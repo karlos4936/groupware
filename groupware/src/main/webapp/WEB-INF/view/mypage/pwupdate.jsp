@@ -1,17 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="../js/common/util.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+// 		alert("test");
+		$("#changePw").submit(function(){
+			// 새 비밀번호와 새 비밀번호 확인을 비교하기
+			if($("#new1").val() != $("#new2").val()){
+				alert("새 비밀번호와 새 비밀번호 확인이 일치해야 합니다.");
+			// 새 비밀번호와 새 비밀번호 확인 칸 비우기
+			$("#new1").val("");
+			$("#new2").val("");
+			// 커서를 '새 비밀번호'창에 위치 시킨다
+			$("#new1").focus();
+			// submit 취소
+			return false;
+			};
+		});
+		
+	
+	});
+
+</script>
 </head>
 <body>
 <h2>내 비밀번호 수정</h2>
-	<form action="pwupdate.do" method="post">
-		<label for="pw"></label>기존 비밀번호<input type="password" id="pw" name="pw" value="${login.pw }"/><br/>
-		<label for="newPw"></label>새 비밀번호<input type="password" id="newPw" name="newPw"/><br/>
-		<label for="newPw2"></label>새 비밀번호 확인<input type="password" id="newPw2" name="newPw2"/><br/>
+	<form action="pwupdate.do" method="post" id="changePw">
+		<label for="current"></label>기존 비밀번호<input type="password" id="current" placeholder="기존 비밀번호 입력"/>
+		<label for="new1"></label>새 비밀번호<input type="password" id="new1" name="pw" placeholder="새 비밀번호 입력"/><br/>
+		<label for="new2"></label>새 비밀번호 확인<input type="password" id="new2" placeholder="새 비밀번호 확인"/><br/>
+		<input type="hidden" name="id" value="${login.id }">
 		<button>변경</button>
 		<button type="button" onclick="history.back()">취소</button>
 	</form>
