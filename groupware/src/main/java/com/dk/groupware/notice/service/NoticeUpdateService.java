@@ -14,7 +14,6 @@ public class NoticeUpdateService implements ServiceInterface{
 	
 	@Override
 	public Object service(Object obj) {
-		// TODO Auto-generated method stub
 		System.out.println("NoticeUpdateService.service()");
 		// 글번호를 바로 넣는다.
 		return noticeDao.view(obj);

@@ -98,15 +98,10 @@ public class NoticeController {
 //		 return "notice/write";
 	}
 	
-	
-	
-	
 	// 공지사항 글수정폼 - Model 추가 : view.jsp에서 no를 꼭! 넘기자
 	@RequestMapping(value="/notice/update.do", method=RequestMethod.GET)
-	public String update(@RequestParam(value="no", required=false)int no, Model model, Object NoticeDao)
-	throws Exception{
+	public String update() throws Exception{
 		System.out.println("NoticeController.update(no):GET");
-		model.addAttribute("notice", noticeUpdateService.service(no));
 		return "notice/update";
 	}
 	// 공지사항 글수정처리
