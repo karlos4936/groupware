@@ -11,8 +11,8 @@
 	<form action="update.do" method="post">
 		<label for="id"></label>사원번호(ID)<input type="text" id="id" name="id" value="${login.id }" readonly="readonly"/><br/>
 		<label for="name"></label>이름<input type="text" id="name" name="name" value="${login.name }" readonly="readonly"/> <br/>
-		<label for="pw"></label>기존 비밀번호<input type="password" id="pw" name="pw"/><br/>
-		<label for="newPw"></label>새 비밀번호<input type="password" id="newPw" name="newPw"/><br/>
+<!-- 		<label for="pw"></label>기존 비밀번호<input type="password" id="pw" name="pw"/><br/> -->
+<!-- 		<label for="newPw"></label>새 비밀번호<input type="password" id="newPw" name="newPw"/><br/> -->
 		<label for="dep"></label>소속 부서<input type="text" id="dep" name="dep" value="${member.dep }" readonly="readonly"/><br/>
 		<label for="position"></label>직위<input type="text" id="position" name="position" value="${member.position}" readonly="readonly"/><br/>
 		<label for="manager"></label>매니저<input type="text" id="manager" name="manager" value="${member.manager }" readonly="readonly"/><br/>
