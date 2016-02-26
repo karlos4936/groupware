@@ -1,6 +1,24 @@
+<%@page import="com.dk.groupware.board.model.BoardModel"%>
+<%@page import="com.dk.groupware.board.service.BoardListService"%>
+<%@page import="com.dk.groupware.common.ServiceInterface"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	// BoardListService 객체를 생성 후 호출
+	ServiceInterface service = new BoardListService();
+	int cpage = 1;
+	String pageStr = request.getParameter("page");
+	if(pageStr!=null)
+		cpage = Integer.parseInt(pageStr);
+// 	@SuppressWarnings("unchecked")
+// 	List<Board> list = (List<Board>)service.service(cpage);
+	BoardModel model = (BoardModel)service.service(cpage);
+	// jstl과 el 객체에서 사용하기 위해 request에 list를 담는다.
+	request.setAttribute("list", model.getList());
+	// page에 표시하거나 처리를 위한 데이터(JspData)도 request에 담는다.
+	request.setAttribute("jspData", model.getJspdate());
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,5 +50,16 @@
 		<td colspan="5"><a href="write.do"><button>글쓰기</button></a></td>
 	</tr>
 </table>
+<!-- 페이지 처리 = 반복문 처리 -->
+	[<a href="list.do?page=1">처음</a>] 
+	[<a href="list.do?page=${jspData.startPage>1?jspData.startPage-jspData.pagesPerGroup:1 }">&lt;&lt;</a>] 
+	[<a href="list.do?page=${jspData.page>1?jspData.page-1:1 }">&lt;</a>]
+	<c:forEach var="i" begin="${jspData.startPage }" end="${jspData.endPage }">
+	[<a href="list.do?page=${i }">${i }</a>] 
+	</c:forEach>
+	[<a href="list.do?page=${jspData.totalPage>jspData.endPage?jspData.page+1:jspData.totalPage }">&gt;</a>] 
+	[<a href="list.do?page=${jspData.totalPage>jspData.endPage?jspData.endPage+1:jspData.totalPage }">&gt;&gt;</a>] 
+	[<a href="list.do?page=${jspData.totalPage }">끝</a>]
+	<br/>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.dk.groupware.board.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.dk.groupware.board.model.Board;
@@ -14,7 +16,7 @@ public class BoardDao {
 	}
 	
 	// 글리스트
-	public Object list(){
+	public Object list(int startRow, int endRow){
 		System.out.println("BoardDao.list()");
 		return sqlSessionTemplate.selectList("dao.Board.list");
 	}
@@ -44,5 +46,9 @@ public class BoardDao {
 	// 조회수
 	public Object hit(Object obj){
 		return sqlSessionTemplate.update("dao.Board.hit", obj);
+	}
+	// 페이징처리
+	public Object totalRow(Object obj){
+		return sqlSessionTemplate.selectList("dao.Board.selectCount", obj);
 	}
 }
