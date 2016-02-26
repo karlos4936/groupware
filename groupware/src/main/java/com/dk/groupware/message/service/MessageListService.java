@@ -14,7 +14,6 @@ public class MessageListService implements ServiceInterface{
 	
 	@Override
 	public Object service(Object obj) {
-		// TODO Auto-generated method stub
 		System.out.println("MessageListService.service()");
 		return messageDao.list(obj);
 	}

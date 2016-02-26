@@ -30,7 +30,7 @@ public class MessageDao {
 	// 받은쪽지 검색 - list
 //	public Object searchList(Object obj){
 //		System.out.println("MessageDao.searchList()");
-		// 값 확인
+//		 값 확인
 //		return sqlSessionTemplate.selectList("dao.Message.searchList", obj);
 //	}
 	// 쪽지 보내기 - write

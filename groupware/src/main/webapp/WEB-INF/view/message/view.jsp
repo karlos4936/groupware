@@ -26,20 +26,20 @@
 			<th>보낸사람</th>
 			<td>${message.name}</td>
 		</tr>
-<!-- 		<tr> -->
-<!-- 			<th>받은사람</th> -->
-<%-- 			<input type="hidden" value="${message.receiver }"> --%>
-<%-- 			<td>${message.receiver}</td> --%>
-<!-- 		</tr> -->
+		<!-- 		<tr> -->
+		<!-- 			<th>받은사람</th> -->
+		<%-- 			<input type="hidden" value="${message.receiver }"> --%>
+		<%-- 			<td>${message.receiver}</td> --%>
+		<!-- 		</tr> -->
 
-<!-- 		첨부파일이 없을 경우 숨김 -->
+		<!-- 		첨부파일이 없을 경우 숨김 -->
 		<c:if test="${message.fileName ne null}">
-		<tr>
-			<th>첨부 파일</th>
-			<!-- 		target을 _blank로 지정해주면 새 창으로 뜬다. -->
-			<td><a href="../upload/message/${message.fileName }"
-				target="_blank">${message.fileName }</a>
-		</tr>
+			<tr>
+				<th>첨부 파일</th>
+				<!-- 		target을 _blank로 지정해주면 새 창으로 뜬다. -->
+				<td><a href="../upload/message/${message.fileName }"
+					target="_blank">${message.fileName }</a>
+			</tr>
 		</c:if>
 		<tr>
 			<th>보낸시간</th>
@@ -50,15 +50,9 @@
 			<td>${message.rdate }</td>
 		</tr>
 		<tr>
-			<td colspan="2">
-				<!-- 		데이터가 있으면 삭제 버튼 생성, 없으면 감춤 --> <!-- 		원래 이 곳에서는 감춤이 있으면 안 됨 -->
-				<c:if test="${message.rdate ne null }">
-					<a href="delete.do?no=${message.no }"><button>삭제</button></a>
-				</c:if> <a href="list.do?no=${message.no }"><button>쪽지 리스트</button></a>
-
-				<c:if test="${message.fileName }"></c:if>
-
-			</td>
+			<td colspan="2"><a href="delete.do?no=${message.no }"><button>삭제</button></a>
+				<a href="list.do?no=${message.no }"><button>쪽지 리스트</button></a> <c:if
+					test="${message.fileName }"></c:if></td>
 		</tr>
 	</table>
 </body>

@@ -47,6 +47,7 @@
 <!-- 		<select name="option"> -->
 <!-- 			<option>제목</option> -->
 <!-- 			<option>내용</option> -->
+<!-- 			<option>제목+내용</option> -->
 <!-- 			<option>작성자</option> -->
 <!-- 		</select> -->
 <!-- 		<input type="text" name="searchStr"> -->
