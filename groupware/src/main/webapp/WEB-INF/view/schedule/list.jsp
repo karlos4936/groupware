@@ -98,10 +98,10 @@
 					for(Schedule schedule : list) { // 달력내 내용표시
 						if(year == schedule.getYear() && month+1 == schedule.getMonth() && i == schedule.getDay())
 							out.println(
-								"<div align='left'><a href='view.do?no=" + schedule.getNo() + "'>"
+								"<div align='left' style='display:block; text-overflow:ellipsis; width:100px; overflow:hidden;'><a href='view.do?no=" + schedule.getNo() + "'>" // 제목길면 줄임
 								+ schedule.getTime() + "시 "
-								+ schedule.getTitle() +"</a></br></div>"
-// 								+ "<nobr style=' display:block; text-overflow:ellipsis; width:100px; overflow:hidden' >" + schedule.getTitle() +"</a></nobr></div>"
+								+ "<nobr>" + schedule.getTitle() +"</nobr></a></div>"
+// 								+ "<nobr style='display:block; text-overflow:ellipsis; width:100px; overflow:hidden'>" + schedule.getTitle() +"</a></nobr></div>"
 							);
 					}
 
