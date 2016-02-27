@@ -22,6 +22,7 @@ public class AnonymousController {
 
 	private ServiceInterface anonymousReplyListService;
 	private ServiceInterface anonymousReplyWriteProcessService;
+	private ServiceInterface anonymousReplyUpdateProcessService;
 	private ServiceInterface anonymousReplyDeleteProcessService;
 
 	public void setAnonymousListService(ServiceInterface anonymousListService) {
@@ -54,6 +55,10 @@ public class AnonymousController {
 	
 	public void setAnonymousReplyWriteProcessService(ServiceInterface anonymousReplyWriteProcessService) {
 		this.anonymousReplyWriteProcessService = anonymousReplyWriteProcessService;
+	}
+	
+	public void setAnonymousReplyUpdateProcessService(ServiceInterface anonymousReplyUpdateProcessService) {
+		this.anonymousReplyUpdateProcessService = anonymousReplyUpdateProcessService;
 	}
 
 	public void setAnonymousReplyDeleteProcessService(ServiceInterface anonymousReplyDeleteProcessService) {
@@ -113,9 +118,24 @@ public class AnonymousController {
 	}
 
 	@RequestMapping(value = "/anonymous/reply/write.do", method = RequestMethod.POST)
-	public String reply(AnonymousReply anonymousReply) throws Exception {
-		System.out.println("AnonymousController.reply():POST");
+	public String replyWrite(AnonymousReply anonymousReply) throws Exception {
+		System.out.println("AnonymousController.replyWrite()");
 		anonymousReplyWriteProcessService.service(anonymousReply);
+		return "redirect:../view.do?no=" + anonymousReply.getNo();
+	}
+	
+	@RequestMapping(value = "/anonymous/reply/update.do", method = RequestMethod.POST)
+	public String replyUpdate(AnonymousReply anonymousReply) throws Exception {
+		System.out.println("AnonymousController.replyUpdate()");
+		anonymousReplyUpdateProcessService.service(anonymousReply);
+		return "redirect:../view.do?no=" + anonymousReply.getNo();
+	}
+	
+	@RequestMapping("/anonymous/reply/delete.do")
+	public String replyDelete(AnonymousReply anonymousReply) throws Exception {
+		System.out.println("AnonymousController.replyDelete()");
+		System.out.println(anonymousReply);
+		anonymousReplyDeleteProcessService.service(anonymousReply.getRno());
 		return "redirect:../view.do?no=" + anonymousReply.getNo();
 	}
 }

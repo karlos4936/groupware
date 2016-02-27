@@ -44,17 +44,21 @@
 		update anonymous set hit=hit+1 where no=#{no}
 	</update>
 	
+	<select id="replyList" resultType="com.dk.groupware.anonymous.model.AnonymousReply">
+		select rno, content, writer, no from anonymousReply where no=#{no} order by rno asc
+	</select>
+	
 	<insert id="replyWrite">
 		insert into anonymousReply(rno, content, writer, no)
 		values(anonymousReply_seq.nextval, #{content}, #{writer}, #{no})
 	</insert>
 	
-	<select id="replyList" resultType="com.dk.groupware.anonymous.model.Anonymous">
-		select rno, content, writer, no from anonymousReply where no=#{no} order by rno desc
-	</select>
+	<update id="replyUpdate">
+		update anonymousReply set content=#{content} where rno=#{rno}
+	</update>
 	
 	<delete id="replyDelete">
-		delete from
+		delete from anonymousReply where rno=${rno}
 	</delete>
 
 </mapper>

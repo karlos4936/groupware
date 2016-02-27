@@ -8,7 +8,7 @@
 		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
 		where drafter=#{drafter}
-		order by no desc 
+		order by no desc
 	</select>
 	
 	<insert id="write">
@@ -24,8 +24,11 @@
 	</select>
 	
 	<select id="waitView" resultType="com.dk.groupware.draft.model.Draft">
-		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate
-		from draft where no=#{no}
+		select no, title, content, drafter, signer1, signer2, signer3, issign1, issign2, issign3, to_char(regdate, 'yyyy-mm-dd') regdate,
+		(select name from member where signer2=id) signerName2, (select name from member where signer3=id) signerName3
+		from draft, member
+		where
+		drafter=id and no=#{no}
 	</select>
 	
 	<update id="waitSign">

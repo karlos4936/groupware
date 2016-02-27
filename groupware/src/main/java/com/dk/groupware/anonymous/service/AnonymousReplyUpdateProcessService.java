@@ -3,7 +3,7 @@ package com.dk.groupware.anonymous.service;
 import com.dk.groupware.anonymous.dao.AnonymousDao;
 import com.dk.groupware.common.ServiceInterface;
 
-public class AnonymousReplyWriteProcessService implements ServiceInterface {
+public class AnonymousReplyUpdateProcessService implements ServiceInterface {
 	private AnonymousDao anonymousDao;
 	
 	public void setAnonymousDao(AnonymousDao anonymousDao) {
@@ -12,8 +12,8 @@ public class AnonymousReplyWriteProcessService implements ServiceInterface {
 	
 	@Override
 	public Object service(Object obj) {
-		System.out.println("AnonymousReplyWriteProcessService.service()");
-		anonymousDao.replyWrite(obj);
+		System.out.println("AnonymousReplyUpdateProcessService.service()");
+		anonymousDao.replyUpdate(obj);
 		return null;
 	}
 }
