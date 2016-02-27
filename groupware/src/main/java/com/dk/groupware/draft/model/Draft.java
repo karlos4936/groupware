@@ -13,25 +13,8 @@ public class Draft {
 	private String isSign2;
 	private String isSign3;
 	private String regDate;
-
-	public Draft() {
-	}
-
-	public Draft(int no, String title, String content, String drafter, String depname, String signer1, String signer2,
-			String signer3, String isSign1, String isSign2, String isSign3, String regDate) {
-		this.no = no;
-		this.title = title;
-		this.content = content;
-		this.drafter = drafter;
-		this.depname = depname;
-		this.signer1 = signer1;
-		this.signer2 = signer2;
-		this.signer3 = signer3;
-		this.isSign1 = isSign1;
-		this.isSign2 = isSign2;
-		this.isSign3 = isSign3;
-		this.regDate = regDate;
-	}
+	private String signerName2;
+	private String signerName3;
 
 	public int getNo() {
 		return no;
@@ -129,11 +112,28 @@ public class Draft {
 		this.regDate = regDate;
 	}
 
+	public String getSignerName2() {
+		return signerName2;
+	}
+
+	public void setSignerName2(String signerName2) {
+		this.signerName2 = signerName2;
+	}
+
+	public String getSignerName3() {
+		return signerName3;
+	}
+
+	public void setSignerName3(String signerName3) {
+		this.signerName3 = signerName3;
+	}
+
 	@Override
 	public String toString() {
 		return "Draft [no=" + no + ", title=" + title + ", content=" + content + ", drafter=" + drafter + ", depname="
 				+ depname + ", signer1=" + signer1 + ", signer2=" + signer2 + ", signer3=" + signer3 + ", isSign1="
-				+ isSign1 + ", isSign2=" + isSign2 + ", isSign3=" + isSign3 + ", regDate=" + regDate + "]";
+				+ isSign1 + ", isSign2=" + isSign2 + ", isSign3=" + isSign3 + ", regDate=" + regDate + ", signerName2="
+				+ signerName2 + ", signerName3=" + signerName3 + "]";
 	}
 
 }

@@ -6,15 +6,6 @@ public class AnonymousReply {
 	private String writer;
 	private int no;
 
-	public AnonymousReply() {}
-	
-	public AnonymousReply(int rno, String content, String writer, int no) {
-		this.rno = rno;
-		this.content = content;
-		this.writer = writer;
-		this.no = no;
-	}
-
 	public int getRno() {
 		return rno;
 	}

@@ -27,7 +27,7 @@
 			<c:forEach var="schedule" items="${scheduleList }">
 				<a href="schedule/view.do?no=${schedule.no }">
 					<li class="li">
-						${schedule.sdate }
+						${schedule.year}-${schedule.month}-${schedule.day}
 						${schedule.title }
 					</li>
 				</a>

@@ -1,7 +1,6 @@
 package com.dk.groupware.anonymous.service;
 
 import com.dk.groupware.anonymous.dao.AnonymousDao;
-import com.dk.groupware.anonymous.model.AnonymousReply;
 import com.dk.groupware.common.ServiceInterface;
 
 public class AnonymousReplyListService implements ServiceInterface {

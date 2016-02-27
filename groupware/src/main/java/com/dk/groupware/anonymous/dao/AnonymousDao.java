@@ -55,6 +55,18 @@ public class AnonymousDao {
 		return null;
 	}
 
+	public Object replyUpdate(Object obj) {
+		System.out.println("AnonymousDao.replyUpdate()");
+		sqlSessionTemplate.update("dao.Anonymous.replyUpdate", obj);
+		return null;
+	}
+	
+	public Object replyDelete(Object obj) {
+		System.out.println("AnonymousDao.replyDelete()");
+		sqlSessionTemplate.delete("dao.Anonymous.replyDelete", obj);
+		return null;
+	}
+	
 	public Object totalRow() {
 		System.out.println("AnonymousDao.totalRow()");
 		return sqlSessionTemplate.selectOne("dao.Anonymous.totalRow");

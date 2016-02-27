@@ -17,6 +17,21 @@ table th, table td {
 	border: 1px solid black;
 }
 </style>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".replyUpdateForm").hide();
+	
+	$(".replyUpdate").click(function() {
+		$(this).parent().parent().find(".replyView").hide();
+		$(this).parent().parent().find(".replyUpdateForm").show();
+	});
+	
+	$(".cancel").click(function() {
+		$(this).parent().parent().parent().find(".replyUpdateForm").hide();
+		$(this).parent().parent().parent().find(".replyView").show();
+	});
+});
+</script>
 </head>
 <body>
 	<h2>익명게시판 글보기</h2>
@@ -42,15 +57,15 @@ table th, table td {
 		</tr>
 		<tr>
 			<td colspan="2">
-				<a href="update.do?no=${anonymous.no }"><button>글수정</button></a>
-				<a href="delete.do?no=${anonymous.no }"><button>글삭제</button></a>
-				<a href="list.do"><button>글리스트</button></a>
+				<button onclick="location.href='update.do?no=${anonymous.no }'">글수정</button>
+				<button onclick="location.href='delete.do?no=${anonymous.no }'">글삭제</button>
+				<button onclick="location.href='list.do'">글리스트</button>
 			</td>
 		</tr>
 	</table>
 	
 	<form action="reply/write.do" method="post">
-		아이디 : <input type="text" readonly="readonly" value="${fn:substring(login.encId, 0, 8) }"><br>
+		작성자 : <input type="text" readonly="readonly" value="${fn:substring(login.encId, 0, 8) }"><br>
 		내용 : <textarea id="content" name="content" rows="7" cols="60"></textarea><br>
 		<input type="hidden" name="writer" value="${login.encId }">
 		<input type="hidden" name="no" value="${anonymous.no }">
@@ -61,8 +76,27 @@ table th, table td {
 		<ul>
 			<c:forEach var="reply" items="${reply }">
 				<li>
-					작성자 : ${reply.writer }<br>
-					내용 : ${reply.content }
+				
+					<div class="replyView">
+						작성자 : ${fn:substring(reply.writer, 0, 8) }<br>
+						내용 : ${reply.content }<br>
+						<c:if test="${reply.writer eq login.encId }">
+							<button class="replyUpdate">수정</button>&nbsp;
+							<button onclick="location.href='reply/delete.do?rno=${reply.rno }&no=${reply.no }'">삭제</button>
+						</c:if>
+					</div>
+					
+					<div class="replyUpdateForm">
+						<form action="reply/update.do" method="post">
+							작성자 : <input type="text" readonly="readonly" value="${fn:substring(login.encId, 0, 8) }"><br>
+							내용 : <textarea id="content" name="content" rows="7" cols="60">${reply.content }</textarea><br>
+							<input type="hidden" name="writer" value="${login.encId }">
+							<input type="hidden" name="rno" value="${reply.rno }">
+							<input type="hidden" name="no" value="${reply.no }">
+							<button>수정</button>&nbsp;<button type="button" class="cancel">취소</button>
+						</form>
+					</div>
+					
 				</li>
 			</c:forEach>
 		</ul>
