@@ -22,8 +22,10 @@ import com.dk.groupware.message.model.Message;
 
 @Controller
 public class MessageController {
-	private ServiceInterface messageListService, messageSearchListService, messageViewService, messageWriteProcessService, messageUpdateService,
-			messageUpdateProcessService, messageDeleteProcessService, messageSendListService, messageSendViewService,
+	private ServiceInterface messageListService, 
+//			messageSearchListService, 
+			messageViewService, messageWriteProcessService,
+			messageDeleteProcessService, messageSendListService, messageSendViewService,
 			messageSendDeleteProcessService, messageCountService;
 
 	// setter
@@ -31,9 +33,9 @@ public class MessageController {
 		this.messageListService = messageListService;
 	}
 
-	public void setMessageSearchListService(ServiceInterface messageSearchListService) {
-		this.messageSearchListService = messageSearchListService;
-	}
+//	public void setMessageSearchListService(ServiceInterface messageSearchListService) {
+//		this.messageSearchListService = messageSearchListService;
+//	}
 
 	public void setMessageViewService(ServiceInterface messageViewService) {
 		this.messageViewService = messageViewService;
@@ -41,14 +43,6 @@ public class MessageController {
 
 	public void setMessageWriteProcessService(ServiceInterface messageWriteProcessService) {
 		this.messageWriteProcessService = messageWriteProcessService;
-	}
-
-	public void setMessageUpdateService(ServiceInterface messageUpdateService) {
-		this.messageUpdateService = messageUpdateService;
-	}
-
-	public void setMessageUpdateProcessService(ServiceInterface messageUpdateProcessService) {
-		this.messageUpdateProcessService = messageUpdateProcessService;
 	}
 
 	public void setMessageDeleteProcessService(ServiceInterface messageDeleteProcessService) {
@@ -100,10 +94,12 @@ public class MessageController {
 
 	// 쪽지 보기 : view
 	@RequestMapping("/message/view.do")
-	public String view(Message message, HttpSession session, Model model) throws Exception {
+	public String view(int no, Model model) throws Exception {
 		System.out.println("MessageController.view(no)");
-		message.setSession(session);
-		model.addAttribute("message", messageViewService.service(message));
+		Message message =  (Message) messageViewService.service(no);
+		if(message == null)
+			return "message/error";
+		model.addAttribute("message",message);
 		return "message/view";
 	}
 
@@ -125,7 +121,8 @@ public class MessageController {
 		String realPath = request.getServletContext().getRealPath("/upload/message");
 		// 비어있지 않으면
 		if (!file1.isEmpty()) {
-			String fileName = file1.getOriginalFilename();
+			// 다운로드 시 사용
+//			String fileName = file1.getOriginalFilename();
 			// 중복되지 않는 파일을 받아올 수 있다.
 			File file = DuplicateFile.getFile(realPath, file1);
 			file1.transferTo(file);
@@ -142,7 +139,10 @@ public class MessageController {
 	@RequestMapping("/message/delete.do")
 	public String delete(int no) throws Exception {
 		System.out.println("MessageController.delete(no)");
-		messageDeleteProcessService.service(no);
+		
+		if(messageDeleteProcessService.service(no)==null){
+			return "redirect:error.do";
+	}
 		return "redirect:list.do";
 	}
 
@@ -159,20 +159,29 @@ public class MessageController {
 		return "message/send/list";
 	}
 
+	
 	// 보낸 쪽지 보기 : view
 	@RequestMapping("/message/send/view.do")
 	public String sendView(int no, Model model) throws Exception {
 		System.out.println("MessageControeller.sendView(no)");
-		model.addAttribute("message", messageSendViewService.service(no));
+		Message message = (Message) messageSendViewService.service(no);
+		if(message == null){
+			// *** main.xml viewResolver 에서 prefix 지정한 경로 ***
+			return "message/error";
+		}
+		model.addAttribute("message", message);
 		// ** 리턴값 sendView 아니고 send/view **
 		return "message/send/view";
 	}
 
-	// 쪽지 삭제 : delete
+	// 보낸 쪽지 삭제 : delete
 	@RequestMapping("/message/send/delete.do")
 	public String sendDelete(int no) throws Exception {
 		System.out.println("MessageController.sendDelete(no)");
-		messageSendDeleteProcessService.service(no);
+		if(messageSendDeleteProcessService.service(no)==null){
+			// *** 경로 다르므로, 상위부터  *** 
+			return "message/error.do";
+		}
 		return "redirect:list.do";
 	}
 	

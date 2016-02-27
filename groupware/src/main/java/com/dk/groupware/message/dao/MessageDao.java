@@ -55,8 +55,7 @@ public class MessageDao {
 	// 받은 쪽지 삭제 - delete
 	public Object delete(Object obj){
 		System.out.println("MessageDao.delete()");
-		sqlSessionTemplate.delete("dao.Message.delete", obj);
-		return null;
+		return sqlSessionTemplate.delete("dao.Message.delete", obj);
 	}
 	
 	// 보낸 쪽지 리스트
@@ -75,8 +74,7 @@ public class MessageDao {
 	// 보낸 쪽지 삭제
 	public Object sendDelete(Object obj) {
 		System.out.println("MessageDao.delete()");
-		sqlSessionTemplate.delete("dao.Message.sendDelete", obj);
-		return null;
+		return sqlSessionTemplate.delete("dao.Message.sendDelete", obj);
 	}
 
 	// 새 쪽지 표시

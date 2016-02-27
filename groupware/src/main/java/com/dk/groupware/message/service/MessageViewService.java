@@ -16,14 +16,14 @@ public class MessageViewService implements ServiceInterface{
 	public Object service(Object obj) {
 		System.out.println("MessageViewService.service()");
 		
-		Message message = (Message) obj;
-		
-		message = (Message) messageDao.view(obj);
+		Message message = (Message) messageDao.view(obj);
 		
 		// rdate가 null일 때, date 값을 채우기 위함
-		if(message.getRdate() == null)
-			messageDao.update(obj);
-		
-		return messageDao.view(obj);
+		if(message !=null){
+			if(message.getRdate() == null)
+				messageDao.update(obj);
+			return messageDao.view(obj);
+		}
+		return null;
 	}
 }

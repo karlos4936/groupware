@@ -17,7 +17,6 @@ public class MessageSendDeleteProcessService implements ServiceInterface{
 	public Object service(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("MessageSendDeleteProcessService.service()");
-		messageDao.sendDelete(obj);
-		return null;
+		return messageDao.sendDelete(obj);
 	}
 }
