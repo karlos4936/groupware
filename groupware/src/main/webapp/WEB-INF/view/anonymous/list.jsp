@@ -53,7 +53,7 @@ table th, table td {
 		<c:forEach var="i" begin="${jspData.startPage }" end="${jspData.endPage }">
 			<c:choose>
 				<c:when test="${jspData.page eq i }">
-					<i id="cpage">${i }</i>
+					<span id="cpage">${i }</span>
 				</c:when>
 				<c:otherwise>
 					<a href="list.do?page=${i }">${i }</a>
