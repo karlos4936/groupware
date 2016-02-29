@@ -17,8 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.dk.groupware.common.DuplicateFile;
 import com.dk.groupware.common.ServiceInterface;
+import com.dk.groupware.common.model.PageModel;
 import com.dk.groupware.member.model.Member;
 import com.dk.groupware.message.model.Message;
+import com.dk.groupware.message.model.MessageModel;
 
 @Controller
 public class MessageController {
@@ -73,7 +75,15 @@ public class MessageController {
 		System.out.println("MessageController.list(page)");
 		// 값 확인
 		Member member = (Member) session.getAttribute("login");
-		model.addAttribute("list", messageListService.service(member.getId()));
+		
+		PageModel pageModel = new PageModel();
+		pageModel.setId(member.getId());
+		pageModel.setPage(page);
+		
+		MessageModel messageModel = (MessageModel) messageListService.service(pageModel);
+		
+		model.addAttribute("list", messageModel.getList());
+		model.addAttribute("jspData", messageModel.getJspData());
 		return "message/list";
 	}
 	
@@ -155,7 +165,15 @@ public class MessageController {
 		System.out.println("MessageController.sendList(page)");
 		// ** 어트리뷰트에 담을 때 sendList 말고 list로 **
 		Member member = (Member) session.getAttribute("login");
-		model.addAttribute("list", messageSendListService.service(member.getId()));
+		
+		PageModel pageModel = new PageModel();
+		pageModel.setId(member.getId());
+		pageModel.setPage(page);
+		
+		MessageModel messageModel = (MessageModel) messageSendListService.service(pageModel);
+		
+		model.addAttribute("list", messageModel.getList());
+		model.addAttribute("jspData", messageModel.getJspData());
 		return "message/send/list";
 	}
 

@@ -53,7 +53,7 @@
 <!-- 		첨부파일 없을 경우 숨김 -->
 		<c:if test="${notice.fileName ne null }">
 		<tr id="noticeTr">
-			<th>업로드 파일</th>
+			<th>업로드<br/>파일</th>
 			<!-- 		target을 _blank로 지정해주면 새 창으로 뜬다. -->
 			<td><a href="../upload/notice/${notice.fileName}"
 				target="_blank">${notice.fileName}</a></td>

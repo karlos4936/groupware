@@ -11,6 +11,10 @@
 
 	<!-- 받은 쪽지 리스트 : list -->
 	<select id="list" resultType="com.dk.groupware.message.model.Message">
+		select * from
+		(
+		select rownum rnum, no, title, sender, receiver, rdate, sdate, name from
+		(
 		select no, title, sender, receiver,
 		to_char(rdate, 'yyyy-mm-dd AM hh:mi:ss') rdate,
 		to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate,
@@ -18,6 +22,9 @@
 		from message msg, member mb
 		where receiver=#{id} and msg.sender=mb.id
 		order by no desc
+		)
+		)
+		where rnum between #{startRow} and #{endRow}
 	</select>
 	
 	
@@ -86,11 +93,18 @@
 	<!-- send -->
 	<!-- 보낸쪽지 리스트 : list -->
 	<select id="sendList" resultType="com.dk.groupware.message.model.Message">
+		select * from
+		(
+		select rownum rnum, no, title, sender, receiver, rdate, sdate, name from
+		(
 		select no, title, to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate, 
 		sender, receiver, to_char(rdate, 'yyyy-mm-dd AM HH:MI:SS') rdate, name
 		from message msg, member mb
-		where sender =#{id} and msg.receiver=mb.id
+		where sender = #{id} and msg.receiver=mb.id
 		order by no desc
+		)
+		)
+		where rnum between #{startRow} and #{endRow}
 	</select>
 	
 	<!-- 보낸쪽지 보기 : view -->
@@ -118,5 +132,15 @@
 		where receiver=#{id} and msg.sender=mb.id
 		order by no desc
 	</select>
+
+	<!-- 글의 총 갯수 : if 및 반복문도 사용 가능 -->
+	<select id="totalRow" resultType="Integer">
+		select count(*) from message where receiver=#{id}
+	</select>
+	
+	<select id="sendTotalRow" resultType="Integer">
+		select count(*) from message where sender=#{id}
+	</select>
+
 
 </mapper>

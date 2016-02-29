@@ -39,7 +39,7 @@ public class MainService implements ServiceInterface {
 		int id = main.getId();
 		Model model = main.getModel();
 		
-		model.addAttribute("noticeList", noticeDao.list());
+		model.addAttribute("noticeList", noticeDao.listLimit());
 		model.addAttribute("scheduleList", scheduleDao.list(id));
 		model.addAttribute("draftList", draftDao.proceedListLimit(id));
 		model.addAttribute("messageList", messageDao.list(id));

@@ -15,7 +15,6 @@ public class NoticeUpdateProcessService implements ServiceInterface{
 	
 	@Override
 	public Object service(Object obj) {
-		// TODO Auto-generated method stub
 		System.out.println("NoticeUpdateProcessService.service()");
 		noticeDao.update((Notice)obj);
 		return null;

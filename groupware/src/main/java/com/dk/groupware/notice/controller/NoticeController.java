@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.dk.groupware.common.DuplicateFile;
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.notice.model.Notice;
+import com.dk.groupware.notice.model.NoticeModel;
 
 @Controller
 public class NoticeController {
@@ -45,11 +46,13 @@ public class NoticeController {
 	
 
 	// 공지사항 리스트 - Model을 추가
-	@RequestMapping("/notice/list.do")
+	@RequestMapping(value="/notice/list.do", method=RequestMethod.GET)
 	public String list(@RequestParam(value="page", required=false, defaultValue="1")
 	int page, Model model)throws Exception{
 		System.out.println("NoticeController.list(page)");
-		model.addAttribute("list", noticeListService.service(page));
+		NoticeModel noticeModel = (NoticeModel) noticeListService.service(page);
+		model.addAttribute("list", noticeModel.getList());
+		model.addAttribute("jspData", noticeModel.getJspData());
 		return "notice/list";
 	}
 	// 공지사항 글보기
@@ -80,7 +83,6 @@ public class NoticeController {
 		System.out.println(realPath);
 		// 비어있지 않으면
 		if(!file1.isEmpty()){
-			String fileName = file1.getOriginalFilename();
 			// 중복되지 않는 파일을 받아올 수 있다.
 			File file = DuplicateFile.getFile(realPath, file1);
 			file1.transferTo(file);// 파일 이동
@@ -108,9 +110,19 @@ public class NoticeController {
 	}
 	// 공지사항 글수정처리
 	@RequestMapping(value="/notice/update.do", method=RequestMethod.POST)
-	public String update(Notice notice)throws Exception{
+	public String update(MultipartFile file1, Notice notice, Model model, 
+			HttpServletRequest request)throws IOException{
 		// 세부적인 작성은 '?'를 더 붙인 후 작성하면 됨
 		System.out.println("NoticeController.update(notice):POST");
+		String realPath = request.getServletContext().getRealPath("/upload/notice");
+		// 비지 않으면 실행
+		if(!file1.isEmpty()){
+			// 중복되지 않는 파일을 받아올 수 있음
+			File file = DuplicateFile.getFile(realPath, file1);
+			file1.transferTo(file);
+			notice.setFileName(file.getName());
+		}
+		System.out.println(realPath);
 		noticeUpdateProcessService.service(notice);
 		return "redirect:view.do?no="+notice.getNo();
 	}
