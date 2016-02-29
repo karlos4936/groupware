@@ -10,7 +10,7 @@
 	<select id="list" resultType="com.dk.groupware.schedule.model.Schedule">
 		select no, title, to_char(sdate, 'yyyy') as year, to_char(sdate, 'mm') as month, 
 		to_char(sdate, 'dd') as day, time from schedule where writer=#{writer} 
-		order by no desc, time asc
+		order by to_number(time)
 	</select>
 <!-- 	일정관리의 총갯수 -->
 	<select id="selectCount" resultType="Integer">
