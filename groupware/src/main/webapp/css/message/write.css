@@ -1,11 +1,11 @@
 @CHARSET "UTF-8";
 
-#noticeBody {
+#messageBody {
 	width:1000px;
 	font-size: 10.5px;
 }
 
-#noticeWriteDiv {
+#messageWriteDiv {
 	width:1000px;
 	margin: 15px auto;
 	padding:10px;
@@ -15,21 +15,21 @@
 
 }
 
-#noticeWriteField {
+#messageWriteField {
 	margin: 15px 10px;
 }
 
-#noticeWriteField ul li {
+#messageWriteField ul li {
 	list-style:none; 
 	margin: 15px 0;	
 }
 
 
-#noticeWriteField input {
+#messageWriteField input {
 	width:70%;
 }
 
-#noticeWriteField label {
+#messageWriteField label {
 	width:110px;
 	color:#888888;
 	font-weight:bold;		
@@ -38,13 +38,13 @@
 	margin-right:10px;
 }
 
-#noticeUl {
+#messageUl {
 	list-style: none;
 	padding: 0;
 }
 
 /*  버튼 */
-#noticeWriteDiv button {
+#messageWriteDiv button {
 	display: block;
 	background-color: #969696;
 	border: 1px solid #dedede;
@@ -54,6 +54,6 @@
 	float: right;
 }
 
-#noticeWriteDiv button:hover {
+#messageWriteDiv button:hover {
 	background-color: #edd200;
  } 

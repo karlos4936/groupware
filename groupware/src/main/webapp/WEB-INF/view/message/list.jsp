@@ -1,46 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/messasge/list.css" rel="stylesheet" type="text/css" /> 
+
 <title>쪽지 리스트</title>
 </head>
-<body>
+<body id="messageBody">
 	<h2>쪽지 리스트</h2>
-	<table>
+	<table id="messageTable">
 		<tr>
-			<th>글번호</th>
-			<th>제목</th>
-			<th>보낸사람</th>
-<!-- 			<th>받은사람</th> -->
-			<th>보낸시간</th>			
-			<th>확인시간</th>
+			<td id="messageBtnA" colspan="5">  
+				<a href="write.do"><button id="messageBtn">쪽지 작성</button></a>
+			</td>
+		</tr>
+		<tr id="messageTr">
+			<th id="messageTh">글번호</th>
+			<th id="messageThTitle">제목</th>
+			<th id="messageTh">보낸사람</th>
+			<th id="messageTh">보낸시간</th>			
+			<th id="messageTh">확인시간</th>
 		</tr>
 		<!-- 	반복 시작 :  -->
 		<c:forEach var="message" items="${list }">
-		<tr>
-			<td>${message.no }</td>
-			<td><a href="view.do?no=${message.no }">${message.title }</a></td>
-			<td>${message.name }</td>
-<!-- 			받은사람(본인) 숨김 -->
-<%-- 			<input type="hidden" value="${message.receiver }"> --%>
-			<td>${message.sdate }</td>
-			
-			<td>
+		<tr id="messageTr">
+			<td id="messageTd">${message.no }</td>
+			<td id="messageThTitle"><a href="view.do?no=${message.no }">${message.title }</a></td>
+			<td id="messageTd">${message.name }</td>
+			<td id="messageTd">${message.sdate }</td>
+			<td id="messageTd">
 			<c:if test="${message.rdate eq null}">미확인</c:if>
 			<c:if test="${message.rdate ne null}">${message.rdate }</c:if>
 			</td>
 		</tr>
 		</c:forEach>
 <!-- 			반복의 끝 -->
-		<tr>
-			<td colspan="5">  
-				<a href="write.do"><button>쪽지 작성</button></a>
-			</td>
-		</tr>
+
 	</table>
 	
 	<div id="pageMove">
@@ -62,8 +61,6 @@
 		<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.page+1 : jspData.totalPage }"><i class="fa fa-chevron-right"></i></a>
 		<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.endPage+1 : jspData.totalPage }"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
 		<a href="list.do?page=${jspData.totalPage }"><i class="fa fa-step-forward"></i></a>
-	</div>
-	
 	
 <!-- 	검색 -->
 <!-- 	<form action="list.do" method="post"> -->
@@ -76,7 +73,6 @@
 <!-- 		<input type="text" name="searchStr"> -->
 <!-- 		<button>검색</button> -->
 <!-- 	</form> -->
-	
-	
+	</div>
 </body>
 </html>

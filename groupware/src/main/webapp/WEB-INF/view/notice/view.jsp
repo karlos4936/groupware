@@ -11,9 +11,6 @@
 </head>
 <body id="noticeBody">
 	<h2>공지사항 글보기</h2>
-	<table id="noticeTable">
-		<tr id="noticeTr">
-		<td colspan="2">
 <!-- 			본인만 글수정, 글삭제 가능 -->
 		<c:choose>
 		<c:when test="${notice.writer eq login.id}">
@@ -24,8 +21,8 @@
 			<a id="noticeBtnA" href="delete.do?no=${notice.no }"><button id="noticeBtn">글삭제</button></a> 
 		</c:when>
 		</c:choose>
-			<a  id="noticeBtnA" href="list.do?no=${notice.no }"><button id="noticeBtn">공지사항 리스트</button></a></td>
-		</tr>
+			<a  id="noticeBtnA" href="list.do?no=${notice.no }"><button id="noticeBtn">공지사항 리스트</button></a><br/><br/><br/>
+	<table id="noticeTable">
 		<tr id="noticeTr">
 			<th>글번호</th>
 			<td>${notice.no }</td>

@@ -4,35 +4,35 @@ body {
 	
 }
 
-#noticeTable, #noticeTr {
+#messageTable, #messageTr {
 	margin: 0 auto;
 	font-size: 10.5pt;
 }
 
-#noticeTh, #noticeTd, #noticeTdTitle {
+#messageTh, #messageTd, #messageTdTitle {
 	padding: 10px;
 	border: 1px solid #888888;
 	width: auto;
 }
 
-#noticeThTitle {
+#messageThTitle {
 	padding: 10px;
 	border: 1px solid #888888;
 	width: 700px;
 /* 	overflow: hidden;  */
 }
 
-#noticeTdTitle:hover {
+#messageTdTitle:hover {
 	background: #d0d0d0;
 }
-#noticeTdTitle a{
+#messageTdTitle a{
 /* 		텍스트 링크의 밑줄 없애기 */
 	text-decoration: none;	
 	color: black;
 }
 
 /*  버튼 */
-#noticeBtn {
+#messageBtn {
 	display: block;
 	background-color: #969696;
 	border: 1px solid #dedede;
@@ -41,11 +41,11 @@ body {
 	margin: 0 auto;
 	float: right;
 }
-#noticeBtnA a{
+#messageBtnA a{
 	text-decoration: none;	
 }
 	
 
-#noticeBtn:hover {
+#messageBtn:hover {
 	background-color: #edd200;
 }

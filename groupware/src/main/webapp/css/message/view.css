@@ -1,38 +1,24 @@
 @CHARSET "UTF-8";
 
-body {
-	
-}
-
-#noticeTable, #noticeTr {
+#messageTable, #messageTr {
 	margin: 0 auto;
 	font-size: 10.5pt;
 }
 
-#noticeTh, #noticeTd, #noticeTdTitle {
+#messageTr th, #messageTr td {
 	padding: 10px;
 	border: 1px solid #888888;
 	width: auto;
 }
 
-#noticeThTitle {
+#messageTr td {
 	padding: 10px;
 	border: 1px solid #888888;
-	width: 700px;
-/* 	overflow: hidden;  */
-}
-
-#noticeTdTitle:hover {
-	background: #d0d0d0;
-}
-#noticeTdTitle a{
-/* 		텍스트 링크의 밑줄 없애기 */
-	text-decoration: none;	
-	color: black;
+	width: 975px;
 }
 
 /*  버튼 */
-#noticeBtn {
+#messageBtn {
 	display: block;
 	background-color: #969696;
 	border: 1px solid #dedede;
@@ -41,11 +27,11 @@ body {
 	margin: 0 auto;
 	float: right;
 }
-#noticeBtnA a{
+#messageBtnA  {
 	text-decoration: none;	
 }
-	
 
-#noticeBtn:hover {
+#messageBtn:hover {
 	background-color: #edd200;
-}
+/* 	border: 1px solid #edd200; */
+/* } */
