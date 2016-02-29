@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <title>일정관리</title>
 </head>
 <body>
@@ -43,15 +44,15 @@
 		<tr>
 			<td align=left width=100>
 				<!-- 년 도-->
-				<a href="list.do?year=<%out.print(year - 1);%>&month=<%out.print(month);%>">◀</a>
+				<a href="list.do?year=<%out.print(year - 1);%>&month=<%out.print(month);%>"><i class="fa fa-arrow-circle-left"></i></a>
 				<% out.print(year);	%>년
-				<a href="list.do?year=<%out.print(year + 1);%>&month=<%out.print(month);%>">▶</a>
+				<a href="list.do?year=<%out.print(year + 1);%>&month=<%out.print(month);%>"><i class="fa fa-arrow-circle-right"></i></a>
 			</td>
 			<td align=center width=200>
 				<!-- 월 -->
-				<a href="list.do?year=<%out.print(year);%>&month=<%out.print(month - 1);%>">◀</a>
+				<a href="list.do?year=<%out.print(year);%>&month=<%out.print(month - 1);%>"><i class="fa fa-arrow-circle-left"></i></a>
 				<% out.print(month + 1); %>월
-				<a href="list.do?year=<%out.print(year);%>&month=<%out.print(month + 1);%>">▶</a>
+				<a href="list.do?year=<%out.print(year);%>&month=<%out.print(month + 1);%>"><i class="fa fa-arrow-circle-right"></i></a>
 			</td>
 			<td align=right width=200>
 				<%
@@ -98,11 +99,10 @@
 					for(Schedule schedule : list) { // 달력내 내용표시
 						if(year == schedule.getYear() && month+1 == schedule.getMonth() && i == schedule.getDay())
 							out.println(
-								"<div align='left' style='display:block; text-overflow:ellipsis; width:100px; overflow:hidden;'>"
-								+ "<a href='view.do?no=" + schedule.getNo() + "'>" // 제목길면 ... 으로 줄임
+								"<div align='left' style='text-overflow:ellipsis; width:100px; overflow:hidden;'>" // 제목길면 ... 으로 줄임
+								+ "<a href='view.do?no=" + schedule.getNo() + "'>"
 								+ schedule.getTime() + "시 "
 								+ "<nobr>" + schedule.getTitle() +"</nobr></a></div>"
-// 								+ "<nobr style='display:block; text-overflow:ellipsis; width:100px; overflow:hidden'>" + schedule.getTitle() +"</a></nobr></div>"
 							);
 					}
 
