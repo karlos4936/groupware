@@ -71,8 +71,7 @@ public class NoticeController {
 	@RequestMapping(value="/notice/write.do", method=RequestMethod.POST)
 	// 파라미터 값에 어떤 파일을 올릴 것인지 작성한다.
 	// 받은 파일을 다시 jsp로 넘기기 위해 Model이 필요하다.
-	public String write(MultipartFile file1,
-			Notice notice, Model model,
+	public String write(MultipartFile file1, Notice notice, Model model,
 			HttpServletRequest request)throws IOException{
 		System.out.println("NoticeController.write(notice):POST");
 		// ServletContext application : 서버에 올라갈 실제 폴더 찾기
@@ -100,8 +99,11 @@ public class NoticeController {
 	
 	// 공지사항 글수정폼 - Model 추가 : view.jsp에서 no를 꼭! 넘기자
 	@RequestMapping(value="/notice/update.do", method=RequestMethod.GET)
-	public String update() throws Exception{
+//	public String update() throws Exception{
+	public String update
+	(@RequestParam(value="no", required=false)int no, Model model) throws Exception {
 		System.out.println("NoticeController.update(no):GET");
+		model.addAttribute("notice", noticeUpdateService.service(no));
 		return "notice/update";
 	}
 	// 공지사항 글수정처리

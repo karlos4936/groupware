@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+
+body {
+	
+}
+
+#noticeTable, #noticeTr {
+	margin: 0 auto;
+	font-size: 10.5pt;
+}
+
+#noticeTh, #noticeTd, #noticeTdTitle {
+	padding: 10px;
+	border: 1px solid #888888;
+	width: auto;
+}
+
+#noticeThTitle {
+	padding: 10px;
+	border: 1px solid #888888;
+	width: 700px;
+}
+
+#noticeTdTitle:hover {
+	background: #d0d0d0;
+}
+#noticeTdTitle a{
+/* 		텍스트 링크의 밑줄 없애기 */
+	text-decoration: none;	
+	color: black;
+}
+
+/*  버튼 */
+#noticeBtn {
+	display: block;
+	background-color: #969696;
+	border: 1px solid #dedede;
+	cursor: pointer;
+	padding: 10px;
+	margin: 0 auto;
+	float: right;
+}
+#noticeBtnA a{
+	text-decoration: none;	
+}
+	
+
+#noticeBtn:hover {
+	background-color: #edd200;
+}

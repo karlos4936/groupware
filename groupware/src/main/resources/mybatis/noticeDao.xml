@@ -19,11 +19,9 @@
 	<insert id="write">
 		insert into notice(no, title, content, writer 
 		<if test="fileName!=null">,fileName</if>
-<!-- 		fileName -->
 		)
 		values(notice_seq.nextval,#{title},#{content},#{writer}
 		<if test="fileName!=null">,#{fileName}</if>
-<!-- 		#{fileName} -->
 		)
 	</insert>
 
@@ -46,7 +44,6 @@
 		update notice set title=#{title},content=#{content},
 		writer=#{writer}
 		<if test="fileName!=null">fileName=#{fileName}</if>
-<!-- 		fileName=#{fileName}  -->
 		where no=#{no}
 	</update>
 
