@@ -5,15 +5,124 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="../js/common/util.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("#form1").submit(function() {
+			switch($("#pnoSel").val()) {
+			case "인턴":
+				$("#pno").val(1);
+				break;
+			case "사원":
+				$("#pno").val(2);
+				break;
+			case "대리":
+				$("#pno").val(3);
+				break;
+			case "과장":
+				$("#pno").val(4);
+				break;
+			case "차장":
+				$("#pno").val(5);
+				break;
+			case "부장":
+				$("#pno").val(6);
+				break;
+			case "본부장":
+				$("#pno").val(7);
+				break;
+			case "사장":
+				$("#pno").val(8);
+				break;
+			case "관리자":
+				$("#pno").val(9);
+				break;
+			}
+		// 데이터 검사 - 1. ID
+			if($("#id").val()==""){
+				alert("사원번호(ID)를 입력하셔야 합니다.");
+				// 커서를 사원번호(ID)칸에 위치시키기
+				$("#id").focus();
+				return false;
+			}
+		// 데이터 검사 - 2. PW
+			if($("#pw").val()==""){
+				alert("비밀번호를 입력하셔야 합니다.");
+				$("#pw").focus();
+				return false;
+			}
+			// 데이터 검사 - 3. 이름
+			if($("#name").val()==""){
+				alert("이름을 입력하셔야 합니다.");
+				$("#name").focus();
+				return false;
+			}
+			// 데이터 검사 - 4. 소속부서
+			if($("#dep").val()=="--소속부서 선택--"){
+				alert("소속부서를 선택하셔야 합니다.");
+				$("#dep").focus();
+				return false;
+			}
+			// 데이터 검사 - 5. 직위번호
+			if($("#pnoSel").val()=="--직위번호 선택--"){
+				alert("직위번호를 선택하셔야 합니다.");
+				$("#pnoSel").focus();
+				return false;
+			}
+			// 데이터 검사 - 6. 매니저
+			if($("#manager").val()==""){
+				alert("매니저를 입력하셔야 합니다.");
+				$("#manager").focus();
+				return false;
+			}
+		});
+	});
+</script>
 </head>
 <body>
 <h2>사원 등록</h2>
-	<form action="write.do" method="post">
+	<form id="form1" action="write.do" method="post">
 		<label for="id">사원ID</label><input type="text" name="id" id="id"/><br/>
 		<label for="pw">비밀번호</label><input type="password" name="pw" id="pw"/><br/>
 		<label for="name">이름</label><input type="text" id="name" name="name"/> <br/>
-		<label for="dep">소속 부서</label><input type="text" id="dep" name="dep"/><br/>
-		<label for="position">직위번호</label><input type="text" id="pno" name="pno"/><br/>
+		
+<!-- 		<label for="dep">소속 부서</label><select id="dep" name="dep"></select><br/> -->
+<!-- 		<select id="pno" name="pno"></select><br/> -->
+
+		<label for="dep">소속 부서</label>
+		<select id="dep" name="dep">
+			<option>--소속부서 선택--</option>
+			<option>마케팅</option>
+			<option>재무</option>
+			<option>개발</option>
+			<option>인사</option>
+			<option>경영지원</option>
+			<option>기획</option>
+			<option>영업</option>
+			<option>영업지원</option>
+		</select>
+		<br/>
+		
+		<label for="pnoSel">직위번호</label>
+		<select id="pnoSel">
+			<option>--직위번호 선택--</option>
+			<option>인턴</option>
+			<option>사원</option>
+			<option>대리</option>
+			<option>과장</option>
+			<option>차장</option>
+			<option>부장</option>
+			<option>본부장</option>
+			<option>사장</option>
+			<option>관리자</option>
+		</select>
+		<br/>
+		
+		<input type="hidden" id="pno" name="pno">
+		
+		
 		<label for="manager">매니저</label><input type="text" id="manager" name="manager"/><br/>
 		<label for="tel">전화번호</label><input type="text" id="tel" name="tel"/><br/>
 		<label for="phone">핸드폰</label><input type="text" id="phone" name="phone"/><br/>

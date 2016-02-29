@@ -20,9 +20,11 @@
 	<property name="myPageViewService" ref="myPageViewService"/>
 	<property name="myPageUpdateService" ref="myPageUpdateService"/>
 	<property name="myPageUpdateProcessService" ref="myPageUpdateProcessService"/>
-	<property name="myPwChangeUpdateService" ref="myPwChangeUpdateService"/>
+<!-- 	<property name="myPwChangeUpdateService" ref="myPwChangeUpdateService"/> -->
 	<property name="myPwChangeProcessService" ref="myPwChangeProcessService"/>
 	<property name="currentPwCheckService" ref="currentPwCheckService"/>
+<!-- 	<property name="resetPwUpdateService" ref="resetPwUpdateService"/> -->
+	<property name="resetPwProcessService" ref="resetPwProcessService"/>
 </bean>
 
 <!-- 서비스 -->
@@ -59,13 +61,19 @@
 <bean id="myPageUpdateProcessService" class="com.dk.groupware.member.service.MyPageUpdateProcessService">
 	<property name="memberDao" ref="memberDao"/>
 </bean>
-<bean id="myPwChangeUpdateService" class="com.dk.groupware.member.service.MyPwChangeUpdateService">
-	<property name="memberDao" ref="memberDao"/>
-</bean>
+<!-- <bean id="myPwChangeUpdateService" class="com.dk.groupware.member.service.MyPwChangeUpdateService"> -->
+<!-- 	<property name="memberDao" ref="memberDao"/> -->
+<!-- </bean> -->
 <bean id="myPwChangeProcessService" class="com.dk.groupware.member.service.MyPwChangeProcessService">
 	<property name="memberDao" ref="memberDao"/>
 </bean>
 <bean id="currentPwCheckService" class="com.dk.groupware.member.service.CurrentPwCheckService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<!-- <bean id="resetPwUpdateService" class="com.dk.groupware.member.service.ResetPwUpdateService"> -->
+<!-- 	<property name="memberDao" ref="memberDao"/> -->
+<!-- </bean> -->
+<bean id="resetPwProcessService" class="com.dk.groupware.member.service.ResetPwProcessService">
 	<property name="memberDao" ref="memberDao"/>
 </bean>
 
