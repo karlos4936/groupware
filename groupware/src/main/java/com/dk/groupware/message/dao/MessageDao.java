@@ -88,5 +88,13 @@ public class MessageDao {
 		System.out.println("MessageDao.listLimit()");
 		return sqlSessionTemplate.selectList("dao.Message.listLimit", id);
 	}
+
+	public Object totalRow(int id) {
+		return sqlSessionTemplate.selectOne("dao.Message.totalRow", id);
+	}
+	
+	public Object sendTotalRow(int id) {
+		return sqlSessionTemplate.selectOne("dao.Message.sendTotalRow", id);
+	}
 	
 }

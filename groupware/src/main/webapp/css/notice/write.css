@@ -30,6 +30,6 @@
 	float: right;
 }
 
-/* #noticeBtn:hover { */
-/* 	background-color: #edd200; */
-/*  }  */
+#noticeWriteDiv button:hover {
+	background-color: #edd200;
+ } 

@@ -10,11 +10,14 @@
 <body>
 <h2>공지사항 글쓰기</h2>
 <!-- 반드시 post! update후에는 redirect를 통해 view.do로 간다. -->
+
 <div id="noticeWriteDiv">
 <form id="noticeForm" action="write.do" method="post" enctype="multipart/form-data">
-<button type="submit">작성</button>
+<button id="noticeBtn" type="submit">작성</button>
 <!-- 클릭만 되고 submit이 일어나지 않게 type을 button으로 지정한다. -->
 <button type="button" onclick="history.back()">취소</button>	
+
+
 <ul id="noticeUl">
 <li id="noticeLi">
 	<label for="title">제목</label><input type="text" name="title" id="title" />
@@ -24,10 +27,10 @@
 </li>
 <li id="noticeLi">
 	<label for="writer">작성자</label><input type="text" value="${login.id }" />
+	<input type="hidden" id="writer" name="writer" value="${login.id }">
 </li>
 <li id="noticeLi">
 	<label for="fileName">파일첨부</label><input type="file" name="file1">
-	<input type="hidden" id="writer" name="writer" value="${login.id }">
 </li>
 </ul>
 

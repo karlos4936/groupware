@@ -15,9 +15,9 @@ public class NoticeDao {
 	}
 	
 	// 공지사항 리스트
-	public Object list(){
+	public Object list(Object obj){
 		System.out.println("NoticeDao.list()");
-		return sqlSessionTemplate.selectList("dao.Notice.list");
+		return sqlSessionTemplate.selectList("dao.Notice.list", obj);
 	}
 	
 	// 공지사항 보기 - 수정
@@ -44,8 +44,13 @@ public class NoticeDao {
 	public Object update(Notice notice){
 		System.out.println("NoticeDao.update()");
 		return sqlSessionTemplate.update("dao.Notice.update", notice);
-//		return null;
 	}
+//	// 공지사항 처리
+//	public Object update(Notice notice){
+//		System.out.println("NoticeDao.update()");
+//		sqlSessionTemplate.update("dao.Notice.update", notice);
+//		return null;
+//	}
 
 	// 공지사항 삭제
 	public Object delete(Object obj){
@@ -58,6 +63,11 @@ public class NoticeDao {
 	public Object listLimit() {
 		System.out.println("NoticeDao.listLimit()");
 		return sqlSessionTemplate.selectList("dao.Notice.listLimit");
+	}
+	// 페이징 처리를 위함
+	public Object totalRow() {
+		System.out.println("NoticeDao.totalRow()");
+		return sqlSessionTemplate.selectOne("dao.Notice.totalRow");
 	}
 
 }
