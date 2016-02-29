@@ -9,6 +9,8 @@ public class JspData {
 	private int startRow;
 	private int endRow;
 
+	private int id;
+
 	public int getPage() {
 		return page;
 	}
@@ -65,10 +67,18 @@ public class JspData {
 		this.endRow = endRow;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return "JspData [totalPage=" + totalPage + ", startPage=" + startPage + ", endPage=" + endPage + ", page="
-				+ page + ", pagesPerGroup=" + pagesPerGroup + ", startRow=" + startRow + ", endRow=" + endRow + "]";
+				+ page + ", pagesPerGroup=" + pagesPerGroup + ", startRow=" + startRow + ", endRow=" + endRow + ", id="
+				+ id + "]";
 	}
-
 }

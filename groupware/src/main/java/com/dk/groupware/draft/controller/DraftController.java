@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dk.groupware.common.ServiceInterface;
+import com.dk.groupware.common.model.PageModel;
 import com.dk.groupware.draft.model.Draft;
+import com.dk.groupware.draft.model.DraftModel;
 import com.dk.groupware.member.model.Member;
 
 @Controller
@@ -87,8 +89,17 @@ public class DraftController {
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("DraftController.list()");
+		
 		Member member = (Member) session.getAttribute("login");
-		model.addAttribute("list", draftListService.service(member.getId()));
+		
+		PageModel pageModel = new PageModel();
+		pageModel.setId(member.getId());
+		pageModel.setPage(page);
+		
+		DraftModel draftModel = (DraftModel) draftListService.service(pageModel);
+		model.addAttribute("list", draftModel.getList());
+		model.addAttribute("jspData", draftModel.getJspData());
+		
 		return "draft/list";
 	}
 	
@@ -101,6 +112,9 @@ public class DraftController {
 	@RequestMapping(value = "/draft/write.do", method = RequestMethod.POST)
 	public String write(Draft draft) throws Exception {
 		System.out.println("DraftController.write():POST");
+		
+		System.out.println(draft);
+		
 		draftWriteProcessService.service(draft);
 		return "redirect:list.do";
 	}
@@ -109,8 +123,17 @@ public class DraftController {
 	public String waitList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("DraftController.waitList()");
+		
 		Member member = (Member) session.getAttribute("login");
-		model.addAttribute("list", waitListService.service(member.getId()));
+		
+		PageModel pageModel = new PageModel();
+		pageModel.setId(member.getId());
+		pageModel.setPage(page);
+		
+		DraftModel draftModel = (DraftModel) waitListService.service(pageModel);
+		model.addAttribute("list", draftModel.getList());
+		model.addAttribute("jspData", draftModel.getJspData());
+		
 		return "draft/wait/list";
 	}
 	
@@ -153,8 +176,17 @@ public class DraftController {
 	public String proceedList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("DraftController.proceedList()");
+		
 		Member member = (Member) session.getAttribute("login");
-		model.addAttribute("list", proceedListService.service(member.getId()));
+		
+		PageModel pageModel = new PageModel();
+		pageModel.setId(member.getId());
+		pageModel.setPage(page);
+		
+		DraftModel draftModel = (DraftModel) proceedListService.service(pageModel);
+		model.addAttribute("list", draftModel.getList());
+		model.addAttribute("jspData", draftModel.getJspData());
+		
 		return "draft/proceed/list";
 	}
 	
@@ -176,8 +208,17 @@ public class DraftController {
 	public String doneList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
 			throws Exception {
 		System.out.println("DraftController.doneList()");
+		
 		Member member = (Member) session.getAttribute("login");
-		model.addAttribute("list", doneListService.service(member.getId()));
+		
+		PageModel pageModel = new PageModel();
+		pageModel.setId(member.getId());
+		pageModel.setPage(page);
+		
+		DraftModel draftModel = (DraftModel) doneListService.service(pageModel);
+		model.addAttribute("list", draftModel.getList());
+		model.addAttribute("jspData", draftModel.getJspData());
+		
 		return "draft/done/list";
 	}
 	
