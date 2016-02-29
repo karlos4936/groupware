@@ -12,8 +12,7 @@ public class AnonymousReplyDeleteProcessService implements ServiceInterface {
 	
 	@Override
 	public Object service(Object obj) {
-		System.out.println("AnonymousReplyProcessService.service()");
-		
+		System.out.println("AnonymousReplyDeleteProcessService.service()");
 		anonymousDao.replyDelete(obj);
 		return null;
 	}

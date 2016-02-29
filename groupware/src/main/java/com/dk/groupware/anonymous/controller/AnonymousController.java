@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.dk.groupware.anonymous.model.Anonymous;
 import com.dk.groupware.anonymous.model.AnonymousModel;
 import com.dk.groupware.anonymous.model.AnonymousReply;
+import com.dk.groupware.anonymous.model.AnonymousReplyModel;
 import com.dk.groupware.common.ServiceInterface;
+import com.dk.groupware.common.model.PageModel;
 
 @Controller
 public class AnonymousController {
@@ -76,10 +78,19 @@ public class AnonymousController {
 	}
 
 	@RequestMapping("/anonymous/view.do")
-	public String view(int no, Model model) throws Exception {
+	public String view(@RequestParam(value = "page", required = false, defaultValue = "1") int page, int no, Model model) throws Exception {
 		System.out.println("AnonymousController.view()");
+		
+		PageModel pageModel = new PageModel();
+		pageModel.setId(no);
+		pageModel.setPage(page);
+		
 		model.addAttribute("anonymous", anonymousViewService.service(no));
-		model.addAttribute("reply", anonymousReplyListService.service(no));
+		
+		AnonymousReplyModel anonymousReplyModel = (AnonymousReplyModel) anonymousReplyListService.service(pageModel);
+		model.addAttribute("reply", anonymousReplyModel.getList());
+		model.addAttribute("jspData", anonymousReplyModel.getJspData());
+		
 		return "anonymous/view";
 	}
 

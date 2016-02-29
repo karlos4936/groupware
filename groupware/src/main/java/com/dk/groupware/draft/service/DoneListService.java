@@ -35,7 +35,7 @@ public class DoneListService implements ServiceInterface {
 		int startPage = 0;
 		int endPage = 0;
 		
-		totalRow = (Integer) draftDao.doneTotalRow(id);
+		totalRow = draftDao.doneTotalRow(id);
 		totalPage = (totalRow-1)/rowsPerPage + 1;
 		startRow = (page -1 )*rowsPerPage +1;
 		endRow = startRow+rowsPerPage-1;

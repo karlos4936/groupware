@@ -4,6 +4,7 @@ public class AnonymousReply {
 	private int rno;
 	private String content;
 	private String writer;
+	private String wdate;
 	private int no;
 
 	public int getRno() {
@@ -30,6 +31,14 @@ public class AnonymousReply {
 		this.writer = writer;
 	}
 
+	public String getWdate() {
+		return wdate;
+	}
+
+	public void setWdate(String wdate) {
+		this.wdate = wdate;
+	}
+
 	public int getNo() {
 		return no;
 	}
@@ -40,6 +49,8 @@ public class AnonymousReply {
 
 	@Override
 	public String toString() {
-		return "AnonymousReply [rno=" + rno + ", content=" + content + ", writer=" + writer + ", no=" + no + "]";
+		return "AnonymousReply [rno=" + rno + ", content=" + content + ", writer=" + writer + ", wdate=" + wdate
+				+ ", no=" + no + "]";
 	}
+
 }

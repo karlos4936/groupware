@@ -16,6 +16,11 @@ public class AnonymousDao {
 		return sqlSessionTemplate.selectList("dao.Anonymous.list", obj);
 	}
 	
+	public Integer totalRow() {
+		System.out.println("AnonymousDao.totalRow()");
+		return sqlSessionTemplate.selectOne("dao.Anonymous.totalRow");
+	}
+	
 	public Object view(Object obj) {
 		System.out.println("AnonymousDao.view()");
 		return sqlSessionTemplate.selectOne("dao.Anonymous.view", obj);
@@ -49,6 +54,11 @@ public class AnonymousDao {
 		return sqlSessionTemplate.selectList("dao.Anonymous.replyList", obj);
 	}
 	
+	public Integer replyTotalRow(int no) {
+		System.out.println("AnonymousDao.replyTotalRow()");
+		return sqlSessionTemplate.selectOne("dao.Anonymous.replyTotalRow", no);
+	}
+	
 	public Object replyWrite(Object obj) {
 		System.out.println("AnonymousDao.replyWrite()");
 		sqlSessionTemplate.insert("dao.Anonymous.replyWrite", obj);
@@ -66,10 +76,4 @@ public class AnonymousDao {
 		sqlSessionTemplate.delete("dao.Anonymous.replyDelete", obj);
 		return null;
 	}
-	
-	public Object totalRow() {
-		System.out.println("AnonymousDao.totalRow()");
-		return sqlSessionTemplate.selectOne("dao.Anonymous.totalRow");
-	}
-
 }

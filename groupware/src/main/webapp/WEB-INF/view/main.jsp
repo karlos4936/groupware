@@ -4,12 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="/groupware/css/main.css">
 </head>
 <body>
 	<div class="division">
 		<ul>
-			<li class="li_head">공지사항</li>
+			<a href="notice/list.do">
+				<li class="li_head">공지사항</li>
+			</a>
 			<c:forEach var="notice" items="${noticeList }">
 				<a href="notice/view.do?no=${notice.no }">
 					<li class="li_content">
@@ -23,7 +26,9 @@
 	
 	<div class="division">
 		<ul>
-			<li class="li_head">일정관리</li>
+			<a href="schedule/list.do">
+				<li class="li_head"><i class="fa fa-calendar"></i>&nbsp;일정관리</li>
+			</a>
 			<c:forEach var="schedule" items="${scheduleList }">
 				<a href="schedule/view.do?no=${schedule.no }">
 					<li class="li_content">
@@ -37,7 +42,9 @@
 
 	<div class="division">
 		<ul>
-			<li class="li_head">결재할 문서</li>
+			<a href="draft/proceed/list.do">
+				<li class="li_head"><i class="fa fa-file-text-o"></i>&nbsp;결재할 문서</li>
+			</a>
 			<c:forEach var="draft" items="${draftList }">
 				<a href="draft/proceed/view.do?no=${draft.no }">
 					<li class="li_content">
@@ -51,7 +58,9 @@
 	
 	<div class="division">
 		<ul>
-			<li class="li_head">받은 쪽지</li>
+			<a href="message/list.do">
+				<li class="li_head">받은 쪽지</li>
+			</a>
 			<c:forEach var="message" items="${messageList }">
 				<a href="message/view.do?no=${message.no }">
 					<li class="li_content">
