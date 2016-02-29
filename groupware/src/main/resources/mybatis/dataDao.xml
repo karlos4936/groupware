@@ -8,10 +8,22 @@
 
 <!-- 	자료실 리스트 -->
 	<select id="list" resultType="com.dk.groupware.data.model.Data">
+		select * from
+		(
+		select rownum rnum, no, title, writer, name, wdate, hit from
+		(
 		select no, title, writer, name, to_char(wdate, 'yyyy-mm-dd') wdate, hit
 		from data d, member m
 		where d.writer=m.id
 		order by no desc
+		)
+		)
+		where rnum between #{startRow} and #{endRow}
+	</select>
+	
+<!-- 	totalRow -->
+	<select id="totalRow" resultType="Integer">
+		select count(*) from data
 	</select>
 	
 <!-- 	자료실 리스트 검색 -->

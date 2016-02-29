@@ -13,9 +13,9 @@ public class DataDao {
 	}
 
 	// 글리스트
-	public Object list() {
+	public Object list(Object obj) {
 		System.out.println("DataDao.list()");
-		return sqlSessionTemplate.selectList("dao.Data.list");
+		return sqlSessionTemplate.selectList("dao.Data.list", obj);
 	}
 	
 	// 데이터 검색 리스트
@@ -55,5 +55,11 @@ public class DataDao {
 		System.out.println("DataDao.delete()");
 		sqlSessionTemplate.delete("dao.Data.delete", obj);
 		return null;
+	}
+	
+	// 페이징 처리 위한 totlaRow()
+	public Object totalRow() {
+		System.out.println("DataDao.totalRow()");
+		return sqlSessionTemplate.selectOne("dao.Data.totalRow");
 	}
 }

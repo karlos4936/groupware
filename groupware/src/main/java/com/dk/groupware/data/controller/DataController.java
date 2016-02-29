@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.dk.groupware.common.DuplicateFile;
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.data.model.Data;
+import com.dk.groupware.data.model.DataModel;
 import com.dk.groupware.data.model.Search;
 
 @Controller
@@ -56,7 +57,9 @@ public class DataController {
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("DataController.list()");
-		model.addAttribute("list", dataListService.service(page));
+		DataModel dataModel = (DataModel) dataListService.service(page);
+		model.addAttribute("list", dataModel.getList());
+		model.addAttribute("jspData", dataModel.getJspData());
 		return "data/list";
 	}
 	

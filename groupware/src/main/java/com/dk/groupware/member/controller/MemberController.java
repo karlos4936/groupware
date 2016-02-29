@@ -1,9 +1,5 @@
 package com.dk.groupware.member.controller;
 
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -14,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dk.groupware.common.ServiceInterface;
 import com.dk.groupware.member.model.Member;
+import com.dk.groupware.member.model.MemberModel;
 import com.dk.groupware.member.model.Search;
-import com.dk.groupware.member.service.MyPageUpdateService;
-import com.dk.groupware.member.service.MyPwChangeUpdateService;
 
 @Controller
 public class MemberController {
@@ -24,7 +19,8 @@ public class MemberController {
 	// xml에서 property를 줬으니까 private
 	private ServiceInterface memberListService, memberSearchListService, memberViewService, memberUpdateService, memberUpdateProcessService,
 			memberWriteProcessService, memberDeleteProcessService, myPageViewService, loginProcessService,
-			myPageUpdateService, myPageUpdateProcessService, myPwChangeUpdateService, myPwChangeProcessService, currentPwCheckService;
+			myPageUpdateService, myPageUpdateProcessService, myPwChangeProcessService, currentPwCheckService,
+			resetPwProcessService;
 
 	// setters
 	
@@ -34,10 +30,6 @@ public class MemberController {
 
 	public void setCurrentPwCheckService(ServiceInterface currentPwCheckService) {
 		this.currentPwCheckService=currentPwCheckService;
-	}
-
-	public void setMyPwChangeUpdateService(ServiceInterface myPwChangeUpdateService) {
-		this.myPwChangeUpdateService = myPwChangeUpdateService;
 	}
 
 	public void setMemberSearchListService(ServiceInterface memberSearchListService) {
@@ -84,12 +76,19 @@ public class MemberController {
 		this.myPageUpdateProcessService = myPageUpdateProcessService;
 	}
 
+	public void setResetPwProcessService(ServiceInterface resetPwProcessService) {
+		this.resetPwProcessService = resetPwProcessService;
+	}
+
 	// 사원 리스트
 	@RequestMapping("/member/list.do")
 	public String list(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model)
 			throws Exception {
 		System.out.println("MemberController.list()");
-		model.addAttribute("list", memberListService.service(page));
+		MemberModel memberModel = (MemberModel) memberListService.service(page);
+		model.addAttribute("list",memberModel.getList());
+		model.addAttribute("jspData",memberModel.getJspData());
+//		model.addAttribute("list", memberListService.service(page));
 		return "member/list";
 	}
 
@@ -126,6 +125,23 @@ public class MemberController {
 		memberUpdateProcessService.service(member);
 		return "redirect:view.do?id=" + member.getId();
 	}
+	
+	// 사원 비밀번호 리셋(수정) 폼: GET
+	@RequestMapping(value="/member/pwreset.do", method=RequestMethod.GET)
+	public String pwreset(int id, Model model) throws Exception{
+		System.out.println("MemeberController.pwreset():get");
+		model.addAttribute("member", myPageViewService.service(id));
+		return "member/pwreset";
+	}
+	
+	// 사원 비밀번호 리셋 처리: POST
+	@RequestMapping(value="/member/pwreset.do", method=RequestMethod.POST)
+	public String pwreset(Member member)throws Exception{
+		System.out.println("MemberController.pwreset():post");
+		resetPwProcessService.service(member);
+		return "redirect:view.do?id="+member.getId();
+	}
+
 
 	// 사원 등록 폼: get
 	@RequestMapping(value = "/member/write.do", method = RequestMethod.GET)
@@ -147,7 +163,9 @@ public class MemberController {
 	public String delete(@RequestParam(value = "id", required = false) int id) throws Exception {
 		System.out.println("MemberController.delete()");
 		memberDeleteProcessService.service(id);
-		return "member/list";
+//		return "member/list";
+		// 탈퇴 처리 후 리스트로 바로 가도록.
+		return "redirect:list.do";
 	}
 
 	// 내정보 보기

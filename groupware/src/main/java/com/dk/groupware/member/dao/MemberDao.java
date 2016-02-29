@@ -15,10 +15,10 @@ public class MemberDao {
 	}
 	
 	// 사원 리스트
-	public Object list() {
+	public Object list(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("MemberDao.list()");
-		return sqlSessionTemplate.selectList("dao.Member.list");
+		return sqlSessionTemplate.selectList("dao.Member.list", obj);
 	}
 	
 	// 사원 ID 찾기 (사원 검색 리스트)
@@ -40,6 +40,13 @@ public class MemberDao {
 		// TODO Auto-generated method stub
 		System.out.println("MemberDao.update()");
 		sqlSessionTemplate.update("dao.Member.update", member);
+		return null;
+	}
+	
+	// 사원 비밀번호 리셋(수정)
+	public Object pwreset(Object obj){
+		System.out.println("MemberDao.pwreset()");
+		sqlSessionTemplate.update("dao.Member.pwreset", obj);
 		return null;
 	}
 
@@ -73,7 +80,7 @@ public class MemberDao {
 	
 	// 내 비밀번호 수정
 	public Object pwUpdate(Object obj) {
-		System.out.println("MemberDao.pwUpdate");
+		System.out.println("MemberDao.pwUpdate()");
 		sqlSessionTemplate.update("dao.Member.pwUpdate", obj);
 		return null;
 	}
@@ -88,6 +95,12 @@ public class MemberDao {
 	public Object login(Member member) {
 		System.out.println("MemberDao.login()");
 		return sqlSessionTemplate.selectOne("dao.Member.login", member);
+	}
+	
+	// totalRow 받아오는 메소드
+	public Object totalRow(){
+		System.out.println("MemberDao.totalRow()");
+		return sqlSessionTemplate.selectOne("dao.Member.totalRow");
 	}
 
 }

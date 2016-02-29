@@ -14,6 +14,11 @@
 		order by id desc
 	</select>
 	
+<!-- 	totlaRow -->
+	<select id="totalRow" resultType="Integer">
+		select count(*) from member
+	</select>
+	
 <!-- 	사원 ID 찾기 리스트 (사원 검색 리스트) -->
 	<select id="searchList" resultType="com.dk.groupware.member.model.Member">
 		select id, name, dep, position 
@@ -42,6 +47,11 @@
 		name=#{name}, dep=#{dep}, pno=#{pno},
 		manager=#{manager}, tel=#{tel}, phone=#{phone}
 		where id=#{id}
+	</update>
+	
+	<!-- 	사원 비밀번호 수정 -->
+	<update id="pwreset">
+		update member set pw=#{pw} where id=#{id}
 	</update>
 
 	<!-- 사원 등록 -->
