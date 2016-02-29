@@ -14,9 +14,9 @@ public class BoardDao {
 	}
 	
 	// 글리스트
-	public Object list(){
+	public Object list(Object obj){
 		System.out.println("BoardDao.list()");
-		return sqlSessionTemplate.selectList("dao.Board.list");
+		return sqlSessionTemplate.selectList("dao.Board.list", obj);
 	}
 	// 글보기 - 글수정
 	public Object view(Object obj){

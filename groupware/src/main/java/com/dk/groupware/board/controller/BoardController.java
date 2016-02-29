@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dk.groupware.board.model.Board;
+import com.dk.groupware.board.model.BoardModel;
 import com.dk.groupware.common.ServiceInterface;
 
 @Controller
@@ -46,7 +47,9 @@ public class BoardController {
 	(@RequestParam(value="page",required=false, defaultValue="1") int page, Model model)
 	throws Exception{
 		System.out.println("BoardController.list()");
-		model.addAttribute("list", boardListService.service(page));
+		BoardModel boardModel = (BoardModel) boardListService.service(page);
+		model.addAttribute("list", boardModel.getList());
+		model.addAttribute("jspData", boardModel.getJspDate());
 		return "board/list";
 	}
 	
