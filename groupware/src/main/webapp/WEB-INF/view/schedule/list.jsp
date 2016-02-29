@@ -86,13 +86,13 @@
 				}
 				for (int i = 1; i <= end; i++) { //날짜출력
 					if((br%7)==0){ // 일요일 색깔 출력
-						out.println("<td valign='top' align='right' width='100' height='120' style='color: red;'>" + i + "<br>");
+						out.println("<div><td valign='top' align='right' width='100' height='120' style='color: red;'>" + i + "<br></div>");
 					}
 					else if((br%7)==6){ // 토요일 색깔 출력
-						out.println("<td valign='top' align='right' width='100' height='120' style='color: blue;'>" + i + "<br>");
+						out.println("<div><td valign='top' align='right' width='100' height='120' style='color: blue;'>" + i + "<br></div>");
 					}
 					else{
-						out.println("<td valign='top' align='right' width='100' height='120'>" + i + "<br>");
+						out.println("<div><td valign='top' align='right' width='100' height='120'>" + i + "<br></div>");
 					}
 					
 					for(Schedule schedule : list) { // 달력내 내용표시
