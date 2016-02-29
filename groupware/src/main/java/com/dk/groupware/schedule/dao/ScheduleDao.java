@@ -41,4 +41,9 @@ public class ScheduleDao {
 		sqlSessionTemplate.delete("dao.Schedule.delete", obj);
 		return null;
 	}
+	// 일정리스트 - 메인화면용
+	public Object listLimit(int id) {
+		System.out.println("ScheduleDao.listLimit()");
+		return sqlSessionTemplate.selectList("dao.Schedule.listLimit", id);
+	}
 }

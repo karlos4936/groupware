@@ -54,6 +54,10 @@ public class NoticeDao {
 		return null;
 	}
 
-
+	// 공지사항 리스트 - 메인화면용
+	public Object listLimit() {
+		System.out.println("NoticeDao.listLimit()");
+		return sqlSessionTemplate.selectList("dao.Notice.listLimit");
+	}
 
 }
