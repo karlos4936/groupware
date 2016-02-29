@@ -83,7 +83,7 @@
 
 	<!-- 로그인 -->
 	<select id="login" resultType="com.dk.groupware.member.model.Member">
-		select id, name, pno
+		select id, name, dep, pno
 		from member
 		where id=#{id} and pw=#{pw}
 	</select>

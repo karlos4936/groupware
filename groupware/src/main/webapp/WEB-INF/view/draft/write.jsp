@@ -47,6 +47,7 @@ $(document).ready(function() {
 		<label for="title">글제목</label><input id="title" name="title"><br>	
 		<label for="content">글내용</label><textarea id="content" name="content" rows="7" cols="60"></textarea><br>
 		<label for="drafter">작성자</label><input id="drafter" value="${login.name }" readonly="readonly"><br>
+		<label for="dep">부서</label><input id="dep" name="dep" value="${login.dep }" readonly="readonly"><br>
 		
 		<label for="signer1">결재자1</label><input id="signer1" value="${login.name }" readonly="readonly"><br>
 		

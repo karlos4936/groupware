@@ -5,22 +5,45 @@
 <mapper namespace="dao.Draft">
 
 	<select id="list" resultType="com.dk.groupware.draft.model.Draft">
+		select * from
+		(
+		select rownum rnum, no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate from
+		(
 		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
-		where drafter=#{drafter}
+		where drafter=#{id}
+		order by no desc
+		)
+		)
+		where rnum between #{startRow} and #{endRow}
+	</select>
+	
+	<select id="totalRow" resultType="Integer">
+		select count(*) from draft where drafter=#{id}
 		order by no desc
 	</select>
 	
 	<insert id="write">
-		insert into draft(no, title, content, drafter, signer1, signer2, signer3)
-		values(draft_seq.nextval, #{title}, #{content}, #{drafter}, #{drafter}, #{signer2}, #{signer3})
+		insert into draft(no, title, content, drafter, dep, signer1, signer2, signer3)
+		values(draft_seq.nextval, #{title}, #{content}, #{drafter}, #{dep}, #{drafter}, #{signer2}, #{signer3})
 	</insert>
 	
 	<select id="waitList" resultType="com.dk.groupware.draft.model.Draft">
+		select * from
+		(
+		select rownum rnum, no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate from
+		(
 		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
-		where signer1=#{signer1} and issign1 is null
+		where signer1=#{id} and issign1 is null
 		order by no desc
+		)
+		)
+		where rnum between #{startRow} and #{endRow}
+	</select>
+	
+	<select id="waitTotalRow" resultType="Integer">
+		select count(*) from draft where signer1=#{id} and issign1 is null
 	</select>
 	
 	<select id="waitView" resultType="com.dk.groupware.draft.model.Draft">
@@ -44,6 +67,10 @@
 	</delete>
 	
 	<select id="proceedList" resultType="com.dk.groupware.draft.model.Draft">
+		select * from
+		(
+		select rownum rnum, no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate from
+		(
 		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
 		where
@@ -53,6 +80,19 @@
 		or
 		(signer3=#{id} and issign2 is not null and issign3 is null)
 		order by no desc 
+		)
+		)
+		where rnum between #{startRow} and #{endRow}
+	</select>
+	
+	<select id="proceedTotalRow" resultType="Integer">
+		select count(*) from draft
+		where
+		(signer1=#{id} and issign1 is not null and issign3 is null)
+		or
+		(signer2=#{id} and issign1 is not null and issign3 is null)
+		or
+		(signer3=#{id} and issign2 is not null and issign3 is null)
 	</select>
 	
 	<select id="proceedView" resultType="com.dk.groupware.draft.model.Draft">
@@ -68,15 +108,32 @@
 	</update>
 	
 	<select id="doneList" resultType="com.dk.groupware.draft.model.Draft">
+		select * from
+		(
+		select rownum rnum, no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate from
+		(
 		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
 		where
-		(signer1=#{drafter} and issign3 is not null)
+		(signer1=#{id} and issign3 is not null)
 		or
-		(signer2=#{drafter} and issign3 is not null)
+		(signer2=#{id} and issign3 is not null)
 		or
-		(signer3=#{drafter} and issign3 is not null) 
-		order by no desc 
+		(signer3=#{id} and issign3 is not null)
+		order by no desc
+		)
+		)
+		where rnum between #{startRow} and #{endRow}
+	</select>
+	
+	<select id="doneTotalRow" resultType="Integer">
+		select count(*) from draft
+		where
+		(signer1=#{id} and issign3 is not null)
+		or
+		(signer2=#{id} and issign3 is not null)
+		or
+		(signer3=#{id} and issign3 is not null)
 	</select>
 	
 	<select id="doneView" resultType="com.dk.groupware.draft.model.Draft">
@@ -86,6 +143,10 @@
 	</select>
 	
 	<select id="proceedListLimit" resultType="com.dk.groupware.draft.model.Draft">
+		select * from
+		(
+		select rownum rnum, no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate from
+		(
 		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
 		from draft
 		where
@@ -95,6 +156,9 @@
 		or
 		(signer3=#{id} and issign2 is not null and issign3 is null)
 		order by no desc 
+		)
+		)
+		where rnum between #{startRow} and #{endRow}
 	</select>
 
 </mapper>

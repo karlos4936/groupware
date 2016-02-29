@@ -5,7 +5,7 @@ public class Draft {
 	private String title;
 	private String content;
 	private String drafter;
-	private String depname;
+	private String dep;
 	private String signer1;
 	private String signer2;
 	private String signer3;
@@ -48,12 +48,12 @@ public class Draft {
 		this.drafter = drafter;
 	}
 
-	public String getDepname() {
-		return depname;
+	public String getDep() {
+		return dep;
 	}
 
-	public void setDepname(String depname) {
-		this.depname = depname;
+	public void setDep(String dep) {
+		this.dep = dep;
 	}
 
 	public String getSigner1() {
@@ -130,8 +130,8 @@ public class Draft {
 
 	@Override
 	public String toString() {
-		return "Draft [no=" + no + ", title=" + title + ", content=" + content + ", drafter=" + drafter + ", depname="
-				+ depname + ", signer1=" + signer1 + ", signer2=" + signer2 + ", signer3=" + signer3 + ", isSign1="
+		return "Draft [no=" + no + ", title=" + title + ", content=" + content + ", drafter=" + drafter + ", dep="
+				+ dep + ", signer1=" + signer1 + ", signer2=" + signer2 + ", signer3=" + signer3 + ", isSign1="
 				+ isSign1 + ", isSign2=" + isSign2 + ", isSign3=" + isSign3 + ", regDate=" + regDate + ", signerName2="
 				+ signerName2 + ", signerName3=" + signerName3 + "]";
 	}

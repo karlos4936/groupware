@@ -16,6 +16,11 @@ public class DraftDao {
 		return sqlSessionTemplate.selectList("dao.Draft.list", obj);
 	}
 	
+	public Integer totalRow(int id) {
+		System.out.println("DraftDao.totalRow()");
+		return sqlSessionTemplate.selectOne("dao.Draft.totalRow", id);
+	}
+	
 	public Object write(Draft Draft) {
 		System.out.println("DraftDao.write()");
 		sqlSessionTemplate.insert("dao.Draft.write", Draft);
@@ -25,6 +30,11 @@ public class DraftDao {
 	public Object waitList(Object obj) {
 		System.out.println("DraftDao.waitList()");
 		return sqlSessionTemplate.selectList("dao.Draft.waitList", obj);
+	}
+	
+	public Integer waitTotalRow(int id) {
+		System.out.println("DraftDao.waitTotalRow()");
+		return sqlSessionTemplate.selectOne("dao.Draft.waitTotalRow", id);
 	}
 	
 	public Object waitView(Object obj) {
@@ -55,6 +65,11 @@ public class DraftDao {
 		return sqlSessionTemplate.selectList("dao.Draft.proceedList", obj);
 	}
 	
+	public Integer proceedTotalRow(int id) {
+		System.out.println("DraftDao.proceedTotalRow()");
+		return sqlSessionTemplate.selectOne("dao.Draft.proceedTotalRow", id);
+	}
+	
 	public Object proceedView(Object obj) {
 		System.out.println("DraftDao.proceedView()");
 		return sqlSessionTemplate.selectOne("dao.Draft.proceedView", obj);
@@ -71,6 +86,11 @@ public class DraftDao {
 		return sqlSessionTemplate.selectList("dao.Draft.doneList", obj);
 	}
 	
+	public Integer doneTotalRow(int id) {
+		System.out.println("DraftDao.doneTotalRow()");
+		return sqlSessionTemplate.selectOne("dao.Draft.doneTotalRow", id);
+	}
+	
 	public Object doneView(Object obj) {
 		System.out.println("DraftDao.doneView()");
 		return sqlSessionTemplate.selectOne("dao.Draft.doneView", obj);
@@ -80,5 +100,5 @@ public class DraftDao {
 		System.out.println("DraftDao.proceedListLimit()");
 		return sqlSessionTemplate.selectList("dao.Draft.proceedListLimit", id);
 	}
-	
+
 }
