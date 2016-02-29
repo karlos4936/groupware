@@ -10,37 +10,36 @@
 
 <title>보낸 쪽지 리스트</title>
 </head>
-<body>
+<body id="messageBody">
 	<h2>보낸 쪽지 리스트</h2>
-	<table>
-		<tr>
-			<th>글번호</th>
-			<th>제목</th>
+	
+	<a href="../write.do"><button id="messageBtn">쪽지 작성</button></a><br/><br/>
+	
+	<table id="messageTable">
+		<tr id="messageTr">
+			<th id="messageTh">글번호</th>
+			<th id="messageThTitle">제목</th>
 <!-- 			<th>보낸사람</th> -->
-			<th>받은사람</th>
-			<th>보낸시간</th>			
-			<th>확인시간</th>
+			<th id="messageTh">받은사람</th>
+			<th id="messageTh">보낸시간</th>			
+			<th id="messageTh">확인시간</th>
 		</tr>
 		<!-- 	반복 시작 :  -->
 		<c:forEach var="message" items="${list }">
-		<tr>
-			<td>${message.no }</td>
-			<td><a href="view.do?no=${message.no }">${message.title }</a></td>
+		<tr id="messageTr">
+			<td id="messageTd">${message.no }</td>
+			<td id="messageTdTitle"><a href="view.do?no=${message.no }">${message.title }</a></td>
 <%-- 			<td>${message.sender }</td> --%>
-			<td>${message.name }</td>
-			<td>${message.sdate }</td>
-			<td>
+			<td id="messageTd">${message.name }</td>
+			<td id="messageTd">${message.sdate }</td>
+			<td id="messageTd">
 			<c:if test="${message.rdate eq null}">미확인</c:if>
 			<c:if test="${message.rdate ne null}">${message.rdate }</c:if>
 			 </td>
 		</tr>
 		</c:forEach>
 <!-- 			반복의 끝 -->
-		<tr>
-			<td colspan="5">  
-				<a href="../write.do"><button>쪽지 작성</button></a>
-			</td>
-		</tr>
+
 	</table>
 	
 	<div id="pageMove">
