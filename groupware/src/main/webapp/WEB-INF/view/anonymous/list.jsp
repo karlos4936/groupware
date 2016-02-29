@@ -46,25 +46,25 @@ table th, table td {
 	</table>
 	
 	<div id="pageMove">
-			<a href="list.do?page=1"><span class="fa fa-step-backward"></span></a>
-			<a href="list.do?page=${jspData.startPage > 1 ? jspData.startPage-jspData.pagesPerGroup : 1 }"><span class="fa fa-chevron-left"></span><span class="fa fa-chevron-left"></span></a>
-			<a href="list.do?page=${jspData.page > 1 ? jspData.page-1 : 1 }"><span class="fa fa-chevron-left"></span></a>
-		
-			<c:forEach var="i" begin="${jspData.startPage }" end="${jspData.endPage }">
-				<c:choose>
-					<c:when test="${jspData.page eq i }">
-						<span id="cpage">${i }</span>
-					</c:when>
-					<c:otherwise>
-						<a href="list.do?page=${i }">${i }</a>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-		
-			<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.page+1 : jspData.totalPage }"><span class="fa fa-chevron-right"></span></a>
-			<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.endPage+1 : jspData.totalPage }"><span class="fa fa-chevron-right"></span><span class="fa fa-chevron-right"></span></a>
-			<a href="list.do?page=${jspData.totalPage }"><span class="fa fa-step-forward"></span></a>
-		</div>
+		<a href="list.do?page=1"><i class="fa fa-step-backward"></i></a>
+		<a href="list.do?page=${jspData.startPage > 1 ? jspData.startPage-jspData.pagesPerGroup : 1 }"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>
+		<a href="list.do?page=${jspData.page > 1 ? jspData.page-1 : 1 }"><i class="fa fa-chevron-left"></i></a>
+	
+		<c:forEach var="i" begin="${jspData.startPage }" end="${jspData.endPage }">
+			<c:choose>
+				<c:when test="${jspData.page eq i }">
+					<i id="cpage">${i }</i>
+				</c:when>
+				<c:otherwise>
+					<a href="list.do?page=${i }">${i }</a>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+	
+		<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.page+1 : jspData.totalPage }"><i class="fa fa-chevron-right"></i></a>
+		<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.endPage+1 : jspData.totalPage }"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+		<a href="list.do?page=${jspData.totalPage }"><i class="fa fa-step-forward"></i></a>
+	</div>
 	
 </body>
 </html>
