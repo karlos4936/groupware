@@ -12,7 +12,8 @@
 	<input type="hidden" name="no" value="${notice.no }" />
 	<label for="title">글제목</label><input type="text" name="title" id="title" value="${notice.title }"/><br/>
 	<label for="content">글내용</label><textarea rows="7" cols="60" name="content">${notice.content }</textarea>
-	<label for="writer">작성자</label><input type="text" name="writer" id="writer" value="${notice.writer }" readonly="readonly"/><br/>
+	<label for="writer">작성자</label><input type="text" value="${login.id }" readonly="readonly"/><br/>
+	<input type="hidden" id="writer" name="writer" value="${login.id }">
 	<label for="fileName">파일첨부</label><input type="file" name="file1" ><br/>
 	
 	<button type="submit">수정</button>
