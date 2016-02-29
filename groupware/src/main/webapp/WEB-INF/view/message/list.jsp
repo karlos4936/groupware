@@ -8,16 +8,14 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="../css/messasge/list.css" rel="stylesheet" type="text/css" /> 
 
-<title>쪽지 리스트</title>
+<title>받은 쪽지 리스트</title>
 </head>
 <body id="messageBody">
-	<h2>쪽지 리스트</h2>
+	<h2>받은 쪽지 리스트</h2>
+	
+	<a href="write.do"><button id="messageBtn">쪽지 작성</button></a><br/><br/>
+	
 	<table id="messageTable">
-		<tr>
-			<td id="messageBtnA" colspan="5">  
-				<a href="write.do"><button id="messageBtn">쪽지 작성</button></a>
-			</td>
-		</tr>
 		<tr id="messageTr">
 			<th id="messageTh">글번호</th>
 			<th id="messageThTitle">제목</th>
