@@ -36,4 +36,10 @@
   <delete id="delete">
   	delete from schedule where no=#{no}
   </delete>
+<!-- 	일정관리 리스트 메인화면용 -->
+  <select id="listLimit" resultType="com.dk.groupware.schedule.model.Schedule">
+	select no, title, to_char(sdate, 'yyyy') as year, to_char(sdate, 'mm') as month, 
+	to_char(sdate, 'dd') as day, time from schedule where writer=#{writer} and rownum between 1 and 15 
+	order by no desc, time asc
+  </select>
 </mapper>

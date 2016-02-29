@@ -75,5 +75,10 @@ public class DraftDao {
 		System.out.println("DraftDao.doneView()");
 		return sqlSessionTemplate.selectOne("dao.Draft.doneView", obj);
 	}
+
+	public Object proceedListLimit(int id) {
+		System.out.println("DraftDao.proceedListLimit()");
+		return sqlSessionTemplate.selectList("dao.Draft.proceedListLimit", id);
+	}
 	
 }

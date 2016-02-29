@@ -84,5 +84,17 @@
 		from draft
 		where no=#{no}
 	</select>
+	
+	<select id="proceedListLimit" resultType="com.dk.groupware.draft.model.Draft">
+		select no, title, drafter, signer1, signer2, signer3, issign1, issign2, issign3, regdate
+		from draft
+		where
+		(signer1=#{id} and issign1 is not null and issign3 is null)
+		or
+		(signer2=#{id} and issign1 is not null and issign3 is null)
+		or
+		(signer3=#{id} and issign2 is not null and issign3 is null)
+		order by no desc 
+	</select>
 
 </mapper>

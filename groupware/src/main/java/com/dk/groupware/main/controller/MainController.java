@@ -7,39 +7,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dk.groupware.common.ServiceInterface;
+import com.dk.groupware.main.model.Main;
 import com.dk.groupware.member.model.Member;
 
 @Controller
 public class MainController {
-	private ServiceInterface noticeListService;
-	private ServiceInterface scheduleListService;
-	private ServiceInterface proceedListService;
-	private ServiceInterface messageListService;
+	private ServiceInterface mainService;
 
-	public void setNoticeListService(ServiceInterface noticeListService) {
-		this.noticeListService = noticeListService;
-	}
-
-	public void setScheduleListService(ServiceInterface scheduleListService) {
-		this.scheduleListService = scheduleListService;
-	}
-
-	public void setProceedListService(ServiceInterface proceedListService) {
-		this.proceedListService = proceedListService;
-	}
-
-	public void setMessageListService(ServiceInterface messageListService) {
-		this.messageListService = messageListService;
+	public void setMainService(ServiceInterface mainService) {
+		this.mainService = mainService;
 	}
 
 	@RequestMapping("/main.do")
 	public String list(HttpSession session, Model model) throws Exception {
 		System.out.println("MainController.list()");
 		Member member = (Member) session.getAttribute("login");
-		model.addAttribute("noticeList", noticeListService.service(null));
-		model.addAttribute("scheduleList", scheduleListService.service(member.getId()));
-		model.addAttribute("draftList", proceedListService.service(member.getId()));
-		model.addAttribute("messageList", messageListService.service(member.getId()));
+		
+		Main main = new Main();
+		main.setId(member.getId());
+		main.setModel(model);
+		
+		mainService.service(main);
+		
 		return "main";
 	}
 

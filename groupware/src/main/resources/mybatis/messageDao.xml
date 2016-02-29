@@ -107,5 +107,16 @@
 	<delete id="sendDelete">
 		delete from message where no=#{no}
 	</delete>
+	
+	<!-- 받은 쪽지 리스트 메인화면용 -->
+	<select id="listList" resultType="com.dk.groupware.message.model.Message">
+		select no, title, sender, receiver,
+		to_char(rdate, 'yyyy-mm-dd AM hh:mi:ss') rdate,
+		to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate,
+		name
+		from message msg, member mb
+		where receiver=#{id} and msg.sender=mb.id
+		order by no desc
+	</select>
 
 </mapper>

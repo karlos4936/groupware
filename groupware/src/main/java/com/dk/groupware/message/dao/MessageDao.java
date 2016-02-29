@@ -82,5 +82,11 @@ public class MessageDao {
 		System.out.println("MessageDao.count()");
 		return sqlSessionTemplate.selectOne("dao.Message.count", obj);
 	}
+
+	// 받은 쪽지 리스트 - 메인화면용
+	public Object listLimit(int id) {
+		System.out.println("MessageDao.listLimit()");
+		return sqlSessionTemplate.selectList("dao.Message.listLimit", id);
+	}
 	
 }

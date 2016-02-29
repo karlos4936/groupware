@@ -48,25 +48,13 @@
 	<!-- main.do -->
 	
 	<bean class="com.dk.groupware.main.controller.MainController">
-		<property name="noticeListService" ref="noticeListService" />
-		<property name="scheduleListService" ref="scheduleListService" />
-		<property name="proceedListService" ref="proceedListService" />
-		<property name="messageListService" ref="messageListService" />
+		<property name="mainService" ref="mainService" />
 	</bean>
 	
-	<bean class="com.dk.groupware.notice.service.NoticeListService" >
+	<bean id="mainService" class="com.dk.groupware.main.service.MainService" >
 		<property name="noticeDao" ref="noticeDao" />
-	</bean>
-	
-	<bean class="com.dk.groupware.schedule.service.ScheduleListService" >
 		<property name="scheduleDao" ref="scheduleDao" />
-	</bean>
-	
-	<bean class="com.dk.groupware.draft.service.ProceedListService" >
 		<property name="draftDao" ref="draftDao" />
-	</bean>
-	
-	<bean class="com.dk.groupware.message.service.MessageListService" >
 		<property name="messageDao" ref="messageDao" />
 	</bean>
 	

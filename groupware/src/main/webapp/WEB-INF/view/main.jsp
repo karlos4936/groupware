@@ -12,7 +12,7 @@
 			<li class="li_head">공지사항</li>
 			<c:forEach var="notice" items="${noticeList }">
 				<a href="notice/view.do?no=${notice.no }">
-					<li class="li">
+					<li class="li_content">
 						${notice.wdate }
 						${notice.title }
 					</li>
@@ -26,7 +26,7 @@
 			<li class="li_head">일정관리</li>
 			<c:forEach var="schedule" items="${scheduleList }">
 				<a href="schedule/view.do?no=${schedule.no }">
-					<li class="li">
+					<li class="li_content">
 						${schedule.year}-${schedule.month}-${schedule.day}
 						${schedule.title }
 					</li>
@@ -34,15 +34,13 @@
 			</c:forEach>
 		</ul>
 	</div>
-	
-	<br>
-	
+
 	<div class="division">
 		<ul>
 			<li class="li_head">결재할 문서</li>
 			<c:forEach var="draft" items="${draftList }">
 				<a href="draft/proceed/view.do?no=${draft.no }">
-					<li class="li">
+					<li class="li_content">
 						${draft.regDate }
 						${draft.title }
 					</li>
@@ -56,7 +54,7 @@
 			<li class="li_head">받은 쪽지</li>
 			<c:forEach var="message" items="${messageList }">
 				<a href="message/view.do?no=${message.no }">
-					<li class="li">
+					<li class="li_content">
 						${message.sdate }
 						${message.title }
 					</li>

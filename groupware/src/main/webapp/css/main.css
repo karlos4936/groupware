@@ -4,7 +4,11 @@
 	height: 350px;
 	float: left;
 	margin: 20px;
-	font-size: 10pt;
+	font-size: 10.5pt;
+}
+
+.division:nth-child(3) {
+	clear: both;
 }
 
 	.division ul {
@@ -19,11 +23,15 @@
 			padding: 5px 10px;
 		}
 		
-		.division ul .li {
+		.division ul .li_content {
+			height: 21px;
 			padding: 3px 10px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			word-break: break-all;
 		}
 		
-		.division ul .li:hover {
+		.division ul .li_content:hover {
 			background: #d0d0d0;
 		}
 		
