@@ -33,7 +33,7 @@ public class MainService implements ServiceInterface {
 
 	@Override
 	public Object service(Object obj) {
-		System.out.println("AnonymousListService.service()");
+		System.out.println("MainService.service()");
 		
 		Main main = (Main) obj;
 		int id = main.getId();
@@ -41,7 +41,7 @@ public class MainService implements ServiceInterface {
 		
 		model.addAttribute("noticeList", noticeDao.list());
 		model.addAttribute("scheduleList", scheduleDao.list(id));
-		model.addAttribute("draftList", draftDao.proceedList(id));
+		model.addAttribute("draftList", draftDao.proceedListLimit(id));
 		model.addAttribute("messageList", messageDao.list(id));
 
 		return null;

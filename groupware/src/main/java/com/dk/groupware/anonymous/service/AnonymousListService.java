@@ -30,7 +30,7 @@ public class AnonymousListService implements ServiceInterface {
 		int startPage = 0;
 		int endPage = 0;
 		
-		totalRow = (Integer) anonymousDao.totalRow();
+		totalRow = anonymousDao.totalRow();
 		totalPage = (totalRow-1)/rowsPerPage + 1;
 		startRow = (page -1 )*rowsPerPage +1;
 		endRow = startRow+rowsPerPage-1;

@@ -35,7 +35,7 @@ public class ProceedListService implements ServiceInterface {
 		int startPage = 0;
 		int endPage = 0;
 		
-		totalRow = (Integer) draftDao.proceedTotalRow(id);
+		totalRow = draftDao.proceedTotalRow(id);
 		totalPage = (totalRow-1)/rowsPerPage + 1;
 		startRow = (page -1 )*rowsPerPage +1;
 		endRow = startRow+rowsPerPage-1;

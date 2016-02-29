@@ -158,7 +158,7 @@
 		order by no desc 
 		)
 		)
-		where rnum between #{startRow} and #{endRow}
+		where rnum between 1 and 15
 	</select>
 
 </mapper>
