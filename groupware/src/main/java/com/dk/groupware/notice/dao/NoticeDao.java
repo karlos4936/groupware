@@ -43,8 +43,8 @@ public class NoticeDao {
 	// 공지사항 처리
 	public Object update(Notice notice){
 		System.out.println("NoticeDao.update()");
-		sqlSessionTemplate.update("dao.Notice.update", notice);
-		return null;
+		return sqlSessionTemplate.update("dao.Notice.update", notice);
+//		return null;
 	}
 
 	// 공지사항 삭제
