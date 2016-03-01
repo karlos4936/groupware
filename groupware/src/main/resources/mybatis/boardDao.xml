@@ -8,13 +8,22 @@
 
 <!-- 	게시판리스트 -->
 	<select id="list" resultType="com.dk.groupware.board.model.Board">
-		select * from (select rownum rnum, no, title, name, wdate, hit from
-		(select no, title, name, to_char(wdate,'yyyy-mm-dd') wdate, hit 
+		select * from (select rownum rnum, no, title, writer, name, wdate, hit from
+		(select no, title, writer, name, to_char(wdate,'yyyy-mm-dd') wdate, hit 
 		from board b, member m 
 		where b.writer=m.id order by no desc)) where rnum between #{startRow} and #{endRow}
-<!-- 		select no, title, name, to_char(wdate,'yyyy-mm-dd') wdate, hit -->
-<!-- 		from board b, member m  -->
-<!--  		where b.writer=m.id order by no desc -->
+	</select>
+<!-- 	리스트 검색 -->
+	<select id="searchList" resultType="com.dk.groupware.board.model.Board">
+		select no, title, writer, name, to_char(wdate, 'yyyy-mm-dd') wdate, hit
+		from board b, member m 
+		where b.writer=m.id 
+		and
+		<if test="option == '제목'">title like '%'||#{search}||'%'</if>
+		<if test="option == '내용'">content like '%'||#{search}||'%'</if>
+		<if test="option == '제목+내용'">(title like '%'||#{search}||'%' or content like '%'||#{search}||'%')</if>
+		<if test="option == '작성자'">writer like '%'||#{search}||'%'</if>
+		order by no desc
 	</select>
 <!-- 	글의 총갯수 -->
 	<select id="selectCount" resultType="Integer">

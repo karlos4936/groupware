@@ -51,4 +51,9 @@ public class BoardDao {
 		System.out.println("BoardDao.totlaRow()");
 		return sqlSessionTemplate.selectOne("dao.Board.selectCount");
 	}
+	// 글검색
+	public Object searchList(Object obj) {
+		System.out.println("BoardDao.searchList()");
+		return sqlSessionTemplate.selectList("dao.Board.searchList", obj);
+	}
 }

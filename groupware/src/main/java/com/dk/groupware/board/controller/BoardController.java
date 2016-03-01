@@ -8,17 +8,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dk.groupware.board.model.Board;
 import com.dk.groupware.board.model.BoardModel;
+import com.dk.groupware.board.model.Search;
 import com.dk.groupware.common.ServiceInterface;
 
 @Controller
 public class BoardController {
 	
-	private ServiceInterface boardListService,
+	private ServiceInterface boardListService, boardSearchListService,
 	boardViewService, boardWriteProcessService, boardUpdateService,
 	boardUpdateProcessService, boardDeleteProcessService;
 	
 	public void setBoardListService(ServiceInterface boardListService) {
 		this.boardListService = boardListService;
+	}
+
+	public void setBoardSearchListService(ServiceInterface boardSearchListService) {
+		this.boardSearchListService = boardSearchListService;
 	}
 
 	public void setBoardViewService(ServiceInterface boardViewService) {
@@ -42,7 +47,7 @@ public class BoardController {
 	}
 
 	// 글리스트
-	@RequestMapping("/board/list.do")
+	@RequestMapping(value="/board/list.do", method=RequestMethod.GET)
 	public String list
 	(@RequestParam(value="page",required=false, defaultValue="1") int page, Model model)
 	throws Exception{
@@ -50,6 +55,16 @@ public class BoardController {
 		BoardModel boardModel = (BoardModel) boardListService.service(page);
 		model.addAttribute("list", boardModel.getList());
 		model.addAttribute("jspData", boardModel.getJspDate());
+		return "board/list";
+	}
+	
+	// 글검색
+	@RequestMapping(value="/board/list.do", method=RequestMethod.POST)
+	public String searchList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, 
+			String option, String searchStr, Model model)throws Exception {
+		System.out.println("BoardController.searchList()");
+		Search search = new Search(option, searchStr);
+		model.addAttribute("list", boardSearchListService.service(search));
 		return "board/list";
 	}
 	
