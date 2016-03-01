@@ -16,6 +16,7 @@
 		<property name="boardUpdateService" ref="boardUpdateService" />
 		<property name="boardUpdateProcessService" ref="boardUpdateProcessService" />
 		<property name="boardDeleteProcessService" ref="boardDeleteProcessService" />
+		<property name="boardSearchListService" ref="boardSearchListService" />
 	</bean>
 	
 <!-- 	service -->
@@ -35,6 +36,9 @@
 		<property name="boardDao" ref="boardDao" />
 	</bean>
 	<bean id="boardDeleteProcessService" class="com.dk.groupware.board.service.BoardDeleteProcessService">
+		<property name="boardDao" ref="boardDao" />
+	</bean>
+	<bean id="boardSearchListService" class="com.dk.groupware.board.service.BoardSearchListService">
 		<property name="boardDao" ref="boardDao" />
 	</bean>
 	

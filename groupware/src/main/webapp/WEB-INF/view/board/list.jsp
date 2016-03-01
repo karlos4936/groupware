@@ -48,5 +48,16 @@
 <a href="list.do?page=${jspData.totalPage>jspData.endPage?jspData.endPage+1:jspData.totalPage }"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a> 
 <a href="list.do?page=${jspData.totalPage }"><i class="fa fa-step-forward"></i></a>
 <br/>
+
+<form action="list.do" method="post">
+	<select name="option">
+		<option>제목</option>
+		<option>내용</option>
+		<option>제목+내용</option>
+		<option>작성자</option>
+	</select>
+	<input type="text" name="searchStr">
+	<button>검색</button><br/>
+</form>
 </body>
 </html>
