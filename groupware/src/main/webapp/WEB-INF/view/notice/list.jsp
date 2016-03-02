@@ -19,20 +19,20 @@
 			</td>
 		</tr>
 		<tr id="noticeTr">
-			<th id="noticeTh">글번호</th>
+			<th class="noticeTh">글번호</th>
 			<th id="noticeThTitle">제목</th>
-			<th id="noticeTh">작성자</th>
-			<th id="noticeTh">작성일</th>
-			<th id="noticeTh">조회수</th>
+			<th class="noticeTh">작성자</th>
+			<th class="noticeTh">작성일</th>
+			<th class="noticeTh">조회수</th>
 		</tr>
 		<!-- 	반복 시작 :  -->
 		<c:forEach var="notice" items="${list }">
 		<tr>
-			<td id="noticeTd">${notice.no }</td>
+			<td class="noticeTd">${notice.no }</td>
 			<td id="noticeTdTitle"><a href="view.do?no=${notice.no }">${notice.title }</a></td>
-			<td id="noticeTd">${notice.name }</td>
-			<td id="noticeTd">${notice.wdate }</td>
-			<td id="noticeTd">${notice.hit }</td>
+			<td class="noticeTd">${notice.name }</td>
+			<td class="noticeTd">${notice.wdate }</td>
+			<td class="noticeTd">${notice.hit }</td>
 		</tr>
 		</c:forEach>
 <!-- 			반복의 끝 -->

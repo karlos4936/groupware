@@ -1,11 +1,16 @@
 @CHARSET "UTF-8";
 
-#messageTable, #messageTr {
+/* 이중 줄 합치기 */
+#messageTable {
+	border-collapse: collapse;
+}
+
+#messageTable, .messageTr {
 	margin: 0 auto;
 	font-size: 10.5pt;
 }
 
-#messageTr th, #messageTr td {
+.messageTr th, .messageTr td {
 	padding: 10px;
 	border: 1px solid #888888;
 	width: auto;
@@ -13,11 +18,11 @@
 	text-align: center;
 }
 /* 제목 줄 배경색 */
-#messageTr th {
+.messageTr th {
 	background-color: #d0d0d0;
 }
 
-#messageTr td {
+.messageTr td {
 	padding: 10px;
 	border: 1px solid #888888;
 	width: 975px;
@@ -39,5 +44,4 @@
 
 #messageBtn:hover {
 	background-color: #edd200;
-/* 	border: 1px solid #edd200; */
-/* } */
+ } 

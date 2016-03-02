@@ -23,33 +23,33 @@
 		</c:choose>
 			<a  id="noticeBtnA" href="list.do?no=${notice.no }"><button id="noticeBtn">공지사항 리스트</button></a><br/><br/><br/>
 	<table id="noticeTable">
-		<tr id="noticeTr">
+		<tr class="noticeTr">
 			<th>글번호</th>
 			<td>${notice.no }</td>
 		</tr>
-		<tr id="noticeTr">
+		<tr class="noticeTr">
 			<th>제목</th>
 			<td>${notice.title}</td>
 		</tr>
-		<tr id="noticeTr">
+		<tr class="noticeTr">
 			<th>내용</th>
 			<td>${notice.content }</td>
 		</tr>
-		<tr id="noticeTr">
+		<tr class="noticeTr">
 			<th>작성자</th>
 			<td>${notice.name }</td>
 		</tr>
-		<tr id="noticeTr">
+		<tr class="noticeTr">
 			<th>작성일</th>
 			<td>${notice.wdate }</td>
 		</tr>
-		<tr id="noticeTr">
+		<tr class="noticeTr">
 			<th>조회수</th>
 			<td>${notice.hit }</td>
 		</tr>
 <!-- 		첨부파일 없을 경우 숨김 -->
 		<c:if test="${notice.fileName ne null }">
-		<tr id="noticeTr">
+		<tr class="noticeTr">
 			<th>업로드<br/>파일</th>
 			<!-- 		target을 _blank로 지정해주면 새 창으로 뜬다. -->
 			<td><a href="../upload/notice/${notice.fileName}"

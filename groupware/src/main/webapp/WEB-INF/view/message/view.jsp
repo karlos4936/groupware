@@ -16,19 +16,19 @@
 		<c:if test="${message.fileName }"></c:if>
 	
 	<table id="messageTable">
-		<tr id="messageTr">
+		<tr class="messageTr">
 			<th>글번호</th>
 			<td>${message.no }</td>
 		</tr>
-		<tr id="messageTr">
+		<tr class="messageTr">
 			<th>제목</th>
 			<td>${message.title}</td>
 		</tr>
-		<tr id="messageTr">
+		<tr class="messageTr">
 			<th>내용</th>
 			<td>${message.content }</td>
 		</tr>
-		<tr id="messageTr">
+		<tr class="messageTr">
 			<th>보낸<br/>사람</th>
 			<td>${message.name}</td>
 		</tr>
@@ -40,18 +40,18 @@
 
 		<!-- 		첨부파일이 없을 경우 숨김 -->
 		<c:if test="${message.fileName ne null}">
-		<tr id="messageTr">
+		<tr class="messageTr">
 				<th>첨부<br/>파일</th>
 				<!-- 		target을 _blank로 지정해주면 새 창으로 뜬다. -->
 				<td><a href="../upload/message/${message.fileName }"
 					target="_blank">${message.fileName }</a>
 			</tr>
 		</c:if>
-		<tr id="messageTr">
+		<tr class="messageTr">
 			<th>보낸<br/>시간</th>
 			<td>${message.sdate}</td>
 		</tr>
-		<tr id="messageTr">
+		<tr class="messageTr">
 			<th>확인<br/>시간</th>
 			<td>${message.rdate }</td>
 		</tr>
