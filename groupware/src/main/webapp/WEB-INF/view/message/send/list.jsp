@@ -25,7 +25,7 @@
 	<h3>보낸 쪽지 리스트</h3>
 	<form action="delete.do" method="post" id="listForm">
 	
-	<a href="../write.do"><button id="messageBtn">쪽지 작성</button></a>
+	<a href="../write.do"><button type="button" id="messageBtn">쪽지 작성</button></a>
 	<button id="messageDeleteBtn">선택 쪽지 삭제</button>
 	<br/><br/>
 	
