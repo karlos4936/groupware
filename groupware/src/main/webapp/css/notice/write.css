@@ -15,6 +15,14 @@
 
 }
 
+/* input과 textarea를 맞추기 위함 */
+#noticeWriteField input {
+	width:730px;
+}
+#noticeUl textarea {
+	width: 730px;
+	height: 300px;
+}
 #noticeWriteField {
 	margin: 15px 10px;
 }
@@ -24,10 +32,6 @@
 	margin: 15px 0;	
 }
 
-
-#noticeWriteField input {
-	width:70%;
-}
 
 #noticeWriteField label {
 	width:110px;
@@ -42,7 +46,6 @@
 	list-style: none;
 	padding: 0;
 }
-
 #noticeUl input:focus, #noticeUl textarea:focus {
 	background-color: #fffce6;
 }

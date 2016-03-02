@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#messageForm").submit(function(){
-			alert("공지사항 작성");
+// 			alert("쪽지 작성");
 			// 제목
 			if($('#title').val()==""){
 				alert("제목을 입력해주세요");
@@ -49,7 +49,7 @@
 	<label for="title">제목</label><input type="text" name="title" id="title" required="required" /><br/>
 </li>
 <li id="messageLi">
-	<label for="content">내용</label><textarea style="resize:none;" rows="15" cols="90" name="content" id="content" required="required"></textarea><br/>
+	<label for="content">내용</label><textarea style="resize:none;" name="content" id="content" required="required"></textarea><br/>
 </li>
 <li id="messageLi">
 	<label for="sender">보낸사람</label><input type="text" value="${login.id }" required="required" readonly="readonly"/><br/>
