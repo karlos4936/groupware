@@ -42,6 +42,10 @@
 	padding: 0;
 }
 
+#noticeUl input:focus, #noticeUl textarea:focus {
+	background-color: #fffce6;
+}
+
 /*  버튼 */
 #noticeUpdateDiv button {
 	display: block;
