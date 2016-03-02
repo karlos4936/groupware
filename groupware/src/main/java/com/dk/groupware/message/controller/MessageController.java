@@ -147,10 +147,12 @@ public class MessageController {
 
 	// 쪽지 삭제 : delete
 	@RequestMapping("/message/delete.do")
-	public String delete(int no) throws Exception {
+	public String delete(int [] nos) throws Exception {
 		System.out.println("MessageController.delete(no)");
+		for(int s : nos)
+			System.out.println(s);
 		
-		if(messageDeleteProcessService.service(no)==null){
+		if(messageDeleteProcessService.service(nos)==null){
 			return "redirect:error.do";
 	}
 		return "redirect:list.do";
@@ -194,9 +196,12 @@ public class MessageController {
 
 	// 보낸 쪽지 삭제 : delete
 	@RequestMapping("/message/send/delete.do")
-	public String sendDelete(int no) throws Exception {
+	public String sendDelete(int [] nos) throws Exception {
 		System.out.println("MessageController.sendDelete(no)");
-		if(messageSendDeleteProcessService.service(no)==null){
+		for(int s : nos)
+			System.out.println(s);
+		
+		if(messageSendDeleteProcessService.service(nos)==null){
 			// *** 경로 다르므로, 상위부터  *** 
 			return "message/error.do";
 		}

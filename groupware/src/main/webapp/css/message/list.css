@@ -33,7 +33,7 @@ body {
 #messageThTitle {
 	padding: 10px;
 	border: 1px solid #888888;
-	width: 500px;
+	width: 470px;
 /* 	overflow: hidden;  */
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 /*  버튼 */
-#messageBtn {
+#messageBtn, #messageDeleteBtn {
 	display: block;
 	background-color: #969696;
 	border: 1px solid #dedede;
@@ -65,7 +65,7 @@ body {
 	text-decoration: none;	
 }
 
-#messageBtn:hover {
+#messageBtn:hover , #messageDeleteBtn:hover{
 	background-color: #edd200;
 }
 

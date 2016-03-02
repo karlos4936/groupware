@@ -19,4 +19,5 @@ public class MessageSendDeleteProcessService implements ServiceInterface{
 		System.out.println("MessageSendDeleteProcessService.service()");
 		return messageDao.sendDelete(obj);
 	}
+	
 }
