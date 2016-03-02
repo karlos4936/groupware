@@ -1,22 +1,27 @@
 @CHARSET "UTF-8";
 
-#noticeTable, #noticeTr {
+/* 이중 줄 합치기 */
+#noticeTable {
+	border-collapse: collapse;
+}
+
+#noticeTable, .noticeTr {
 	margin: 0 auto;
 	font-size: 10.5pt;
 }
 
-#noticeTr th, #noticeTr td {
+.noticeTr th, .noticeTr td {
 	padding: 10px;
 	border: 1px solid #888888;
 	width: auto;
 }
 
 /* 제목 줄 배경색 */
-#noticeTr th {
+.noticeTr th {
 	background-color: #d0d0d0;
 }
 
-#noticeTr td {
+.noticeTr td {
 	padding: 10px;
 	border: 1px solid #888888;
 	width: 975px;
@@ -38,5 +43,4 @@
 
 #noticeBtn:hover {
 	background-color: #edd200;
-/* 	border: 1px solid #edd200; */
-/* } */
+ }

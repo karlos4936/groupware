@@ -17,20 +17,20 @@
 	
 	<table id="messageTable">
 		<tr id="messageTr">
-			<th id="messageTh">글번호</th>
+			<th class="messageTh">글번호</th>
 			<th id="messageThTitle">제목</th>
-			<th id="messageTh">보낸사람</th>
-			<th id="messageTh">보낸시간</th>			
-			<th id="messageTh">확인시간</th>
+			<th class="messageTh">보낸사람</th>
+			<th class="messageTh">보낸시간</th>			
+			<th class="messageTh">확인시간</th>
 		</tr>
 		<!-- 	반복 시작 :  -->
 		<c:forEach var="message" items="${list }">
 		<tr id="messageTr">
-			<td id="messageTd">${message.no }</td>
+			<td class="messageTd">${message.no }</td>
 			<td id="messageTdTitle"><a href="view.do?no=${message.no }">${message.title }</a></td>
-			<td id="messageTd">${message.name }</td>
-			<td id="messageTd">${message.sdate }</td>
-			<td id="messageTd">
+			<td class="messageTd">${message.name }</td>
+			<td class="messageTd">${message.sdate }</td>
+			<td class="messageTd">
 			<c:if test="${message.rdate eq null}">미확인</c:if>
 			<c:if test="${message.rdate ne null}">${message.rdate }</c:if>
 			</td>
