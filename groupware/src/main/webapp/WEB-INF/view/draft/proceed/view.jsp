@@ -31,7 +31,7 @@ table th, table td {
 		</tr>
 		<tr>
 			<th>content</th>
-			<td><pre>${draft.content}</pre></td>
+			<td>${draft.content}</td>
 		</tr>
 		<tr>	
 			<th>drafter</th>
@@ -65,18 +65,25 @@ table th, table td {
 			<th>redgate</th>
 			<td>${draft.regDate }</td>
 		</tr>
-		
-		<tr>
-			<td colspan="2">
-				<form action="sign.do" method="post">
-					<input type="hidden" name="no" value="${draft.no }">
-					<input type="hidden" name="drafter" value="${login.id }">
-					<input type="hidden" name="signer2" value="${draft.signer2 }">
-					<input type="hidden" name="signer3" value="${draft.signer3 }">
-					<button>결재</button>
-				</form>
-			</td>
-		</tr>
+
+		<c:choose>
+			<c:when test="${( login.id eq draft.signer1 ) ||
+							( (login.id eq draft.signer2) && (!empty draft.isSign2) ) ||
+							( (login.id eq draft.signer3) && (!empty draft.isSign3) ) }" />
+			<c:otherwise>
+				<tr>
+					<td colspan="2">
+						<form action="sign.do" method="post">
+							<input type="hidden" name="no" value="${draft.no }">
+							<input type="hidden" name="drafter" value="${login.id }">
+							<input type="hidden" name="signer2" value="${draft.signer2 }">
+							<input type="hidden" name="signer3" value="${draft.signer3 }">
+							<button>결재</button>
+						</form>
+					</td>
+				</tr>
+			</c:otherwise>
+		</c:choose>
 		
 	</table>
 	

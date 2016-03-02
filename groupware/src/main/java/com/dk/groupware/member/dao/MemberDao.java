@@ -103,4 +103,10 @@ public class MemberDao {
 		return sqlSessionTemplate.selectOne("dao.Member.totalRow");
 	}
 
+	// 결재자 선택용
+	public Object selectSigner(Object obj) {
+		System.out.println("MemberDao.selectSigner()");
+		return sqlSessionTemplate.selectList("dao.Member.selectSigner", obj);
+	}
+
 }

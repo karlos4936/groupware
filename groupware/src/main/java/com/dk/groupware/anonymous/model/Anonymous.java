@@ -7,21 +7,7 @@ public class Anonymous {
 	private String writer;
 	private String wdate;
 	private int hit;
-	
-	public Anonymous() {}
-	
-	public Anonymous(int no, String title, String writer, String wdate, int hit) {
-		this.no = no;
-		this.title = title;
-		this.writer = writer;
-		this.wdate = wdate;
-		this.hit = hit;
-	}
-	
-	public Anonymous(int no, String title, String content, String writer, String wdate, int hit) {
-		this(no, title, writer, wdate, hit);
-		this.content = content;
-	}
+	private int rcount;
 
 	public int getNo() {
 		return no;
@@ -71,9 +57,17 @@ public class Anonymous {
 		this.hit = hit;
 	}
 
+	public int getRcount() {
+		return rcount;
+	}
+
+	public void setRcount(int rcount) {
+		this.rcount = rcount;
+	}
+
 	@Override
 	public String toString() {
-		return "Board [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer + ", wdate="
-				+ wdate + ", hit=" + hit + "]";
+		return "Anonymous [no=" + no + ", title=" + title + ", content=" + content + ", writer=" + writer + ", wdate="
+				+ wdate + ", hit=" + hit + ", rcount=" + rcount + "]";
 	}
 }

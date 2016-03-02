@@ -24,6 +24,7 @@ body {
 #header {
 	height: 40px;
 	background: #606060;
+	min-width: 960px;
 }
 
 	#main_title {

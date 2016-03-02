@@ -123,7 +123,11 @@
 	</delete>
 	
 	<!-- 받은 쪽지 리스트 메인화면용 -->
-	<select id="listList" resultType="com.dk.groupware.message.model.Message">
+	<select id="listLimit" resultType="com.dk.groupware.message.model.Message">
+		select * from
+		(
+		select rownum rnum, no, title, sender, receiver, rdate, sdate, name from
+		(
 		select no, title, sender, receiver,
 		to_char(rdate, 'yyyy-mm-dd AM hh:mi:ss') rdate,
 		to_char(sdate, 'yyyy-mm-dd AM HH:MI:SS') sdate,
@@ -131,6 +135,9 @@
 		from message msg, member mb
 		where receiver=#{id} and msg.sender=mb.id
 		order by no desc
+		)
+		)
+		where rnum between 1 and 15
 	</select>
 
 	<!-- 글의 총 갯수 : if 및 반복문도 사용 가능 -->

@@ -6,23 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-<title>Insert title here</title>
-<style type="text/css">
-table {
-	border: 1px solid black;
-	border-collapse: collapse;
-	text-align: center;
-}
-
-table th, table td {
-	border: 1px solid black;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="../css/anonymous/anonymous.css" />
+<title>익명게시판</title>
 </head>
 <body>
-	<h2>익명게시판 글리스트</h2>
-	
-	<table>
+	<table id="ano_tbl">
 		<tr>
 			<th>글번호</th>
 			<th>제목</th>
@@ -32,38 +20,49 @@ table th, table td {
 		</tr>
 	<c:forEach var="anonymous" items="${list }">
 		<tr>
-			<td>${anonymous.no }</td>
-			<td><a href="view.do?no=${anonymous.no}" >${anonymous.title }</a></td>
-			<td>${fn:substring(anonymous.writer, 0, 8)}</td>
-			<td>${anonymous.wdate }</td>
-			<td>${anonymous.hit }</td>
+			<td class="no">${anonymous.no }</td>
+			<td class="title"><a href="view.do?no=${anonymous.no}" >
+				${anonymous.title }<img class="replyIcon" src="../img/iconReply.gif"/>${anonymous.rcount }</a>
+			</td>
+			<td class="writer">${fn:substring(anonymous.writer, 0, 8)}</td>
+			<td class="wdate">${anonymous.wdate }</td>
+			<td class="hit">${anonymous.hit }</td>
 		</tr>	
 	</c:forEach>
-	<tr>
-		<td colspan="5"><a href="write.do"><button>글쓰기</button></a></td>
-	</tr>
-		
+	
 	</table>
 	
-	<div id="pageMove">
-		<a href="list.do?page=1"><i class="fa fa-step-backward"></i></a>
-		<a href="list.do?page=${jspData.startPage > 1 ? jspData.startPage-jspData.pagesPerGroup : 1 }"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>
-		<a href="list.do?page=${jspData.page > 1 ? jspData.page-1 : 1 }"><i class="fa fa-chevron-left"></i></a>
+	<div class="bottom">
 	
-		<c:forEach var="i" begin="${jspData.startPage }" end="${jspData.endPage }">
-			<c:choose>
-				<c:when test="${jspData.page eq i }">
-					<span id="cpage">${i }</span>
-				</c:when>
-				<c:otherwise>
-					<a href="list.do?page=${i }">${i }</a>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-	
-		<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.page+1 : jspData.totalPage }"><i class="fa fa-chevron-right"></i></a>
-		<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.endPage+1 : jspData.totalPage }"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
-		<a href="list.do?page=${jspData.totalPage }"><i class="fa fa-step-forward"></i></a>
+		<div class="leftBox">
+			
+		</div>
+		
+		<div class="rightBox">
+			<a href="write.do"><button class="btn">글쓰기</button></a>
+		</div>
+		
+		<div class="pageBox">
+			<a href="list.do?page=1"><i class="fa fa-step-backward"></i></a>
+			<a href="list.do?page=${jspData.startPage > 1 ? jspData.startPage-jspData.pagesPerGroup : 1 }"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>
+			<a href="list.do?page=${jspData.page > 1 ? jspData.page-1 : 1 }"><i class="fa fa-chevron-left"></i></a>
+		
+			<c:forEach var="i" begin="${jspData.startPage }" end="${jspData.endPage }">
+				<c:choose>
+					<c:when test="${jspData.page eq i }">
+						<span id="cpage">${i }</span>
+					</c:when>
+					<c:otherwise>
+						<a href="list.do?page=${i }">${i }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+		
+			<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.page+1 : jspData.totalPage }"><i class="fa fa-chevron-right"></i></a>
+			<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.endPage+1 : jspData.totalPage }"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+			<a href="list.do?page=${jspData.totalPage }"><i class="fa fa-step-forward"></i></a>
+		</div>
+		
 	</div>
 	
 </body>
