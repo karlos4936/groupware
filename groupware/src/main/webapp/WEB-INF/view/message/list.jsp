@@ -7,17 +7,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="../css/message/list.css" rel="stylesheet" type="text/css" /> 
-
 <title>받은 쪽지 리스트</title>
+<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("#listForm").submit(function(){
+			if(confirm("정말 삭제하시겠습니까?")== false){
+				return false; // 삭제 취소
+			}
+		});
+
+	});
+</script>
 </head>
 <body id="messageBody">
 	<h3>받은 쪽지 리스트</h3>
+	<form action="delete.do" method="post" id="listForm">
 	
-	<a href="write.do"><button id="messageBtn">쪽지 작성</button></a><br/><br/>
+	<a href="write.do"><button type="button" id="messageBtn">쪽지작성</button></a>
+	<button id="messageDeleteBtn">선택 쪽지 삭제</button>
+	<br/><br/>
 	
 	<table id="messageTable">
 		<tr id="messageTr">
 			<th class="messageTh">글번호</th>
+			<th class="messageTh">선택</th>
 			<th id="messageThTitle">제목</th>
 			<th class="messageTh">보낸사람</th>
 			<th class="messageTh">보낸시간</th>			
@@ -27,6 +42,10 @@
 		<c:forEach var="message" items="${list }">
 		<tr id="messageTr">
 			<td class="messageTd">${message.no }</td>
+			
+<!-- 			 no가  forEach에 의해 여러개 생기므로 controller 에서 받을 때 check 한 값을 모드 받으려면 배열로 받는다. -->
+			<td class="messageTd"><input type="checkbox" name="nos" value="${message.no}" /></td>
+			
 			<td id="messageTdTitle"><a href="view.do?no=${message.no }">${message.title }</a></td>
 			<td class="messageTd">${message.name }</td>
 			<td class="messageTd">${message.sdate }</td>
@@ -39,6 +58,7 @@
 <!-- 			반복의 끝 -->
 
 	</table>
+	</form>
 	
 	<div id="pageMove">
 		<a href="list.do?page=1"><i class="fa fa-step-backward"></i></a>

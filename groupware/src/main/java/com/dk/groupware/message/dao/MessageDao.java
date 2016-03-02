@@ -53,9 +53,13 @@ public class MessageDao {
 	}
 	
 	// 받은 쪽지 삭제 - delete
+	// 체크박스 선택- 삭제 처리 때문에 리턴 값을 그대로 주면 안 되기 때문에 1로 준다.
 	public Object delete(Object obj){
 		System.out.println("MessageDao.delete()");
-		return sqlSessionTemplate.delete("dao.Message.delete", obj);
+		int [] nos = (int[])obj;
+		for(int no : nos)
+			sqlSessionTemplate.delete("dao.Message.delete", no);
+		return 1;
 	}
 	
 	// 보낸 쪽지 리스트
@@ -71,10 +75,15 @@ public class MessageDao {
 		return sqlSessionTemplate.selectOne("dao.Message.sendView", obj);
 	}
 	
+	
 	// 보낸 쪽지 삭제
+	// 체크박스 선택- 삭제 처리 때문에 리턴 값을 그대로 주면 안 되기 때문에 1로 준다.
 	public Object sendDelete(Object obj) {
 		System.out.println("MessageDao.delete()");
-		return sqlSessionTemplate.delete("dao.Message.sendDelete", obj);
+		int [] nos = (int[])obj;
+		for(int no : nos)
+			sqlSessionTemplate.delete("dao.Message.sendDelete", no);
+		return 1;
 	}
 
 	// 새 쪽지 표시
