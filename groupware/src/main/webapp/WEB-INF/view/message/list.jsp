@@ -6,12 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
-<link href="../css/messasge/list.css" rel="stylesheet" type="text/css" /> 
+<link href="../css/message/list.css" rel="stylesheet" type="text/css" /> 
 
 <title>받은 쪽지 리스트</title>
 </head>
 <body id="messageBody">
-	<h2>받은 쪽지 리스트</h2>
+	<h3>받은 쪽지 리스트</h3>
 	
 	<a href="write.do"><button id="messageBtn">쪽지 작성</button></a><br/><br/>
 	
@@ -27,7 +27,7 @@
 		<c:forEach var="message" items="${list }">
 		<tr id="messageTr">
 			<td id="messageTd">${message.no }</td>
-			<td id="messageThTitle"><a href="view.do?no=${message.no }">${message.title }</a></td>
+			<td id="messageTdTitle"><a href="view.do?no=${message.no }">${message.title }</a></td>
 			<td id="messageTd">${message.name }</td>
 			<td id="messageTd">${message.sdate }</td>
 			<td id="messageTd">

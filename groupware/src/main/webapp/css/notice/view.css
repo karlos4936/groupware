@@ -11,6 +11,11 @@
 	width: auto;
 }
 
+/* 제목 줄 배경색 */
+#noticeTr th {
+	background-color: #d0d0d0;
+}
+
 #noticeTr td {
 	padding: 10px;
 	border: 1px solid #888888;

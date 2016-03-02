@@ -5,23 +5,39 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/notice/write.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
 <title>공지사항 글쓰기</title>
 <script type="text/javascript">
 	$(document).ready(function(){
-		alert("공지사항을 작성해주세요");
+		$("#noticeForm").submit(function(){
+			alert("공지사항 작성");
+			// 제목
+			if($('#title').val()==""){
+				alert("제목을 입력해주세요");
+				$("#title").focus();
+				return false;
+			}
+			// 내용
+			if($('#content').val()==""){
+				alert("내용을 입력해주세요");
+				$("#content").focus();
+				return false;
+			}
+		});
 	});
 </script>
 </head>
 <body id="noticeBody">
-<h2>공지사항 글쓰기</h2>
 <!-- 반드시 post! update후에는 redirect를 통해 view.do로 간다. -->
 
 <div id="noticeWriteDiv">
+<h3>공지사항 작성</h3>
 <form id="noticeForm" action="write.do" method="post" enctype="multipart/form-data">
 
 <button id="noticeBtn" type="submit">작성</button>
 <!-- 클릭만 되고 submit이 일어나지 않게 type을 button으로 지정한다. -->
 <button id="noticeBtn" type="button" onclick="history.back()">취소</button><br/><br/>	
+
 
 <fieldset id="noticeWriteField">
 <ul id="noticeUl">
@@ -33,7 +49,7 @@
 	<textarea style="resize:none;" rows="15" cols="90" name="content" id="content" required="required" ></textarea>
 </li>
 <li id="noticeLi">
-	<label for="writer">작성자</label><input type="text" value="${login.id }" />
+	<label for="writer">작성자</label><input type="text" value="${login.id }" readonly="readonly"/>
 	<input type="hidden" id="writer" name="writer" value="${login.id }">
 </li>
 <li id="noticeLi">

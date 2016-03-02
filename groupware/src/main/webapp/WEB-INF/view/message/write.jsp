@@ -6,18 +6,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/message/write.css" rel="stylesheet" type="text/css" />
 <title>쪽지 보내기</title>
+<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
 <script type="text/javascript">
-alert("jquery 안먹히네!@");
 	$(document).ready(function(){
-		alert("먹혀");
+		$("#messageForm").submit(function(){
+			alert("공지사항 작성");
+			// 제목
+			if($('#title').val()==""){
+				alert("제목을 입력해주세요");
+				$("#title").focus();
+				return false;
+			}
+			// 내용
+			if($('#content').val()==""){
+				alert("내용을 입력해주세요");
+				$("#content").focus();
+				return false;
+			}
+			// 받는사람
+			if($('#receiver').val()==""){
+				alert("받는사람을 입력해주세요");
+				$("#receiver").focus();
+				return false;
+			}
+		});
 	});
 </script>
 </head>
 <body id="messageBody">
-<h2>쪽지 보내기</h2>
 <!-- 반드시 post! update후에는 redirect를 통해 view.do로 간다. -->
 
 <div id="messageWriteDiv">
+<h3>쪽지 보내기</h3>
 <form id="messageForm" action="write.do" method="post" enctype="multipart/form-data">
 
 <button id="messageBtn" type="submit">전송</button>
@@ -32,7 +52,7 @@ alert("jquery 안먹히네!@");
 	<label for="content">내용</label><textarea style="resize:none;" rows="15" cols="90" name="content" id="content" required="required"></textarea><br/>
 </li>
 <li id="messageLi">
-	<label for="sender">보낸사람</label><input type="text" value="${login.id }" required="required"/><br/>
+	<label for="sender">보낸사람</label><input type="text" value="${login.id }" required="required" readonly="readonly"/><br/>
 </li>
 <li id="messageLi">
 	<label for="receiver">받는사람</label><input type="text" name="receiver" id="receiver" required="required"/><br/>

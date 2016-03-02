@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>요청하신 쪽지가 존재하지 않습니다.</h2>
+<h3>요청하신 쪽지가 존재하지 않습니다.</h3>
 <a href="list.do">리스트로 돌아갑니다.</a>
 </body>
 </html>

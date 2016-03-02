@@ -9,7 +9,19 @@ body {
 	font-size: 10.5pt;
 }
 
-#noticeTh, #noticeTd, #noticeTdTitle {
+#noticeTh, #noticeTd {
+	padding: 10px;
+	border: 1px solid #888888;
+	width: auto;
+/* 	텍스트 가운데 정렬 */
+	text-align: center;
+}
+/* 제목 줄 배경색 */
+#noticeTh, #noticeThTitle {
+	background-color: #d0d0d0;
+}
+
+#noticeTdTitle {
 	padding: 10px;
 	border: 1px solid #888888;
 	width: auto;
@@ -26,9 +38,11 @@ body {
 	background: #d0d0d0;
 }
 #noticeTdTitle a{
-/* 		텍스트 링크의 밑줄 없애기 */
+/* 	텍스트 링크의 밑줄 없애기 */
 	text-decoration: none;	
 	color: black;
+/* 한 줄 전체를 클릭가능하게 하기 위함 */
+	display: block;
 }
 
 /*  버튼 */
@@ -48,4 +62,8 @@ body {
 
 #noticeBtn:hover {
 	background-color: #edd200;
+}
+
+#pageMove a {
+	color: black;
 }
