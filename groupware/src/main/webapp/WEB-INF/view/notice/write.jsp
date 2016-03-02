@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#noticeForm").submit(function(){
-			alert("공지사항 작성");
+// 			alert("공지사항 작성");
 			// 제목
 			if($('#title').val()==""){
 				alert("제목을 입력해주세요");
@@ -46,7 +46,8 @@
 </li>
 <li id="noticeLi">
 	<label for="content">내용</label>
-	<textarea style="resize:none;" rows="15" cols="90" name="content" id="content" required="required" ></textarea>
+	<textarea style="resize:none;" name="content" id="content" required="required" ></textarea>
+
 </li>
 <li id="noticeLi">
 	<label for="writer">작성자</label><input type="text" value="${login.id }" readonly="readonly"/>

@@ -5,7 +5,7 @@
 	font-size: 10.5px;
 }
 
-#noticeWriteDiv {
+#noticeUpdateDiv {
 	width:1000px;
 	margin: 15px auto;
 	padding:10px;
@@ -13,6 +13,15 @@
 	border-radius:10px;
 	background:white;
 
+}
+
+/* input과 textarea를 맞추기 위함 */
+#noticeUpdateField input {
+	width:730px;
+}
+#noticeUl textarea {
+	width: 730px;
+	height: 300px;
 }
 #noticeUpdateField {
 	margin: 15px 10px;
@@ -23,10 +32,6 @@
 	margin: 15px 0;	
 }
 
-
-#noticeUpdateField input {
-	width:70%;
-}
 
 #noticeUpdateField label {
 	width:110px;
@@ -41,7 +46,6 @@
 	list-style: none;
 	padding: 0;
 }
-
 #noticeUl input:focus, #noticeUl textarea:focus {
 	background-color: #fffce6;
 }

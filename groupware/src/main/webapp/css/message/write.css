@@ -14,6 +14,14 @@
 	background:white;
 
 }
+/* input과 textarea를 맞추기 위함 */
+#messageWriteField input {
+ 	width:730px;
+}
+#messageUl textarea {
+	width: 730px;
+	height: 300px;
+}
 
 #messageWriteField {
 	margin: 15px 10px;
@@ -24,10 +32,6 @@
 	margin: 15px 0;	
 }
 
-
-#messageWriteField input {
-	width:70%;
-}
 
 #messageWriteField label {
 	width:110px;

@@ -6,10 +6,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>공지사항 글수정</title>
 <link href="../css/notice/update.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+// 		alert("수정");
+		$("#noticeForm").submit(function(){
+			// 제목
+			if($('#title').val()==""){
+				alert("제목을 입력해주세요");
+				$('$title').focus();
+				return false;
+			}
+			// 내용
+			if($('#content').val()==""){
+				alert("제목을 입력해주세요");
+				$('$content').focus();
+				return false;
+			}
+		});
+	});
+</script>
 </head>
 <body id="noticeBody">
-<h3>공지사항 글수정</h3>
 <div id="noticeUpdateDiv">
+<h3>공지사항 글수정</h3>
 <form id="noticeForm" action="update.do" method="post" enctype="multipart/form-data">
 	
 	<button id="noticeBtn" type="submit">수정</button>
@@ -23,7 +43,7 @@
 	</li>
 	<li id="noticeLi">
 	<label for="content">글내용</label>
-	<textarea style="resize:none;" rows="15" cols="95" name="content" required="required">${notice.content }</textarea>
+	<textarea style="resize:none;" name="content" required="required">${notice.content }</textarea>
 	</li>
 	<li id="noticeLi">
 	<label for="writer">작성자</label><input type="text" name="writer" value="${notice.writer }" readonly="readonly"/><br/>
