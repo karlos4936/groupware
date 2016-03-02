@@ -31,7 +31,7 @@ table th, table td {
 		</tr>
 		<tr>
 			<th>content</th>
-			<td><pre>${draft.content}</pre></td>
+			<td>${draft.content}</td>
 		</tr>
 		<tr>	
 			<th>drafter</th>

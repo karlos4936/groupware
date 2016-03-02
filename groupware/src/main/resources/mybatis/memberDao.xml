@@ -104,5 +104,13 @@
 		from member
 		where id=#{id} and pw=#{pw}
 	</select>
+	
+<!-- 	결재자 선택 -->
+	<select id="selectSigner" resultType="com.dk.groupware.member.model.Member">
+		select id, name, dep, position
+		from member m, memberPosition mp
+		where m.pno=mp.pno and m.pno!=9 and m.pno > #{pno}
+		order by id desc
+	</select>
 
 </mapper>

@@ -8,10 +8,11 @@
 	
 		select * from
 		(
-		select rownum rnum, no, title, writer, wdate, hit from
+		select rownum rnum, no, title, writer, wdate, hit, rcount from
 		(
-		select no, title, writer, to_char(wdate, 'yyyy-mm-dd') wdate, hit
-		from anonymous
+		select a.no, title, a.writer, to_char(a.wdate, 'yyyy-mm-dd') wdate, hit, 
+		(select count(rno) from anonymousReply b where a.no=b.no) rcount
+		from anonymous a
 		order by no desc
 		)
 		)

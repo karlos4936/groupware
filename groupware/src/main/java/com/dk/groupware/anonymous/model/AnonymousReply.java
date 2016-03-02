@@ -52,5 +52,4 @@ public class AnonymousReply {
 		return "AnonymousReply [rno=" + rno + ", content=" + content + ", writer=" + writer + ", wdate=" + wdate
 				+ ", no=" + no + "]";
 	}
-
 }

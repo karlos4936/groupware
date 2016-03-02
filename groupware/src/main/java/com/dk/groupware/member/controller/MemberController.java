@@ -20,7 +20,7 @@ public class MemberController {
 	private ServiceInterface memberListService, memberSearchListService, memberViewService, memberUpdateService, memberUpdateProcessService,
 			memberWriteProcessService, memberDeleteProcessService, myPageViewService, loginProcessService,
 			myPageUpdateService, myPageUpdateProcessService, myPwChangeProcessService, currentPwCheckService,
-			resetPwProcessService;
+			resetPwProcessService, selectSignerService;
 
 	// setters
 	
@@ -78,6 +78,10 @@ public class MemberController {
 
 	public void setResetPwProcessService(ServiceInterface resetPwProcessService) {
 		this.resetPwProcessService = resetPwProcessService;
+	}
+	
+	public void setSelectSignerService(ServiceInterface selectSignerService) {
+		this.selectSignerService = selectSignerService;
 	}
 
 	// 사원 리스트

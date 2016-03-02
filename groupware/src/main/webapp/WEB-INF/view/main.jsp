@@ -11,7 +11,7 @@
 	<div class="division">
 		<ul>
 			<a href="notice/list.do">
-				<li class="li_head">공지사항</li>
+				<li class="li_head"><i class="fa fa-bullhorn"></i>&nbsp;공지사항</li>
 			</a>
 			<c:forEach var="notice" items="${noticeList }">
 				<a href="notice/view.do?no=${notice.no }">
@@ -32,7 +32,7 @@
 			<c:forEach var="schedule" items="${scheduleList }">
 				<a href="schedule/view.do?no=${schedule.no }">
 					<li class="li_content">
-						${schedule.year}-${schedule.month}-${schedule.day}
+						${schedule.year}-${schedule.month}-${schedule.day} ${schedule.time }시 
 						${schedule.title }
 					</li>
 				</a>
@@ -59,7 +59,7 @@
 	<div class="division">
 		<ul>
 			<a href="message/list.do">
-				<li class="li_head">받은 쪽지</li>
+				<li class="li_head"><i class="fa fa-envelope-o"></i>&nbsp;받은 쪽지</li>
 			</a>
 			<c:forEach var="message" items="${messageList }">
 				<a href="message/view.do?no=${message.no }">

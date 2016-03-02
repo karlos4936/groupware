@@ -25,6 +25,7 @@
 	<property name="currentPwCheckService" ref="currentPwCheckService"/>
 <!-- 	<property name="resetPwUpdateService" ref="resetPwUpdateService"/> -->
 	<property name="resetPwProcessService" ref="resetPwProcessService"/>
+	<property name="selectSignerService" ref="selectSignerService"/>
 </bean>
 
 <!-- 서비스 -->
@@ -74,6 +75,9 @@
 <!-- 	<property name="memberDao" ref="memberDao"/> -->
 <!-- </bean> -->
 <bean id="resetPwProcessService" class="com.dk.groupware.member.service.ResetPwProcessService">
+	<property name="memberDao" ref="memberDao"/>
+</bean>
+<bean id="selectSignerService" class="com.dk.groupware.member.service.SelectSignerService">
 	<property name="memberDao" ref="memberDao"/>
 </bean>
 
