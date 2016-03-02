@@ -6,28 +6,30 @@
 <head>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/data/list.css" rel="stylesheet" type="text/css" /> 
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>자료실 리스트</h2>
+	<h2>자료실 리스트</h2><br/>
 	
-	<table>
-		<tr>
-			<th>글번호</th>
-			<th>제목</th>
-			<th>작성자</th>
-			<th>작성일</th>
-			<th>조회수</th>
+	<table id="table">
+		<tr id="tr">
+			<th id="th1">글번호</th>
+			<th id="th2">제목</th>
+			<th id="th3">작성자</th>
+			<th id="th4">작성일</th>
+			<th id="th5">조회수</th>
 		</tr>
 		
 <!-- 		반복의 시작 -->
 	<c:forEach var="data" items="${list }">
 		<tr>
-			<td>${data.no }</td>
-			<td><a href="view.do?no=${data.no}">${data. title}</a></td>
-			<td>${data.name }</td>
-			<td>${data.wdate }</td>
-			<td>${data.hit }</td>
+			<td id="td1">${data.no }</td>
+			<td id="td2"><a href="view.do?no=${data.no}">${data. title}</a></td>
+			<td id="td3">${data.name }</td>
+			<td id="td4">${data.wdate }</td>
+			<td id="td5">${data.hit }</td>
 		</tr>
 	</c:forEach>
 <!-- 	반복의 끝 -->

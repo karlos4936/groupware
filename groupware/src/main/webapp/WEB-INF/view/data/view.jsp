@@ -6,11 +6,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/data/view.css" rel="stylesheet" type="text/css" /> 
+
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>자료게시판 글보기</h2>
-	<table>
+	<h2>자료게시판 글보기</h2><br/><br/>
+	<table id="table">
+		<tr id="btnTr">
+		<td colspan="2">
+			<c:if test="${login.id eq data.writer }">
+			<a href="update.do?no=${data.no }"><button id="updateBtn">글수정</button></a>
+			</c:if>
+			
+			<c:choose>
+				<c:when test="${login.id eq data.writer }"><a href="delete.do?no=${data.no }"><button id="deleteBtn">글삭제</button></a></c:when>
+				<c:when test="${login.pno==9}"><a href="delete.do?no=${data.no }"><button id="deleteBtn">글삭제</button></a></c:when>
+			</c:choose>
+			
+			<a href="list.do"><button id="listBtn">글리스트</button></a>
+		</td>
+		</tr>
 		<tr>
 			<th>글번호</th><td>${data.no }</td>
 		</tr>
@@ -53,26 +70,7 @@
 		<tr>
 			<th>조회수</th><td>${data.hit }</td>
 		</tr>
-		<tr>
-			<td colspan="2">
-				<c:if test="${login.id eq data.writer }">
-				<a href="update.do?no=${data.no }"><button>글수정</button></a>
-				</c:if>
-				
-				<c:choose>
-					<c:when test="${login.id eq data.writer }"><a href="delete.do?no=${data.no }"><button>글삭제</button></a></c:when>
-					<c:when test="${login.pno==9}"><a href="delete.do?no=${data.no }"><button>글삭제</button></a></c:when>
-				</c:choose>
-				
-<%-- 				<c:if test="${login.id eq data.writer }"> --%>
-<%-- 				<a href="delete.do?no=${data.no }"><button>글삭제</button></a> --%>
-<%-- 				</c:if> --%>
-<%-- 				<c:if test="${login.pno==9}"> --%>
-<%-- 				<a href="delete.do?no=${data.no }"><button>글삭제</button></a> --%>
-<%-- 				</c:if> --%>
-				<a href="list.do"><button>글리스트</button></a>
-			</td>
-		</tr>
+
 	</table>
 </body>
 </html>

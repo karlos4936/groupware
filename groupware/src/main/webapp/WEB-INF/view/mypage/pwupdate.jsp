@@ -23,8 +23,13 @@
 			// submit 취소
 			return false;
 			};
+			
+	        // 기존 비밀번호와 새 비밀번호 일치 여부
+	        if ($("#current").val() == $("#new1").val()) {
+	            alert("기존 비밀번호와 새 비밀번호가 일치합니다.");
+	            return false;
+	        };
 		});
-		
 	
 	});
 
@@ -33,7 +38,7 @@
 <body>
 <h2>내 비밀번호 수정</h2>
 	<form action="pwupdate.do" method="post" id="changePw">
-		<label for="current"></label>기존 비밀번호<input type="password" id="current" placeholder="기존 비밀번호 입력"/>
+		<label for="current"></label>기존 비밀번호<input type="password" id="current" name="current" placeholder="기존 비밀번호 입력"/>
 		<label for="new1"></label>새 비밀번호<input type="password" id="new1" name="pw" placeholder="새 비밀번호 입력"/><br/>
 		<label for="new2"></label>새 비밀번호 확인<input type="password" id="new2" placeholder="새 비밀번호 확인"/><br/>
 		<input type="hidden" name="id" value="${login.id }">
