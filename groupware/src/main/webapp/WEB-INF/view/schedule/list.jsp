@@ -9,6 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/schedule/list.css" rel="stylesheet" type="text/css" />
 <title>일정관리</title>
 </head>
 <body>
@@ -59,9 +60,11 @@
 					out.print("오늘날짜 : " + currentYear + "-" + (currentMonth + 1) + "-" + currentDate);
 				%>
 			</td>
+			<td align=right width="100">
+			<a href="write.do"><button>일정추가</button></a>
+			</td>
 		</tr>
 	</table>
-<!-- 	<table border=1> -->
 	<table border=1 style="width: 95%;">
 		<!-- 달력 부분 -->
 		<tr>
@@ -100,10 +103,10 @@
 					for(Schedule schedule : list) { // 달력내 내용표시
 						if(year == schedule.getYear() && month+1 == schedule.getMonth() && i == schedule.getDay())
 							out.println(
-								"<div align='left' style='text-overflow:ellipsis; width:100px; overflow:hidden;'>" // 제목길면 ... 으로 줄임
+								"<div id='sche_content'>"
 								+ "<a href='view.do?no=" + schedule.getNo() + "'>"
 								+ schedule.getTime() + "시 "
-								+ "<nobr>" + schedule.getTitle() +"</nobr></a></div>"
+								+ schedule.getTitle() +"</a></div>"
 							);
 					}
 
@@ -119,6 +122,5 @@
 			%>
 		</tr>
 	</table>
-	<a href="write.do"><button>일정추가</button></a>
 </body>
 </html>

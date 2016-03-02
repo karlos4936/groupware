@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+/* 제목 ...으로 줄임 */
+#sche_content{
+	display:block;
+	text-align: left; 
+	float:left; 
+	text-decoration:none; 
+	max-width:100px; 
+	white-space:nowrap; 
+	text-overflow:ellipsis; 
+	overflow:hidden;
+}
+
+#sche_content a{
+	text-decoration: none;	
+}
+
+#sche_content a:hover{
+	text-decoration: underline;
+}
