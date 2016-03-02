@@ -11,7 +11,7 @@
 <title>공지사항 리스트</title>
 </head>
 <body id="noticeBody">
-	<h2>공지사항 리스트</h2>
+	<h3>공지사항 리스트</h3>
 	<table id="noticeTable">
 			<tr>
 			<td id="noticeBtnA" colspan="5">  

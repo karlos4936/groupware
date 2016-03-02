@@ -8,7 +8,7 @@
 <link href="../css/notice/update.css" rel="stylesheet" type="text/css">
 </head>
 <body id="noticeBody">
-<h2>공지사항 글수정</h2>
+<h3>공지사항 글수정</h3>
 <div id="noticeUpdateDiv">
 <form id="noticeForm" action="update.do" method="post" enctype="multipart/form-data">
 	

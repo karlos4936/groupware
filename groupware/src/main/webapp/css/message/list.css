@@ -9,7 +9,19 @@ body {
 	font-size: 10.5pt;
 }
 
-#messageTh, #messageTd, #messageTdTitle {
+#messageTh, #messageTd {
+	padding: 10px;
+	border: 1px solid #888888;
+	width: auto;
+/* 	텍스트 가운데 정렬 */
+	text-align: center;
+}
+/* 제목 줄 배경색 */
+#messageTh, #messageThTitle {
+	background-color: #d0d0d0;
+}
+
+#messageTdTitle {
 	padding: 10px;
 	border: 1px solid #888888;
 	width: auto;
@@ -26,9 +38,11 @@ body {
 	background: #d0d0d0;
 }
 #messageTdTitle a{
-/* 		텍스트 링크의 밑줄 없애기 */
+/* 	텍스트 링크의 밑줄 없애기 */
 	text-decoration: none;	
 	color: black;
+/* 한 줄 전체를 클릭가능하게 하기 위함 */
+	display: block;
 }
 
 /*  버튼 */
@@ -44,8 +58,11 @@ body {
 #messageBtnA a{
 	text-decoration: none;	
 }
-	
 
 #messageBtn:hover {
 	background-color: #edd200;
+}
+
+#pageMove a {
+	color: black;
 }

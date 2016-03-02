@@ -11,7 +11,7 @@
 <title>보낸 쪽지 리스트</title>
 </head>
 <body id="messageBody">
-	<h2>보낸 쪽지 리스트</h2>
+	<h3>보낸 쪽지 리스트</h3>
 	
 	<a href="../write.do"><button id="messageBtn">쪽지 작성</button></a><br/><br/>
 	
@@ -19,7 +19,6 @@
 		<tr id="messageTr">
 			<th id="messageTh">글번호</th>
 			<th id="messageThTitle">제목</th>
-<!-- 			<th>보낸사람</th> -->
 			<th id="messageTh">받은사람</th>
 			<th id="messageTh">보낸시간</th>			
 			<th id="messageTh">확인시간</th>
@@ -29,7 +28,6 @@
 		<tr id="messageTr">
 			<td id="messageTd">${message.no }</td>
 			<td id="messageTdTitle"><a href="view.do?no=${message.no }">${message.title }</a></td>
-<%-- 			<td>${message.sender }</td> --%>
 			<td id="messageTd">${message.name }</td>
 			<td id="messageTd">${message.sdate }</td>
 			<td id="messageTd">

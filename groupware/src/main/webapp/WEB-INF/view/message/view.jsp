@@ -10,7 +10,7 @@
 <title>쪽지 보기</title>
 </head>
 <body id="messageBody">
-	<h2>쪽지 보기</h2>
+	<h3>쪽지 보기</h3>
 		<a id="messageBtnA" href="delete.do?no=${message.no }"><button id="messageBtn">삭제</button></a>
 		<a id="messageBtnA" href="list.do?no=${message.no }"><button id="messageBtn">쪽지 리스트</button></a> <br/><br/><br/>
 		<c:if test="${message.fileName }"></c:if>
