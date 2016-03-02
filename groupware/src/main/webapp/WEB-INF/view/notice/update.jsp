@@ -23,7 +23,7 @@
 	</li>
 	<li id="noticeLi">
 	<label for="content">글내용</label>
-	<textarea style="resize:none;" rows="15" cols="90" name="content" required="required">${notice.content }</textarea>
+	<textarea style="resize:none;" rows="15" cols="95" name="content" required="required">${notice.content }</textarea>
 	</li>
 	<li id="noticeLi">
 	<label for="writer">작성자</label><input type="text" name="writer" value="${notice.writer }" readonly="readonly"/><br/>
