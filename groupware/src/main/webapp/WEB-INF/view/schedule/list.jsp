@@ -105,8 +105,8 @@
 							out.println(
 								"<div id='sche_content'>"
 								+ "<a href='view.do?no=" + schedule.getNo() + "'>"
-								+ schedule.getTime() + "시 "
-								+ schedule.getTitle() +"</a></div>"
+								+ "* " + schedule.getTime() + "시 "
+								+ schedule.getTitle() +"</a></div><br/>"
 							);
 					}
 
