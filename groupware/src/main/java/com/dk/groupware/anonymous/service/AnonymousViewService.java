@@ -12,7 +12,7 @@ public class AnonymousViewService implements ServiceInterface {
 	
 	@Override
 	public Object service(Object obj) {
-		System.out.println("AanonymousViewService.service()");
+		System.out.println("AnonymousViewService.service()");
 		anonymousDao.increase(obj);
 		return anonymousDao.view(obj);
 	}

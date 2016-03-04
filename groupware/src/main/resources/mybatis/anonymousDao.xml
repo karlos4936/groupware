@@ -46,11 +46,23 @@
 	</update>
 	
 	<select id="replyList" resultType="com.dk.groupware.anonymous.model.AnonymousReply">
-		select rno, content, writer, wdate, no from anonymousReply where no=#{id} order by rno asc
+		
+		select * from
+		(
+		select rownum rnum, rno, content, writer, wdate, no from
+		(
+		select rno, content, writer, to_char(wdate, 'yyyy-mm-dd') wdate, no
+		from anonymousReply
+		where no=#{id}
+		order by rno asc
+		)
+		)
+		where rnum between #{startRow} and #{endRow}
+		
 	</select>
 	
 	<select id="replyTotalRow" resultType="Integer">
-		select count(*) from anonymous where no=#{no}
+		select count(*) from anonymousReply where no=#{no}
 	</select>
 	
 	<insert id="replyWrite">
