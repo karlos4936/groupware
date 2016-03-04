@@ -4,19 +4,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/anonymous/common.css" />
+<link rel="stylesheet" type="text/css" href="../css/anonymous/update.css" />
+<title>익명게시판</title>
 </head>
 <body>
-	<h2>익명게시판 글수정</h2>
-	<form action="update.do" method="post">
-		<input type="hidden" name="no" value="${anonymous.no }"><br>
-		<label for="title">글제목</label><input id="title" name="title" value="${anonymous.title }"><br>	
-		<label for="content">글내용</label><textarea id="content" name="content" rows="7" cols="60">${anonymous.content }</textarea><br>
-		<label for="writer">작성자</label><input id="writer" name="writer" value="${fn:substring(anonymous.writer, 0, 8) }"><br>
-		<label for="wdate">작성일</label><input id="wdate" name="wdate" value="${anonymous.wdate }"><br>
-		<label for="hit">조회수</label><input id="hit" name="hit" value="${anonymous.hit }"><br>
-		<button>수정</button>
-		<button type="button" onclick="history.back()">취소</button>
-	</form>
+
+	<div class="body">
+		<form action="update.do" method="post">
+			<label for="title">제목</label><input class="title" name="title" value="${anonymous.title }">
+			<div class="clear"></div>
+			<label for="content"></label><textarea class="content" name="content">${anonymous.content }</textarea>
+			<input type="hidden" name="no" value="${anonymous.no }">
+			<div class="btnDiv">
+				<button type="button" class="btn btnCancel" onclick="history.back()">취소</button>
+				<div class="nbsp">&nbsp;</div>
+				<button class="btn btnSubmit">작성</button>
+			</div>
+			<div class="clear"></div>
+		</form>
+	</div>
+	
 </body>
 </html>

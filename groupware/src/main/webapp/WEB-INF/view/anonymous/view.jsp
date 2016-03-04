@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../css/anonymous/common.css" />
 <link rel="stylesheet" type="text/css" href="../css/anonymous/view.css"/>
 <script type="text/javascript" src="../js/anonymous/view.js"></script>
 <title>익명게시판</title>
