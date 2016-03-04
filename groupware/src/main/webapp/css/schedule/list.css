@@ -1,12 +1,15 @@
 @CHARSET "UTF-8";
 
+.sche_table{
+	font-size: 11pt;
+}
 /* 제목 ...으로 줄임 */
 #sche_content{
 	display:block;
 	text-align: left; 
 	float:left; 
 	text-decoration:none; 
-	max-width:100px; 
+	max-width:110px; 
 	white-space:nowrap; 
 	text-overflow:ellipsis; 
 	overflow:hidden;
