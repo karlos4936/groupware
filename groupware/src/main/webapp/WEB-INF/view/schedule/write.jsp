@@ -43,10 +43,12 @@
 			<label for="writer">작성자</label>
 			<input type="text" value="${login.name }" readonly="readonly"/><br/>
 			<input type="hidden" name="writer" value="${login.id }">
-			<button>작성</button>
-			<button type="button" onclick="history.back()">취소</button>
 		</li>
 	</ul>
+	<div id="Btn">
+		<button id="submit_Btn">작성</button>
+		<button id="cancer_Btn" type="button" onclick="history.back()">취소</button>
+	</div>
 </fieldset>
 </form>
 </body>
