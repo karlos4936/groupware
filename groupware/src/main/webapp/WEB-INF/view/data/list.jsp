@@ -12,15 +12,28 @@
 </head>
 <body>
 	<h2>자료실 리스트</h2><br/>
+	<div id="searchDiv">
+	<form action="list.do" method="post">
+		<select name="option">
+			<option>제목</option>
+			<option>내용</option>
+			<option>제목+내용</option>
+			<option>작성자</option>
+		</select>
+		<input type="text" name="searchStr">
+		<button>검색</button><br/><br/>
+	</form>
+	</div>
 	
 	<table id="table">
-		<tr id="tr">
-			<th id="th1">글번호</th>
-			<th id="th2">제목</th>
-			<th id="th3">작성자</th>
-			<th id="th4">작성일</th>
-			<th id="th5">조회수</th>
+		<tr>
+			<th>글번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>작성일</th>
+			<th>조회수</th>
 		</tr>
+		<tr id="attrGap"></tr>
 		
 <!-- 		반복의 시작 -->
 	<c:forEach var="data" items="${list }">
@@ -33,22 +46,16 @@
 		</tr>
 	</c:forEach>
 <!-- 	반복의 끝 -->
-		<tr>
-			<td colspan="5"><a href="write.do"><button>글쓰기</button></a></td>
+	</table>
+	<table id="table2">
+		<tr id="trBtn">
+			<td colspan=4></td>
+			<td></td>
+			<td><a href="write.do"><button id="writeBtn">글쓰기</button></a></td>
+			<td></td>
 		</tr>
 	</table>
-	
-	<form action="list.do" method="post">
-		<select name="option">
-			<option>제목</option>
-			<option>내용</option>
-			<option>제목+내용</option>
-			<option>작성자</option>
-		</select>
-		<input type="text" name="searchStr">
-		<button>검색</button><br/><br/>
-	</form>
-	
+
 		
 		<div id="pageMove">
 		<a href="list.do?page=1"><i class="fa fa-step-backward"></i></a>

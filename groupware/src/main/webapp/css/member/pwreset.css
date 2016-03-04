@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+#id, #name{
+	border: hidden;
+	background-color: #f4f4f4;
+	font-size: 15px;
+	padding-bottom: 10px;
+}
+
+#formField{
+	margin: o auto;
+	margin-bottom:30px;
+	height: auto;
+	width: 500px;
+	border-radius: 8px;
+	border: 4px solid #888888;
+	padding:15px;
+}
+
+ul li{
+	list-style: none;
+}
+
+li label{
+	font-weight: bold;
+}
+
+#formField label{
+	margin-right: 70px;
+}
+
+#formDiv{
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+#pwresetDiv button {
+	float:right;
+	background-color: #969696;
+	border: 1px solid #dedede;
+	cursor: pointer;
+	padding: 10px;
+	margin: 0 auto;
+}
+
+#pwresetDiv button:hover{
+	background-color: #eed200;
+}
+

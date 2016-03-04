@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/data/update.css" rel="stylesheet" type="text/css" /> 
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
 <script type="text/javascript" src="../js/common/util.js"></script>
@@ -31,15 +33,25 @@
 </script>
 </head>
 <body>
+<div id="updateDiv">
 	<h2>자료게시판 글 수정</h2>
+	<div id="formDiv">
 	<form id="form" action="update.do" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="no" value="${data.no }"/>
-		<label for="title">글제목</label><input type="text" name="title" id="title" value="${data.title }"/><br/>
-		<label for="content">글내용</label><textarea rows="7" cols="60" name="content" id="content">${data.content}</textarea><br/>
-		<label for="writer">작성자</label><input type="text" name="writer" value="${data.writer }" readonly="readonly"/><br/>
-		<label for="file">첨부 파일</label><input type="file" name="file" id="file" value="${data.fileName }"/>
-		<button>수정</button>
-		<button type="button" onclick="history.back()">취소</button>
+		<fieldset id="formField">
+			<ul>
+				<li><input type="hidden" name="no" value="${data.no }"/></li>
+				<li><label for="title">글제목</label><input type="text" name="title" id="title" value="${data.title }"/></li>
+				<li><label for="content">글내용</label><textarea rows="7" cols="60" name="content" id="content">${data.content}</textarea></li>
+				<li><label for="writer">작성자</label><input type="text" name="writer" value="${data.writer }" readonly="readonly"/></li>
+				<li><label for="file">첨부 파일</label><input type="file" name="file" id="file" value="${data.fileName }"/></li>
+			</ul>
+			
+			<button type="button" onclick="history.back()">취소</button>
+			<button>수정</button>
+		</fieldset>
+	
 	</form>
+</div>
+</div>
 </body>
 </html>

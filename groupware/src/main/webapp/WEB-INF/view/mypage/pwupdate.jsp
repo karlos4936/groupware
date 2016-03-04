@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/mypage/pwupdate.css" rel="stylesheet" type="text/css" />
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
 <script type="text/javascript" src="../js/common/util.js"></script>
@@ -36,14 +38,24 @@
 </script>
 </head>
 <body>
+<div id="updateDiv">
 <h2>내 비밀번호 수정</h2>
-	<form action="pwupdate.do" method="post" id="changePw">
-		<label for="current"></label>기존 비밀번호<input type="password" id="current" name="current" placeholder="기존 비밀번호 입력"/>
-		<label for="new1"></label>새 비밀번호<input type="password" id="new1" name="pw" placeholder="새 비밀번호 입력"/><br/>
-		<label for="new2"></label>새 비밀번호 확인<input type="password" id="new2" placeholder="새 비밀번호 확인"/><br/>
-		<input type="hidden" name="id" value="${login.id }">
-		<button>변경</button>
-		<button type="button" onclick="history.back()">취소</button>
+	<div id="formDiv">
+	<form id="form" action="pwupdate.do" method="post" id="changePw">
+		<fieldset id="formField">
+			<ul>
+				<li><label for="current">기존 비밀번호</label><input type="password" id="current" name="current" placeholder="기존 비밀번호 입력"/></li>
+				<li><label for="new1">새 비밀번호</label><input type="password" id="new1" name="pw" placeholder="새 비밀번호 입력"/></li>
+				<li><label for="new2">새 비밀번호 확인</label><input type="password" id="new2" placeholder="새 비밀번호 확인"/></li>
+				<li><input type="hidden" name="id" value="${login.id }"/></li>
+			</ul>
+			
+			<button type="button" onclick="history.back()">취소</button>
+			<button>변경</button>
+			
+		</fieldset>
 	</form>
+	</div>
+</div>
 </body>
 </html>

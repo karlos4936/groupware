@@ -5,12 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/member/write.css" rel="stylesheet" type="text/css" /> 
 <script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
 <script type="text/javascript" src="../js/common/util.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		
-		$("#form1").submit(function() {
+		$("#form").submit(function() {
 			switch($("#pnoSel").val()) {
 			case "인턴":
 				$("#pno").val(1);
@@ -82,17 +84,22 @@
 </script>
 </head>
 <body>
+<div id="writeDiv">
 <h2>사원 등록</h2>
-	<form id="form1" action="write.do" method="post">
-		<label for="id">사원ID</label><input type="text" name="id" id="id"/><br/>
-		<label for="pw">비밀번호</label><input type="password" name="pw" id="pw"/><br/>
-		<label for="name">이름</label><input type="text" id="name" name="name"/> <br/>
+	<div id="formDiv">
+	<form id="form" action="write.do" method="post">
+	
+	<fieldset id="formField">
+		<ul>
+		<li><label for="id">사원ID</label><input type="text" name="id" id="id"/></li>
+		<li><label for="pw">비밀번호</label><input type="password" name="pw" id="pw"/></li>
+		<li><label for="name">이름</label><input type="text" id="name" name="name"/></li> 
 		
 <!-- 		<label for="dep">소속 부서</label><select id="dep" name="dep"></select><br/> -->
 <!-- 		<select id="pno" name="pno"></select><br/> -->
 
-		<label for="dep">소속 부서</label>
-		<select id="dep" name="dep">
+		<li><label for="dep">소속 부서</label>
+			<select id="dep" name="dep">
 			<option>--소속부서 선택--</option>
 			<option>마케팅</option>
 			<option>재무</option>
@@ -102,11 +109,10 @@
 			<option>기획</option>
 			<option>영업</option>
 			<option>영업지원</option>
-		</select>
-		<br/>
+		</select></li>
 		
-		<label for="pnoSel">직위번호</label>
-		<select id="pnoSel">
+		<li><label for="pnoSel">직위번호</label>
+			<select id="pnoSel">
 			<option>--직위번호 선택--</option>
 			<option>인턴</option>
 			<option>사원</option>
@@ -117,17 +123,24 @@
 			<option>본부장</option>
 			<option>사장</option>
 			<option>관리자</option>
-		</select>
-		<br/>
+		</select></li>
 		
-		<input type="hidden" id="pno" name="pno">
+		<li><input type="hidden" id="pno" name="pno"></li>
 		
 		
-		<label for="manager">매니저</label><input type="text" id="manager" name="manager"/><br/>
-		<label for="tel">전화번호</label><input type="text" id="tel" name="tel"/><br/>
-		<label for="phone">핸드폰</label><input type="text" id="phone" name="phone"/><br/>
-		<button>등록</button>
+		<li><label for="manager">매니저</label><input type="text" id="manager" name="manager"/></li>
+		<li><label for="tel">전화번호</label><input type="text" id="tel" name="tel"/></li>
+		<li><label for="phone">핸드폰</label><input type="text" id="phone" name="phone"/></li>
+		</ul>
+		
 		<button type="button" onclick="history.back()">취소</button>
+		<button>등록</button>
+
+		</fieldset>
+		
+
 	</form>
+	</div>
+	</div>
 </body>
 </html>

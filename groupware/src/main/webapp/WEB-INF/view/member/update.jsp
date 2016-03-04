@@ -5,12 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/member/update.css" rel="stylesheet" type="text/css" /> 
 <script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
 <script type="text/javascript" src="../js/common/util.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		
-		$("#form1").submit(function() {
+		$("#form").submit(function() {
 			switch($("#pnoSel").val()) {
 			case "인턴":
 				$("#pno").val(1);
@@ -59,48 +61,58 @@
 </script>
 </head>
 <body>
+<div id="updateDiv">
 <h2>사원 정보 수정</h2>
-	<form id="form1" action="update.do" method="post">
-		<label for="id"></label>사원번호(ID)<input type="text" id="id" name="id" value="${member.id }" readonly="readonly"/><br/>
-		<label for="name"></label>이름<input type="text" id="name" name="name" value="${member.name }"/> <br/>
+	<div id="formDiv">
+	<form id="form" action="update.do" method="post">
+	
+	<fieldset id="formField">
+		<ul>
+			<li><label for="id">사원번호(ID)</label><input type="text" id="id" name="id" value="${member.id }" readonly="readonly"/></li>
+			<li><label for="name">이름</label><input type="text" id="name" name="name" value="${member.name }"/> </li>
 		
-		<label for="dep">소속부서</label>
-		<select id="dep" name="dep">
-			<option>${member.dep }</option>
-			<option>마케팅</option>
-			<option>재무</option>
-			<option>개발</option>
-			<option>인사</option>
-			<option>경영지원</option>
-			<option>기획</option>
-			<option>영업</option>
-			<option>영업지원</option>
-		</select><br/>
+			<li><label for="dep">소속부서</label>
+				<select id="dep" name="dep">
+				<option>${member.dep }</option>
+				<option>마케팅</option>
+				<option>재무</option>
+				<option>개발</option>
+				<option>인사</option>
+				<option>경영지원</option>
+				<option>기획</option>
+				<option>영업</option>
+				<option>영업지원</option>
+			</select></li>
 		
 			
-		<label for="pnoSel">직위번호</label>
-		<select id="pnoSel">
-			<option>${member.position }</option>
-			<option>인턴</option>
-			<option>사원</option>
-			<option>대리</option>
-			<option>과장</option>
-			<option>차장</option>
-			<option>부장</option>
-			<option>본부장</option>
-			<option>사장</option>
-			<option>관리자</option>
-		</select>
-		<br/>
+			<li><label for="pnoSel">직위번호</label>
+				<select id="pnoSel">
+				<option>${member.position }</option>
+				<option>인턴</option>
+				<option>사원</option>
+				<option>대리</option>
+				<option>과장</option>
+				<option>차장</option>
+				<option>부장</option>
+				<option>본부장</option>
+				<option>사장</option>
+				<option>관리자</option>
+			</select></li>
 		
-		<input type="hidden" id="pno" name="pno">
+			<li><input type="hidden" id="pno" name="pno"></li>
+			
+			<li><label for="manager">매니저</label><input type="text" id="manager" name="manager" value="${member.manager }"/></li>
+			<li><label for="tel">전화번호</label><input type="text" id="tel" name="tel" value="${member.tel }"/></li>
+			<li><label for="phone">핸드폰</label><input type="text" id="phone" name="phone" value="${member.phone }"/></li>
+			<li><input type="hidden" id="pno" name="pno" value="${member.pno }" /></li>
+		</ul>
 		
-		<label for="manager"></label>매니저<input type="text" id="manager" name="manager" value="${member.manager }"/><br/>
-		<label for="tel"></label>전화번호<input type="text" id="tel" name="tel" value="${member.tel }"/><br/>
-		<label for="phone"></label>핸드폰<input type="text" id="phone" name="phone" value="${member.phone }"/><br/>
-		<input type="hidden" id="pno" name="pno" value="${member.pno }" />
-		<button>변경</button>
 		<button type="button" onclick="history.back()">취소</button>
+		<button>변경</button>
+	</fieldset>
+	
 	</form>
+</div>
+</div>
 </body>
 </html>
