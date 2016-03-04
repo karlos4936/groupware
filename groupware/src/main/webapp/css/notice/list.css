@@ -74,3 +74,6 @@ body {
 #pageMove a {
 	color: black;
 }
+#pageMove {
+	text-align: center;
+}
