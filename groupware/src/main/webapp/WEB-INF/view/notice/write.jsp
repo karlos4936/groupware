@@ -42,11 +42,11 @@
 <fieldset id="noticeWriteField">
 <ul id="noticeUl">
 <li id="noticeLi">
-	<label for="title">제목</label><input type="text" name="title" id="title" required="required"/>
+	<label for="title">제목</label><input type="text" name="title" id="title" required="required" maxlength="50"/>
 </li>
 <li id="noticeLi">
 	<label for="content">내용</label>
-	<textarea style="resize:none;" name="content" id="content" required="required" ></textarea>
+	<textarea style="resize:none;" name="content" id="content" required="required" maxlength="1300"></textarea>
 
 </li>
 <li id="noticeLi">
