@@ -6,23 +6,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자유게시판</title>
+<link href="../css/board/view.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h2>자유게시판 글보기</h2>
-<table>
-	<tr>
+<h1>자유게시판 글보기</h1>
+<br/>
+<table class="table_view">
+	<tr class="num">
 		<th>글번호</th><td>${board.no }</td>
 	</tr>
-	<tr>
-		<th>제목</th><td>${board.title }</td>
+	<tr class="num">
+		<th>제 목</th><td>${board.title }</td>
 	</tr>
-	<tr>
-		<th>내용</th><td><pre>${board.content }</pre></td>
+	<tr class="num">
+		<th>내 용</th><td class="cont">${board.content }</td>
 	</tr>
-	<tr>
+	<tr class="num">
 		<th>작성자</th><td>${board.name }</td>
 	</tr>
-	<tr>
+	<tr class="num">
 		<th>조회수</th><td>${board.hit }</td>
 	</tr>
 	<tr>

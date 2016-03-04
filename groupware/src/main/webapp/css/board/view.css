@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+#table_view, .num {
+	margin: 0 auto;
+	font-size: 12pt;
+}
+
+.num th, .num td {
+	padding: 10px;
+	border: 1px solid #888888;
+	width: auto;
+}
+
+.num th {
+	background-color: #808080;
+	color: #fff;
+}
+
+.num td {
+	padding: 10px;
+	border: 1px solid #c3c3c3;
+	width: 950px;
+}
+
+.cont {
+	height: 300px;
+	vertical-align: top;
+}
+
+h1{
+	text-align: center;
+}

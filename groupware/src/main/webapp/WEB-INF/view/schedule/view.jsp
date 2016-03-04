@@ -5,21 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>일정관리</title>
+<link href="../css/schedule/view.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h2>일정보기</h2>
-<table>
-	<tr>
+<h1>일정보기</h1>
+<br/>
+<table class="table_view">
+	<tr class="num">
 		<th>등록일</th><td>${schedule.sdate }</td>
 	</tr>
-	<tr>
+	<tr class="num">
 		<th>등록시간</th><td>${schedule.time } 시</td>
 	</tr>
-	<tr>
-		<th>제목</th><td>${schedule.title }</td>
+	<tr class="num">
+		<th>제 목</th><td>${schedule.title }</td>
 	</tr>
-	<tr>
-		<th>내용</th><td><pre>${schedule.content }</pre></td>
+	<tr class="num">
+		<th>내 용</th><td class="cont">${schedule.content }</td>
 	</tr>
 	<tr>
 		<td colspan="2">
