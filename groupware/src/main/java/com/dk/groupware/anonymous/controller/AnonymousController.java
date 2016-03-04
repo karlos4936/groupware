@@ -91,6 +91,8 @@ public class AnonymousController {
 		model.addAttribute("reply", anonymousReplyModel.getList());
 		model.addAttribute("jspData", anonymousReplyModel.getJspData());
 		
+		model.addAttribute("page", page);
+		
 		return "anonymous/view";
 	}
 
@@ -108,24 +110,25 @@ public class AnonymousController {
 	}
 
 	@RequestMapping(value = "/anonymous/update.do", method = RequestMethod.GET)
-	public String update(int no, Model model) throws Exception {
+	public String update(@RequestParam(value = "page", required = false, defaultValue = "1") int page, int no, Model model) throws Exception {
 		System.out.println("AnonymousController.update():GET");
 		model.addAttribute("anonymous", anonymousUpdateService.service(no));
+		model.addAttribute("page", page);
 		return "anonymous/update";
 	}
 
 	@RequestMapping(value = "/anonymous/update.do", method = RequestMethod.POST)
-	public String update(Anonymous anonymous) throws Exception {
+	public String update(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Anonymous anonymous, Model model) throws Exception {
 		System.out.println("AnonymousController.update():POST");
 		anonymousUpdateProcessService.service(anonymous);
-		return "redirect:view.do?no=" + anonymous.getNo();
+		return "redirect:view.do?no=" + anonymous.getNo() + "&page=" + page;
 	}
 
 	@RequestMapping("/anonymous/delete.do")
-	public String delete(int no) throws Exception {
+	public String delete(@RequestParam(value = "page", required = false, defaultValue = "1") int page, int no) throws Exception {
 		System.out.println("AnonymousController.delete()");
 		anonymousDeleteProcessService.service(no);
-		return "redirect:list.do";
+		return "redirect:list.do?page=" + page;
 	}
 
 	@RequestMapping(value = "/anonymous/reply/write.do", method = RequestMethod.POST)

@@ -22,7 +22,7 @@
 	<c:forEach var="anonymous" items="${list }">
 		<tr>
 			<td class="no">${anonymous.no }</td>
-			<td class="title"><a href="view.do?no=${anonymous.no}" >
+			<td class="title"><a href="view.do?no=${anonymous.no }&page=${jspData.page }" >
 				${anonymous.title }<i class="fa fa-commenting-o replyIcon"></i>${anonymous.rcount }</a>
 			</td>
 			<td class="writer">${fn:substring(anonymous.writer, 0, 8)}</td>
