@@ -260,9 +260,10 @@ public class MemberController {
 	
 	// 결재자 선택 화면용 리스트 출력
 	@RequestMapping("/member/selectSigner.do")
-	public String selectSigner(Model model) throws Exception {
+	public String selectSigner(HttpSession session, Model model) throws Exception {
 		System.out.println("MemberController.selectSigner()");
-		model.addAttribute("list", memberListService.service(null));
+		Member member = (Member) session.getAttribute("login");
+		model.addAttribute("list", selectSignerService.service(member.getPno()));
 		return "member/selectSigner";
 	}
 

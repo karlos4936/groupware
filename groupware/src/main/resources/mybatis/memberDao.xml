@@ -110,7 +110,7 @@
 		select id, name, dep, position
 		from member m, memberPosition mp
 		where m.pno=mp.pno and m.pno!=9 and m.pno > #{pno}
-		order by id desc
+		order by dep asc, m.pno desc
 	</select>
 
 </mapper>
