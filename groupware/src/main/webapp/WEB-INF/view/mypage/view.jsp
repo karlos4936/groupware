@@ -5,10 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/mypage/view.css" rel="stylesheet" type="text/css" /> 
 </head>
 <body>
 	<h2>내 정보 보기</h2>
-	<table>
+	<table id="table">
 		<tr>
 			<th>사원ID</th>
 			<td>${member.id}</td>
@@ -37,12 +39,12 @@
 			<th>핸드폰</th>
 			<td>${member.phone}</td>
 		</tr>
-		<tr>
-			<td colspan="2">
-<%-- 			<a href="update.do?id=${member.id }"><button>비밀번호 변경</button></a> --%>
-				<a href="pwupdate.do?id=${member.id }"><button>비밀번호 변경</button></a>
-			<td>
-		</tr>
+
 	</table>
+	
+	<div id="btnDiv">
+	<a href="pwupdate.do?id=${member.id }"><button id="btn">비밀번호 변경</button></a>
+	</div>
+		
 </body>
 </html>

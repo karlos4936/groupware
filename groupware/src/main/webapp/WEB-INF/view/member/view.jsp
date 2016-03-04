@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../css/member/view.css" rel="stylesheet" type="text/css" /> 
 <script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
 <script type="text/javascript" src="../js/common/util.js"></script>
 <script type="text/javascript">
@@ -21,14 +23,13 @@
 </head>
 <body>
 	<h2>사원 정보 보기</h2>
-	<table>
+	<table id="table">
 		<tr>
-			<th>사원ID</th>
-			<td>${member.id}</td>
+			<th>사원ID</th><td>${member.id}</td>
+			<th>이름</th><td>${member.name}</td>
 		</tr>
 		<tr>
-			<th>이름</th>
-			<td>${member.name}</td>
+			<td colspan=5 id="tdLine"></td>
 		</tr>
 		<tr>
 			<th>소속 부서</th>
@@ -50,14 +51,19 @@
 			<th>핸드폰</th>
 			<td>${member.phone}</td>
 		</tr>
+	</table>
+	
+	<table id="btnTable">
 		<tr>
-			<td colspan="2">
-			<a href="update.do?id=${member.id }"><button>사원정보 변경</button></a>
-			<a href="pwreset.do?id=${member.id }"><button>사원 비밀번호 리셋</button></a><br/>
-			<a href="delete.do?id=${member.id }"><button id="deleteBtn">사원 탈퇴</button></a><br/>
-			<a href="list.do"><button>사원 리스트로</button></a>
-			<td>
+			<th><a href="update.do?id=${member.id }"><button>사원정보 변경</button></a></th>
+			<td><a href="pwreset.do?id=${member.id }"><button>사원 비밀번호 리셋</button></a></td>
+			<td><a href="delete.do?id=${member.id }"><button id="deleteBtn">사원 탈퇴</button></a></td>
 		</tr>
+		<tr>
+<%-- 			<th colspan=2><a href="delete.do?id=${member.id }"><button>사원 탈퇴</button></a></th> --%>
+		</tr>
+		
+<!-- 		<a href="list.do"><button>사원 리스트로</button></a> -->
 	</table>
 </body>
 </html>

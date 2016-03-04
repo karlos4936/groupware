@@ -14,29 +14,25 @@
 <body>
 	<h2>자료게시판 글보기</h2><br/><br/>
 	<table id="table">
-		<tr id="btnTr">
-		<td colspan="2">
-			<c:if test="${login.id eq data.writer }">
-			<a href="update.do?no=${data.no }"><button id="updateBtn">글수정</button></a>
-			</c:if>
-			
-			<c:choose>
-				<c:when test="${login.id eq data.writer }"><a href="delete.do?no=${data.no }"><button id="deleteBtn">글삭제</button></a></c:when>
-				<c:when test="${login.pno==9}"><a href="delete.do?no=${data.no }"><button id="deleteBtn">글삭제</button></a></c:when>
-			</c:choose>
-			
-			<a href="list.do"><button id="listBtn">글리스트</button></a>
-		</td>
-		</tr>
 		<tr>
-			<th>글번호</th><td>${data.no }</td>
-		</tr>
-		<tr>
+			<th>글번호</th><td> ${data.no }</td>
 			<th>제목</th><td>${data.title}</td>
+			<th>조회수</th><td>${data.hit }</td>
+		</tr>	
+			<tr>
+			<th>작성자</th><td>${data.name }</td>
+			</tr>
+		<tr>
+			<td colspan=6 id="tdLine"></td>
 		</tr>
 		<tr>
-			<th>내용</th><td>${data.content}</td>
 		</tr>
+		<tr id="contentGap"></tr>
+		<tr>
+<!-- 			<th id="th5">내용</th> -->
+			<td colspan=5>${data.content}</td>
+		</tr>
+		<tr id="fileGap"></tr>
 		<tr>
 			<th>첨부 파일</th>
 				<c:if test="${data.fileName ne null }">
@@ -44,7 +40,7 @@
 					fn:substringAfter(data.fileName, '.') eq 'jpg'||
 					fn:substringAfter(data.fileName, '.') eq 'gif'||
 					fn:substringAfter(data.fileName, '.') eq 'jpeg'}">
-						<img alt="image" src="../upload/data/${data.fileName }">
+						<td><img alt="image" src="../upload/data/${data.fileName }">
 					</c:if>
 					<td>
 						<a href="../upload/data/${data.fileName}" target="_blank">${data.fileName}</a>
@@ -56,21 +52,24 @@
 						첨부 파일 없음
 					</td>
 				</c:if>
-			
-<%-- 			<c:if test="${fn:contains }"> --%>
-<%-- 			<img alt="image" src="../upload/data/${data.fileName }"> --%>
-<%-- 			</c:if> --%>
-<%-- 			<a href="../upload/data/${data.fileName}" target="_blank">${data.fileName}</a></td> --%>
 
-
-		</tr>
-		<tr>
-			<th>작성자</th><td>${data.name }</td>
-		</tr>
-		<tr>
-			<th>조회수</th><td>${data.hit }</td>
 		</tr>
 
 	</table>
+	
+		<div id="btnDiv">
+			<c:choose>
+				<c:when test="${login.id eq data.writer }"><a href="delete.do?no=${data.no }"><button id="deleteBtn">글삭제</button></a></c:when>
+				<c:when test="${login.pno==9}"><a href="delete.do?no=${data.no }"><button id="deleteBtn">글삭제</button></a></c:when>
+			</c:choose>
+			
+			<c:if test="${login.id eq data.writer }">
+			<a href="update.do?no=${data.no }"><button id="updateBtn">글수정</button></a>
+			</c:if>
+			
+		
+			
+			<a href="list.do"><button id="listBtn">글리스트</button></a>
+		</div>
 </body>
 </html>
