@@ -19,7 +19,7 @@
 		<th>제 목</th><td>${board.title }</td>
 	</tr>
 	<tr class="num">
-		<th>내 용</th><td class="cont">${board.content }</td>
+		<th>내 용</th><td class="cont"><pre id="cont_pre">${board.content }</pre></td>
 	</tr>
 	<tr class="num">
 		<th>작성자</th><td>${board.name }</td>

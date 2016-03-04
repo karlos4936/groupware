@@ -6,24 +6,27 @@
 }
 
 /* input과 textarea를 맞추기 위함 */
-#boardUpdateField input {
+#scheduleUpdateField input {
 	width:730px;
 }
 #updateUl textarea {
 	width: 730px;
 	height: 300px;
 }
-#boardUpdateField {
+#scheduleUpdateField {
 	margin: 15px 10px;
 }
 
-#boardUpdateField ul li {
+#scheduleUpdateField ul li {
 	list-style:none; 
 	margin: 15px 0;	
 }
 
+#updateLi2 input{
+	width: 150px;
+}
 
-#boardUpdateField label {
+#scheduleUpdateField label {
 	width:110px;
 	color:#888888;
 	font-weight:bold;		
