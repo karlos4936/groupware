@@ -30,7 +30,7 @@
 <body id="noticeBody">
 <div id="noticeUpdateDiv">
 <h3>공지사항 글수정</h3>
-<form id="noticeForm" action="update.do" method="post" enctype="multipart/form-data">
+<form id="noticeForm" action="update.do?page=${page }" method="post" enctype="multipart/form-data">
 	
 	<button id="noticeBtn" type="submit">수정</button>
 	<button id="noticeBtn" type="button" onclick="history.back()">취소</button><br/><br/>
