@@ -16,8 +16,7 @@ public class NoticeDeleteProcessService implements ServiceInterface {
 	public Object service(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeDeleteProcessService.service()");
-		noticeDao.delete(obj);
-		return null;
+		return noticeDao.delete(obj);
 	}
 
 }
