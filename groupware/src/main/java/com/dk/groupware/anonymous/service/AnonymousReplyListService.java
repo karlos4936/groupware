@@ -54,6 +54,8 @@ public class AnonymousReplyListService implements ServiceInterface {
 		jspData.setEndRow(endRow);
 		jspData.setId(no);
 		
+		System.out.println(jspData);
+		
 		@SuppressWarnings("unchecked")
 		List<AnonymousReply> list = (List<AnonymousReply>) anonymousDao.replyList(jspData);
 		
