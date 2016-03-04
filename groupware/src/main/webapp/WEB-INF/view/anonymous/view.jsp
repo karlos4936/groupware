@@ -45,9 +45,9 @@
 		<hr>
 		
 		<div class="btnDiv">
-			<button class="btn" onclick="location.href='update.do?no=${anonymous.no }'">수정</button>
-			<button class="btn" onclick="location.href='delete.do?no=${anonymous.no }'">삭제</button>
-			<button class="btn" onclick="location.href='list.do'">목록</button>
+			<button class="btn" onclick="location.href='update.do?no=${anonymous.no }&page=${page }'">수정</button>
+			<button class="btn" onclick="location.href='delete.do?no=${anonymous.no }&page=${page }'">삭제</button>
+			<button class="btn" onclick="location.href='list.do<c:if test="${!empty page }">?page=${page }</c:if>'">목록</button>
 		</div>
 		
 		<div class="clear"></div>

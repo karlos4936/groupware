@@ -11,7 +11,7 @@
 <body>
 
 	<div class="body">
-		<form action="update.do" method="post">
+		<form action="update.do?page=${page }" method="post">
 			<label for="title">제목</label><input class="title" name="title" value="${anonymous.title }">
 			<div class="clear"></div>
 			<label for="content"></label><textarea class="content" name="content">${anonymous.content }</textarea>

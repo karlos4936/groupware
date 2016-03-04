@@ -34,7 +34,7 @@
 	</insert>
 	
 	<update id="update">
-		update anonymous set title=#{title}, content=#{content}, writer=#{writer} where no=#{no}
+		update anonymous set title=#{title}, content=#{content} where no=#{no}
 	</update>
 
 	<delete id="delete">
