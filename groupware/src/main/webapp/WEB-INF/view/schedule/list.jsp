@@ -61,7 +61,7 @@
 				%>
 			</td>
 			<td align=right width="100">
-			<a href="write.do"><button>일정추가</button></a>
+			<a href="write.do"><button id="submit_Btn">일정추가</button></a>
 			</td>
 		</tr>
 	</table>

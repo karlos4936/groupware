@@ -39,7 +39,23 @@
 #updateUl input:focus, #updateUl textarea:focus {
 	background-color: #fffce6;
 }
-
+#Btn{
+	text-align: center;
+}
+#submit_Btn{
+	width: 55px;
+	height: 24px;
+	cursor: pointer;
+	background-color: #00284d;
+	color: white;
+}
+#cancer_Btn{
+	width: 55px;
+	height: 24px;
+	cursor: pointer;
+	background-color: white;
+	color: #00284d;
+}
 h1{
 	text-align: center;
 }
