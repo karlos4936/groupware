@@ -1,5 +1,6 @@
 @CHARSET "UTF-8";
-#formField{
+
+fieldset{
 	margin: o auto;
 	margin-bottom:30px;
 	height: auto;
@@ -9,18 +10,17 @@
 	padding:15px;
 }
 
-#formField label{
-	margin-right: 50px;
+fieldset label{
+	width:150px;
+	margin-right: 20px;
+	line-height: 30px;
+	font-weight: bold;
 }
 
 ul li{
 	list-style: none;
 }
 
-li label{
-	line-height: 30px;
-	font-weight: bold;
-}
 
 #writeDiv button {
 	float:right;
@@ -53,4 +53,6 @@ li label{
 fieldset input:focus{
 	background-color: #fffce6;
 } 
+
+
 
