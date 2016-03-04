@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 .table_list{
-	width: 90%;
+/* 	width: 90%; */
 	font-size: 16px;
 }
 
@@ -25,7 +25,7 @@
 
 .table_list tbody tr td.title {
 	text-align: left;
-	width: 650px;
+	width: 780px;
 }
 
 .table_list tbody tr td.title a {
@@ -33,7 +33,7 @@
 	float: left;
 	text-decoration: none;
 	color: #191919;
-	max-width: 630px;
+	max-width: 780px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -51,4 +51,7 @@
 	float: right;
 	margin: 0 auto;
 	
+}
+h1{
+	text-align: center;
 }

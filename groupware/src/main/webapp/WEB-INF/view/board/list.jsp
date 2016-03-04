@@ -13,8 +13,8 @@
 <title>자유게시판</title>
 </head>
 <body>
-<h2>자유게시판 글리스트</h2>
-<br/><br/>
+<h1>자유게시판</h1>
+<br/>
 <table class="table_list">
 	<thead>
 	<tr>
