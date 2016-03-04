@@ -25,7 +25,7 @@
 			}
 			// 받는사람
 			if($('#receiver').val()==""){
-				alert("받는사람을 입력해주세요");
+				alert("받는사람(사번)을 입력해주세요");
 				$("#receiver").focus();
 				return false;
 			}
@@ -46,16 +46,16 @@
 <fieldset id="messageWriteField">
 <ul id="messageUl">
 <li id="messageLi">
-	<label for="title">제목</label><input type="text" name="title" id="title" required="required" /><br/>
+	<label for="title">제목</label><input type="text" name="title" id="title" required="required" maxlength="30"/><br/>
 </li>
 <li id="messageLi">
-	<label for="content">내용</label><textarea style="resize:none;" name="content" id="content" required="required"></textarea><br/>
+	<label for="content">내용</label><textarea style="resize:none;" name="content" id="content" required="required" maxlength="1300"></textarea><br/>
 </li>
 <li id="messageLi">
 	<label for="sender">보낸사람</label><input type="text" value="${login.id }" required="required" readonly="readonly"/><br/>
 </li>
 <li id="messageLi">
-	<label for="receiver">받는사람</label><input type="text" name="receiver" id="receiver" required="required"/><br/>
+	<label for="receiver">받는사람(사번)</label><input type="text" name="receiver" id="receiver" required="required" maxlength="30"/><br/>
 </li>
 <li id="messageLi">
 	<label for="fileName">파일첨부</label><input type="file" name="file1"><br/>
