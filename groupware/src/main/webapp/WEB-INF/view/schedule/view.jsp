@@ -21,7 +21,7 @@
 		<th>제 목</th><td>${schedule.title }</td>
 	</tr>
 	<tr class="num">
-		<th>내 용</th><td class="cont">${schedule.content }</td>
+		<th>내 용</th><td class="cont"><pre id="cont_pre">${schedule.content }</pre></td>
 	</tr>
 	<tr>
 		<td colspan="2">

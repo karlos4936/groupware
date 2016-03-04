@@ -1,29 +1,29 @@
 @CHARSET "UTF-8";
 
-#updateBody {
+#boardBody {
 	width:1000px;
 	font-size: 12px;
 }
 
 /* input과 textarea를 맞추기 위함 */
-#boardUpdateField input {
+#boardWriteField input {
 	width:730px;
 }
-#updateUl textarea {
+#boardUl textarea {
 	width: 730px;
 	height: 300px;
 }
-#boardUpdateField {
+#boardWriteField {
 	margin: 15px 10px;
 }
 
-#boardUpdateField ul li {
+#boardWriteField ul li {
 	list-style:none; 
 	margin: 15px 0;	
 }
 
 
-#boardUpdateField label {
+#boardWriteField label {
 	width:110px;
 	color:#888888;
 	font-weight:bold;		
@@ -32,11 +32,11 @@
 	margin-right:10px;
 }
 
-#updateUl {
+#boardUl {
 	list-style: none;
 	padding: 0;
 }
-#updateUl input:focus, #updateUl textarea:focus {
+#boardUl input:focus, #boardUl textarea:focus {
 	background-color: #fffce6;
 }
 

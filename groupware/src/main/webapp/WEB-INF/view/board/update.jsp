@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자유게시판</title>
-<link href="../css/board/view.css" rel="stylesheet" type="text/css" />
+<link href="../css/board/update.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
 <script type="text/javascript" src="../js/common/util.js"></script>
 <script type="text/javascript">
@@ -19,20 +19,36 @@
 	});
 </script>
 </head>
-<body>
+<body id="updateBody">
 <h1>자유게시판 글수정</h1>
 <br/>
 <form action="update.do" method="post" id="updateForm">
-	<input type="hidden" name="no" value="${board.no }"/>
-	<label for="title">글제목</label>
-	<input type="text" name="title" id="title" value="${board.title }"/><br/>
-	<label for="content" id="cont">글내용</label>
-	<textarea rows="7" cols="60" name="content" id="content">${board.content}</textarea><br/>
-	<label for="writer">작성자</label>
-	<input type="text" value="${login.name }" readonly="readonly"/><br/>
-	<input type="hidden" name="writer" value="${login.id }">
-	<button>수정</button>
-	<button type="button" onclick="history.back()">취소</button>
+<fieldset id="boardUpdateField">
+	<ul id="updateUl">
+		<li id="updateLi">
+		<input type="hidden" name="no" value="${board.no }"/>
+		</li>
+		
+		<li id="updateLi">
+		<label for="title">글제목</label><input type="text" name="title" id="title" value="${board.title }"/><br/>
+		</li>
+		
+		<li id="updateLi">
+		<label for="content" id="cont">글내용</label>
+		<textarea rows="7" cols="60" name="content" id="content">${board.content}</textarea><br/>
+		</li>
+		
+		<li id="updateLi">
+		<label for="writer">작성자</label><input type="text" value="${login.name }" readonly="readonly"/><br/>
+		<input type="hidden" name="writer" value="${login.id }">
+		</li>
+		
+		<li id="updateLi">
+		<button>수정</button>
+		<button type="button" onclick="history.back()">취소</button>
+	</li>
+	</ul>
+	</fieldset>
 </form>
 </body>
 </html>
