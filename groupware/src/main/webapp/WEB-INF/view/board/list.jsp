@@ -39,10 +39,8 @@
 	</tbody>
 <!-- 	반복의 끝 -->
 </table>
-<div id="Btn">
-	<a href="list.do"><button id="list_Btn">목록</button></a>
-	<a href="write.do"><button id="submit_Btn">글쓰기</button></a>
-</div>
+	<a href="list.do"><button>목록</button></a>
+	<a href="write.do"><button id="boardBtn">글쓰기</button></a>
 <!-- 페이지 처리 = 반복문 처리 -->
 <div id="boardPage">
 	<a href="list.do?page=1"><i class="fa fa-step-backward"></i></a>

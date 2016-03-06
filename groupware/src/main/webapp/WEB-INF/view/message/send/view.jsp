@@ -13,8 +13,7 @@
 <h3>쪽지 보기</h3>
 <!-- 		데이터가 있으면 삭제 버튼 생성, 없으면 감춤 -->
 		<c:if test="${message.rdate eq null }">
-<!-- 		배열로 받기 위해 nos로 받음 -->
-		<a id="messageBtnA" href="delete.do?nos=${message.no }"><button id="messageBtn">삭제</button></a>
+		<a id="messageBtnA" href="delete.do?no=${message.no }"><button id="messageBtn">삭제</button></a>
 		</c:if>		
 		<a id="messageBtnA" href="list.do?no=${message.no }"><button id="messageBtn">쪽지 리스트</button></a><br/><br/>
 	

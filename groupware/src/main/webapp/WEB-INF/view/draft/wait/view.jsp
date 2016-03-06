@@ -4,83 +4,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-table {
-	border: 1px solid black;
-	border-collapse: collapse;
-	text-align: center;
-}
-
-table th, table td {
-	border: 1px solid black;
-}
-</style>
+<script type="text/javascript" src="../../js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="../../js/draft/view.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/draft/common.css" />
+<link rel="stylesheet" type="text/css" href="../../css/draft/view.css" />
+<title>전자결재</title>
 </head>
 <body>
-	<h2>전자결재 대기문서 보기</h2>
+	<div class="body">
+		<iframe src="../../viewContent/viewContent.do?no=${draft.no }" id="ifrm" style="width: 100%; height: 100%; min-height: 1500px; border: 0;"></iframe>
+		<input type="hidden" id="no" value="${draft.no }">
+		<input type="hidden" id="title" value="${draft.title }">
+		<input type="hidden" id="drafter" value="${draft.drafter }">
+		<input type="hidden" id="signer1" value="${draft.signer1 }">
+		<input type="hidden" id="signer2" value="${draft.signer2 }">
+		<input type="hidden" id="signer3" value="${draft.signer3 }">
+		<input type="hidden" id="isSign1" value="${draft.isSign1 }">
+		<input type="hidden" id="isSign2" value="${draft.isSign2 }">
+		<input type="hidden" id="isSign3" value="${draft.isSign3 }">
+		
+		<button onclick="location.href='sign.do?no=${draft.no }'">결재</button>
+		<button onclick="location.href='update.do?no=${draft.no }'">수정</button>
+		<button onclick="location.href='delete.do?no=${draft.no }'">삭제</button>
 	
-	<table>
-		<tr>
-			<th>no</th>
-			<td>${draft.no }</td>
-		</tr>
-		<tr>
-			<th>title</th>
-			<td>${draft.title }</td>
-		</tr>
-		<tr>
-			<th>content</th>
-			<td>${draft.content}</td>
-		</tr>
-		<tr>	
-			<th>drafter</th>
-			<td>${draft.drafter }</td>
-		</tr>
-		<tr>
-			<th>signer1</th>
-			<td>${draft.signer1 }</td>
-		</tr>
-		<tr>
-			<th>signer2</th>
-			<td>${draft.signer2 }</td>
-		</tr>
-		<tr>
-			<th>signer3</th>
-			<td>${draft.signer3 }</td>
-		</tr>
-		<tr>
-			<th>issign1</th>
-			<td>${draft.isSign1 }</td>
-		</tr>
-		<tr>
-			<th>issign2</th>
-			<td>${draft.isSign2 }</td>
-		</tr>
-		<tr>
-			<th>issign3</th>
-			<td>${draft.isSign3 }</td>
-		</tr>
-		
-		<tr>
-			<td colspan="2">
-				<button onclick="location.href='sign.do?no=${draft.no }'">결재</button>
-			</td>
-		</tr>
-		
-		<tr>
-			<td colspan="2">
-				<button onclick="location.href='update.do?no=${draft.no }'">수정</button>
-			</td>
-		</tr>
-		
-		<tr>
-			<td colspan="2">
-				<button onclick="location.href='delete.do?no=${draft.no }'">삭제</button>
-			</td>
-		</tr>
-		
-	</table>
+	</div>
 	
 </body>
 </html>

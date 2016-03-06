@@ -9,29 +9,17 @@
 <link href="../css/notice/list.css" rel="stylesheet" type="text/css" /> 
 
 <title>공지사항 리스트</title>
-<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		
-		$("#listForm").submit(function(){
-			if(confirm("정말 삭제하시겠습니까?")== false){
-				return false; // 삭제 취소
-			}
-		});
-
-	});
-</script>
 </head>
 <body id="noticeBody">
 	<h3>공지사항 리스트</h3>
-	<form action="delete.do" method="post" id="listForm">
-	<a href="write.do"><button type="button" id="noticeBtn">글쓰기</button></a>
-	<button id="noticeDeleteBtn">선택 쪽지 삭제</button>
-	
 	<table id="noticeTable">
+			<tr>
+			<td id="noticeBtnA" colspan="5">  
+				<a href="write.do"><button id="noticeBtn">글쓰기</button></a>
+			</td>
+		</tr>
 		<tr id="noticeTr">
 			<th class="noticeTh">글번호</th>
-			<th class="noticeTh">선택</th>
 			<th id="noticeThTitle">제목</th>
 			<th class="noticeTh">작성자</th>
 			<th class="noticeTh">작성일</th>
@@ -41,23 +29,14 @@
 		<c:forEach var="notice" items="${list }">
 		<tr>
 			<td class="noticeTd">${notice.no }</td>
-			<td class="noticeTd">
-			<input type="checkbox" name="nos" value="${notice.no}"
-			<c:choose>
-			<c:when test="${notice.writer ne login.id }&&${login.pno < 9 }">disabled="disabled"</c:when>
-			</c:choose>
-			 /> 
-			 </td>
-			<td id="noticeTdTitle"><a href="view.do?no=${notice.no }&page=${jspData.page }">${notice.title }</a></td>
+			<td id="noticeTdTitle"><a href="view.do?no=${notice.no }">${notice.title }</a></td>
 			<td class="noticeTd">${notice.name }</td>
 			<td class="noticeTd">${notice.wdate }</td>
 			<td class="noticeTd">${notice.hit }</td>
 		</tr>
-		</c:forEach> 
+		</c:forEach>
 <!-- 			반복의 끝 -->
 	</table>
-	</form>
-	
 	
 <!-- 		페이징 처리 -->
 	<div id="pageMove">
