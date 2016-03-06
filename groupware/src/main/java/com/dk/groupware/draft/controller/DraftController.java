@@ -144,6 +144,13 @@ public class DraftController {
 		return "draft/wait/view";
 	}
 	
+	@RequestMapping("/viewContent/viewContent.do")
+	public String waitViewContent(int no, Model model) throws Exception {
+		System.out.println("DraftController.waitViewContent()");
+		model.addAttribute("draft", waitViewService.service(no));
+		return "draft/wait/viewContent";
+	}
+	
 	@RequestMapping("/draft/wait/sign.do")
 	public String waitSign(int no, Model model) throws Exception {
 		System.out.println("DraftController.waitSign()");

@@ -46,8 +46,7 @@
 <!-- 			 no가  forEach에 의해 여러개 생기므로 controller 에서 받을 때 check 한 값을 모드 받으려면 배열로 받는다. -->
 			<td class="messageTd"><input type="checkbox" name="nos" value="${message.no}" /></td>
 			
-<!-- 			page를 가져간다 -->
-			<td id="messageTdTitle"><a href="view.do?no=${message.no }&page=${jspData.page }">${message.title }</a></td>
+			<td id="messageTdTitle"><a href="view.do?no=${message.no }">${message.title }</a></td>
 			<td class="messageTd">${message.name }</td>
 			<td class="messageTd">${message.sdate }</td>
 			<td class="messageTd">

@@ -55,11 +55,8 @@ public class NoticeDao {
 	// 공지사항 삭제
 	public Object delete(Object obj){
 		System.out.println("NoticeDao.delete()");
-		
-		int [] nos = (int[])obj;
-		for(int no: nos)
-			sqlSessionTemplate.delete("dao.Notice.delete", no);
-		return 1;
+		sqlSessionTemplate.delete("dao.Notice.delete", obj);
+		return null;
 	}
 
 	// 공지사항 리스트 - 메인화면용

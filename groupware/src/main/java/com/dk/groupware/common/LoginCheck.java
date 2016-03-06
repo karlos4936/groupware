@@ -52,7 +52,7 @@ public class LoginCheck implements Filter {
 		
 		Member member = (Member) session.getAttribute("login");
 		
-		if(!uri.equals("/index.do") && !uri.equals("/css/index.css")) {
+		if(!uri.equals("/index.do")) {
 			if(member == null)
 				response.sendRedirect("/groupware/index.do");
 			else

@@ -13,12 +13,11 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		
-		$("#listForm").submit(function(){
+		$("listForm").submit(function(){
 			if(confirm("정말 삭제하시겠습니까?")== false){
 				return false; // 삭제 취소
 			}
 		});
-		
 	});
 </script>
 </head>
@@ -45,8 +44,7 @@
 			<td class="messageTd">${message.no }</td>
 			
 			<!-- 			 no가  forEach에 의해 여러개 생기므로 controller 에서 받을 때 check 한 값을 모드 받으려면 배열로 받는다. -->
-			<td class="messageTd"><input type="checkbox" name="nos" value="${message.no}" 
-			<c:if test="${message.rdate ne null }">disabled="disabled"</c:if> /></td>
+			<td class="messageTd"><input type="checkbox" name="nos" value="${message.no}" /></td>
 			
 			<td id="messageTdTitle"><a href="view.do?no=${message.no }">${message.title }</a></td>
 			<td class="messageTd">${message.name }</td>

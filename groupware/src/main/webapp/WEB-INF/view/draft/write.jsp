@@ -8,20 +8,8 @@
 <script type="text/javascript" src="../SE/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript" src="../SE/SE.js"></script>
 <script type="text/javascript" src="../js/draft/draft.js"></script>
-<style type="text/css">
-#inner {
-	width: 21cm;
-	min-height: 29.7cm;
-	border: 1px solid black;
-}
-
-#inner td {
-	border: 1px solid black;
-}
-</style>
 </head>
 <body>
-	<h2>전자결재 문서 작성</h2>
 	<form action="write.do" method="post" id="form1">
 		<label for="title">글제목</label><input id="title" id="title" name="title"><br>
 		
@@ -33,53 +21,10 @@
 		<label for="signer2">결재자2</label><input id="signerName2" class="signerName" placeholder="결재자 선택"><br>
 		<label for="signer3">결재자3</label><input id="signerName3" class="signerName" placeholder="결재자 선택"><br>
 		
+		<button type="button" id="text">양식 불러오기</button>
 		
-	    <textarea name="content" id="content" style="width:824px; height:1157px;">
-	    
-	    <table style="width: 21cm; min-height: 29.7cm; border: 1px solid black; border:1px solid #cccccc;
-	    				background: #ffffff; border-collapse: collapse;" class="__se_tbl">
-	    <tbody>
-			<tr>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-			</tr>
-			<tr>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-			</tr>
-			<tr>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-			</tr>
-			<tr>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-			</tr>
-			<tr>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-				<td style="border:1px solid #cccccc; background: #ffffff;" width="158"><p>&nbsp;</p></td>
-			</tr>
-		</tbody>
-		</table>
-	    
-	    </textarea>
-	    
-<!-- 		<label for="content">글내용</label><textarea id="content" name="content" rows="7" cols="60"></textarea><br> -->
+		
+	    <textarea name="content" id="content" style="width:824px; height:1157px;"></textarea>
 	    
 	    
 		<input type="hidden" name="drafter" value="${login.id }">

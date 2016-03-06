@@ -89,45 +89,48 @@
 	<div id="formDiv">
 	<form id="form" action="write.do" method="post">
 	
-	<fieldset>
+	<fieldset id="formField">
 		<ul>
-			<li><label for="id">사원ID</label><input type="text" name="id" id="id"/></li>
-			<li><label for="pw">비밀번호</label><input type="password" name="pw" id="pw"/></li>
-			<li><label for="name">이름</label><input type="text" id="name" name="name"/></li> 
-			
-			<li><label for="dep">소속 부서</label>
-				<select id="dep" name="dep">
-				<option>--소속부서 선택--</option>
-				<option>마케팅</option>
-				<option>재무</option>
-				<option>개발</option>
-				<option>인사</option>
-				<option>경영지원</option>
-				<option>기획</option>
-				<option>영업</option>
-				<option>영업지원</option>
-			</select></li>
-			
-			<li><label for="pnoSel">직위번호</label>
-				<select id="pnoSel">
-				<option>--직위번호 선택--</option>
-				<option>인턴</option>
-				<option>사원</option>
-				<option>대리</option>
-				<option>과장</option>
-				<option>차장</option>
-				<option>부장</option>
-				<option>본부장</option>
-				<option>사장</option>
-				<option>관리자</option>
-			</select></li>
-			
-			<li><input type="hidden" id="pno" name="pno"></li>
-			
-			
-			<li><label for="manager">매니저</label><input type="text" id="manager" name="manager"/></li>
-			<li><label for="tel">전화번호</label><input type="text" id="tel" name="tel"/></li>
-			<li><label for="phone">핸드폰</label><input type="text" id="phone" name="phone"/></li>
+		<li><label for="id">사원ID</label><input type="text" name="id" id="id"/></li>
+		<li><label for="pw">비밀번호</label><input type="password" name="pw" id="pw"/></li>
+		<li><label for="name">이름</label><input type="text" id="name" name="name"/></li> 
+		
+<!-- 		<label for="dep">소속 부서</label><select id="dep" name="dep"></select><br/> -->
+<!-- 		<select id="pno" name="pno"></select><br/> -->
+
+		<li><label for="dep">소속 부서</label>
+			<select id="dep" name="dep">
+			<option>--소속부서 선택--</option>
+			<option>마케팅</option>
+			<option>재무</option>
+			<option>개발</option>
+			<option>인사</option>
+			<option>경영지원</option>
+			<option>기획</option>
+			<option>영업</option>
+			<option>영업지원</option>
+		</select></li>
+		
+		<li><label for="pnoSel">직위번호</label>
+			<select id="pnoSel">
+			<option>--직위번호 선택--</option>
+			<option>인턴</option>
+			<option>사원</option>
+			<option>대리</option>
+			<option>과장</option>
+			<option>차장</option>
+			<option>부장</option>
+			<option>본부장</option>
+			<option>사장</option>
+			<option>관리자</option>
+		</select></li>
+		
+		<li><input type="hidden" id="pno" name="pno"></li>
+		
+		
+		<li><label for="manager">매니저</label><input type="text" id="manager" name="manager"/></li>
+		<li><label for="tel">전화번호</label><input type="text" id="tel" name="tel"/></li>
+		<li><label for="phone">핸드폰</label><input type="text" id="phone" name="phone"/></li>
 		</ul>
 		
 		<button type="button" onclick="history.back()">취소</button>

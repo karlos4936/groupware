@@ -34,30 +34,6 @@
 	 white-space: -o-pre-wrap;
 	 word-break:break-all;"
 }
-#Btn{
-	text-align: center;
-}
-#list_Btn{
-	width: 85px;
-	height: 25px;
-	cursor: pointer;
-	background-color: #1a53ff;
-	color: white;
-}
-#submit_Btn{
-	width: 85px;
-	height: 24px;
-	cursor: pointer;
-	background-color: #00284d;
-	color: white;
-}
-#cancer_Btn{
-	width: 85px;
-	height: 25px;
-	cursor: pointer;
-	background-color: white;
-	color: #00284d;
-}
 h1{
 	text-align: center;
 }

@@ -1,9 +1,8 @@
 @CHARSET "UTF-8";
 
-#listForm table {
-	width: 1040px;
+body {
+	
 }
-
 /* 이중 줄 합치기 */
 #noticeTable {
 	border-collapse: collapse;
@@ -35,8 +34,7 @@
 #noticeThTitle {
 	padding: 10px;
 	border: 1px solid #888888;
-	width: 600px;
-	
+	width: 750px;
 /* 	overflow: hidden;  */
 }
 
@@ -55,7 +53,7 @@
 }
 
 /*  버튼 */
-#noticeBtn,  #noticeDeleteBtn {
+#noticeBtn {
 	display: block;
 	background-color: #969696;
 	border: 1px solid #dedede;
@@ -69,7 +67,7 @@
 }
 	
 
-#noticeBtn:hover, #noticeDeleteBtn:hover {
+#noticeBtn:hover {
 	background-color: #edd200;
 }
 
