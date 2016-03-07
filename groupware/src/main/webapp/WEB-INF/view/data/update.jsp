@@ -34,7 +34,7 @@
 </head>
 <body>
 <div id="updateDiv">
-	<h2>자료게시판 글 수정</h2>
+<!-- 	<h2>자료게시판 글 수정</h2> -->
 	<div id="formDiv">
 	<form id="form" action="update.do" method="post" enctype="multipart/form-data">
 		<fieldset id="formField">

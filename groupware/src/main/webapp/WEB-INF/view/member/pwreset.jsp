@@ -10,20 +10,33 @@
 </head>
 <body>
 <div id="pwresetDiv">
-<h2>사원 비밀번호 수정</h2>
+<!-- <h2>사원 비밀번호 수정</h2> -->
 	<div id="formDiv">
 	<form id="form" action="pwreset.do" method="post">
-		<fieldset id="formField">
-			<ul>
-				<li><label for="id">사원번호(ID)</label><input type="text" id="id" name="id" value="${member.id }" readonly="readonly"></li>
-				<li><label for="name">이름</label><input type="text" id="name" name="name" value="${member.name }" readonly="readonly"></li>
-				<li><label for="pw">비밀번호</label><input type="password" id="pw" name="pw"/> </li>
-				<li><input type="hidden" name="id" value="${member.id}"></li>
-			</ul>
-			
-				<button type="button" onclick="history.back()">취소</button>
+			<table>
+				<tr>
+					<td><label for="id">사원번호(ID)</label></td>
+					<td><input type="text" id="id" name="id" value="${member.id }" readonly="readonly"></td>
+				</tr>
+				
+				<tr>
+					<td><label for="name">이름</label></td>
+					<td><input type="text" id="name" name="name" value="${member.name }" readonly="readonly"></td>
+				</tr>
+				<tr>
+					<td><label for="pw">비밀번호</label></td>
+					<td><input type="password" id="pw" name="pw"/></td>
+				</tr>
+				
+				<tr><input type="hidden" name="id" value="${member.id}"></tr>
+			</table>
+			<table id="table2">
+				<tr>
+				<td colspan="2"><button type="button" onclick="history.back()">취소</button>
 				<button>변경</button>
-		</fieldset>
+				</td>
+				</tr>
+			</table>
 	</form>
 	</div>
 	</div>

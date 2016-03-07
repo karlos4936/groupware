@@ -27,10 +27,10 @@
 			};
 			
 	        // 기존 비밀번호와 새 비밀번호 일치 여부
-	        if ($("#current").val() == $("#new1").val()) {
-	            alert("기존 비밀번호와 새 비밀번호가 일치합니다.");
-	            return false;
-	        };
+// 	        if ($("#current").val() == $("#new1").val()) {
+// 	            alert("기존 비밀번호와 새 비밀번호가 일치합니다.");
+// 	            return false;
+// 	        };
 		});
 	
 	});
@@ -39,21 +39,34 @@
 </head>
 <body>
 <div id="updateDiv">
-<h2>내 비밀번호 수정</h2>
+<!-- <h2>내 비밀번호 수정</h2> -->
 	<div id="formDiv">
 	<form id="form" action="pwupdate.do" method="post" id="changePw">
-		<fieldset id="formField">
-			<ul>
-				<li><label for="current">기존 비밀번호</label><input type="password" id="current" name="current" placeholder="기존 비밀번호 입력"/></li>
-				<li><label for="new1">새 비밀번호</label><input type="password" id="new1" name="pw" placeholder="새 비밀번호 입력"/></li>
-				<li><label for="new2">새 비밀번호 확인</label><input type="password" id="new2" placeholder="새 비밀번호 확인"/></li>
-				<li><input type="hidden" name="id" value="${login.id }"/></li>
-			</ul>
+			<table>
+<!-- 				<tr> -->
+<!-- 					<td><label for="current">기존 비밀번호</label></td> -->
+<!-- 					<td><input type="password" id="current" name="current" placeholder="기존 비밀번호 입력"/></td> -->
+<!-- 				</tr> -->
+				
+				<tr>
+					<td><label for="new1">새 비밀번호</label></td>
+					<td><input type="password" id="new1" name="pw" placeholder="새 비밀번호 입력"/></td>
+				</tr>
+				
+				<tr>
+					<td><label for="new2">새 비밀번호 확인</label></td>
+					<td><input type="password" id="new2" placeholder="새 비밀번호 확인"/></td>
+				</tr>
+				
+				<tr><input type="hidden" name="id" value="${login.id }"/></tr>
+			</table>
 			
-			<button type="button" onclick="history.back()">취소</button>
-			<button>변경</button>
-			
-		</fieldset>
+			<table id="table2">
+				<tr>			
+					<td colspan=2><button type="button" onclick="history.back()">취소</button>
+					<button>변경</button></td>
+				</tr>
+			</table>
 	</form>
 	</div>
 </div>

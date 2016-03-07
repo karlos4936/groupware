@@ -62,55 +62,90 @@
 </head>
 <body>
 <div id="updateDiv">
-<h2>사원 정보 수정</h2>
+<!-- <h2>사원 정보 수정</h2> -->
 	<div id="formDiv">
 	<form id="form" action="update.do" method="post">
 	
-	<fieldset id="formField">
-		<ul>
-			<li><label for="id">사원번호(ID)</label><input type="text" id="id" name="id" value="${member.id }" readonly="readonly"/></li>
-			<li><label for="name">이름</label><input type="text" id="name" name="name" value="${member.name }"/> </li>
+<!-- 	<fieldset> -->
+		<table>
+			<tr>
+				<td><label for="id">사원번호(ID)</label></td>
+				<td><input type="text" id="id" name="id" value="${member.id }" readonly="readonly"/></td>
+			</tr>
+			
+			<tr>
+				<td><label for="name">이름</label></td>
+				<td><input type="text" id="name" name="name" value="${member.name }"/></td> 
+			</tr>
 		
-			<li><label for="dep">소속부서</label>
+			<tr>
+				<td>
+				<label for="dep">소속부서</label>
+				</td>
+				<td>
 				<select id="dep" name="dep">
-				<option>${member.dep }</option>
-				<option>마케팅</option>
-				<option>재무</option>
-				<option>개발</option>
-				<option>인사</option>
-				<option>경영지원</option>
-				<option>기획</option>
-				<option>영업</option>
-				<option>영업지원</option>
-			</select></li>
+					<option>${member.dep }</option>
+					<option>마케팅</option>
+					<option>재무</option>
+					<option>개발</option>
+					<option>인사</option>
+					<option>경영지원</option>
+					<option>기획</option>
+					<option>영업</option>
+					<option>영업지원</option>
+				</select>
+				</td>
+			</tr>
 		
 			
-			<li><label for="pnoSel">직위번호</label>
+			<tr>
+				<td>
+				<label for="pnoSel">직위번호</label>
+				</td>
+				<td>
 				<select id="pnoSel">
-				<option>${member.position }</option>
-				<option>인턴</option>
-				<option>사원</option>
-				<option>대리</option>
-				<option>과장</option>
-				<option>차장</option>
-				<option>부장</option>
-				<option>본부장</option>
-				<option>사장</option>
-				<option>관리자</option>
-			</select></li>
+					<option>${member.position }</option>
+					<option>인턴</option>
+					<option>사원</option>
+					<option>대리</option>
+					<option>과장</option>
+					<option>차장</option>
+					<option>부장</option>
+					<option>본부장</option>
+					<option>사장</option>
+					<option>관리자</option>
+			</select>
+			</td>
+			</tr>
 		
-			<li><input type="hidden" id="pno" name="pno"></li>
+			<tr><input type="hidden" id="pno" name="pno"></tr>
 			
-			<li><label for="manager">매니저</label><input type="text" id="manager" name="manager" value="${member.manager }"/></li>
-			<li><label for="tel">전화번호</label><input type="text" id="tel" name="tel" value="${member.tel }"/></li>
-			<li><label for="phone">핸드폰</label><input type="text" id="phone" name="phone" value="${member.phone }"/></li>
-			<li><input type="hidden" id="pno" name="pno" value="${member.pno }" /></li>
-		</ul>
+			<tr>
+			<td><label for="manager">매니저</label></td>
+			<td><input type="text" id="manager" name="manager" value="${member.manager }"/></td>
+			</tr>
+			
+			<tr>
+			<td><label for="tel">전화번호</label></td>
+			<td><input type="text" id="tel" name="tel" value="${member.tel }"/></td>
+			</tr>
+			
+			<tr>
+			<td><label for="phone">핸드폰</label></td>
+			<td><input type="text" id="phone" name="phone" value="${member.phone }"/></td>
+			</tr>
+			
+			<tr><input type="hidden" id="pno" name="pno" value="${member.pno }" /></tr>
 		
-		<button type="button" onclick="history.back()">취소</button>
-		<button>변경</button>
-	</fieldset>
-	
+		</table>
+		
+			<table id="table2">
+			<tr>
+			<td colspan=2><button type="button" onclick="history.back()">취소</button>
+			<button>변경</button>
+			</td>
+			</tr>
+			</table> 
 	</form>
 </div>
 </div>
