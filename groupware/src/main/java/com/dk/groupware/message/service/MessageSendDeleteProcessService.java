@@ -13,7 +13,6 @@ public class MessageSendDeleteProcessService implements ServiceInterface{
 	}
 	
 	// 보낸 쪽지 삭제 : rdate가 null 일때만 가능(버튼생성)
-	@Override
 	public Object service(Object obj) {
 		// TODO Auto-generated method stub
 		System.out.println("MessageSendDeleteProcessService.service()");

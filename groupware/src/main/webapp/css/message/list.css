@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
-body {
-	
+#listForm table {
+	width: 1040px;
 }
 /* 이중 줄 합치기 */
 #messageTable {

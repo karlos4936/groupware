@@ -45,10 +45,12 @@
 		<li id="updateLi">
 			<label for="writer">작성자</label><input type="text" value="${login.name }" readonly="readonly"/><br/>
 			<input type="hidden" name="writer" value="${login.id }">
-	<button>수정</button>
-	<button type="button" onclick="history.back()">취소</button>
-</li>
-</ul>
+	</li>
+	</ul>
+	<div id="Btn">
+		<button id="submit_Btn">수정</button>
+		<button id="cancer_Btn" type="button" onclick="history.back()">취소</button>
+	</div>
 </fieldset>
 </form>
 </body>

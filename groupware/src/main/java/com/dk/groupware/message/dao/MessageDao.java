@@ -57,8 +57,10 @@ public class MessageDao {
 	public Object delete(Object obj){
 		System.out.println("MessageDao.delete()");
 		int [] nos = (int[])obj;
-		for(int no : nos)
-			sqlSessionTemplate.delete("dao.Message.delete", no);
+		for(int no : nos) {
+			if(sqlSessionTemplate.delete("dao.Message.delete", no) == 0)
+				return 0;
+		}
 		return 1;
 	}
 	
@@ -75,14 +77,15 @@ public class MessageDao {
 		return sqlSessionTemplate.selectOne("dao.Message.sendView", obj);
 	}
 	
-	
 	// 보낸 쪽지 삭제
 	// 체크박스 선택- 삭제 처리 때문에 리턴 값을 그대로 주면 안 되기 때문에 1로 준다.
 	public Object sendDelete(Object obj) {
 		System.out.println("MessageDao.delete()");
 		int [] nos = (int[])obj;
-		for(int no : nos)
-			sqlSessionTemplate.delete("dao.Message.sendDelete", no);
+		for(int no : nos) {
+			if(sqlSessionTemplate.delete("dao.Message.sendDelete", no) == 0)
+			return 0;
+		}
 		return 1;
 	}
 

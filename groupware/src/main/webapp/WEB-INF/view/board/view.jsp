@@ -27,15 +27,13 @@
 	<tr class="num">
 		<th>조회수</th><td>${board.hit }</td>
 	</tr>
-	<tr>
-		<td colspan="2">
-		<c:if test="${board.writer eq login.id }">
-			<a href="update.do?no=${board.no }"><button>글수정</button></a>
-			<a href="delete.do?no=${board.no }"><button>글삭제</button></a>
-		</c:if>
-			<a href="list.do"><button>글리스트</button></a>
-		</td>
-	</tr>
 </table>
+<div id="Btn">
+		<a href="list.do"><button id="list_Btn">글리스트</button></a>
+	<c:if test="${board.writer eq login.id }">
+		<a href="update.do?no=${board.no }"><button id="submit_Btn">글수정</button></a>
+		<a href="delete.do?no=${board.no }"><button id="cancer_Btn">글삭제</button></a>
+	</c:if>
+</div>
 </body>
 </html>
