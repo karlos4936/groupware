@@ -58,7 +58,7 @@
 </script>
 </head>
 <body id="boardBody">
-<h1>자유게시판 글쓰기</h1>
+<h1></h1>
 <br/>
 <form action="write.do" method="post" id="writeForm">
 <fieldset id="boardWriteField">

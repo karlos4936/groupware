@@ -62,7 +62,7 @@
 </script>
 </head>
 <body id="writeBody">
-<h1>일정등록</h1>
+<h1></h1>
 <br/>
 <form action="write.do" method="post" name="write" id="writeForm">
 <fieldset id="scheduleWriteField">

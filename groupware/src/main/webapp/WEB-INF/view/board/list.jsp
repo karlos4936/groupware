@@ -13,7 +13,7 @@
 <title>자유게시판</title>
 </head>
 <body>
-<h1>자유게시판</h1>
+<h1></h1>
 <br/>
 <table class="table_list">
 	<thead>

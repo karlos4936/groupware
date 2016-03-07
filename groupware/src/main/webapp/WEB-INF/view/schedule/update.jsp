@@ -62,7 +62,7 @@
 </script>
 </head>
 <body id="updateBody">
-<h1>일정수정</h1>
+<h1></h1>
 <br/>
 <form action="update.do" method="post" id="updateForm">
 <fieldset id="scheduleUpdateField">
