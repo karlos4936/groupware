@@ -33,8 +33,12 @@
 		where m.pno=mp.pno 
 		and m.pno!=9
 		and
-		<if test="option == '이름'">name=#{search}</if>
-		<if test="option == '이름+소속부서'">(name=#{search} or dep=#{search})</if>
+<!-- 		<if test="option == '이름'">name=#{search}</if> -->
+<!-- 		<if test="option == '이름+소속부서'">(name=#{search} or dep=#{search})</if> -->
+
+		<if test="option == '이름'">name like '%'||#{search}||'%'</if>
+		<if test="option == '이름+소속부서'">(name like '%'||#{search}||'%' or dep like '%'||#{search}||'%')</if>
+		
 		order by id desc
 	</select>
 

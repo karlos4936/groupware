@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>자료게시판 글보기</h2><br/><br/>
+<!-- 	<h2>자료게시판 글보기</h2><br/><br/> -->
 	<table id="table">
 		<tr>
 			<th>글번호</th><td> ${data.no }</td>
@@ -42,9 +42,9 @@
 					fn:substringAfter(data.fileName, '.') eq 'jpeg'}">
 						<td><img alt="image" src="../upload/data/${data.fileName }">
 					</c:if>
-					<td>
-						<a href="../upload/data/${data.fileName}" target="_blank">${data.fileName}</a>
-					</td>
+<!-- 					<td> -->
+<%-- 						<a href="../upload/data/${data.fileName}" target="_blank">${data.fileName}</a> --%>
+<!-- 					</td> -->
 					
 					<c:if test="${fn:toLowerCase(fn:substringAfter(data.fileName, '.')) eq 'pptx' ||
 					fn:substringAfter(data.fileName, '.') eq 'doc'||

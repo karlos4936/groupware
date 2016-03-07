@@ -7,27 +7,18 @@
 	padding-bottom: 10px;
 }
 
-#formField{
-	margin: o auto;
-	margin-bottom:30px;
-	height: auto;
+table{
+	margin: 0 auto;
 	width: 500px;
 	border-radius: 8px;
 	border: 4px solid #888888;
-	padding:15px;
+	padding: 15px;
 }
 
-ul li{
-	list-style: none;
+#table2{
+	border: none;
 }
 
-li label{
-	font-weight: bold;
-}
-
-#formField label{
-	margin-right: 70px;
-}
 
 #formDiv{
 	margin: 0 auto;

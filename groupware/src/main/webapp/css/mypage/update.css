@@ -1,26 +1,19 @@
 @CHARSET "UTF-8";
 
-#formField{
-	margin: o auto;
-	margin-bottom:30px;
-	height: auto;
-	width: 700px;
+
+table{
+	margin: 0 auto;
+	margin-bottom:10px;
+	width: 500px;
 	border-radius: 8px;
 	border: 4px solid #888888;
-	padding:15px;
-}
-
-#formField label{
-	margin-right: 50px;
-}
-
-ul li{
-	list-style: none;
-}
-
-li label{
-	line-height: 30px;
+	padding: 15px;
 	font-weight: bold;
+	padding-left: 100px;
+}
+
+#table2{
+	border: none;
 }
 
 #updateDiv button {

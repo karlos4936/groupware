@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>자료실 리스트</h2><br/>
+<!-- 	<h2>자료실 리스트</h2><br/> -->
 	<div id="searchDiv">
 	<form action="list.do" method="post">
 		<select name="option">

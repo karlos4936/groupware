@@ -35,7 +35,7 @@
 </head>
 <body>
 <div id="writeDiv">
-	<h2>자료게시판 글쓰기</h2><br/>
+<!-- 	<h2>자료게시판 글쓰기</h2><br/> -->
 		<div id="formDiv">
 		<form id="form" action="write.do" method="post" enctype="multipart/form-data">
 	<fieldset id="formField">

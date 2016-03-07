@@ -22,7 +22,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>사원 정보 보기</h2>
+<!-- 	<h2>사원 정보 보기</h2> -->
 	<table id="table">
 		<tr>
 			<th>사원ID</th><td>${member.id}</td>

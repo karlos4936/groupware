@@ -10,24 +10,48 @@
 </head>
 <body>
 <div id="updateDiv">
-<h2>내 정보 수정</h2>
+<!-- <h2>내 정보 수정</h2> -->
 	<div id="formDiv">
 	
 		<form id="form" action="update.do" method="post">
-			<fieldset id="formField">
-			<ul>
-				<li><label for="id">사원번호(ID)</label><input type="text" id="id" name="id" value="${login.id }" readonly="readonly"/></li>
-				<li><label for="name">이름</label><input type="text" id="name" name="name" value="${login.name }" readonly="readonly"/> </li>
-				<li><label for="dep">소속 부서</label><input type="text" id="dep" name="dep" value="${member.dep }" readonly="readonly"/></li>
-				<li><label for="position">직위</label><input type="text" id="position" name="position" value="${member.position}" readonly="readonly"/></li>
-				<li><label for="manager">매니저</label><input type="text" id="manager" name="manager" value="${member.manager }" readonly="readonly"/></li>
-				<li><label for="tel">전화번호</label><input type="text" id="tel" name="tel" value="${member.tel }"/></li>
-				<li><label for="phone">핸드폰</label><input type="text" id="phone" name="phone" value="${member.phone }"/></li>
-			</ul>
-				<button type="button" onclick="history.back()">취소</button>
-				<button>변경</button>
-	
-		</fieldset>
+				<table>
+				<tr>
+					<td><label for="id">사원번호(ID)</label></td>
+					<td><input type="text" id="id" name="id" value="${login.id }" readonly="readonly"/></td>
+				</tr>
+				<tr>
+					<td><label for="name">이름</label></td>
+					<td><input type="text" id="name" name="name" value="${login.name }" readonly="readonly"/></td> 
+				</tr>
+				<tr>
+					<td><label for="dep">소속 부서</label></td>
+					<td><input type="t ext" id="dep" name="dep" value="${member.dep }" readonly="readonly"/></td>
+				</tr>
+				<tr>
+					<td><label for="position">직위</label></td>
+					<td><input type="text" id="position" name="position" value="${member.position}" readonly="readonly"/></td>
+				</tr>
+				<tr>
+					<td><label for="manager">매니저</label></td>
+					<td><input type="text" id="manager" name="manager" value="${member.manager }" readonly="readonly"/></td>
+				</tr>
+				<tr>
+					<td><label for="tel">전화번호</label></td>
+					<td><input type="text" id="tel" name="tel" value="${member.tel }"/></td>
+				</tr>
+				<tr>
+					<td><label for="phone">핸드폰</label></td>
+					<td><input type="text" id="phone" name="phone" value="${member.phone }"/></td>
+				</tr>
+				</table>
+				<table id="table2">
+				<tr>
+					<td colspan="2"><button type="button" onclick="history.back()">취소</button>
+					<button>변경</button>
+					</td>
+				</tr>
+				
+				</table>
 	</form>
 </div>
 </div>

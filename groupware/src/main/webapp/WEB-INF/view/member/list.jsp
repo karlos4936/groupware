@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>사원 리스트</h2><br/><br/>
+<!-- <h2>사원 리스트</h2><br/><br/> -->
 
 	<div id="searchDiv">
 		<form action="list.do" method="post">

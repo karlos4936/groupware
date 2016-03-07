@@ -9,7 +9,7 @@
 <link href="../css/mypage/view.css" rel="stylesheet" type="text/css" /> 
 </head>
 <body>
-	<h2>내 정보 보기</h2>
+<!-- 	<h2>내 정보 보기</h2> -->
 	<table id="table">
 		<tr>
 			<th>사원ID</th>
