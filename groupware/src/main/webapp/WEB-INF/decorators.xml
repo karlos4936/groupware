@@ -26,6 +26,10 @@
 	<decorator name="member" page="member.jsp">
 		<pattern>/member/*</pattern>
 	</decorator>
+	
+	<decorator name="error" page="mypage.jsp">
+		<pattern>/error/*</pattern>
+	</decorator>
 
 <!-- 꾸미기에 적용하지 않는 것들에 대한 선언 -->
 	<excludes>

@@ -17,7 +17,7 @@ $(function() {
 	});
 	
 	//전송버튼 클릭이벤트
-    $("#submit").click(function(){
+    $(".submit").click(function(){
         //id가 smarteditor인 textarea에 에디터에서 대입
         editor_object.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
          

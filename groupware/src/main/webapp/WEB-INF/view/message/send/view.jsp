@@ -25,7 +25,7 @@
 		<th>제목</th><td>${message.title}</td>
 	</tr>
 		<tr class="messageTr">
-		<th>내용</th><td>${message.content }</td>
+		<th>내용</th><td><pre>${message.content }</pre></td>
 	</tr>
 		<tr class="messageTr">
 		<th>받은<br/>사람</th><td>${message.name}</td>
