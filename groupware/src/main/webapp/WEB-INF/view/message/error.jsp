@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>요청하신 쪽지가 존재하지 않습니다.</h3>
+<h3 style="padding: 50px;">요청하신 쪽지가 존재하지 않습니다.</h3>
 <br/>
-<a href="list.do">리스트로 돌아갑니다.</a>
+<a href="list.do" style="padding: 50px;">리스트로 돌아갑니다.</a>
 </body>
 </html>
