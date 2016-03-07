@@ -109,7 +109,7 @@
 	<select id="selectSigner" resultType="com.dk.groupware.member.model.Member">
 		select id, name, dep, position
 		from member m, memberPosition mp
-		where m.pno=mp.pno and m.pno!=9 and m.pno > #{pno}
+		where m.pno=mp.pno and m.pno!=9
 		order by dep asc, m.pno desc
 	</select>
 
