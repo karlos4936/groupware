@@ -18,6 +18,14 @@
 				return false; // 삭제 취소
 			}
 		});
+		
+		$("#listForm").submit(function(){
+			if($("input:checkbox").is(":checked")== false){
+				alert("선택된 글이 없습니다.")
+				return false;
+			}
+		});
+		
 
 	});
 </script>
