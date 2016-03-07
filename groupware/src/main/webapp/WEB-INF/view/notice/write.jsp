@@ -47,11 +47,8 @@
 	<label for="content">내용</label>
 	<textarea style="resize:none;" name="content" id="content" required="required" maxlength="1300"></textarea>
 
-</li>
-<li id="noticeLi">
-	<label for="writer">작성자</label><input type="text" value="${login.id }" readonly="readonly"/>
 	<input type="hidden" id="writer" name="writer" value="${login.id }">
-</li>
+	
 <li id="noticeLi">
 	<label for="fileName">파일첨부</label><input type="file" name="file1">
 </li>
