@@ -11,8 +11,12 @@
 <title>전자결재</title>
 </head>
 <body>
+
 	<div class="body">
-		<iframe src="../../viewContent/viewContent.do?no=${draft.no }" id="ifrm" style="width: 100%; height: 100%; min-height: 1500px; border: 0;"></iframe>
+		<div class="content">
+			${draft.content }
+		</div>
+		
 		<input type="hidden" id="no" value="${draft.no }">
 		<input type="hidden" id="title" value="${draft.title }">
 		<input type="hidden" id="drafter" value="${draft.drafter }">
@@ -22,11 +26,19 @@
 		<input type="hidden" id="isSign1" value="${draft.isSign1 }">
 		<input type="hidden" id="isSign2" value="${draft.isSign2 }">
 		<input type="hidden" id="isSign3" value="${draft.isSign3 }">
+		<input type="hidden" id="regDate" value="${draft.regDate }">
+		<input type="hidden" id="name" value="${login.name }">
 		
-		<button onclick="location.href='sign.do?no=${draft.no }'">결재</button>
-		<button onclick="location.href='update.do?no=${draft.no }'">수정</button>
-		<button onclick="location.href='delete.do?no=${draft.no }'">삭제</button>
-	
+		<button id="sign" class="btn" onclick="location.href='sign.do?no=${draft.no }'">결재</button>
+		
+		<div class="btnBox">
+			<button class="btn" onclick="location.href='update.do?no=${draft.no }'">수정</button>
+			<button class="btn" onclick="location.href='delete.do?no=${draft.no }'">삭제</button>
+		</div>
+		
+		<div class="clear"></div>
+		
+<%-- 		<iframe src="../../viewContent/viewContent.do?no=${draft.no }" id="ifrm"></iframe> --%>
 	</div>
 	
 </body>
