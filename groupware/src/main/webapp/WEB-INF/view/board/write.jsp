@@ -16,6 +16,14 @@
 		if (isEmpty("#content", "내용을 작성하세요."))
 			return false;
 		});
+	$(document).ready(function(){
+	    $('#title').keyup(function(){
+	        if ($(this).val().length > $(this).attr('maxlength')) {
+	            alert('제한길이 초과');
+	            $(this).val($(this).val().substr(0, $(this).attr('maxlength')));
+	        }
+	    });
+	});
 	$(function() {
 	    $('.remaining').each(function() {
 	        // count 정보 및 count 정보와 관련된 textarea/input 요소를 찾아내서 변수에 저장한다.
@@ -46,7 +54,6 @@
 	        update();
 	    });
 	});
-
 	});
 </script>
 </head>
@@ -57,12 +64,12 @@
 <fieldset id="boardWriteField">
 	<ul id="boardUl">
 		<li id="boardLi">
-			<label for="title">제목</label><input type="text" name="title" id="title"/><br/>
+			<label for="title">제목</label><input type="text" name="title" id="title" maxlength="80"/><br/>
 		</li>
 		<li id="boardLi">
 			<label for="content">내용</label>
 			<textarea rows="7" cols="60" name="content" id="content"></textarea>
-			<div class="remaining">남은 글자수: <span class="count">850</span></div>
+			<div class="remaining">남은 글자수: <span class="count">800</span></div>
 		</li>
 		<li id="boardLi">
 			<label for="writer">작성자</label><input type="text" value="${login.name }" readonly="readonly"/><br/>
