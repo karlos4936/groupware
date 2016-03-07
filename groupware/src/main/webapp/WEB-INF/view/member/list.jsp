@@ -48,7 +48,7 @@
 	
 <!-- 	페이지 처리 -->
 	<div id="pageMove">
-		<a href="list.do?page=1">처음 <i class="fa fa-step-backward"></i></a>
+		<a href="list.do?page=1"><i class="fa fa-step-backward"></i></a>
 		<a href="list.do?page=${jspData.startPage > 1 ? jspData.startPage-jspData.pagesPerGroup : 1 }"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>
 		<a href="list.do?page=${jspData.page > 1 ? jspData.page-1 : 1 }"><i class="fa fa-chevron-left"></i></a>
 	
@@ -65,7 +65,7 @@
 	
 		<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.page+1 : jspData.totalPage }"><i class="fa fa-chevron-right"></i></a>
 		<a href="list.do?page=${jspData.totalPage > jspData.endPage ? jspData.endPage+1 : jspData.totalPage }"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
-		<a href="list.do?page=${jspData.totalPage }"> 끝 <i class="fa fa-step-forward"></i></a>
+		<a href="list.do?page=${jspData.totalPage }"><i class="fa fa-step-forward"></i></a>
 	</div>
 	
 	
