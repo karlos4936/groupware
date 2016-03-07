@@ -19,8 +19,7 @@ public class MemberController {
 	// xml에서 property를 줬으니까 private
 	private ServiceInterface memberListService, memberSearchListService, memberViewService, memberUpdateService, memberUpdateProcessService,
 			memberWriteProcessService, memberDeleteProcessService, myPageViewService, loginProcessService,
-			myPageUpdateService, myPageUpdateProcessService, myPwChangeProcessService, currentPwCheckService,
-			resetPwProcessService, selectSignerService;
+			myPageUpdateService, myPageUpdateProcessService, myPwChangeProcessService, resetPwProcessService, selectSignerService;
 
 	// setters
 	
@@ -28,9 +27,9 @@ public class MemberController {
 		this.memberListService = memberListService;
 	}
 
-	public void setCurrentPwCheckService(ServiceInterface currentPwCheckService) {
-		this.currentPwCheckService=currentPwCheckService;
-	}
+//	public void setCurrentPwCheckService(ServiceInterface currentPwCheckService) {
+//		this.currentPwCheckService=currentPwCheckService;
+//	}
 
 	public void setMemberSearchListService(ServiceInterface memberSearchListService) {
 		this.memberSearchListService = memberSearchListService;

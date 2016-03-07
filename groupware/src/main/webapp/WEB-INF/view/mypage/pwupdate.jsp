@@ -12,8 +12,8 @@
 <script type="text/javascript">
 
 	$(document).ready(function(){
-// 		alert("test");
-		$("#changePw").submit(function(){
+		alert("test");
+		$("#form").submit(function(){
 			// 새 비밀번호와 새 비밀번호 확인을 비교하기
 			if($("#new1").val() != $("#new2").val()){
 				alert("새 비밀번호와 새 비밀번호 확인이 일치해야 합니다.");
