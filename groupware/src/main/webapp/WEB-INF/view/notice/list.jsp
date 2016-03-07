@@ -43,9 +43,7 @@
 			<td class="noticeTd">${notice.no }</td>
 			<td class="noticeTd">
 			<input type="checkbox" name="nos" value="${notice.no}"
-			<c:choose>
-			<c:when test="${notice.writer ne login.id }&&${login.pno < 9 }">disabled="disabled"</c:when>
-			</c:choose>
+			<c:if test="${notice.writer ne login.id && login.pno < 9 }">disabled="disabled"</c:if>
 			 /> 
 			 </td>
 			<td id="noticeTdTitle"><a href="view.do?no=${notice.no }&page=${jspData.page }">${notice.title }</a></td>
