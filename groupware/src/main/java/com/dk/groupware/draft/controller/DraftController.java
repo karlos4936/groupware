@@ -138,9 +138,10 @@ public class DraftController {
 	}
 	
 	@RequestMapping("/draft/wait/view.do")
-	public String waitView(int no, Model model) throws Exception {
+	public String waitView(@RequestParam(value = "page", required = false, defaultValue = "1") int page, int no, Model model) throws Exception {
 		System.out.println("DraftController.waitView()");
 		model.addAttribute("draft", waitViewService.service(no));
+		model.addAttribute("page", page);
 		return "draft/wait/view";
 	}
 	
@@ -152,31 +153,32 @@ public class DraftController {
 	}
 	
 	@RequestMapping("/draft/wait/sign.do")
-	public String waitSign(int no, Model model) throws Exception {
+	public String waitSign(@RequestParam(value = "page", required = false, defaultValue = "1") int page, int no, Model model) throws Exception {
 		System.out.println("DraftController.waitSign()");
 		waitSignProcessService.service(no);
-		return "redirect:/draft/proceed/view.do?no=" + no;
+		return "redirect:/draft/proceed/view.do?no=" + no + "&page=" + page;
 	}
 	
 	@RequestMapping(value = "/draft/wait/update.do", method = RequestMethod.GET)
-	public String waitUpdate(int no, Model model) throws Exception {
+	public String waitUpdate(@RequestParam(value = "page", required = false, defaultValue = "1") int page, int no, Model model) throws Exception {
 		System.out.println("DraftController.waitUpdate():GET");
 		model.addAttribute("draft", waitUpdateService.service(no));
+		model.addAttribute("page", page);
 		return "draft/wait/update";
 	}
 
 	@RequestMapping(value = "/draft/wait/update.do", method = RequestMethod.POST)
-	public String waitUpdate(Draft draft) throws Exception {
+	public String waitUpdate(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Draft draft) throws Exception {
 		System.out.println("DraftController.waitUpdate():POST");
 		waitUpdateProcessService.service(draft);
-		return "redirect:view.do?no=" + draft.getNo();
+		return "redirect:view.do?no=" + draft.getNo() + "&page=" + page;
 	}
 
 	@RequestMapping("/draft/wait/delete.do")
-	public String waitDelete(int no) throws Exception {
+	public String waitDelete(@RequestParam(value = "page", required = false, defaultValue = "1") int page, int no) throws Exception {
 		System.out.println("DraftController.waitDelete()");
 		waitDeleteProcessService.service(no);
-		return "redirect:list.do";
+		return "redirect:list.do?page=" + page;
 	}
 	
 	@RequestMapping("/draft/proceed/list.do")

@@ -59,6 +59,22 @@ $(document).ready(function() {
 
 $(window).load(function() {
 	$("#load").click(function() {
+		if($("#title").val() == "") {
+			alert("제목을 입력해 주세요");
+			$("#title").focus();
+			return;
+		}
+		else if($("#signer2").val() == "") {
+			alert("제2결재자를 선택해주세요");
+			$("#signerName2").focus();
+			return;
+		}
+		else if($("#signer3").val() == "") {
+			alert("제3결재자를 선택해주세요");
+			$("#signerName3").focus();
+			return;
+		}
+		
 		var param = "" + 
 		"<div style='min-width: 21cm; max-width: 21cm; min-height: 29.7cm; max-height: 29.7cm; text-align: center; background: white;'>" +
 			"<div style='min-width: calc(100% - 60mm); min-height: 876.851px; padding: 35mm 30mm 30mm 30mm;'>" +
