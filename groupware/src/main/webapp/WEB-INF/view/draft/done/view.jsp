@@ -14,6 +14,11 @@
 <body>
 
 	<div class="body">
+	
+		<div class="btnBoxL">
+			<button class="btn" onclick="window.open('../../viewContent.do?no=${draft.no }')">인쇄</button>
+		</div>
+		
 		<div class="content">
 			${draft.content }
 		</div>
@@ -31,6 +36,7 @@
 		<input type="hidden" id="name" value="${login.name }">
 		
 	</div>
+	
 </body>
 </html>
 

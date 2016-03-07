@@ -13,12 +13,21 @@
 .errorMessage {
 	font-size: 20pt;
 }
+
+.btn {
+	display: block;
+	font-size: 15pt;
+	width: 100px;
+	height: 33px;
+	margin-top: 15px;
+}
 </style>
 </head>
 <body>
 	<div class="error">
 		<span class="errorCode">400 에러</span><br>
-		<span class="errorMessage">관리자에게 문의하세요</span>
+		<span class="errorMessage">관리자에게 문의하세요</span><br>
+		<button class="btn" onclick="history.back()">뒤로가기</button>
 	</div>
 </body>
 </html>

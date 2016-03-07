@@ -145,13 +145,6 @@ public class DraftController {
 		return "draft/wait/view";
 	}
 	
-	@RequestMapping("/viewContent/viewContent.do")
-	public String waitViewContent(int no, Model model) throws Exception {
-		System.out.println("DraftController.waitViewContent()");
-		model.addAttribute("draft", waitViewService.service(no));
-		return "draft/wait/viewContent";
-	}
-	
 	@RequestMapping("/draft/wait/sign.do")
 	public String waitSign(@RequestParam(value = "page", required = false, defaultValue = "1") int page, int no, Model model) throws Exception {
 		System.out.println("DraftController.waitSign()");
@@ -240,4 +233,11 @@ public class DraftController {
 		return "draft/done/view";
 	}
 
+	@RequestMapping("/viewContent.do")
+	public String waitViewContent(int no, Model model) throws Exception {
+		System.out.println("DraftController.waitViewContent()");
+		model.addAttribute("draft", waitViewService.service(no));
+		return "draft/done/viewContent";
+	}
 }
+
