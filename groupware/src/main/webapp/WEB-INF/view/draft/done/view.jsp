@@ -4,69 +4,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
-table {
-	border: 1px solid black;
-	border-collapse: collapse;
-	text-align: center;
-}
-
-table th, table td {
-	border: 1px solid black;
-}
-</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script type="text/javascript" src="../../js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="../../js/draft/view.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/draft/common.css" />
+<link rel="stylesheet" type="text/css" href="../../css/draft/view.css" />
+<title>전자결재</title>
 </head>
 <body>
-	<h2>전자결재 완료문서 보기</h2>
-	
-	<table>
-		<tr>
-			<th>no</th>
-			<td>${draft.no }</td>
-		</tr>
-		<tr>
-			<th>title</th>
-			<td>${draft.title }</td>
-		</tr>
-		<tr>
-			<th>content</th>
-			<td><pre>${draft.content}</pre></td>
-		</tr>
-		<tr>	
-			<th>drafter</th>
-			<td>${draft.drafter }</td>
-		</tr>
-		<tr>
-			<th>signer1</th>
-			<td>${draft.signer1 }</td>
-		</tr>
-		<tr>
-			<th>signer2</th>
-			<td>${draft.signer2 }</td>
-		</tr>
-		<tr>
-			<th>signer3</th>
-			<td>${draft.signer3 }</td>
-		</tr>
-		<tr>
-			<th>issign1</th>
-			<td>${draft.isSign1 }</td>
-		</tr>
-		<tr>
-			<th>issign2</th>
-			<td>${draft.isSign2 }</td>
-		</tr>
-		<tr>
-			<th>issign3</th>
-			<td>${draft.isSign3 }</td>
-		</tr>
-		<tr>
-			<th>redgate</th>
-			<td>${draft.regDate }</td>
-		</tr>
+
+	<div class="body">
+		<div class="content">
+			${draft.content }
+		</div>
 		
-	</table>
-	
+		<input type="hidden" id="no" value="${draft.no }">
+		<input type="hidden" id="title" value="${draft.title }">
+		<input type="hidden" id="drafter" value="${draft.drafter }">
+		<input type="hidden" id="signer1" value="${draft.signer1 }">
+		<input type="hidden" id="signer2" value="${draft.signer2 }">
+		<input type="hidden" id="signer3" value="${draft.signer3 }">
+		<input type="hidden" id="isSign1" value="${draft.isSign1 }">
+		<input type="hidden" id="isSign2" value="${draft.isSign2 }">
+		<input type="hidden" id="isSign3" value="${draft.isSign3 }">
+		<input type="hidden" id="regDate" value="${draft.regDate }">
+		<input type="hidden" id="name" value="${login.name }">
+		
+	</div>
 </body>
 </html>
+
+	

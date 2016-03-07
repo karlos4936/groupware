@@ -38,7 +38,7 @@
 }
 
 .id {
-	width: 70px;
+	width: 100px;
 }
 
 .name {
@@ -47,4 +47,8 @@
 
 .dep {
 	width: 100px;
+}
+
+.position {
+	width: 70px;
 }

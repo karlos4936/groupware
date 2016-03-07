@@ -7,33 +7,58 @@
 <script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
 <script type="text/javascript" src="../SE/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript" src="../SE/SE.js"></script>
-<script type="text/javascript" src="../js/draft/draft.js"></script>
+<script type="text/javascript" src="../js/draft/write.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/draft/common.css" />
+<link rel="stylesheet" type="text/css" href="../css/draft/write.css" />
 </head>
 <body>
-	<form action="write.do" method="post" id="form1">
-		<label for="title">글제목</label><input id="title" id="title" name="title"><br>
-		
-		<label for="drafter">작성자</label><input id="drafter" value="${login.name }" readonly="readonly"><br>
-		<label for="dep">부서</label><input id="dep" name="dep" value="${login.dep }" readonly="readonly"><br>
-		
-		<label for="signer1">결재자1</label><input id="signer1" value="${login.name }" readonly="readonly"><br>
-		
-		<label for="signer2">결재자2</label><input id="signerName2" class="signerName" placeholder="결재자 선택"><br>
-		<label for="signer3">결재자3</label><input id="signerName3" class="signerName" placeholder="결재자 선택"><br>
-		
-		<button type="button" id="text">양식 불러오기</button>
-		
-		
-	    <textarea name="content" id="content" style="width:824px; height:1157px;"></textarea>
-	    
-	    
-		<input type="hidden" name="drafter" value="${login.id }">
-		<input type="hidden" id="signer2" name="signer2">
-		<input type="hidden" id="signer3" name="signer3">
-		
-		<button id="submit">작성</button>
-		<button type="button" onclick="history.back()">취소</button>
-	</form>
+	<div class="body">
+		<form action="write.do" method="post" id="form1">
+			<div class="btnBoxL">
+				<button id="submit" class="btn">작성</button>
+				<button type="button" class="btn" onclick="history.back()">취소</button>
+			</div>
+			
+			<div class="clear"></div>
+			
+			<table>
+				<tr>
+					<td>제목</td>
+					<td><input id="title" id="title" name="title"></td>
+				</tr>
+				<tr>
+					<td>제1결재자</td>
+					<td><input id="signer1" value="${login.name }" readonly="readonly"></td>
+				</tr>
+				<tr>
+					<td>제2결재자</td>
+					<td><input id="signerName2" class="signerName" placeholder="결재자 선택"></td>
+				</tr>
+				<tr>
+					<td>제3결재자</td>
+					<td><input id="signerName3" class="signerName" placeholder="결재자 선택"></td>
+				</tr>
+			</table>
+			
+			<div class="btnBox">
+				<button type="button" id="load" class="btn">양식 불러오기</button>
+				<button type="button" id="cancel" class="btn">재작성</button>
+			</div>
+			
+		    <textarea name="content" id="content" style="width:824px; height:1157px;"></textarea>
+		    
+		    
+			<input type="hidden" id="drafter" name="drafter" value="${login.id }">
+			<input type="hidden" name="dep" value="${login.dep }">
+			<input type="hidden" id="signer2" name="signer2">
+			<input type="hidden" id="signer3" name="signer3">
+			
+			<div class="btnBoxR">
+				<button id="submit" class="btn">작성</button>
+				<button type="button" class="btn" onclick="history.back()">취소</button>
+			</div>
+		</form>
+	</div>
 </body>
 </html>
 
