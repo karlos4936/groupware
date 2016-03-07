@@ -56,10 +56,31 @@ $(document).ready(function() {
 });
 
 $(window).load(function() {
+	if($("#title").val() == "") {
+		alert("제목을 입력해 주세요");
+		$("#title").focus();
+		return;
+	}
+	else if($("#signer2").val() == "") {
+		alert("제2결재자를 선택해주세요");
+		$("#signerName2").focus();
+		return;
+	}
+	else if($("#signer3").val() == "") {
+		alert("제3결재자를 선택해주세요");
+		$("#signerName3").focus();
+		return;
+	}
+	
 	var html = $("iframe").contents().find("body");
 	
 	html.find("#viewNo").text($("#no").val());
 	html.find("#viewRegDate").text($("#regdate").val());
+	
+	$("#title").attr("readonly", true);
+	$("#signerName2").attr("readonly", true);
+	$("#signerName3").attr("readonly", true);
+	$(".signerName").off("focus");
 	
 	$("#load").click(function() {
 		var param = "" + 

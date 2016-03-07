@@ -29,11 +29,11 @@
 		<input type="hidden" id="regDate" value="${draft.regDate }">
 		<input type="hidden" id="name" value="${login.name }">
 		
-		<button id="sign" class="btn" onclick="location.href='sign.do?no=${draft.no }'">결재</button>
+		<button id="sign" class="btn" onclick="location.href='sign.do?no=${draft.no }&page=${page }'">결재</button>
 		
 		<div class="btnBox">
-			<button class="btn" onclick="location.href='update.do?no=${draft.no }'">수정</button>
-			<button class="btn" onclick="location.href='delete.do?no=${draft.no }'">삭제</button>
+			<button class="btn" onclick="location.href='update.do?no=${draft.no }&page=${page }'">수정</button>
+			<button class="btn" onclick="location.href='delete.do?no=${draft.no }&page=${page }'">삭제</button>
 		</div>
 		
 		<div class="clear"></div>

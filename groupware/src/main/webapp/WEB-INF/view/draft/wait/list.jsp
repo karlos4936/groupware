@@ -23,7 +23,7 @@
 			<tr>
 				<td class="no">${draft.no }</td>
 				<td class="drafter">${draft.drafter }</td>
-				<td class="title"><a href="view.do?no=${draft.no}" >${draft.title }</a></td>
+				<td class="title"><a href="view.do?no=${draft.no}&page=${jspData.page }" >${draft.title }</a></td>
 				<td class="regdate">${draft.regDate }</td>
 				<c:choose>
 					<c:when test="${draft.isSign3 eq null }">

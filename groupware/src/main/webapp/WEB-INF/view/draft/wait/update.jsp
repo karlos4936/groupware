@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>전자결재</title>
 <script type="text/javascript" src="../../js/common/jquery-1.12.0.min.js"></script>
 <script type="text/javascript" src="../../SE/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript" src="../../SE/SE_update.js"></script>
@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="body">
-		<form action="update.do" method="post" id="form1">
+		<form action="update.do?page=${page }" method="post" id="form1">
 			<div class="btnBoxL">
 				<button id="submit" class="btn">작성</button>
 				<button type="button" class="btn" onclick="history.back()">취소</button>
@@ -48,7 +48,7 @@
 		    <textarea name="content" id="content" style="width:824px; height:1157px;">${draft.content }</textarea>
 		    
 		    
-		    <input type="hidden" id="no" value="${draft.no }">
+		    <input type="hidden" id="no" name="no" value="${draft.no }">
 			<input type="hidden" id="drafter" name="drafter" value="${login.id }">
 			<input type="hidden" name="dep" value="${login.dep }">
 			<input type="hidden" id="signer2" name="signer2" value="${draft.signer2 }">

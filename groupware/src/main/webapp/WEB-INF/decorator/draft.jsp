@@ -11,7 +11,7 @@
 <!-- <script type="text/javascript" src="../js/jquery.js"></script> -->
 <link rel="stylesheet" type="text/css" href="/groupware/css/decorator.css">
 <script src="/groupware/js/common/jquery-1.12.0.min.js"></script>
-<title>그룹웨어 시스템 - <decorator:title /></title>
+<title>그룹웨어 시스템</title>
 <decorator:head />
 </head>
 <body>
