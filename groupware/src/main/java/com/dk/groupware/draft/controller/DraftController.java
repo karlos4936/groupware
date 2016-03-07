@@ -232,7 +232,9 @@ public class DraftController {
 	@RequestMapping("/draft/done/view.do")
 	public String doneView(int no, Model model) throws Exception {
 		System.out.println("DraftController.doneView()");
+		
 		model.addAttribute("draft", doneViewService.service(no));
+		
 		return "draft/done/view";
 	}
 
