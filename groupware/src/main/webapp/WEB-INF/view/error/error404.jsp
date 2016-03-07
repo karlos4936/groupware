@@ -4,6 +4,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
+.error {
+	text-align: center;
+}
+
 .errorCode {
 	font-size: 40pt;
 	font-weight: bolder;

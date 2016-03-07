@@ -15,7 +15,8 @@ public class LoginProcessService implements ServiceInterface{
 	public Object service(Object obj){
 		System.out.println("LoginProcessService.service()");
 		Member member = (Member) memberDao.login((Member)obj);
-		member.setEncId(getMD5(member.getId()+""));
+		if(member != null)
+			member.setEncId(getMD5(member.getId()+""));
 		return member;
 	}
 	

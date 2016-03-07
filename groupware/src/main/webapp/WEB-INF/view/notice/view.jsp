@@ -33,7 +33,7 @@
 		</tr>
 		<tr class="noticeTr">
 			<th>내용</th>
-			<td>${notice.content }</td>
+			<td><pre>${notice.content }</pre></td>
 		</tr>
 		<tr class="noticeTr">
 			<th>작성자</th>

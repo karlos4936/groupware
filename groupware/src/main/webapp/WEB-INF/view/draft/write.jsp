@@ -15,7 +15,7 @@
 	<div class="body">
 		<form action="write.do" method="post" id="form1">
 			<div class="btnBoxL">
-				<button id="submit" class="btn">작성</button>
+				<button class="btn submit">작성</button>
 				<button type="button" class="btn" onclick="history.back()">취소</button>
 			</div>
 			
@@ -54,7 +54,7 @@
 			<input type="hidden" id="signer3" name="signer3">
 			
 			<div class="btnBoxR">
-				<button id="submit" class="btn">작성</button>
+				<button class="btn submit">작성</button>
 				<button type="button" class="btn" onclick="history.back()">취소</button>
 			</div>
 		</form>

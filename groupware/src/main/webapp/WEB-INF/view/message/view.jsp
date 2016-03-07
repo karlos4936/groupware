@@ -26,7 +26,7 @@
 		</tr>
 		<tr class="messageTr">
 			<th>내용</th>
-			<td>${message.content }</td>
+			<td><pre>${message.content }</pre></td>
 		</tr>
 		<tr class="messageTr">
 			<th>보낸<br/>사람</th>

@@ -246,8 +246,13 @@ public class MemberController {
 	@RequestMapping(value = "/index.do", method = RequestMethod.POST)
 	public String login(HttpSession session, Member member) throws Exception {
 		System.out.println("MemberController.login():post");
-		session.setAttribute("login", loginProcessService.service(member));
-		return "redirect:main.do";
+		member = (Member) loginProcessService.service(member);
+		if(member != null) {
+			session.setAttribute("login", member);
+			return "redirect:main.do";
+		}
+		else
+			return "member/loginFailed";
 	}
 
 	// 로그아웃 처리
