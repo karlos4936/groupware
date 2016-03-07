@@ -13,7 +13,7 @@ function getReturnValue(returnValue) {
 }
 
 function openNewWindow() {
-	var url = "../member/selectSigner.do";
+	var url = "../../member/selectSigner.do";
  	var name = "_blank";
  	var specs = "menubar=no, status=no, toolbar=no, resizable=no, width=480px, height=700px, top=40px, left=200px";
  	var newWindow = window.open(url, name, specs);
