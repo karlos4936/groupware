@@ -12,7 +12,7 @@
 <script type="text/javascript">
 
 	$(document).ready(function(){
-		alert("test");
+// 		alert("test");
 		$("#form").submit(function(){
 			// 새 비밀번호와 새 비밀번호 확인을 비교하기
 			if($("#new1").val() != $("#new2").val()){
