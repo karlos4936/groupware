@@ -48,11 +48,12 @@
 		    <textarea name="content" id="content" style="width:824px; height:1157px;">${draft.content }</textarea>
 		    
 		    
+		    <input type="hidden" id="no" value="${draft.no }">
 			<input type="hidden" id="drafter" name="drafter" value="${login.id }">
 			<input type="hidden" name="dep" value="${login.dep }">
 			<input type="hidden" id="signer2" name="signer2" value="${draft.signer2 }">
 			<input type="hidden" id="signer3" name="signer3" value="${draft.signer3 }">
-			<input type="hidden" id="regdate" name="regdate" value="${draft.regDate}">
+			<input type="hidden" id="regdate" name="regdate" value="${draft.regDate }">
 			
 			<div class="btnBoxR">
 				<button id="submit" class="btn">작성</button>
