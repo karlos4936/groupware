@@ -29,6 +29,8 @@
 				$("#receiver").focus();
 				return false;
 			}
+			
+			});
 		});
 	});
 </script>
