@@ -8,20 +8,21 @@
 <link href="../css/notice/view.css" rel="stylesheet" type="text/css" />
 
 <title>공지사항 글보기</title>
+
 </head>
 <body id="noticeBody">
 	<h3>공지사항 글보기</h3>
 <!-- 			본인만 글수정, 글삭제 가능 -->
 		<c:choose>
 		<c:when test="${notice.writer eq login.id}">
-			<a id="noticeBtnA" href="update.do?no=${notice.no }"><button id="noticeBtn">글수정</button></a>
-			<a id="noticeBtnA" href="delete.do?no=${notice.no }"><button id="noticeBtn">글삭제</button></a> 
+			<a id="noticeBtnA" href="update.do?no=${notice.no }&page=${page }"><button id="noticeBtn">글수정</button></a>
+			<a id="noticeBtnA" href="delete.do?nos=${notice.no }&page=${page }"><button id="noticeBtn">글삭제</button></a> 
 		</c:when>
 		<c:when test="${login.pno==9}">
-			<a id="noticeBtnA" href="delete.do?no=${notice.no }"><button id="noticeBtn">글삭제</button></a> 
+			<a id="noticeBtnA" href="delete.do?nos=${notice.no }&page=${page }"><button id="noticeBtn">글삭제</button></a> 
 		</c:when>
 		</c:choose>
-			<a  id="noticeBtnA" href="list.do?no=${notice.no }"><button id="noticeBtn">공지사항 리스트</button></a><br/><br/><br/>
+			<a  id="noticeBtnA" href="list.do?page=${page }"><button id="noticeBtn">공지사항 리스트</button></a><br/><br/><br/>
 	<table id="noticeTable">
 		<tr class="noticeTr">
 			<th>글번호</th>

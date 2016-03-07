@@ -104,12 +104,13 @@ public class MessageController {
 
 	// 쪽지 보기 : view
 	@RequestMapping("/message/view.do")
-	public String view(int no, Model model) throws Exception {
+	public String view(@RequestParam(value="page", required=false, defaultValue="1") int page, int no, Model model) throws Exception {
 		System.out.println("MessageController.view(no)");
 		Message message =  (Message) messageViewService.service(no);
 		if(message == null)
 			return "message/error";
 		model.addAttribute("message",message);
+		model.addAttribute("page", page);
 		return "message/view";
 	}
 
@@ -147,14 +148,16 @@ public class MessageController {
 
 	// 쪽지 삭제 : delete
 	@RequestMapping("/message/delete.do")
-	public String delete(int [] nos) throws Exception {
+	public String delete(int [] nos, 
+			@RequestParam(value="page", defaultValue="1", required=false) 
+		int page, Model model) throws Exception {
 		System.out.println("MessageController.delete(no)");
 		for(int s : nos)
 			System.out.println(s);
-		
-		if(messageDeleteProcessService.service(nos)==null){
+		if((Integer) messageDeleteProcessService.service(nos) == 0){
 			return "redirect:error.do";
-	}
+		}
+		model.addAttribute("page", page);
 		return "redirect:list.do";
 	}
 
@@ -162,8 +165,8 @@ public class MessageController {
 
 	// 보낸 쪽지 리스트 : list
 	@RequestMapping("/message/send/list.do")
-	public String sendList(@RequestParam(value = "page", required = false, defaultValue = "1") int page, HttpSession session, Model model)
-			throws Exception {
+	public String sendList(@RequestParam(value = "page", required = false, defaultValue = "1") 
+		int page, HttpSession session, Model model) throws Exception {
 		System.out.println("MessageController.sendList(page)");
 		// ** 어트리뷰트에 담을 때 sendList 말고 list로 **
 		Member member = (Member) session.getAttribute("login");
@@ -182,7 +185,9 @@ public class MessageController {
 	
 	// 보낸 쪽지 보기 : view
 	@RequestMapping("/message/send/view.do")
-	public String sendView(int no, Model model) throws Exception {
+	public String sendView(int no, Model model, 
+		@RequestParam(value="page", required=false, defaultValue="1") 
+		int page) throws Exception {
 		System.out.println("MessageControeller.sendView(no)");
 		Message message = (Message) messageSendViewService.service(no);
 		if(message == null){
@@ -190,21 +195,23 @@ public class MessageController {
 			return "message/error";
 		}
 		model.addAttribute("message", message);
+		model.addAttribute("page", page);
 		// ** 리턴값 sendView 아니고 send/view **
 		return "message/send/view";
 	}
-
 	// 보낸 쪽지 삭제 : delete
 	@RequestMapping("/message/send/delete.do")
-	public String sendDelete(int [] nos) throws Exception {
+	public String sendDelete(int [] nos, 
+		@RequestParam(value="page", required=false, defaultValue="1")
+		int page, Model model) throws Exception {
 		System.out.println("MessageController.sendDelete(no)");
 		for(int s : nos)
 			System.out.println(s);
-		
-		if(messageSendDeleteProcessService.service(nos)==null){
+		if((Integer)messageSendDeleteProcessService.service(nos) == 0){
 			// *** 경로 다르므로, 상위부터  *** 
 			return "message/error.do";
 		}
+		model.addAttribute("page", page);
 		return "redirect:list.do";
 	}
 	

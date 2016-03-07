@@ -23,13 +23,11 @@
 	<tr class="num">
 		<th>내 용</th><td class="cont"><pre id="cont_pre">${schedule.content }</pre></td>
 	</tr>
-	<tr>
-		<td colspan="2">
-			<a href="update.do?no=${schedule.no }"><button>일정수정</button></a>
-			<a href="delete.do?no=${schedule.no }"><button>일정삭제</button></a>
-			<a href="list.do"><button>일정리스트</button></a>
-		</td>
-	</tr>
 </table>
+	<div id="Btn">
+			<a href="list.do"><button id="list_Btn">일정리스트</button></a>
+			<a href="update.do?no=${schedule.no }"><button id="submit_Btn">일정수정</button></a>
+			<a href="delete.do?no=${schedule.no }"><button id="cancer_Btn">일정삭제</button></a>
+	</div>
 </body>
 </html>

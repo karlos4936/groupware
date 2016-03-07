@@ -11,8 +11,9 @@
 </head>
 <body id="messageBody">
 	<h3>쪽지 보기</h3>
-		<a id="messageBtnA" href="delete.do?no=${message.no }"><button id="messageBtn">삭제</button></a>
-		<a id="messageBtnA" href="list.do?no=${message.no }"><button id="messageBtn">쪽지 리스트</button></a> <br/><br/><br/>
+	<!-- 		배열로 받기 위해 nos로 받음 -->
+		<a id="messageBtnA" href="delete.do?nos=${message.no }&page=${page }"><button id="messageBtn">삭제</button></a>
+		<a id="messageBtnA" href="list.do?no=${message.no }&page=${page }"><button id="messageBtn">쪽지 리스트</button></a> <br/><br/><br/>
 		<c:if test="${message.fileName }"></c:if>
 	
 	<table id="messageTable">

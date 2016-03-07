@@ -61,11 +61,11 @@
 				%>
 			</td>
 			<td align=right width="100">
-			<a href="write.do"><button>일정추가</button></a>
+			<a href="write.do"><button id="submit_Btn">일정추가</button></a>
 			</td>
 		</tr>
 	</table>
-	<table border=1 style="width: 95%;">
+	<table border=1 style="width: 95%;" class="sche_table">
 		<!-- 달력 부분 -->
 		<tr>
 			<td width="100" height="40" align="center" style="color: red">일요일</td>
@@ -91,13 +91,13 @@
 				}
 				for (int i = 1; i <= end; i++) { //날짜출력
 					if((br%7)==0){ // 일요일 색깔 출력
-						out.println("<div><td valign='top' align='right' width='100' height='130' style='color: red;'>" + i + "<br></div>");
+						out.println("<div><td valign='top' align='right' width='110' height='130' style='color: red;'>" + i + "<br></div>");
 					}
 					else if((br%7)==6){ // 토요일 색깔 출력
-						out.println("<div><td valign='top' align='right' width='100' height='130' style='color: blue;'>" + i + "<br></div>");
+						out.println("<div><td valign='top' align='right' width='110' height='130' style='color: blue;'>" + i + "<br></div>");
 					}
 					else{
-						out.println("<div><td valign='top' align='right' width='100' height='130'>" + i + "<br></div>");
+						out.println("<div><td valign='top' align='right' width='110' height='130'>" + i + "<br></div>");
 					}
 					
 					for(Schedule schedule : list) { // 달력내 내용표시
