@@ -22,7 +22,7 @@
 	<property name="myPageUpdateProcessService" ref="myPageUpdateProcessService"/>
 <!-- 	<property name="myPwChangeUpdateService" ref="myPwChangeUpdateService"/> -->
 	<property name="myPwChangeProcessService" ref="myPwChangeProcessService"/>
-	<property name="currentPwCheckService" ref="currentPwCheckService"/>
+<!-- 	<property name="currentPwCheckService" ref="currentPwCheckService"/> -->
 <!-- 	<property name="resetPwUpdateService" ref="resetPwUpdateService"/> -->
 	<property name="resetPwProcessService" ref="resetPwProcessService"/>
 	<property name="selectSignerService" ref="selectSignerService"/>
@@ -68,9 +68,9 @@
 <bean id="myPwChangeProcessService" class="com.dk.groupware.member.service.MyPwChangeProcessService">
 	<property name="memberDao" ref="memberDao"/>
 </bean>
-<bean id="currentPwCheckService" class="com.dk.groupware.member.service.CurrentPwCheckService">
-	<property name="memberDao" ref="memberDao"/>
-</bean>
+<!-- <bean id="currentPwCheckService" class="com.dk.groupware.member.service.CurrentPwCheckService"> -->
+<!-- 	<property name="memberDao" ref="memberDao"/> -->
+<!-- </bean> -->
 <!-- <bean id="resetPwUpdateService" class="com.dk.groupware.member.service.ResetPwUpdateService"> -->
 <!-- 	<property name="memberDao" ref="memberDao"/> -->
 <!-- </bean> -->
