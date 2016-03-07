@@ -29,7 +29,6 @@
 </head>
 <body id="noticeBody">
 <div id="noticeUpdateDiv">
-<h3>공지사항 글수정</h3>
 <form id="noticeForm" action="update.do?page=${page }" method="post" enctype="multipart/form-data">
 	
 	<button id="noticeBtn" type="submit">수정</button>

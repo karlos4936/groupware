@@ -28,7 +28,6 @@
 </script>
 </head>
 <body id="messageBody">
-	<h3>받은 쪽지 리스트</h3>
 	<form action="delete.do" method="post" id="listForm">
 	
 	<a href="write.do"><button type="button" id="messageBtn">쪽지작성</button></a>

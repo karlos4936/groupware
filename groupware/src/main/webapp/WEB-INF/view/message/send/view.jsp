@@ -10,7 +10,6 @@
 <title>쪽지 보기</title>
 </head>
 <body id="messageBody">
-<h3>쪽지 보기</h3>
 <!-- 		데이터가 있으면 삭제 버튼 생성, 없으면 감춤 -->
 		<c:if test="${message.rdate eq null }">
 <!-- 		배열로 받기 위해 nos로 받음 -->
