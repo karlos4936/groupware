@@ -21,7 +21,8 @@
 		<th>제 목</th><td>${schedule.title }</td>
 	</tr>
 	<tr class="num">
-		<th>내 용</th><td class="cont"><pre id="cont_pre">${schedule.content }</pre></td>
+		<th>내 용</th><td class="cont"><div style="overflow-y:scroll; height:100%; width:100%">
+		<pre id="cont_pre">${schedule.content }</pre></div></td>
 	</tr>
 </table>
 	<div id="Btn">
