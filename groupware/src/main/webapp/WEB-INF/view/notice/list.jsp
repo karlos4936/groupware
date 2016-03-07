@@ -31,7 +31,6 @@
 </script>
 </head>
 <body id="noticeBody">
-	<h3>공지사항 리스트</h3>
 	<form action="delete.do" method="post" id="listForm">
 	<a href="write.do"><button type="button" id="noticeBtn">글쓰기</button></a>
 	<button id="noticeDeleteBtn">선택 쪽지 삭제</button>

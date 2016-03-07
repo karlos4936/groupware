@@ -11,7 +11,6 @@
 
 </head>
 <body id="noticeBody">
-	<h3>공지사항 글보기</h3>
 <!-- 			본인만 글수정, 글삭제 가능 -->
 		<c:choose>
 		<c:when test="${notice.writer eq login.id}">

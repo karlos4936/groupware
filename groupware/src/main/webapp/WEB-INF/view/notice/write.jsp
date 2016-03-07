@@ -31,7 +31,6 @@
 <!-- 반드시 post! update후에는 redirect를 통해 view.do로 간다. -->
 
 <div id="noticeWriteDiv">
-<h3>공지사항 작성</h3>
 <form id="noticeForm" action="write.do" method="post" enctype="multipart/form-data">
 
 <button id="noticeBtn" type="submit">작성</button>
