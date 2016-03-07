@@ -15,7 +15,7 @@
 		select id, name, dep, position 
 		from member m, memberPosition mp
 		where m.pno=mp.pno and m.pno!=9
-		order by id desc
+		order by dep asc
 		)
 		)
 		where rnum between #{startRow} and #{endRow}
