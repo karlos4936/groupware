@@ -45,7 +45,18 @@
 					<td>
 						<a href="../upload/data/${data.fileName}" target="_blank">${data.fileName}</a>
 					</td>
+					
+					<c:if test="${fn:toLowerCase(fn:substringAfter(data.fileName, '.')) eq 'pptx' ||
+					fn:substringAfter(data.fileName, '.') eq 'doc'||
+					fn:substringAfter(data.fileName, '.') eq 'hwp'||
+					fn:substringAfter(data.fileName, '.') eq 'xlsx'}">
+						<td>
+						<a href="../upload/data/${data.fileName}" target="_blank">${data.fileName}</a>
+					</td>
+					</c:if>
+					
 				</c:if>
+				
 				
 				<c:if test="${data.fileName eq null }">
 					<td>
