@@ -9,7 +9,7 @@
 <link href="../css/board/view.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1>자유게시판 글보기</h1>
+<h1></h1>
 <br/>
 <table class="table_view">
 	<tr class="num">

@@ -13,7 +13,7 @@
 <title>일정관리</title>
 </head>
 <body>
-	<h1>월간일정</h1><br/>
+	<h1></h1><br/>
 	<%
 		@SuppressWarnings("unchecked")
 		List<Schedule> list = (List<Schedule>) request.getAttribute("list");

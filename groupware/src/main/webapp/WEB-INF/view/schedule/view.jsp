@@ -8,7 +8,7 @@
 <link href="../css/schedule/view.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1>일정보기</h1>
+<h1></h1>
 <br/>
 <table class="table_view">
 	<tr class="num">
