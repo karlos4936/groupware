@@ -53,10 +53,6 @@ $(document).ready(function() {
 	 	openNewWindow();
 	});
 	
-	var html = $("#ifrm").contents().find("body");
-	
-	html.find("#viewNo").text($("#no").val());
-	html.find("#viewRegDate").text($("#regdate").val());
 });
 
 $(window).load(function() {
@@ -124,9 +120,14 @@ $(window).load(function() {
 			"</div>" +
 		"</div>"
 		
+		var html = $("#ifrm").contents().find("body");
+		
 		var inputarea = $("iframe").contents().find("#se2_iframe").contents().find("body");
 		
 		inputarea.html(param);
+		
+		html.find("#viewNo").text($("#no").val());
+		html.find("#viewRegDate").text($("#regdate").val());
 		
 		$("#form1").find("iframe").show();
 		$(".btnBoxR").show();
