@@ -149,6 +149,10 @@ body {
  	background: #f4f4f4;
 }
 
+#content_wrapper::-webkit-scrollbar {
+	width: 0 !important
+}
+
 #footer {
 	height: 30px;
 	border : 1px solid #969696;
