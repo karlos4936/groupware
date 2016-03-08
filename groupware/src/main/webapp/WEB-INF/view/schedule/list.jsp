@@ -8,12 +8,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>일정관리</title>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="../css/schedule/list.css" rel="stylesheet" type="text/css" />
-<title>일정관리</title>
+<script type="text/javascript" src="../js/common/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="../js/common/util.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	
+	});
+</script>
 </head>
 <body>
-	<h1></h1><br/>
+	<br/>
 	<%
 		@SuppressWarnings("unchecked")
 		List<Schedule> list = (List<Schedule>) request.getAttribute("list");
