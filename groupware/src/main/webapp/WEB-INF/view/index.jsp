@@ -1,18 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>그룹웨어 시스템</title>
 <link href="./css/index.css" rel="stylesheet" type="text/css" /> 
 </head>
 <body>
 <div id="body">
-<div id="header">
-＊＊그룹 
-</div>
-	<fieldset>
+		<div id="header">기업이 먼저다 - 도산중공업</div>
+		<fieldset>
 		<legend>로그인 정보</legend>
 		<form id="form" action="index.do" method="post">
 			<ul>

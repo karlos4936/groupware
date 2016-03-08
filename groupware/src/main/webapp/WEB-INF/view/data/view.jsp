@@ -30,7 +30,7 @@
 		<tr id="contentGap"></tr>
 		<tr>
 <!-- 			<th id="th5">내용</th> -->
-			<td colspan=5>${data.content}</td>
+			<td colspan=5><pre>${data.content}</pre></td>
 		</tr>
 		<tr id="fileGap"></tr>
 		<tr>
