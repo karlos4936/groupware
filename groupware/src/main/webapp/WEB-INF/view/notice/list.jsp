@@ -33,7 +33,7 @@
 <body id="noticeBody">
 	<form action="delete.do" method="post" id="listForm">
 	<a href="write.do"><button type="button" id="noticeBtn">글쓰기</button></a>
-	<button id="noticeDeleteBtn">선택 쪽지 삭제</button>
+	<button id="noticeDeleteBtn">선택 글 삭제</button>
 	
 	<table id="noticeTable">
 		<tr id="noticeTr">
